@@ -1,0 +1,45 @@
+# Object files
+*.o
+*.obj
+*.elf
+*.bin
+
+# Executables
+minishell
+a.out
+
+# Object directories
+obj/
+*.dSYM/
+
+# Debug files
+*.dSYM/
+*.su
+*.idb
+*.pdb
+
+# IDE files
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# OS generated files
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+
+# Dependencies
+*.a
+
+# Temporary files
+*.tmp
+*.temp
+*~
+
+# History files
+.minishell_history 
