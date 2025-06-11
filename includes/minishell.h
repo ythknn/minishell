@@ -20,6 +20,8 @@
 #define FALSE 0
 #define TRUE 1
 
+extern int g_signal;
+
 typedef struct s_env
 {
 	char *key;
@@ -37,13 +39,13 @@ typedef struct s_shell
 
 typedef enum e_token_type
 {
-	TOKEN_WORD,
-	TOKEN_PIPE,
-	TOKEN_REDIR_IN,
-	TOKEN_REDIR_OUT,
-	TOKEN_REDIR_APPEND,
-	TOKEN_HEREDOC,
-	TOKEN_EOF
+	T_WORD,
+	T_PIPE,
+	T_REDIR_IN,
+	T_REDIR_OUT,
+	T_REDIR_APPEND,
+	T_HEREDOC,
+	T_EOF
 } t_token_type;
 
 typedef struct s_token
