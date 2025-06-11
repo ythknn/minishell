@@ -1,8 +1,17 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   redirections.c                                     :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: yihakan <yihakan@student.42istanbul.com    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2025/06/11 16:29:36 by yihakan           #+#    #+#             */
+/*   Updated: 2025/06/11 16:35:44 by yihakan          ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 # include "../includes/minishell.h"
 
-/**
- * Handle heredoc input
- */
 static char *handle_heredoc(char *delimiter)
 {
     char *line;
@@ -13,12 +22,10 @@ static char *handle_heredoc(char *delimiter)
     
     content = strdup("");
     content_size = 1;
-    g_signal = 0;
     in_heredoc = 1;
     
     printf("> ");
     line = readline("");
-    
     while (line && strcmp(line, delimiter) != 0 && in_heredoc)
     {
         if (g_signal == SIGINT)
@@ -45,7 +52,6 @@ static char *handle_heredoc(char *delimiter)
         printf("> ");
         line = readline("");
     }
-    
     if (line)
         free(line);
     
@@ -58,9 +64,6 @@ static char *handle_heredoc(char *delimiter)
     return (content);
 }
 
-/**
- * Setup redirections for a command
- */
 int    setup_redirections(t_redir *redirs)
 {
     t_redir    *current;
@@ -123,9 +126,6 @@ int    setup_redirections(t_redir *redirs)
     return (0);
 }
 
-/**
- * Restore standard input and output
- */
 void    restore_redirections(int stdin_copy, int stdout_copy)
 {
     dup2(stdin_copy, STDIN_FILENO);

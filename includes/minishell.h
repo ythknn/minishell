@@ -17,11 +17,9 @@
 
 #define SUCCESS 0
 #define ERROR 1
+#define FALSE 0
+#define TRUE 1
 
-/* Global variable for signal handling */
-int g_signal;
-
-/* Main data structures */
 typedef struct s_env
 {
 	char *key;
@@ -37,7 +35,6 @@ typedef struct s_shell
 	int interactive;
 } t_shell;
 
-/* Token types */
 typedef enum e_token_type
 {
 	TOKEN_WORD,
@@ -70,18 +67,14 @@ typedef struct s_command
 	struct s_command *next;
 } t_command;
 
-/* Function prototypes */
-/* Main */
 void init_shell(t_shell *shell, char **env);
 void free_shell(t_shell *shell);
 
-/* Prompt */
 char *display_prompt(void);
 void add_to_history(char *line);
 void init_history(void);
 void save_history(void);
 
-/* Parser */
 char *lexer_analyze(char *input);
 t_token *tokenize(char *input);
 t_command *parse(t_token *tokens);
@@ -89,7 +82,6 @@ void expand_variables(t_command *cmd, t_shell *shell);
 void free_tokens(t_token *tokens);
 void free_commands(t_command *cmds);
 
-/* Executor */
 int execute_commands(t_command *cmds, t_shell *shell);
 int execute_pipeline(t_command *cmds, t_shell *shell);
 int execute_builtin(char **args, t_shell *shell);
@@ -98,7 +90,6 @@ int setup_redirections(t_redir *redirs);
 void restore_redirections(int stdin_copy, int stdout_copy);
 char *find_executable(char *cmd, t_shell *shell);
 
-/* Builtins */
 int ft_echo(char **args);
 int ft_cd(char **args, t_shell *shell);
 int ft_pwd(void);
@@ -107,7 +98,6 @@ int ft_unset(char **args, t_shell *shell);
 int ft_env(t_shell *shell);
 int ft_exit(char **args, t_shell *shell);
 
-/* Utils */
 t_env *create_env_list(char **env);
 char **env_list_to_array(t_env *env_list);
 t_env *add_env_var(t_env *env_list, char *key, char *value);
@@ -117,7 +107,6 @@ void print_error(char *cmd, char *arg, char *msg);
 void print_command_not_found(char *cmd);
 char *get_path(char *cmd, t_shell *shell);
 
-/* Signals */
 void setup_signals(void);
 void reset_signals(void);
 void handle_sigint(int sig);

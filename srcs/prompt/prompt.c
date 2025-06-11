@@ -9,9 +9,6 @@
 # define CYAN    "\033[36m"
 # define RESET   "\033[0m"
 
-/**
- * Display the prompt and read user input
- */
 char    *display_prompt(void)
 {
     char    *line;

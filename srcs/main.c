@@ -1,5 +1,7 @@
 # include "../includes/minishell.h"
 
+int g_signal = 0;
+
 static void setup_terminal(void)
 {
     struct termios term;
