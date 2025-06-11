@@ -69,6 +69,15 @@ typedef struct s_command
 	struct s_command *next;
 } t_command;
 
+typedef struct s_lexer {
+	char	*input;
+	char	*processed;
+	int		*i;
+	int		*j;
+	int		in_quotes;
+	char	quote_char;
+}	t_lexer;
+
 void init_shell(t_shell *shell, char **env);
 void free_shell(t_shell *shell);
 
