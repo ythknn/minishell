@@ -11,7 +11,7 @@ int	ft_echo(char **args)
 	n_flag = 0;
 	i = 1;
 	
-	if (args[i] && strcmp(args[i], "-n") == 0)
+	while (args[i] && strcmp(args[i], "-n") == 0)
 	{
 		n_flag = 1;
 		i++;
