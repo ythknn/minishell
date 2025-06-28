@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: yihakan <yihakan@student.42istanbul.com    +#+  +:+       +#+         #
+#    By: mdusunen <mdusunen@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/06/07 14:33:48 by yihakan           #+#    #+#              #
-#    Updated: 2025/06/11 17:24:52 by yihakan          ###   ########.fr        #
+#    Updated: 2025/06/25 17:36:16 by mdusunen         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -52,6 +52,7 @@ SRCS = $(SRCS_DIR)/main.c \
 	   $(SRCS_DIR)/parser/lexer.c \
 	   $(SRCS_DIR)/parser/tokenizer.c \
 	   $(SRCS_DIR)/parser/parser.c \
+	   $(SRCS_DIR)/parser/parser_utils.c \
 	   $(SRCS_DIR)/parser/expander.c \
 	   $(SRCS_DIR)/executor/executor.c \
 	   $(SRCS_DIR)/executor/redirections.c \

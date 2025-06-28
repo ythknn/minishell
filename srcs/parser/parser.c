@@ -3,41 +3,42 @@
 /*                                                        :::      ::::::::   */
 /*   parser.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: yihakan <yihakan@student.42istanbul.com    +#+  +:+       +#+        */
+/*   By: mdusunen <mdusunen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/11 17:43:02 by yihakan           #+#    #+#             */
-/*   Updated: 2025/06/11 17:49:39 by yihakan          ###   ########.fr       */
+/*   Updated: 2025/06/25 17:35:01 by mdusunen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-# include "../includes/minishell.h"
+#include "../includes/minishell.h"
 
-static t_redir	*create_redir(t_token_type type, char *file)
+static void	add_arg(t_command *cmd, char *arg)
 {
-	t_redir	*redir;
+	int		i;
+	int		size;
+	char	**new_args;
 
-	redir = malloc(sizeof(t_redir));
-	if (!redir)
-		return (NULL);
-	redir->type = type;
-	redir->file = strdup(file);
-	redir->next = NULL;
-	return (redir);
-}
-
-static void	add_redir(t_redir **redirs, t_redir *new_redir)
-{
-	t_redir	*current;
-
-	if (!*redirs)
+	if (!cmd->args)
 	{
-		*redirs = new_redir;
-		return;
+		cmd->args = malloc(sizeof(char *) * 2);
+		cmd->args[0] = strdup(arg);
+		cmd->args[1] = NULL;
+		return ;
 	}
-	current = *redirs;
-	while (current->next)
-		current = current->next;
-	current->next = new_redir;
+	size = 0;
+	while (cmd->args[size])
+		size++;
+	new_args = malloc(sizeof(char *) * (size + 2));
+	i = 0;
+	while (i < size)
+	{
+		new_args[i] = cmd->args[i];
+		i++;
+	}
+	new_args[i] = strdup(arg);
+	new_args[i + 1] = NULL;
+	free(cmd->args);
+	cmd->args = new_args;
 }
 
 static t_command	*create_command(void)
@@ -60,7 +61,7 @@ static void	add_command(t_command **cmds, t_command *new_cmd)
 	if (!*cmds)
 	{
 		*cmds = new_cmd;
-		return;
+		return ;
 	}
 	current = *cmds;
 	while (current->next)
@@ -68,33 +69,10 @@ static void	add_command(t_command **cmds, t_command *new_cmd)
 	current->next = new_cmd;
 }
 
-static void	add_arg(t_command *cmd, char *arg)
+static int	is_redirection(t_token_type type)
 {
-	int		i;
-	int		size;
-	char	**new_args;
-
-	if (!cmd->args)
-	{
-		cmd->args = malloc(sizeof(char *) * 2);
-		cmd->args[0] = strdup(arg);
-		cmd->args[1] = NULL;
-		return;
-	}
-	size = 0;
-	while (cmd->args[size])
-		size++;
-	new_args = malloc(sizeof(char *) * (size + 2));
-	i = 0;
-	while (i < size)
-	{
-		new_args[i] = cmd->args[i];
-		i++;
-	}
-	new_args[i] = strdup(arg);
-	new_args[i + 1] = NULL;
-	free(cmd->args);
-	cmd->args = new_args;
+	return (type == T_REDIR_IN || type == T_REDIR_OUT
+		|| type == T_REDIR_APPEND || type == T_HEREDOC);
 }
 
 t_command	*parse(t_token *tokens)
@@ -106,7 +84,6 @@ t_command	*parse(t_token *tokens)
 	cmds = NULL;
 	current_cmd = create_command();
 	current = tokens;
-	
 	while (current)
 	{
 		if (current->type == T_PIPE)
@@ -114,55 +91,12 @@ t_command	*parse(t_token *tokens)
 			add_command(&cmds, current_cmd);
 			current_cmd = create_command();
 		}
-		else if (current->type == T_REDIR_IN || current->type == T_REDIR_OUT || 
-				current->type == T_REDIR_APPEND || current->type == T_HEREDOC)
-		{
-			if (current->next && current->next->type == T_WORD)
-			{
-				add_redir(&current_cmd->redirections, 
-							create_redir(current->type, current->next->value));
-				current = current->next;
-			}
-		}
+		else if (is_redirection(current->type))
+			current = handle_redirection(current, current_cmd);
 		else if (current->type == T_WORD)
 			add_arg(current_cmd, current->value);
 		current = current->next;
 	}
 	add_command(&cmds, current_cmd);
 	return (cmds);
-}
-
-void	free_commands(t_command *cmds)
-{
-	t_command	*current_cmd;
-	t_command	*next_cmd;
-	t_redir		*current_redir;
-	t_redir		*next_redir;
-	int			i;
-
-	current_cmd = cmds;
-	while (current_cmd)
-	{
-		next_cmd = current_cmd->next;
-		if (current_cmd->args)
-		{
-			i = 0;
-			while (current_cmd->args[i])
-			{
-				free(current_cmd->args[i]);
-				i++;
-			}
-			free(current_cmd->args);
-		}
-		current_redir = current_cmd->redirections;
-		while (current_redir)
-		{
-			next_redir = current_redir->next;
-			free(current_redir->file);
-			free(current_redir);
-			current_redir = next_redir;
-		}
-		free(current_cmd);
-		current_cmd = next_cmd;
-	}
 }

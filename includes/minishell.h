@@ -123,4 +123,12 @@ void reset_signals(void);
 void handle_sigint(int sig);
 void handle_sigquit(int sig);
 
+//parser_utils.c
+t_token	*handle_redirection(t_token *current, t_command *cmd);
+void	add_redir(t_redir **redirs, t_redir *new_redir);
+void	free_commands(t_command *cmds);
+t_redir	*create_redir(t_token_type type, char *file);
+void	free_args(char **args);
+
+
 #endif
