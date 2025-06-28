@@ -24,7 +24,7 @@ void	init_shell(t_shell *shell, char **env)
 	//printf("DEBUG: Environment array created\n");
 	
 	shell->exit_status = 0;
-	shell->interactive = 1;
+	shell->interactive = isatty(STDIN_FILENO);
 	//printf("DEBUG: Shell structure initialized\n");
 }
 

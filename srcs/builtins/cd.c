@@ -15,11 +15,20 @@ int	ft_cd(char **args, t_shell *shell)
 		if (!path)
 		{
 			print_error("cd", NULL, "HOME not set");
-			return (1);
+			shell->exit_status = ERROR;
+			return (ERROR);
 		}
 	}
 	else
+	{
+		if (args[2])
+		{
+			print_error("cd", NULL, "too many arguments");
+			shell->exit_status = ERROR;
+			return (ERROR);
+		}
 		path = args[1];
+	}
 	
 	old_pwd = getcwd(cwd, 4096);
 	if (old_pwd)
@@ -28,11 +37,15 @@ int	ft_cd(char **args, t_shell *shell)
 	if (chdir(path) != 0)
 	{
 		print_error("cd", path, strerror(errno));
-		return (1);
+		shell->exit_status = ERROR;
+		return (ERROR);
 	}
 	
 	if (getcwd(cwd, 4096))
 		add_env_var(shell->env_list, "PWD", cwd);
 	
-	return (0);
+	free(shell->env_array);
+	shell->env_array = env_list_to_array(shell->env_list);
+	shell->exit_status = SUCCESS;
+	return (SUCCESS);
 }

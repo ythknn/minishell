@@ -1,28 +1,26 @@
 # include "../includes/minishell.h"
 
-// ANSI color codes
-# define RED	 "\033[31m"
-# define GREEN   "\033[32m"
-# define YELLOW  "\033[33m"
-# define BLUE	"\033[34m"
-# define MAGENTA "\033[35m"
-# define CYAN	"\033[36m"
-# define RESET   "\033[0m"
-
 /**
  * Print error message to stderr with proper formatting
  */
 void	print_error(char *cmd, char *arg, char *msg)
 {
-	fprintf(stderr, "%sminishell%s: ", RED, RESET);
+	ft_putstr_fd("minishell: ", 2);
 	
 	if (cmd)
-		fprintf(stderr, "%s%s%s: ", YELLOW, cmd, RESET);
+	{
+		ft_putstr_fd(cmd, 2);
+		ft_putstr_fd(": ", 2);
+	}
 	
 	if (arg)
-		fprintf(stderr, "%s%s%s: ", CYAN, arg, RESET);
+	{
+		ft_putstr_fd(arg, 2);
+		ft_putstr_fd(": ", 2);
+	}
 	
-	fprintf(stderr, "%s%s%s\n", RED, msg, RESET);
+	ft_putstr_fd(msg, 2);
+	ft_putstr_fd("\n", 2);
 }
 
 /**
