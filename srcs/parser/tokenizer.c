@@ -59,54 +59,56 @@ static void pipes(int *i, t_token **tokens)
 
 static void in_redirects(char *input, int *i, t_token **tokens)
 {
-    if (input[*i + 1] == '<')
+    (*i)++;  // Skip the '<'
+    skip_whitespace(input, i);  // Skip spaces after redirection operator
+    if (input[*i] == '<')
     {
+        (*i)++;  // Skip the second '<'
         add_token(tokens, create_token(T_HEREDOC, strdup("<<")));
-        *i += 2;
     }
     else
-    {
         add_token(tokens, create_token(T_REDIR_IN, strdup("<")));
-        (*i)++;
-    }
+    skip_whitespace(input, i);  // Skip any remaining spaces
 }
 
 static void out_redirects(char *input, int *i, t_token **tokens)
 {
-    if (input[*i + 1] == '>')
+    (*i)++;  // Skip the '>'
+    skip_whitespace(input, i);  // Skip spaces after redirection operator
+    if (input[*i] == '>')
     {
+        (*i)++;  // Skip the second '>'
         add_token(tokens, create_token(T_REDIR_APPEND, strdup(">>")));
-        *i += 2;
     }
     else
-    {
         add_token(tokens, create_token(T_REDIR_OUT, strdup(">")));
-        (*i)++;
-    }
-}
-
-static void skip_quotes(char *input, int *i)
-{
-    char quote = input[(*i)++];
-    while (input[*i] && input[*i] != quote)
-        (*i)++;
-    if (input[*i])
-        (*i)++;
+    skip_whitespace(input, i);  // Skip any remaining spaces
 }
 
 static void words(char *input, int *i, t_token **tokens)
 {
-    int start = *i;
+    char	buffer[4096];
+    int		j;
+    char	quote;
     
+    j = 0;
     while (input[*i] && !is_whitespace(input[*i]) &&
            input[*i] != '|' && input[*i] != '<' && input[*i] != '>')
     {
         if (input[*i] == '\'' || input[*i] == '"')
-            skip_quotes(input, i);
+        {
+            quote = input[*i];
+            buffer[j++] = input[(*i)++];  // Copy the opening quote
+            while (input[*i] && input[*i] != quote)
+                buffer[j++] = input[(*i)++];
+            if (input[*i])
+                buffer[j++] = input[(*i)++];  // Copy the closing quote
+        }
         else
-            (*i)++;
+            buffer[j++] = input[(*i)++];
     }
-    add_token(tokens, create_token(T_WORD, strndup(input + start, *i - start)));
+    buffer[j] = '\0';
+    add_token(tokens, create_token(T_WORD, ft_strdup(buffer)));
 }
 
 t_token *tokenize(char *input)
@@ -116,17 +118,17 @@ t_token *tokenize(char *input)
 
     while (input[i])
     {
-		skip_whitespace(input, &i);
-		if (!input[i])
-			break;
+        skip_whitespace(input, &i);
+        if (!input[i])
+            break;
         if (input[i] == '|')
-			pipes(&i, &tokens);
-		else if (input[i] == '<')
-			in_redirects(input, &i, &tokens);
+            pipes(&i, &tokens);
+        else if (input[i] == '<')
+            in_redirects(input, &i, &tokens);
         else if (input[i] == '>')
-			out_redirects(input, &i, &tokens);
+            out_redirects(input, &i, &tokens);
         else
-			words(input, &i, &tokens);
+            words(input, &i, &tokens);
     }
     return tokens;
 }

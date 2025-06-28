@@ -46,7 +46,7 @@ int main(int argc, char **argv, char **env)
 					if (commands)
 					{
 						expand_variables(commands, &shell);
-						shell.exit_status = execute_commands(commands, &shell);
+						execute_commands(commands, &shell);
 						free_commands(commands);
 					}
 					free_tokens(tokens);

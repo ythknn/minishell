@@ -14,6 +14,7 @@
 #include <readline/readline.h>
 #include <readline/history.h>
 #include <termios.h>
+#include "../libft/libft.h"
 
 #define SUCCESS 0
 #define ERROR 1
@@ -130,5 +131,20 @@ void	free_commands(t_command *cmds);
 t_redir	*create_redir(t_token_type type, char *file);
 void	free_args(char **args);
 
+//expander_utils.c
+char	*expand_env_vars(char *str, t_shell *shell);
+char	*handle_exit_status(char *result, int *j, int *i, t_shell *shell);
+char	*handle_env_var(char *str, int *i, char *result, int *j, t_shell *shell);
+char	*handle_dollar_sign(char *str, int *i, char *result, int *j, t_shell *shell);
+void	expand_redirections(t_command *cmd, t_shell *shell);
+void	expand_args(t_command *cmd, t_shell *shell);
+
+//error_utils.c
+void	print_error(char *cmd, char *arg, char *msg);
+void	print_syntax_error(char *token);
+void	print_command_not_found(char *cmd);
+void	print_permission_denied(char *path);
+void	print_no_such_file(char *path);
+void	print_is_directory(char *path);
 
 #endif

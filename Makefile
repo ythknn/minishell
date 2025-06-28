@@ -54,6 +54,7 @@ SRCS = $(SRCS_DIR)/main.c \
 	   $(SRCS_DIR)/parser/parser.c \
 	   $(SRCS_DIR)/parser/parser_utils.c \
 	   $(SRCS_DIR)/parser/expander.c \
+	   $(SRCS_DIR)/parser/expander_utils.c \
 	   $(SRCS_DIR)/executor/executor.c \
 	   $(SRCS_DIR)/executor/redirections.c \
 	   $(SRCS_DIR)/executor/pipes.c \

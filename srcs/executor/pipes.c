@@ -15,12 +15,12 @@
 int	execute_pipeline(t_command *cmds, t_shell *shell)
 {
 	t_command	*current;
-	int		  pipe_fd[2];
-	int		  prev_pipe_read;
+	int			pipe_fd[2];
+	int			prev_pipe_read;
 	pid_t		pid;
-	int		  status;
-	int		  last_status;
-	char		 *path;
+	int			status;
+	int			last_status;
+	char		*path;
 
 	current = cmds;
 	prev_pipe_read = -1;
@@ -44,6 +44,7 @@ int	execute_pipeline(t_command *cmds, t_shell *shell)
 		if (is_builtin(current->args[0]) && !current->next && !prev_pipe_read)
 		{
 			last_status = execute_builtin(current->args, shell);
+			shell->exit_status = last_status;
 			current = current->next;
 			continue;
 		}
@@ -53,6 +54,7 @@ int	execute_pipeline(t_command *cmds, t_shell *shell)
 		{
 			print_command_not_found(current->args[0]);
 			last_status = 127;
+			shell->exit_status = last_status;
 			if (current->next)
 			{
 				close(pipe_fd[0]);
@@ -78,9 +80,13 @@ int	execute_pipeline(t_command *cmds, t_shell *shell)
 				dup2(pipe_fd[1], STDOUT_FILENO);
 				close(pipe_fd[1]);
 			}
-			setup_redirections(current->redirections);
+			if (setup_redirections(current->redirections) != 0)
+				exit(1);
 			if (is_builtin(current->args[0]))
-				exit(execute_builtin(current->args, shell));
+			{
+				status = execute_builtin(current->args, shell);
+				exit(status);
+			}
 			execve(path, current->args, shell->env_array);
 			print_error(current->args[0], NULL, strerror(errno));
 			exit(1);
@@ -98,7 +104,10 @@ int	execute_pipeline(t_command *cmds, t_shell *shell)
 	}
 	while (wait(&status) > 0)
 		if (WIFEXITED(status))
+		{
 			last_status = WEXITSTATUS(status);
+			shell->exit_status = last_status;
+		}
 	
 	return (last_status);
 }
