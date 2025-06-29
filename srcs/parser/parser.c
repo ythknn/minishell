@@ -1,13 +1,13 @@
 /* ************************************************************************** */
-/*                                                                            */
-/*                                                        :::      ::::::::   */
-/*   parser.c                                           :+:      :+:    :+:   */
-/*                                                    +:+ +:+         +:+     */
-/*   By: mdusunen <mdusunen@student.42.fr>          +#+  +:+       +#+        */
-/*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/06/11 17:43:02 by yihakan           #+#    #+#             */
-/*   Updated: 2025/06/25 17:35:01 by mdusunen         ###   ########.fr       */
-/*                                                                            */
+/* */
+/* :::      ::::::::   */
+/* parser.c                                           :+:      :+:    :+:   */
+/* +:+ +:+         +:+     */
+/* By: mdusunen <mdusunen@student.42.fr>          +#+  +:+       +#+        */
+/* +#+#+#+#+#+   +#+           */
+/* Created: 2025/06/11 17:43:02 by yihakan           #+#    #+#             */
+/* Updated: 2025/06/29 18:30:06 by mdusunen         ###   ########.fr       */
+/* */
 /* ************************************************************************** */
 
 #include "../includes/minishell.h"
@@ -71,32 +71,74 @@ static void	add_command(t_command **cmds, t_command *new_cmd)
 
 static int	is_redirection(t_token_type type)
 {
-	return (type == T_REDIR_IN || type == T_REDIR_OUT
-		|| type == T_REDIR_APPEND || type == T_HEREDOC);
+	return (type == T_REDIR_IN || type == T_REDIR_OUT || type == T_REDIR_APPEND || type == T_HEREDOC);
 }
+
+// Yeni eklenecek yardımcı fonksiyon
+static void add_redir_to_command(t_command *cmd, t_redir *new_redir)
+{
+    t_redir *current;
+
+    if (!cmd->redirections)
+    {
+        cmd->redirections = new_redir;
+        return;
+    }
+    current = cmd->redirections;
+    while (current->next)
+        current = current->next;
+    current->next = new_redir;
+}
+
 
 t_command	*parse(t_token *tokens)
 {
-	t_command	*cmds;
-	t_command	*current_cmd;
-	t_token		*current;
+	t_command	*commands = NULL;
+	t_command	*current_cmd = NULL;
+	t_token		*current_token = tokens;
 
-	cmds = NULL;
-	current_cmd = create_command();
-	current = tokens;
-	while (current)
+	while (current_token)
 	{
-		if (current->type == T_PIPE)
-		{
-			add_command(&cmds, current_cmd);
+		if (!current_cmd)
 			current_cmd = create_command();
+
+		if (current_token->type == T_PIPE)
+		{
+			if (!current_cmd->args && !current_cmd->redirections) // Pipe öncesi komut veya redirection yoksa hata
+			{
+				print_syntax_error(current_token->value);
+				free_commands(commands);
+				free_commands(current_cmd); // mevcut komutu da serbest bırak
+				return (NULL);
+			}
+			add_command(&commands, current_cmd);
+			current_cmd = NULL;
 		}
-		else if (is_redirection(current->type))
-			current = handle_redirection(current, current_cmd);
-		else if (current->type == T_WORD)
-			add_arg(current_cmd, current->value);
-		current = current->next;
+		else if (is_redirection(current_token->type))
+		{
+			t_token_type redir_type = current_token->type;
+			current_token = current_token->next; // Redirection token'ını geç
+
+			if (!current_token || current_token->type != T_WORD) // Redirection'dan sonra dosya adı bekleniyor
+			{
+                // HATA BURADA YAKALANACAK: "ls < < file.txt" -> ilk <'ten sonra ikinci < token'ı gelir, bu T_WORD değil.
+				if (current_token)
+					print_syntax_error(current_token->value);
+				else
+					print_syntax_error("newline");
+				free_commands(commands);
+				free_commands(current_cmd); // mevcut komutu da serbest bırak
+				return (NULL);
+			}
+			add_redir_to_command(current_cmd, create_redir(redir_type, current_token->value));
+		}
+		else if (current_token->type == T_WORD)
+		{
+			add_arg(current_cmd, current_token->value);
+		}
+		current_token = current_token->next;
 	}
-	add_command(&cmds, current_cmd);
-	return (cmds);
+	if (current_cmd) // Son komutu ekle
+		add_command(&commands, current_cmd);
+	return (commands);
 }
