@@ -17,50 +17,56 @@ static char *handle_heredoc(char *delimiter)
 	char *line;
 	char *content;
 	char *temp;
+	char *expanded_line;
 	size_t content_size;
-	int in_heredoc;
-	
+	t_shell shell;
+
+	extern char **environ;
+	init_shell(&shell, environ);
 	content = strdup("");
+	if (!content)
+		return (NULL);
 	content_size = 1;
-	in_heredoc = 1;
 	
-	printf("> ");
-	line = readline("");
-	while (line && strcmp(line, delimiter) != 0 && in_heredoc)
+	while (1)
 	{
-		if (g_signal == SIGINT)
-		{
-			in_heredoc = 0;
-			break;
-		}
-		
-		content_size += strlen(line) + 1;
-		temp = malloc(content_size);
-		
-		if (!temp)
+		line = readline("> ");
+		if (!line || g_signal == SIGINT)
 		{
 			free(content);
+			free_shell(&shell);
 			free(line);
 			return (NULL);
 		}
 		
-		sprintf(temp, "%s%s\n", content, line);
-		free(content);
-		content = temp;
+		if (line[0] != '\0' && strcmp(line, delimiter) == 0)
+		{
+			free(line);
+			break;
+		}
 		
+		expanded_line = expand_env_vars(line, &shell);
+		if (expanded_line)
+		{
+			content_size += strlen(expanded_line) + 1;
+			temp = malloc(content_size);
+			if (!temp)
+			{
+				free(content);
+				free(line);
+				free(expanded_line);
+				free_shell(&shell);
+				return (NULL);
+			}
+			sprintf(temp, "%s%s\n", content, expanded_line);
+			free(content);
+			free(expanded_line);
+			content = temp;
+		}
 		free(line);
-		printf("> ");
-		line = readline("");
-	}
-	if (line)
-		free(line);
-	
-	if (!in_heredoc)
-	{
-		free(content);
-		return (NULL);
 	}
 	
+	free_shell(&shell);
 	return (content);
 }
 
