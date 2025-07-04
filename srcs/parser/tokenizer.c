@@ -1,13 +1,13 @@
 /* ************************************************************************** */
-/*                                                                            */
-/*                                                        :::      ::::::::   */
-/*   tokenizer.c                                        :+:      :+:    :+:   */
-/*                                                    +:+ +:+         +:+     */
-/*   By: yihakan <yihakan@student.42istanbul.com    +#+  +:+       +#+        */
-/*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/06/11 17:24:57 by yihakan           #+#    #+#             */
-/*   Updated: 2025/06/11 17:46:30 by yihakan          ###   ########.fr       */
-/*                                                                            */
+/* */
+/* :::      ::::::::   */
+/* tokenizer.c                                        :+:      :+:    :+:   */
+/* +:+ +:+         +:+     */
+/* By: mdusunen <mdusunen@student.42.fr>          +#+  +:+       +#+        */
+/* +#+#+#+#+#+   +#+           */
+/* Created: 2025/06/11 17:24:57 by yihakan           #+#    #+#             */
+/* Updated: 2025/06/29 17:22:28 by mdusunen         ###   ########.fr       */
+/* */
 /* ************************************************************************** */
 
 # include "../includes/minishell.h"
@@ -59,30 +59,34 @@ static void pipes(int *i, t_token **tokens)
 
 static void in_redirects(char *input, int *i, t_token **tokens)
 {
-    (*i)++;  // Skip the '<'
-    skip_whitespace(input, i);  // Skip spaces after redirection operator
+    (*i)++;  // İlk '<' karakterini atla
+   
+    // Burada daha önce bulunan 'skip_whitespace(input, i);' çağrısı kaldırıldı.
+    // Bu sayede "< <" gibi ifadeler "<<" olarak değil, iki ayrı "<" olarak işlenecektir.
     if (input[*i] == '<')
     {
-        (*i)++;  // Skip the second '<'
+        (*i)++;  // İkinci '<' karakterini atla
         add_token(tokens, create_token(T_HEREDOC, strdup("<<")));
     }
     else
         add_token(tokens, create_token(T_REDIR_IN, strdup("<")));
-    skip_whitespace(input, i);  // Skip any remaining spaces
+    // Burada daha önce bulunan 'skip_whitespace(input, i);' çağrısı kaldırıldı.
+    // Boşluk atlama işlemi ana 'tokenize' döngüsünde halledilecektir.
 }
 
 static void out_redirects(char *input, int *i, t_token **tokens)
 {
-    (*i)++;  // Skip the '>'
-    skip_whitespace(input, i);  // Skip spaces after redirection operator
+    (*i)++;  // İlk '>' karakterini atla
+    // Burada daha önce bulunan 'skip_whitespace(input, i);' çağrısı kaldırıldı.
     if (input[*i] == '>')
     {
-        (*i)++;  // Skip the second '>'
+        (*i)++;  // İkinci '>' karakterini atla
         add_token(tokens, create_token(T_REDIR_APPEND, strdup(">>")));
     }
     else
         add_token(tokens, create_token(T_REDIR_OUT, strdup(">")));
-    skip_whitespace(input, i);  // Skip any remaining spaces
+    // Burada daha önce bulunan 'skip_whitespace(input, i);' çağrısı kaldırıldı.
+    // Boşluk atlama işlemi ana 'tokenize' döngüsünde halledilecektir.
 }
 
 static void words(char *input, int *i, t_token **tokens)
@@ -98,11 +102,11 @@ static void words(char *input, int *i, t_token **tokens)
         if (input[*i] == '\'' || input[*i] == '"')
         {
             quote = input[*i];
-            buffer[j++] = input[(*i)++];  // Copy the opening quote
+            buffer[j++] = input[(*i)++];  // Açılış tırnağını kopyala
             while (input[*i] && input[*i] != quote)
                 buffer[j++] = input[(*i)++];
             if (input[*i])
-                buffer[j++] = input[(*i)++];  // Copy the closing quote
+                buffer[j++] = input[(*i)++];  // Kapanış tırnağını kopyala
         }
         else
             buffer[j++] = input[(*i)++];
@@ -118,7 +122,7 @@ t_token *tokenize(char *input)
 
     while (input[i])
     {
-        skip_whitespace(input, &i);
+        skip_whitespace(input, &i); // Ana döngüde boşluk atlanır
         if (!input[i])
             break;
         if (input[i] == '|')

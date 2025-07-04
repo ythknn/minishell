@@ -131,6 +131,8 @@ void	free_commands(t_command *cmds);
 t_redir	*create_redir(t_token_type type, char *file);
 void	free_args(char **args);
 
+t_command	*get_commands_from_tokens(t_token *tokens);
+
 //expander_utils.c
 char	*expand_env_vars(char *str, t_shell *shell);
 char	*handle_exit_status(char *result, int *j, int *i, t_shell *shell);
