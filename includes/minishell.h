@@ -124,6 +124,8 @@ void reset_signals(void);
 void handle_sigint(int sig);
 void handle_sigquit(int sig);
 
+void    handle_heredoc_sigint(int sig);
+void    setup_heredoc_signals(void);
 //parser_utils.c
 t_token	*handle_redirection(t_token *current, t_command *cmd);
 void	add_redir(t_redir **redirs, t_redir *new_redir);
