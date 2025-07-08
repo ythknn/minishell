@@ -14,7 +14,8 @@ int	is_builtin(char *cmd)
 		strcmp(cmd, "export") == 0 ||
 		strcmp(cmd, "unset") == 0 ||
 		strcmp(cmd, "env") == 0 ||
-		strcmp(cmd, "exit") == 0)
+		strcmp(cmd, "exit") == 0 ||
+		strcmp(cmd, "pills") == 0)
 		return (1);
 	
 	return (0);
@@ -42,6 +43,8 @@ int	execute_builtin(char **args, t_shell *shell)
 		return (ft_env(shell));
 	else if (strcmp(args[0], "exit") == 0)
 		return (ft_exit(args, shell));
+	else if (strcmp(args[0], "pills") == 0)
+		return (ft_pills(args, shell));
 	
 	return (1);
 }

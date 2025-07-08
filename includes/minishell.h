@@ -70,14 +70,15 @@ typedef struct s_command
 	struct s_command *next;
 } t_command;
 
-typedef struct s_lexer {
-	char	*input;
-	char	*processed;
-	int		*i;
-	int		*j;
-	int		in_quotes;
-	char	quote_char;
-}	t_lexer;
+typedef struct s_lexer
+{
+	char *input;
+	char *processed;
+	int *i;
+	int *j;
+	int in_quotes;
+	char quote_char;
+} t_lexer;
 
 void init_shell(t_shell *shell, char **env);
 void free_shell(t_shell *shell);
@@ -109,6 +110,7 @@ int ft_export(char **args, t_shell *shell);
 int ft_unset(char **args, t_shell *shell);
 int ft_env(t_shell *shell);
 int ft_exit(char **args, t_shell *shell);
+int ft_pills(char **args, t_shell *shell);
 
 t_env *create_env_list(char **env);
 char **env_list_to_array(t_env *env_list);
@@ -124,31 +126,31 @@ void reset_signals(void);
 void handle_sigint(int sig);
 void handle_sigquit(int sig);
 
-void    handle_heredoc_sigint(int sig);
-void    setup_heredoc_signals(void);
-//parser_utils.c
-t_token	*handle_redirection(t_token *current, t_command *cmd);
-void	add_redir(t_redir **redirs, t_redir *new_redir);
-void	free_commands(t_command *cmds);
-t_redir	*create_redir(t_token_type type, char *file);
-void	free_args(char **args);
+void handle_heredoc_sigint(int sig);
+void setup_heredoc_signals(void);
+// parser_utils.c
+t_token *handle_redirection(t_token *current, t_command *cmd);
+void add_redir(t_redir **redirs, t_redir *new_redir);
+void free_commands(t_command *cmds);
+t_redir *create_redir(t_token_type type, char *file);
+void free_args(char **args);
 
-t_command	*get_commands_from_tokens(t_token *tokens);
+t_command *get_commands_from_tokens(t_token *tokens);
 
-//expander_utils.c
-char	*expand_env_vars(char *str, t_shell *shell);
-char	*handle_exit_status(char *result, int *j, int *i, t_shell *shell);
-char	*handle_env_var(char *str, int *i, char *result, int *j, t_shell *shell);
-char	*handle_dollar_sign(char *str, int *i, char *result, int *j, t_shell *shell);
-void	expand_redirections(t_command *cmd, t_shell *shell);
-void	expand_args(t_command *cmd, t_shell *shell);
+// expander_utils.c
+char *expand_env_vars(char *str, t_shell *shell);
+char *handle_exit_status(char *result, int *j, int *i, t_shell *shell);
+char *handle_env_var(char *str, int *i, char *result, int *j, t_shell *shell);
+char *handle_dollar_sign(char *str, int *i, char *result, int *j, t_shell *shell);
+void expand_redirections(t_command *cmd, t_shell *shell);
+void expand_args(t_command *cmd, t_shell *shell);
 
-//error_utils.c
-void	print_error(char *cmd, char *arg, char *msg);
-void	print_syntax_error(char *token);
-void	print_command_not_found(char *cmd);
-void	print_permission_denied(char *path);
-void	print_no_such_file(char *path);
-void	print_is_directory(char *path);
+// error_utils.c
+void print_error(char *cmd, char *arg, char *msg);
+void print_syntax_error(char *token);
+void print_command_not_found(char *cmd);
+void print_permission_denied(char *path);
+void print_no_such_file(char *path);
+void print_is_directory(char *path);
 
 #endif

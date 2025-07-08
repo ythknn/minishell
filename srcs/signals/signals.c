@@ -5,8 +5,8 @@ void handle_sigint(int sig)
     (void)sig;
     g_signal = SIGINT;
     write(STDOUT_FILENO, "\n", 1);
-    rl_on_new_line();
     rl_replace_line("", 0);
+    rl_on_new_line();
     rl_redisplay();
 }
 
@@ -16,7 +16,6 @@ void handle_heredoc_sigint(int sig)
     g_signal = SIGINT;
     rl_replace_line("", 0);
     rl_done = 1;
-    close(STDIN_FILENO); // STDIN'i kapatarak readline'ı sonlandır
 }
 
 void setup_signals(void)

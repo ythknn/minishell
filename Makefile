@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: mdusunen <mdusunen@student.42.fr>          +#+  +:+       +#+         #
+#    By: yihakan <yihakan@student.42istanbul.com    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/06/07 14:33:48 by yihakan           #+#    #+#              #
-#    Updated: 2025/06/25 17:36:16 by mdusunen         ###   ########.fr        #
+#    Updated: 2025/07/08 19:50:12 by yihakan          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -66,6 +66,7 @@ SRCS = $(SRCS_DIR)/main.c \
 	   $(SRCS_DIR)/builtins/unset.c \
 	   $(SRCS_DIR)/builtins/env.c \
 	   $(SRCS_DIR)/builtins/exit.c \
+	   $(SRCS_DIR)/builtins/pills.c \
 	   $(SRCS_DIR)/utils/env_utils.c \
 	   $(SRCS_DIR)/utils/path_utils.c \
 	   $(SRCS_DIR)/utils/error_utils.c \
@@ -76,11 +77,13 @@ SRCS = $(SRCS_DIR)/main.c \
 OBJS = $(patsubst $(SRCS_DIR)/%.c, $(OBJ_DIR)/%.o, $(SRCS))
 
 # Libraries
+READLINE_INCLUDE = -I/opt/homebrew/opt/readline/include
+READLINE_LIB = -L/opt/homebrew/opt/readline/lib
 LIBFT = $(LIBFT_DIR)/libft.a
 LIBS = -L$(LIBFT_DIR) -lft -lreadline
 
 # Include paths
-INCLUDES = -I$(INCLUDES_DIR) -I$(LIBFT_DIR)
+INCLUDES = -I$(INCLUDES_DIR) -I$(LIBFT_DIR) $(READLINE_INCLUDE)
 
 # Rules
 all: $(NAME)
@@ -88,7 +91,7 @@ all: $(NAME)
 $(NAME): $(LIBFT) $(OBJS)
 	@echo "$(BANNER)"
 	@echo "$(GREEN)Compiling minishell...$(RESET)"
-	@$(CC) $(CFLAGS) $(OBJS) $(LIBS) -o $(NAME)
+	@$(CC) $(CFLAGS) $(OBJS) $(READLINE_LIB) $(LIBS) -o $(NAME)
 	@echo "$(GREEN)minishell compiled successfully!$(RESET)"
 
 $(LIBFT):

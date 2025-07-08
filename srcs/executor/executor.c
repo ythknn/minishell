@@ -23,7 +23,24 @@ static int	execute_single_command(t_command *cmd, t_shell *shell)
 	int		stdout_copy;
 
 	if (!cmd->args || !cmd->args[0])
+	{
+		// Handle redirections even if there's no command
+		if (cmd->redirections)
+		{
+			stdin_copy = dup(STDIN_FILENO);
+			stdout_copy = dup(STDOUT_FILENO);
+			
+			if (setup_redirections(cmd->redirections) != 0)
+			{
+				restore_redirections(stdin_copy, stdout_copy);
+				shell->exit_status = 1;
+				return (1);
+			}
+			
+			restore_redirections(stdin_copy, stdout_copy);
+		}
 		return (0);
+	}
 	
 	if (is_builtin(cmd->args[0]))
 	{

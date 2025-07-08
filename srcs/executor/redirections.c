@@ -3,28 +3,72 @@
 /*                                                        :::      ::::::::   */
 /*   redirections.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mdusunen <mdusunen@student.42.fr>          +#+  +:+       +#+        */
+/*   By: yihakan <yihakan@student.42istanbul.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/11 16:29:36 by yihakan           #+#    #+#             */
-/*   Updated: 2025/07/05 20:28:46 by mdusunen         ###   ########.fr       */
+/*   Updated: 2025/07/08 20:32:54 by yihakan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/minishell.h"
 
-static char *handle_heredoc(char *delimiter)
+static char *strip_quotes(char *str)
 {
+    char *result;
+    int len;
+    
+    if (!str)
+        return (NULL);
+    
+    len = strlen(str);
+    
+    // Check if string is quoted (starts and ends with same quote)
+    if (len >= 2 && 
+        ((str[0] == '\'' && str[len - 1] == '\'') ||
+         (str[0] == '"' && str[len - 1] == '"')))
+    {
+        // Create new string without quotes
+        result = malloc(len - 1);
+        if (!result)
+            return (NULL);
+        strncpy(result, str + 1, len - 2);
+        result[len - 2] = '\0';
+        return (result);
+    }
+    
+    // No quotes, return copy of original
+    return (strdup(str));
+}
+
+static char *handle_multiple_heredocs(t_redir *heredocs)
+{
+    t_redir *current;
     char *line;
-    char *content = strdup("");
+    char *content = NULL;
     char *temp;
     char *expanded_line;
     size_t content_size = 1;
     t_shell shell;
     int stdin_copy = dup(STDIN_FILENO);
+    int heredoc_count = 0;
+    int current_heredoc = 0;
+    int is_last_heredoc;
 
     extern char **environ;
     init_shell(&shell, environ);
-    if (!content) {
+    
+    // Count heredocs
+    current = heredocs;
+    while (current)
+    {
+        if (current->type == T_HEREDOC)
+            heredoc_count++;
+        current = current->next;
+    }
+    
+    if (heredoc_count == 0)
+    {
+        free_shell(&shell);
         close(stdin_copy);
         return (NULL);
     }
@@ -32,72 +76,146 @@ static char *handle_heredoc(char *delimiter)
     setup_heredoc_signals();
     g_signal = 0;
     
-    while (1)
+    current = heredocs;
+    while (current && current_heredoc < heredoc_count)
     {
-        line = readline("> ");
-        if (!line)
-        {
-            // Tek Ctrl+D'de heredoc'tan çık
-            write(STDERR_FILENO, "minishell: warning: here-document delimited by end-of-file (wanted `", 62);
-            write(STDERR_FILENO, delimiter, strlen(delimiter));
-            write(STDERR_FILENO, "')\n", 3);
-            free(content);
-            free_shell(&shell);
-            close(stdin_copy);
-            setup_signals();
-            return (NULL);
-        }
+        char *delimiter;
         
-        if (g_signal == SIGINT)
+        if (current->type != T_HEREDOC)
         {
-            free(line);
-            free(content);
-            free_shell(&shell);
-            close(stdin_copy);
-            setup_signals();
-            g_signal = 0;
-            return (NULL);
-        }
-        
-        if (strcmp(line, delimiter) == 0)
-        {
-            free(line);
-            break;
-        }
-        
-        expanded_line = expand_env_vars(line, &shell);
-        free(line);
-        if (!expanded_line)
+            current = current->next;
             continue;
-            
-        content_size += strlen(expanded_line) + 1;
-        temp = malloc(content_size);
-        if (!temp)
+        }
+        
+        // Check if this is the last heredoc
+        is_last_heredoc = (current_heredoc == heredoc_count - 1);
+        
+        // Strip quotes from delimiter for comparison
+        delimiter = strip_quotes(current->file);
+        if (!delimiter)
         {
             free(content);
-            free(expanded_line);
             free_shell(&shell);
             close(stdin_copy);
-            setup_signals();
             return (NULL);
         }
-        sprintf(temp, "%s%s\n", content, expanded_line);
-        free(content);
-        free(expanded_line);
-        content = temp;
+        
+        // Only initialize content for the last heredoc
+        if (is_last_heredoc && !content)
+        {
+            content = strdup("");
+            content_size = 1;
+            if (!content)
+            {
+                free(delimiter);
+                free_shell(&shell);
+                close(stdin_copy);
+                return (NULL);
+            }
+        }
+        
+        while (1)
+        {
+            line = readline("> ");
+            if (!line)
+            {
+                free(content);
+                free(delimiter);
+                free_shell(&shell);
+                dup2(stdin_copy, STDIN_FILENO);
+                close(stdin_copy);
+                rl_replace_line("", 0);
+                setup_signals();
+                return (NULL);
+            }
+            
+            if (g_signal == SIGINT)
+            {
+                free(line);
+                free(content);
+                free(delimiter);
+                free_shell(&shell);
+                dup2(stdin_copy, STDIN_FILENO);
+                close(stdin_copy);
+                rl_replace_line("", 0);
+                setup_signals();
+                g_signal = 0;
+                return (NULL);
+            }
+            
+            if (strcmp(line, delimiter) == 0)
+            {
+                free(line);
+                break;
+            }
+            
+            // Only process content for the last heredoc
+            if (is_last_heredoc)
+            {
+                // Check if original delimiter was quoted to determine if we should expand variables
+                if (strcmp(current->file, delimiter) == 0)
+                {
+                    // Delimiter was not quoted, expand variables
+                    expanded_line = expand_env_vars(line, &shell);
+                    free(line);
+                    if (!expanded_line)
+                        continue;
+                }
+                else
+                {
+                    // Delimiter was quoted, don't expand variables
+                    expanded_line = line;
+                }
+                    
+                content_size += strlen(expanded_line) + 1;
+                temp = malloc(content_size);
+                if (!temp)
+                {
+                    free(content);
+                    free(expanded_line);
+                    free(delimiter);
+                    free_shell(&shell);
+                    dup2(stdin_copy, STDIN_FILENO);
+                    close(stdin_copy);
+                    rl_replace_line("", 0);
+                    setup_signals();
+                    return (NULL);
+                }
+                sprintf(temp, "%s%s\n", content, expanded_line);
+                free(content);
+                free(expanded_line);
+                content = temp;
+            }
+            else
+            {
+                // For non-last heredocs, just discard the line
+                free(line);
+            }
+        }
+        
+        free(delimiter);
+        current_heredoc++;
+        current = current->next;
     }
     
+    dup2(stdin_copy, STDIN_FILENO);
     close(stdin_copy);
+    rl_replace_line("", 0);
+    rl_point = 0;
+    rl_end = 0;
     setup_signals();
     free_shell(&shell);
     return (content);
 }
 
+
+
 int setup_redirections(t_redir *redirs)
 {
     t_redir *current;
     int     fd;
-    char    *heredoc_content;
+    char    *heredoc_content = NULL;
+    int     heredoc_processed = 0;
 
     current = redirs;
     while (current)
@@ -135,11 +253,11 @@ int setup_redirections(t_redir *redirs)
             dup2(fd, STDOUT_FILENO);
             close(fd);
         }
-        else if (current->type == T_HEREDOC)
+        else if (current->type == T_HEREDOC && !heredoc_processed)
         {
             int pipe_fd[2];
             
-            heredoc_content = handle_heredoc(current->file);
+            heredoc_content = handle_multiple_heredocs(redirs);
             if (!heredoc_content)
             {
                 if (g_signal == SIGINT)
@@ -156,6 +274,7 @@ int setup_redirections(t_redir *redirs)
             dup2(pipe_fd[0], STDIN_FILENO);
             close(pipe_fd[0]);
             free(heredoc_content);
+            heredoc_processed = 1;
         }
         current = current->next;
     }
