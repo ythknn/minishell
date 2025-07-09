@@ -21,10 +21,12 @@ int	execute_pipeline(t_command *cmds, t_shell *shell)
 	int			status;
 	int			last_status;
 	char		*path;
+	int			last_cmd_not_found;
 
 	current = cmds;
 	prev_pipe_read = -1;
 	last_status = 0;
+	last_cmd_not_found = 0;
 	
 	while (current)
 	{
@@ -45,6 +47,7 @@ int	execute_pipeline(t_command *cmds, t_shell *shell)
 		{
 			last_status = execute_builtin(current->args, shell);
 			shell->exit_status = last_status;
+			last_cmd_not_found = 0;
 			current = current->next;
 			continue;
 		}
@@ -55,6 +58,11 @@ int	execute_pipeline(t_command *cmds, t_shell *shell)
 			print_command_not_found(current->args[0]);
 			last_status = 127;
 			shell->exit_status = last_status;
+			// Mark that the last command was not found
+			if (!current->next)
+				last_cmd_not_found = 1;
+			else
+				last_cmd_not_found = 0;
 			if (current->next)
 			{
 				close(pipe_fd[0]);
@@ -66,6 +74,7 @@ int	execute_pipeline(t_command *cmds, t_shell *shell)
 			continue;
 		}
 		
+		last_cmd_not_found = 0;
 		pid = fork();
 		if (pid == 0)
 		{
@@ -103,11 +112,17 @@ int	execute_pipeline(t_command *cmds, t_shell *shell)
 		current = current->next;
 	}
 	while (wait(&status) > 0)
+	{
 		if (WIFEXITED(status))
 		{
-			last_status = WEXITSTATUS(status);
-			shell->exit_status = last_status;
+			// Only update the exit status if the last command was not a "command not found"
+			if (!last_cmd_not_found)
+			{
+				last_status = WEXITSTATUS(status);
+				shell->exit_status = last_status;
+			}
 		}
+	}
 	
 	return (last_status);
 }

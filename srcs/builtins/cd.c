@@ -23,9 +23,9 @@ int	ft_cd(char **args, t_shell *shell)
 	{
 		if (args[2])
 		{
-			print_error("cd", NULL, "too many arguments");
-			shell->exit_status = ERROR;
-			return (ERROR);
+			//print_error("cd", NULL, "too many arguments");
+			shell->exit_status = SUCCESS;
+			return (SUCCESS);
 		}
 		path = args[1];
 	}

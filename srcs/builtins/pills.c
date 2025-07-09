@@ -94,7 +94,7 @@ static void restore_terminal(void)
 static void flash_screen(void)
 {
     int i;
-    for (i = 0; i < 6; i++)
+    for (i = 0; i < 12; i++)
     {
         if (i % 2 == 0)
         {
@@ -107,7 +107,7 @@ static void flash_screen(void)
             printf("\033[40m\033[2J\033[H");
         }
         fflush(stdout);
-        usleep(300000); // 300ms
+        usleep(100000); // 300ms
     }
     // Reset to normal
     printf("\033[0m\033[2J\033[H");

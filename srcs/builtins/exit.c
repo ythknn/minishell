@@ -36,11 +36,11 @@ int	ft_exit(char **args, t_shell *shell)
 	if (!is_valid_number(args[1]))
 	{
 		print_error("exit", args[1], "numeric argument required");
-		shell->exit_status = 2;
+		shell->exit_status = 255;
 		if (!shell->interactive)
 		{
 			free_shell(shell);
-			exit(2);
+			exit(255);
 		}
 		return (2);
 	}

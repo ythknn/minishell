@@ -60,5 +60,5 @@ void	print_no_such_file(char *path)
  */
 void	print_is_directory(char *path)
 {
-	print_error(path, NULL, "Is a directory");
+	print_error(path, NULL, "is a directory");
 }
