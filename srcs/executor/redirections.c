@@ -6,7 +6,7 @@
 /*   By: yihakan <yihakan@student.42istanbul.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/11 16:29:36 by yihakan           #+#    #+#             */
-/*   Updated: 2025/07/08 20:32:54 by yihakan          ###   ########.fr       */
+/*   Updated: 2025/07/09 19:25:23 by yihakan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,13 +21,10 @@ static char *strip_quotes(char *str)
         return (NULL);
     
     len = strlen(str);
-    
-    // Check if string is quoted (starts and ends with same quote)
     if (len >= 2 && 
         ((str[0] == '\'' && str[len - 1] == '\'') ||
          (str[0] == '"' && str[len - 1] == '"')))
     {
-        // Create new string without quotes
         result = malloc(len - 1);
         if (!result)
             return (NULL);
@@ -35,8 +32,6 @@ static char *strip_quotes(char *str)
         result[len - 2] = '\0';
         return (result);
     }
-    
-    // No quotes, return copy of original
     return (strdup(str));
 }
 
@@ -56,8 +51,6 @@ static char *handle_multiple_heredocs(t_redir *heredocs)
 
     extern char **environ;
     init_shell(&shell, environ);
-    
-    // Count heredocs
     current = heredocs;
     while (current)
     {
@@ -65,17 +58,14 @@ static char *handle_multiple_heredocs(t_redir *heredocs)
             heredoc_count++;
         current = current->next;
     }
-    
     if (heredoc_count == 0)
     {
         free_shell(&shell);
         close(stdin_copy);
         return (NULL);
     }
-
     setup_heredoc_signals();
     g_signal = 0;
-    
     current = heredocs;
     while (current && current_heredoc < heredoc_count)
     {
@@ -86,11 +76,7 @@ static char *handle_multiple_heredocs(t_redir *heredocs)
             current = current->next;
             continue;
         }
-        
-        // Check if this is the last heredoc
         is_last_heredoc = (current_heredoc == heredoc_count - 1);
-        
-        // Strip quotes from delimiter for comparison
         delimiter = strip_quotes(current->file);
         if (!delimiter)
         {
@@ -99,8 +85,6 @@ static char *handle_multiple_heredocs(t_redir *heredocs)
             close(stdin_copy);
             return (NULL);
         }
-        
-        // Only initialize content for the last heredoc
         if (is_last_heredoc && !content)
         {
             content = strdup("");
@@ -128,7 +112,6 @@ static char *handle_multiple_heredocs(t_redir *heredocs)
                 setup_signals();
                 return (NULL);
             }
-            
             if (g_signal == SIGINT)
             {
                 free(line);
@@ -148,14 +131,10 @@ static char *handle_multiple_heredocs(t_redir *heredocs)
                 free(line);
                 break;
             }
-            
-            // Only process content for the last heredoc
             if (is_last_heredoc)
             {
-                // Check if original delimiter was quoted to determine if we should expand variables
                 if (strcmp(current->file, delimiter) == 0)
                 {
-                    // Delimiter was not quoted, expand variables
                     expanded_line = expand_env_vars(line, &shell);
                     free(line);
                     if (!expanded_line)
@@ -163,7 +142,6 @@ static char *handle_multiple_heredocs(t_redir *heredocs)
                 }
                 else
                 {
-                    // Delimiter was quoted, don't expand variables
                     expanded_line = line;
                 }
                     
@@ -188,7 +166,6 @@ static char *handle_multiple_heredocs(t_redir *heredocs)
             }
             else
             {
-                // For non-last heredocs, just discard the line
                 free(line);
             }
         }

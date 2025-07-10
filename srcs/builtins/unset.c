@@ -1,8 +1,17 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   unset.c                                            :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: yihakan <yihakan@student.42istanbul.com    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2025/07/09 19:22:58 by yihakan           #+#    #+#             */
+/*   Updated: 2025/07/09 19:22:58 by yihakan          ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 # include "../includes/minishell.h"
 
-/**
- * Unset command implementation
- */
 int	ft_unset(char **args, t_shell *shell)
 {
 	int	i;

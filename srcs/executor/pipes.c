@@ -1,14 +1,15 @@
 /* ************************************************************************** */
-/*																			*/
-/*														:::	  ::::::::   */
-/*   pipes.c											:+:	  :+:	:+:   */
-/*													+:+ +:+		 +:+	 */
-/*   By: yihakan <yihakan@student.42istanbul.com	+#+  +:+	   +#+		*/
-/*												+#+#+#+#+#+   +#+		   */
-/*   Created: 2025/06/11 16:29:19 by yihakan		   #+#	#+#			 */
-/*   Updated: 2025/06/11 16:29:21 by yihakan		  ###   ########.fr	   */
-/*																			*/
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   pipes.c                                            :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: yihakan <yihakan@student.42istanbul.com    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2025/07/09 19:23:59 by yihakan           #+#    #+#             */
+/*   Updated: 2025/07/09 19:24:13 by yihakan          ###   ########.fr       */
+/*                                                                            */
 /* ************************************************************************** */
+
 
 # include "../includes/minishell.h"
 
@@ -58,7 +59,6 @@ int	execute_pipeline(t_command *cmds, t_shell *shell)
 			print_command_not_found(current->args[0]);
 			last_status = 127;
 			shell->exit_status = last_status;
-			// Mark that the last command was not found
 			if (!current->next)
 				last_cmd_not_found = 1;
 			else
@@ -115,7 +115,6 @@ int	execute_pipeline(t_command *cmds, t_shell *shell)
 	{
 		if (WIFEXITED(status))
 		{
-			// Only update the exit status if the last command was not a "command not found"
 			if (!last_cmd_not_found)
 			{
 				last_status = WEXITSTATUS(status);

@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   exit.c                                             :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: yihakan <yihakan@student.42istanbul.com    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2025/07/09 19:14:19 by yihakan           #+#    #+#             */
+/*   Updated: 2025/07/09 19:15:14 by yihakan          ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 # include "../includes/minishell.h"
 
 static int	is_valid_number(char *str)
@@ -18,22 +30,9 @@ static int	is_valid_number(char *str)
 	return (1);
 }
 
-/**
- * Exit command implementation
- */
-int	ft_exit(char **args, t_shell *shell)
+static int	handle_exit_error(char **args, t_shell *shell, int error_type)
 {
-	int	status;
-
-	printf("exit\n");
-	
-	if (!args[1])
-	{
-		free_shell(shell);
-		exit(shell->exit_status);
-	}
-	
-	if (!is_valid_number(args[1]))
+	if (error_type == 1)
 	{
 		print_error("exit", args[1], "numeric argument required");
 		shell->exit_status = 255;
@@ -44,21 +43,31 @@ int	ft_exit(char **args, t_shell *shell)
 		}
 		return (2);
 	}
-	
-	status = ft_atoi(args[1]);
-	
-	if (args[2])
+	print_error("exit", NULL, "too many arguments"); 
+	shell->exit_status = ERROR;
+	if (!shell->interactive)
 	{
-		print_error("exit", NULL, "too many arguments");
-		shell->exit_status = ERROR;
-		if (!shell->interactive)
-		{
-			free_shell(shell);
-			exit(ERROR);
-		}
-		return (ERROR);
+		free_shell(shell);
+		exit(ERROR);
 	}
-	
+	return (ERROR);
+}
+
+int	ft_exit(char **args, t_shell *shell)
+{
+	int	status;
+
+	printf("exit\n");
+	if (!args[1])
+	{
+		free_shell(shell);
+		exit(shell->exit_status);
+	}
+	if (!is_valid_number(args[1]))
+		return (handle_exit_error(args, shell, 1));
+	status = ft_atoi(args[1]);
+	if (args[2])
+		return (handle_exit_error(args, shell, 2));
 	free_shell(shell);
 	exit(status);
 }

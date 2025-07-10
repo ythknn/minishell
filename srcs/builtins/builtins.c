@@ -1,8 +1,17 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   builtins.c                                         :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: yihakan <yihakan@student.42istanbul.com    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2025/07/09 19:11:25 by yihakan           #+#    #+#             */
+/*   Updated: 2025/07/09 19:11:35 by yihakan          ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 # include "../includes/minishell.h"
 
-/**
- * Check if a command is a built-in
- */
 int	is_builtin(char *cmd)
 {
 	if (!cmd)
@@ -21,9 +30,6 @@ int	is_builtin(char *cmd)
 	return (0);
 }
 
-/**
- * Execute a built-in command
- */
 int	execute_builtin(char **args, t_shell *shell)
 {
 	if (!args || !args[0])

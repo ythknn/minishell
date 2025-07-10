@@ -1,18 +1,23 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   cd.c                                               :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: yihakan <yihakan@student.42istanbul.com    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2025/07/09 19:11:41 by yihakan           #+#    #+#             */
+/*   Updated: 2025/07/09 19:12:44 by yihakan          ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 # include "../includes/minishell.h"
 
-/**
- * Change directory command implementation
- */
-int	ft_cd(char **args, t_shell *shell)
+static int	handle_cd_path(char **args, t_shell *shell, char **path)
 {
-	char	*path;
-	char	cwd[4096];
-	char	*old_pwd;
-
 	if (!args[1])
 	{
-		path = get_env_value(shell->env_list, "HOME");
-		if (!path)
+		*path = get_env_value(shell->env_list, "HOME");
+		if (!*path)
 		{
 			print_error("cd", NULL, "HOME not set");
 			shell->exit_status = ERROR;
@@ -23,27 +28,35 @@ int	ft_cd(char **args, t_shell *shell)
 	{
 		if (args[2])
 		{
-			//print_error("cd", NULL, "too many arguments");
 			shell->exit_status = SUCCESS;
 			return (SUCCESS);
 		}
-		path = args[1];
+		*path = args[1];
 	}
-	
+	return (0);
+}
+
+int	ft_cd(char **args, t_shell *shell)
+{
+	char	*path;
+	char	cwd[4096];
+	char	*old_pwd;
+	int		ret;
+
+	ret = handle_cd_path(args, shell, &path);
+	if (ret != 0)
+		return (ret);
 	old_pwd = getcwd(cwd, 4096);
 	if (old_pwd)
 		add_env_var(shell->env_list, "OLDPWD", old_pwd);
-	
 	if (chdir(path) != 0)
 	{
 		print_error("cd", path, strerror(errno));
 		shell->exit_status = ERROR;
 		return (ERROR);
 	}
-	
 	if (getcwd(cwd, 4096))
 		add_env_var(shell->env_list, "PWD", cwd);
-	
 	free(shell->env_array);
 	shell->env_array = env_list_to_array(shell->env_list);
 	shell->exit_status = SUCCESS;

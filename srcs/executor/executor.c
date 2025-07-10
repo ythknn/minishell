@@ -1,13 +1,13 @@
 /* ************************************************************************** */
-/*																			*/
-/*														:::	  ::::::::   */
-/*   executor.c										 :+:	  :+:	:+:   */
-/*													+:+ +:+		 +:+	 */
-/*   By: yihakan <yihakan@student.42istanbul.com	+#+  +:+	   +#+		*/
-/*												+#+#+#+#+#+   +#+		   */
-/*   Created: 2025/06/11 16:29:27 by yihakan		   #+#	#+#			 */
-/*   Updated: 2025/06/11 16:29:27 by yihakan		  ###   ########.fr	   */
-/*																			*/
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   executor.c                                         :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: yihakan <yihakan@student.42istanbul.com    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2025/07/09 19:23:11 by yihakan           #+#    #+#             */
+/*   Updated: 2025/07/09 19:23:53 by yihakan          ###   ########.fr       */
+/*                                                                            */
 /* ************************************************************************** */
 
 # include "../includes/minishell.h"
@@ -24,7 +24,6 @@ static int	execute_single_command(t_command *cmd, t_shell *shell)
 
 	if (!cmd->args || !cmd->args[0])
 	{
-		// Handle redirections even if there's no command
 		if (cmd->redirections)
 		{
 			stdin_copy = dup(STDIN_FILENO);
@@ -63,11 +62,9 @@ static int	execute_single_command(t_command *cmd, t_shell *shell)
 	path = find_executable(cmd->args[0], shell);
 	if (!path)
 	{
-		// Check if it's an explicit path (starts with /, ./, or ../)
 		if (cmd->args[0][0] == '/' || (cmd->args[0][0] == '.' && cmd->args[0][1] == '/') || 
 			(cmd->args[0][0] == '.' && cmd->args[0][1] == '.' && cmd->args[0][2] == '/'))
 		{
-			// For explicit paths, check file status and return appropriate exit codes
 			if (access(cmd->args[0], F_OK) == 0)
 			{
 				if (stat(cmd->args[0], &st) == 0 && S_ISDIR(st.st_mode))
@@ -84,7 +81,6 @@ static int	execute_single_command(t_command *cmd, t_shell *shell)
 		}
 		else
 		{
-			// For non-explicit paths, always treat as command not found
 			print_error(cmd->args[0], NULL, "command not found");
 		}
 		shell->exit_status = 127;

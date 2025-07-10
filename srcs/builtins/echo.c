@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   echo.c                                             :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: yihakan <yihakan@student.42istanbul.com    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2025/07/09 19:13:14 by yihakan           #+#    #+#             */
+/*   Updated: 2025/07/09 19:13:37 by yihakan          ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "../includes/minishell.h"
 
 static int is_n_flag(char *arg)
@@ -13,7 +25,7 @@ static int is_n_flag(char *arg)
 			return (0);
 		i++;
 	}
-	return (i > 1); // en az bir 'n' karakteri içermeli
+	return (i > 1);
 }
 
 int ft_echo(char **args)
@@ -23,14 +35,11 @@ int ft_echo(char **args)
 
 	n_flag = 0;
 	i = 1;
-	// Tüm -n flaglerini kontrol et
 	while (args[i] && is_n_flag(args[i]))
 	{
 		n_flag = 1;
 		i++;
 	}
-
-	// Argümanları yazdır
 	while (args[i])
 	{
 		write(STDOUT_FILENO, args[i], strlen(args[i]));
@@ -38,7 +47,6 @@ int ft_echo(char **args)
 			write(STDOUT_FILENO, " ", 1);
 		i++;
 	}
-
 	if (!n_flag)
 		write(STDOUT_FILENO, "\n", 1);
 
