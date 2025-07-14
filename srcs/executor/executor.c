@@ -6,7 +6,7 @@
 /*   By: yihakan <yihakan@student.42istanbul.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/09 19:23:11 by yihakan           #+#    #+#             */
-/*   Updated: 2025/07/09 19:23:53 by yihakan          ###   ########.fr       */
+/*   Updated: 2025/07/14 19:14:39 by yihakan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -90,9 +90,13 @@ static int	execute_single_command(t_command *cmd, t_shell *shell)
 	if (pid == 0)
 	{
 		if (setup_redirections(cmd->redirections) != 0)
+		{
+			free_shell(shell);
 			exit(1);
+		}	
 		execve(path, cmd->args, shell->env_array);
 		print_error(cmd->args[0], NULL, strerror(errno));
+		free_shell(shell);
 		exit(1);
 	}
 	else if (pid < 0)

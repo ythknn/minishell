@@ -1,40 +1,10 @@
 where da fuk is my export amk
 exportta yeni liste oluşuyor fakat structtaki değere eşitlenmiyor. Structtaki değeri freeleyip yeni listeye eşitle!
 
-==73400== 4,096 bytes in 1 blocks are still reachable in loss record 52 of 73
-==73400==    at 0x4848899: malloc (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
-==73400==    by 0x403C79: expand_env_vars (expander.c:11)
-==73400==    by 0x404327: expand_args (expander_utils.c:90)
-==73400==    by 0x403E1F: expand_variables (expander.c:48)
-==73400==    by 0x402519: main (main.c:48)
+""
 
-==73400== 24 bytes in 1 blocks are still reachable in loss record 18 of 73
-==73400==    at 0x4848899: malloc (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
-==73400==    by 0x403711: create_command (parser.c:48)
-==73400==    by 0x40356E: parse (parser.c:103)
-==73400==    by 0x4024FD: main (main.c:45)
+''
 
-==73400== 24 bytes in 1 blocks are still reachable in loss record 17 of 73
-==73400==    at 0x4848899: malloc (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
-==73400==    by 0x4034D8: create_token (tokenizer.c:19)
-==73400==    by 0x403385: words (tokenizer.c:115)
-==73400==    by 0x402EAE: tokenize (tokenizer.c:135)
-==73400==    by 0x4024E5: main (main.c:42)
+ls |
 
-==73400== 16 bytes in 1 blocks are still reachable in loss record 13 of 73
-==73400==    at 0x4848899: malloc (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
-==73400==    by 0x4043EE: expand_args (expander_utils.c:115)
-==73400==    by 0x403E1F: expand_variables (expander.c:48)
-==73400==    by 0x402519: main (main.c:48)
-
-==73400== 9 bytes in 1 blocks are still reachable in loss record 6 of 73
-==73400==    at 0x4848899: malloc (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
-==73400==    by 0x4028FC: lexer_analyze (lexer.c:71)
-==73400==    by 0x4024CD: main (main.c:39)
-
-==73400== 5 bytes in 1 blocks are still reachable in loss record 3 of 73
-==73400==    at 0x4848899: malloc (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
-==73400==    by 0x4083B9: ft_strdup (in /home/yihakan/minishell/minishell)
-==73400==    by 0x40337B: words (tokenizer.c:115)
-==73400==    by 0x402EAE: tokenize (tokenizer.c:135)
-==73400==    by 0x4024E5: main (main.c:42)
+t_token'i shell structinin icinde tut ve free shelle e entegre et

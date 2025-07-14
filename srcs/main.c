@@ -27,7 +27,7 @@ int main(int argc, char **argv, char **env)
 	setup_terminal();
 	setup_signals();
 	init_shell(&shell, env);
-	init_history();
+	//init_history();
 	while (1)
 	{
 		line = display_prompt();
@@ -56,7 +56,7 @@ int main(int argc, char **argv, char **env)
 		}
 		free(line);
 	}
-	save_history();
+	//save_history();
 	free_shell(&shell);
 	return (shell.exit_status);
 }

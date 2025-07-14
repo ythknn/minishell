@@ -6,7 +6,7 @@
 /*   By: yihakan <yihakan@student.42istanbul.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/09 19:23:59 by yihakan           #+#    #+#             */
-/*   Updated: 2025/07/09 19:24:13 by yihakan          ###   ########.fr       */
+/*   Updated: 2025/07/14 19:14:11 by yihakan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -90,14 +90,19 @@ int	execute_pipeline(t_command *cmds, t_shell *shell)
 				close(pipe_fd[1]);
 			}
 			if (setup_redirections(current->redirections) != 0)
+			{
+				free_shell(shell);
 				exit(1);
+			}
 			if (is_builtin(current->args[0]))
 			{
 				status = execute_builtin(current->args, shell);
+				free_shell(shell);
 				exit(status);
 			}
 			execve(path, current->args, shell->env_array);
 			print_error(current->args[0], NULL, strerror(errno));
+			free_shell(shell);
 			exit(1);
 		}
 		if (prev_pipe_read != -1)

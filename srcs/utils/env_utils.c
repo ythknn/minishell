@@ -19,9 +19,6 @@ static char *ft_strndup(const char *s, size_t n)
 	return (dup);
 }
 
-/**
- * Create environment variable list from environment array
- */
 t_env   *create_env_list(char **env)
 {
 	t_env   *env_list;
@@ -168,10 +165,6 @@ static char **double_join(char **doublebase, char *tojoin)
 	return(ret);
 }
 
-
-/**
- * Convert environment list to environment array
- */
 char	**env_list_to_array(t_env *env_list)
 {
 	char	**env_array;
@@ -193,9 +186,6 @@ char	**env_list_to_array(t_env *env_list)
 	return (env_array);
 }
 
-/**
- * Add or update environment variable
- */
 t_env   *add_env_var(t_env *env_list, char *key, char *value)
 {
 	t_env   *current;
