@@ -53,7 +53,6 @@ void	free_shell(t_shell *shell)
 	// Free environment array
 	if (shell->env_array)
 	{
-		printf("anan\n");
 		int i = 0;
 		while (shell->env_array[i])
 			free(shell->env_array[i++]);

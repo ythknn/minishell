@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: yihakan <yihakan@student.42istanbul.com    +#+  +:+       +#+         #
+#    By: mdusunen <mdusunen@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/06/07 14:33:48 by yihakan           #+#    #+#              #
-#    Updated: 2025/07/10 19:21:50 by yihakan          ###   ########.fr        #
+#    Updated: 2025/07/14 20:33:42 by mdusunen         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
