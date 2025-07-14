@@ -112,6 +112,63 @@ t_env   *create_env_list(char **env)
 	return (env_list);
 }
 
+static char	*envjoin(char *s1, char *s2)
+{
+	char	*result;
+	int		i;
+	int		j;
+	size_t	total_len;
+
+	if (!s1 || !s2)
+		return (NULL);
+	i = 0;
+	total_len = ft_strlen(s1) + ft_strlen(s2);
+	result = (char *)malloc((total_len * sizeof(char)) + 1);
+	if (result == NULL)
+		return (NULL);
+	while (s1[i] != '\0')
+	{
+		result[i] = ((unsigned char *)s1)[i];
+		i++;
+	}
+	j = 0;
+	while (s2[j] != '\0')
+		result[i++] = ((unsigned char *)s2)[j++];
+	result[i] = '\0';
+	if (s1)
+		free(s1);
+	return (result);
+}
+
+static char **double_join(char **doublebase, char *tojoin)
+{
+	size_t	len;
+	char	**ret;
+	size_t	i;
+
+	len = 0;
+	while (doublebase && doublebase[len])
+		len++;
+	ret = malloc(sizeof(char *) * (len + 2));
+	i = 0;
+	while (doublebase && doublebase[i])
+	{
+		ret[i] = ft_strdup(doublebase[i]);
+		free (doublebase[i]);
+		doublebase[i] = NULL;
+		i++;
+	}
+	ret[i] = ft_strdup(tojoin);
+	i++;
+	ret[i] = NULL;
+	if (doublebase)
+		free(doublebase);
+	if (tojoin)
+		free(tojoin);
+	return(ret);
+}
+
+
 /**
  * Convert environment list to environment array
  */
@@ -119,34 +176,20 @@ char	**env_list_to_array(t_env *env_list)
 {
 	char	**env_array;
 	t_env   *current;
+	char	*tojoin;
 	int	 count;
-	int	 i;
 
 	count = 0;
+	env_array = NULL;
 	current = env_list;
 	
 	while (current)
 	{
-		count++;
+		tojoin = ft_strjoin(current->key, "=");
+		tojoin = envjoin(tojoin, current->value);
+		env_array = double_join(env_array, tojoin);
 		current = current->next;
 	}
-	
-	env_array = malloc(sizeof(char *) * (count + 1));
-	if (!env_array)
-		return (NULL);
-	
-	current = env_list;
-	i = 0;
-	
-	while (current)
-	{
-		env_array[i] = malloc(strlen(current->key) + strlen(current->value) + 2);
-		sprintf(env_array[i], "%s=%s", current->key, current->value);
-		current = current->next;
-		i++;
-	}
-	
-	env_array[i] = NULL;
 	return (env_array);
 }
 

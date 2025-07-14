@@ -6,7 +6,7 @@
 /*   By: yihakan <yihakan@student.42istanbul.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/09 19:15:29 by yihakan           #+#    #+#             */
-/*   Updated: 2025/07/09 19:15:30 by yihakan          ###   ########.fr       */
+/*   Updated: 2025/07/10 19:36:39 by yihakan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -92,7 +92,7 @@ static int	handle_export_arg(char *arg, t_shell *shell)
 	if (arg[j] == '=')
 	{
 		value = ft_strdup(arg + j + 1);
-		add_env_var(shell->env_list, key, value);
+		shell->env_list = add_env_var(shell->env_list, key, value);
 		free(value);
 	}
 	else if (!get_env_value(shell->env_list, key))
@@ -124,6 +124,9 @@ int	ft_export(char **args, t_shell *shell)
 		}
 		i++;
 	}
+	i = 0;
+	while(shell->env_array[i])
+		free(shell->env_array[i++]);
 	free(shell->env_array);
 	shell->env_array = env_list_to_array(shell->env_list);
 	return (ret);
