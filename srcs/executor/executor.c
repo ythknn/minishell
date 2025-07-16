@@ -3,24 +3,24 @@
 /*                                                        :::      ::::::::   */
 /*   executor.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: yihakan <yihakan@student.42istanbul.com    +#+  +:+       +#+        */
+/*   By: mdusunen <mdusunen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/09 19:23:11 by yihakan           #+#    #+#             */
-/*   Updated: 2025/07/14 19:14:39 by yihakan          ###   ########.fr       */
+/*   Updated: 2025/07/15 18:10:03 by mdusunen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-# include "../includes/minishell.h"
-# include "../libft/libft.h"
+#include "../includes/minishell.h"
+#include "../libft/libft.h"
 
 static int	execute_single_command(t_command *cmd, t_shell *shell)
 {
-	pid_t	pid;
-	int		status;
-	char	*path;
+	pid_t		pid;
+	int			status;
+	char		*path;
 	struct stat	st;
-	int		stdin_copy;
-	int		stdout_copy;
+	int			stdin_copy;
+	int			stdout_copy;
 
 	if (!cmd->args || !cmd->args[0])
 	{
@@ -28,42 +28,36 @@ static int	execute_single_command(t_command *cmd, t_shell *shell)
 		{
 			stdin_copy = dup(STDIN_FILENO);
 			stdout_copy = dup(STDOUT_FILENO);
-			
 			if (setup_redirections(cmd->redirections) != 0)
 			{
 				restore_redirections(stdin_copy, stdout_copy);
 				shell->exit_status = 1;
 				return (1);
-			}
-			
+			}	
 			restore_redirections(stdin_copy, stdout_copy);
 		}
 		return (0);
 	}
-	
 	if (is_builtin(cmd->args[0]))
 	{
 		stdin_copy = dup(STDIN_FILENO);
 		stdout_copy = dup(STDOUT_FILENO);
-		
 		if (setup_redirections(cmd->redirections) != 0)
 		{
 			restore_redirections(stdin_copy, stdout_copy);
 			shell->exit_status = 1;
 			return (1);
 		}
-		
 		status = execute_builtin(cmd->args, shell);
 		restore_redirections(stdin_copy, stdout_copy);
 		shell->exit_status = status;
 		return (status);
 	}
-	
 	path = find_executable(cmd->args[0], shell);
 	if (!path)
 	{
-		if (cmd->args[0][0] == '/' || (cmd->args[0][0] == '.' && cmd->args[0][1] == '/') || 
-			(cmd->args[0][0] == '.' && cmd->args[0][1] == '.' && cmd->args[0][2] == '/'))
+		if (cmd->args[0][0] == '/' || (cmd->args[0][0] == '.' && cmd->args[0][1] == '/')
+			|| (cmd->args[0][0] == '.' && cmd->args[0][1] == '.' && cmd->args[0][2] == '/'))
 		{
 			if (access(cmd->args[0], F_OK) == 0)
 			{
@@ -107,7 +101,7 @@ static int	execute_single_command(t_command *cmd, t_shell *shell)
 		return (1);
 	}
 	waitpid(pid, &status, 0);
-	free(path);	
+	free(path);
 	if (WIFEXITED(status))
 	{
 		shell->exit_status = WEXITSTATUS(status);
@@ -119,11 +113,10 @@ static int	execute_single_command(t_command *cmd, t_shell *shell)
 
 int	execute_commands(t_command *cmds, t_shell *shell)
 {
-	int		status;
+	int	status;
 
 	if (!cmds)
 		return (0);
-	
 	if (!cmds->next)
 	{
 		status = execute_single_command(cmds, shell);

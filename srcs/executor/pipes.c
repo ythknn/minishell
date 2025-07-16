@@ -3,15 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   pipes.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: yihakan <yihakan@student.42istanbul.com    +#+  +:+       +#+        */
+/*   By: mdusunen <mdusunen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/09 19:23:59 by yihakan           #+#    #+#             */
-/*   Updated: 2025/07/14 19:14:11 by yihakan          ###   ########.fr       */
+/*   Updated: 2025/07/15 18:11:34 by mdusunen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-
-# include "../includes/minishell.h"
+#include "../includes/minishell.h"
 
 int	execute_pipeline(t_command *cmds, t_shell *shell)
 {
@@ -28,12 +27,10 @@ int	execute_pipeline(t_command *cmds, t_shell *shell)
 	prev_pipe_read = -1;
 	last_status = 0;
 	last_cmd_not_found = 0;
-	
 	while (current)
 	{
 		if (current->next)
 			pipe(pipe_fd);
-		
 		if (!current->args || !current->args[0])
 		{
 			if (current->next)
@@ -42,7 +39,7 @@ int	execute_pipeline(t_command *cmds, t_shell *shell)
 				prev_pipe_read = pipe_fd[0];
 			}
 			current = current->next;
-			continue;
+			continue ;
 		}
 		if (is_builtin(current->args[0]) && !current->next && !prev_pipe_read)
 		{
@@ -50,9 +47,8 @@ int	execute_pipeline(t_command *cmds, t_shell *shell)
 			shell->exit_status = last_status;
 			last_cmd_not_found = 0;
 			current = current->next;
-			continue;
-		}
-		
+			continue ;
+		}	
 		path = find_executable(current->args[0], shell);
 		if (!path && !is_builtin(current->args[0]))
 		{
@@ -71,9 +67,8 @@ int	execute_pipeline(t_command *cmds, t_shell *shell)
 			if (prev_pipe_read != -1)
 				close(prev_pipe_read);
 			current = current->next;
-			continue;
+			continue ;
 		}
-		
 		last_cmd_not_found = 0;
 		pid = fork();
 		if (pid == 0)
@@ -126,7 +121,6 @@ int	execute_pipeline(t_command *cmds, t_shell *shell)
 				shell->exit_status = last_status;
 			}
 		}
-	}
-	
+	}	
 	return (last_status);
 }

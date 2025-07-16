@@ -1,4 +1,16 @@
-# include "../includes/minishell.h"
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   expander_utils.c                                   :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: mdusunen <mdusunen@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2025/07/15 18:16:30 by mdusunen          #+#    #+#             */
+/*   Updated: 2025/07/15 18:16:30 by mdusunen         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
+#include "../includes/minishell.h"
 
 char	*handle_exit_status(char *result, int *j, int *i, t_shell *shell)
 {
@@ -81,9 +93,7 @@ void	expand_args(t_command *cmd, t_shell *shell)
 	int		count;
 
 	if (!cmd->args)
-		return;
-	
-	// First pass: expand all arguments
+		return ;
 	i = 0;
 	while (cmd->args[i])
 	{
@@ -92,47 +102,37 @@ void	expand_args(t_command *cmd, t_shell *shell)
 		cmd->args[i] = expanded;
 		i++;
 	}
-	
-	// Second pass: filter out empty arguments
 	count = 0;
 	i = 0;
 	while (cmd->args[i])
 	{
-		if (cmd->args[i][0] != '\0')  // Only count non-empty strings
+		if (cmd->args[i][0] != '\0')
 			count++;
 		i++;
 	}
-	
 	if (count == 0)
 	{
-		// All arguments were empty, free the args array
 		free_args(cmd->args);
 		cmd->args = NULL;
-		return;
+		return ;
 	}
-	
-	// Create new args array with only non-empty arguments
 	new_args = malloc(sizeof(char *) * (count + 1));
 	if (!new_args)
-		return;
-	
+		return ;
 	i = 0;
 	j = 0;
 	while (cmd->args[i])
 	{
-		if (cmd->args[i][0] != '\0')  // Only keep non-empty strings
+		if (cmd->args[i][0] != '\0')
 		{
 			new_args[j] = cmd->args[i];
 			j++;
 		}
 		else
-		{
-			free(cmd->args[i]);  // Free empty strings
-		}
+			free(cmd->args[i]);
 		i++;
 	}
 	new_args[j] = NULL;
-	
-	free(cmd->args);  // Free the old args array (not the strings, we moved them)
+	free(cmd->args);
 	cmd->args = new_args;
-} 
+}

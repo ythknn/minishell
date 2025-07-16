@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   export.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: yihakan <yihakan@student.42istanbul.com    +#+  +:+       +#+        */
+/*   By: mdusunen <mdusunen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/09 19:15:29 by yihakan           #+#    #+#             */
-/*   Updated: 2025/07/10 19:36:39 by yihakan          ###   ########.fr       */
+/*   Updated: 2025/07/15 18:05:44 by mdusunen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -125,7 +125,7 @@ int	ft_export(char **args, t_shell *shell)
 		i++;
 	}
 	i = 0;
-	while(shell->env_array[i])
+	while (shell->env_array[i])
 		free(shell->env_array[i++]);
 	free(shell->env_array);
 	shell->env_array = env_list_to_array(shell->env_list);
