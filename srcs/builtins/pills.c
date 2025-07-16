@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   pills.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: yihakan <yihakan@student.42istanbul.com    +#+  +:+       +#+        */
+/*   By: mdusunen <mdusunen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/09 19:15:45 by yihakan           #+#    #+#             */
-/*   Updated: 2025/07/09 19:22:42 by yihakan          ###   ########.fr       */
+/*   Updated: 2025/07/15 18:56:46 by mdusunen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,11 +56,10 @@ static void display_pills_art(void)
         "                      ║                       ║                    ",
         "                      ║     - Morpheus        ║                    ",
         "                      ╚═══════════════════════╝                    ",
-		"                                                                  ",
-		"  Press Ctrl+C to take the red pill and return to reality...      ",
-        NULL
-    };
-    
+        "                                                                  ",
+        "  Press Ctrl+C to take the red pill and return to reality...      ",
+        NULL};
+
     int i = 0;
     while (art[i])
     {
@@ -71,7 +70,6 @@ static void display_pills_art(void)
 
 static void clear_terminal(void)
 {
-    // Clear screen and move cursor to top-left
     printf("\033[2J\033[H");
     fflush(stdout);
 }
@@ -87,19 +85,15 @@ static int restore_blocking(int fd)
 static void enable_ctrl_c(void)
 {
     struct termios term;
-    
-    // Save current terminal settings
+
     tcgetattr(STDIN_FILENO, &original_term);
-    
-    // Get current settings and enable ISIG to allow Ctrl+C
     tcgetattr(STDIN_FILENO, &term);
-    term.c_lflag |= ISIG;  // Enable signal generation
+    term.c_lflag |= ISIG;
     tcsetattr(STDIN_FILENO, TCSANOW, &term);
 }
 
 static void restore_terminal(void)
 {
-    // Restore original terminal settings
     tcsetattr(STDIN_FILENO, TCSANOW, &original_term);
 }
 
@@ -109,19 +103,12 @@ static void flash_screen(void)
     for (i = 0; i < 12; i++)
     {
         if (i % 2 == 0)
-        {
-            // White background
             printf("\033[47m\033[2J\033[H");
-        }
         else
-        {
-            // Black background
             printf("\033[40m\033[2J\033[H");
-        }
         fflush(stdout);
-        usleep(100000); // 300ms
+        usleep(100000);
     }
-    // Reset to normal
     printf("\033[0m\033[2J\033[H");
     fflush(stdout);
 }
@@ -213,7 +200,7 @@ static int get_pill_choice(void)
     char input[10];
     char buffer;
     int input_pos = 0;
-    
+
     printf("\n\nChoose your pill (type 'red' or 'blue'): ");
     fflush(stdout);
     set_nonblocking(STDIN_FILENO);
@@ -225,7 +212,7 @@ static int get_pill_choice(void)
             return (-2);
         }
         int bytes_read = read(STDIN_FILENO, &buffer, 1);
-        
+
         if (bytes_read > 0)
         {
             if (buffer == 3)
@@ -271,7 +258,7 @@ int ft_pills(char **args, t_shell *shell)
 {
     int saved_g_signal;
     int choice;
-    
+
     (void)args;
     (void)shell;
     clear_terminal();
@@ -318,4 +305,4 @@ int ft_pills(char **args, t_shell *shell)
     g_signal = saved_g_signal;
     restore_terminal();
     return (0);
-} 
+}

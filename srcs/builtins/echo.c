@@ -3,18 +3,18 @@
 /*                                                        :::      ::::::::   */
 /*   echo.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: yihakan <yihakan@student.42istanbul.com    +#+  +:+       +#+        */
+/*   By: mdusunen <mdusunen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/09 19:13:14 by yihakan           #+#    #+#             */
-/*   Updated: 2025/07/09 19:13:37 by yihakan          ###   ########.fr       */
+/*   Updated: 2025/07/15 18:04:39 by mdusunen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/minishell.h"
 
-static int is_n_flag(char *arg)
+static int	is_n_flag(char *arg)
 {
-	int i;
+	int	i;
 
 	if (!arg || arg[0] != '-')
 		return (0);
@@ -28,10 +28,10 @@ static int is_n_flag(char *arg)
 	return (i > 1);
 }
 
-int ft_echo(char **args)
+int	ft_echo(char **args)
 {
-	int i;
-	int n_flag;
+	int	i;
+	int	n_flag;
 
 	n_flag = 0;
 	i = 1;
@@ -49,6 +49,5 @@ int ft_echo(char **args)
 	}
 	if (!n_flag)
 		write(STDOUT_FILENO, "\n", 1);
-
 	return (0);
 }

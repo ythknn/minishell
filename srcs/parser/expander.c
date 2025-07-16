@@ -1,4 +1,16 @@
-# include "../includes/minishell.h"
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   expander.c                                         :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: mdusunen <mdusunen@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2025/07/15 18:19:51 by mdusunen          #+#    #+#             */
+/*   Updated: 2025/07/15 18:20:19 by mdusunen         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
+#include "../includes/minishell.h"
 
 char	*expand_env_vars(char *str, t_shell *shell)
 {
@@ -17,7 +29,8 @@ char	*expand_env_vars(char *str, t_shell *shell)
 	quote_char = 0;
 	while (str[i])
 	{
-		if ((str[i] == '\'' || str[i] == '"') && (!in_quotes || quote_char == str[i]))
+		if ((str[i] == '\'' || str[i] == '"')
+			&& (!in_quotes || quote_char == str[i]))
 		{
 			if (in_quotes)
 				in_quotes = 0;
@@ -27,7 +40,7 @@ char	*expand_env_vars(char *str, t_shell *shell)
 				quote_char = str[i];
 			}
 			i++;
-			continue;
+			continue ;
 		}
 		if (str[i] == '$' && (!in_quotes || quote_char != '\''))
 			result = handle_dollar_sign(str, &i, result, &j, shell);

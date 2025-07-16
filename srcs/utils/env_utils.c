@@ -1,14 +1,25 @@
-# include "../includes/minishell.h"
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   env_utils.c                                        :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: mdusunen <mdusunen@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2025/07/15 18:35:36 by mdusunen          #+#    #+#             */
+/*   Updated: 2025/07/15 18:35:37 by mdusunen         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
 
-static char *ft_strndup(const char *s, size_t n)
+#include "../includes/minishell.h"
+
+static char	*ft_strndup(const char *s, size_t n)
 {
 	char	*dup;
-	size_t  i;
+	size_t	i;
 
 	dup = malloc(n + 1);
 	if (!dup)
 		return (NULL);
-	
 	i = 0;
 	while (i < n)
 	{
@@ -19,32 +30,28 @@ static char *ft_strndup(const char *s, size_t n)
 	return (dup);
 }
 
-t_env   *create_env_list(char **env)
+t_env	*create_env_list(char **env)
 {
-	t_env   *env_list;
-	t_env   *new_node;
-	t_env   *current;
-	int	 i;
-	int	 j;
+	t_env	*env_list;
+	t_env	*new_node;
+	t_env	*current;
+	int		i;
+	int		j;
 	char	*key;
 	char	*value;
 
 	if (!env)
 		return (NULL);
-
 	env_list = NULL;
 	i = 0;
-	
 	while (env[i])
 	{
 		j = 0;
 		while (env[i][j] && env[i][j] != '=')
 			j++;
-		
 		key = ft_strndup(env[i], j);
 		if (!key)
 		{
-			// Free the list if allocation fails
 			while (env_list)
 			{
 				current = env_list;
@@ -55,12 +62,10 @@ t_env   *create_env_list(char **env)
 			}
 			return (NULL);
 		}
-		
 		value = strdup(env[i] + j + 1);
 		if (!value)
 		{
 			free(key);
-			// Free the list if allocation fails
 			while (env_list)
 			{
 				current = env_list;
@@ -71,13 +76,11 @@ t_env   *create_env_list(char **env)
 			}
 			return (NULL);
 		}
-		
 		new_node = malloc(sizeof(t_env));
 		if (!new_node)
 		{
 			free(key);
 			free(value);
-			// Free the list if allocation fails
 			while (env_list)
 			{
 				current = env_list;
@@ -88,11 +91,9 @@ t_env   *create_env_list(char **env)
 			}
 			return (NULL);
 		}
-		
 		new_node->key = key;
 		new_node->value = value;
 		new_node->next = NULL;
-		
 		if (!env_list)
 			env_list = new_node;
 		else
@@ -102,10 +103,8 @@ t_env   *create_env_list(char **env)
 				current = current->next;
 			current->next = new_node;
 		}
-		
 		i++;
 	}
-	
 	return (env_list);
 }
 
@@ -137,7 +136,7 @@ static char	*envjoin(char *s1, char *s2)
 	return (result);
 }
 
-static char **double_join(char **doublebase, char *tojoin)
+static char	**double_join(char **doublebase, char *tojoin)
 {
 	size_t	len;
 	char	**ret;
@@ -151,7 +150,7 @@ static char **double_join(char **doublebase, char *tojoin)
 	while (doublebase && doublebase[i])
 	{
 		ret[i] = ft_strdup(doublebase[i]);
-		free (doublebase[i]);
+		free(doublebase[i]);
 		doublebase[i] = NULL;
 		i++;
 	}
@@ -162,20 +161,19 @@ static char **double_join(char **doublebase, char *tojoin)
 		free(doublebase);
 	if (tojoin)
 		free(tojoin);
-	return(ret);
+	return (ret);
 }
 
 char	**env_list_to_array(t_env *env_list)
 {
 	char	**env_array;
-	t_env   *current;
+	t_env	*current;
 	char	*tojoin;
-	int	 count;
+	int		count;
 
 	count = 0;
 	env_array = NULL;
 	current = env_list;
-	
 	while (current)
 	{
 		tojoin = ft_strjoin(current->key, "=");
@@ -186,13 +184,12 @@ char	**env_list_to_array(t_env *env_list)
 	return (env_array);
 }
 
-t_env   *add_env_var(t_env *env_list, char *key, char *value)
+t_env	*add_env_var(t_env *env_list, char *key, char *value)
 {
-	t_env   *current;
-	t_env   *new_node;
+	t_env	*current;
+	t_env	*new_node;
 
 	current = env_list;
-	
 	while (current)
 	{
 		if (strcmp(current->key, key) == 0)
@@ -203,29 +200,22 @@ t_env   *add_env_var(t_env *env_list, char *key, char *value)
 		}
 		current = current->next;
 	}
-	
 	new_node = malloc(sizeof(t_env));
 	if (!new_node)
 		return (env_list);
-	
 	new_node->key = strdup(key);
 	new_node->value = strdup(value);
 	new_node->next = env_list;
-	
 	return (new_node);
 }
 
-/**
- * Remove environment variable
- */
 void	remove_env_var(t_env **env_list, char *key)
 {
-	t_env   *current;
-	t_env   *prev;
+	t_env	*current;
+	t_env	*prev;
 
 	if (!*env_list)
-		return;
-	
+		return ;
 	if (strcmp((*env_list)->key, key) == 0)
 	{
 		current = *env_list;
@@ -233,12 +223,10 @@ void	remove_env_var(t_env **env_list, char *key)
 		free(current->key);
 		free(current->value);
 		free(current);
-		return;
+		return ;
 	}
-	
 	prev = *env_list;
 	current = (*env_list)->next;
-	
 	while (current)
 	{
 		if (strcmp(current->key, key) == 0)
@@ -247,28 +235,23 @@ void	remove_env_var(t_env **env_list, char *key)
 			free(current->key);
 			free(current->value);
 			free(current);
-			return;
+			return ;
 		}
 		prev = current;
 		current = current->next;
 	}
 }
 
-/**
- * Get environment variable value
- */
 char	*get_env_value(t_env *env_list, char *key)
 {
-	t_env   *current;
+	t_env	*current;
 
 	current = env_list;
-	
 	while (current)
 	{
 		if (strcmp(current->key, key) == 0)
 			return (current->value);
 		current = current->next;
 	}
-	
 	return (NULL);
 }
