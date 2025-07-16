@@ -30,14 +30,6 @@ typedef struct s_env
 	struct s_env *next;
 } t_env;
 
-typedef struct s_shell
-{
-	t_env *env_list;
-	char **env_array;
-	int exit_status;
-	int interactive;
-} t_shell;
-
 typedef enum e_token_type
 {
 	T_WORD,
@@ -80,8 +72,20 @@ typedef struct s_lexer
 	char quote_char;
 } t_lexer;
 
+typedef struct s_shell
+{
+	t_env *env_list;
+	char **env_array;
+	t_token *tokens;
+	t_command *commands;
+	char *processed_line;
+	int exit_status;
+	int interactive;
+} t_shell;
+
 void init_shell(t_shell *shell, char **env);
 void free_shell(t_shell *shell);
+void cleanup_shell_resources(t_shell *shell);
 
 char *display_prompt(void);
 void add_to_history(char *line);
