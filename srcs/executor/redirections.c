@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   redirections.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mdusunen <mdusunen@student.42.fr>          +#+  +:+       +#+        */
+/*   By: yihakan <yihakan@student.42istanbul.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/11 16:29:36 by yihakan           #+#    #+#             */
-/*   Updated: 2025/07/15 18:46:45 by mdusunen         ###   ########.fr       */
+/*   Updated: 2025/07/18 18:44:47 by yihakan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -122,14 +122,14 @@ static char	*handle_multiple_heredocs(t_redir *heredocs)
 				g_signal = 0;
 				return (NULL);
 			}
-			if (strcmp(line, delimiter) == 0)
+			if (ft_strcmp(line, delimiter) == 0)
 			{
 				free(line);
 				break ;
 			}
 			if (is_last_heredoc)
 			{
-				if (strcmp(current->file, delimiter) == 0)
+				if (ft_strcmp(current->file, delimiter) == 0)
 				{
 					expanded_line = expand_env_vars(line, &shell);
 					free(line);
