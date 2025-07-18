@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   lexer.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mdusunen <mdusunen@student.42.fr>          +#+  +:+       +#+        */
+/*   By: yihakan <yihakan@student.42istanbul.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/11 17:58:29 by mdusunen          #+#    #+#             */
-/*   Updated: 2025/06/29 18:37:49 by mdusunen         ###   ########.fr       */
+/*   Updated: 2025/07/18 19:02:00 by yihakan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,10 +65,12 @@ char	*lexer_analyze(char *input)
 	t_lexer	lex;
 	int		i;
 	int		j;
+	int		quotes_handled;
+	int 	specials_handled;
 
 	if (!input)
 		return (NULL);
-	lex.processed = malloc(strlen(input) * 2 + 1);
+	lex.processed = malloc(ft_strlen(input) * 2 + 1);
 	if (!(lex.processed))
 		return (NULL);
 	i = 0;
@@ -76,11 +78,19 @@ char	*lexer_analyze(char *input)
 	init_lexer(&lex, input, &i, &j);
 	while (input[i])
 	{
-		if (handle_quotes(&lex))
-			continue ;
-		if (handle_specials(&lex))
-			continue ;
-		lex.processed[j++] = input[i++];
+		quotes_handled = handle_quotes(&lex);
+		specials_handled = 0;
+		
+		if (quotes_handled)
+			;
+		else
+		{
+			specials_handled = handle_specials(&lex);
+			if (specials_handled)
+				;
+			else
+				lex.processed[j++] = input[i++];
+		}
 	}
 	lex.processed[j] = '\0';
 	return (lex.processed);
