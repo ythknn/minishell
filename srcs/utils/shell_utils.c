@@ -1,8 +1,17 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   shell_utils.c                                      :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: yihakan <yihakan@student.42istanbul.com    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2025/07/18 18:50:18 by yihakan           #+#    #+#             */
+/*   Updated: 2025/07/18 18:53:13 by yihakan          ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 # include "../includes/minishell.h"
 
-/**
- * Initialize shell structure with environment variables
- */
 void	init_shell(t_shell *shell, char **env)
 {
 	shell->env_list = create_env_list(env);
@@ -46,4 +55,14 @@ void	free_shell(t_shell *shell)
 		free(shell->env_array);
 	}
 
+}
+
+int ft_strcmp(const char *s1, const char *s2)
+{
+	size_t	i;
+
+	i = 0;
+	while (s1[i] && s1[i] == s2[i])
+		i++;
+	return ((unsigned char) s1[i] - (unsigned char) s2[i]);
 }

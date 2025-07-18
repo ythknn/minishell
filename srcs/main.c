@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   main.c                                             :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: yihakan <yihakan@student.42istanbul.com    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2025/07/18 18:50:53 by yihakan           #+#    #+#             */
+/*   Updated: 2025/07/18 18:50:54 by yihakan          ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 # include "../includes/minishell.h"
 
 int g_signal = 0;
@@ -27,7 +39,6 @@ int main(int argc, char **argv, char **env)
 	setup_terminal();
 	setup_signals();
 	init_shell(&shell, env);
-	//init_history();
 	while (1)
 	{
 		line = display_prompt();
@@ -56,7 +67,6 @@ int main(int argc, char **argv, char **env)
 		}
 		free(line);
 	}
-	//save_history();
 	free_shell(&shell);
 	return (shell.exit_status);
 }
