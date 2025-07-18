@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   export.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mdusunen <mdusunen@student.42.fr>          +#+  +:+       +#+        */
+/*   By: yihakan <yihakan@student.42istanbul.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/09 19:15:29 by yihakan           #+#    #+#             */
-/*   Updated: 2025/07/15 18:05:44 by mdusunen         ###   ########.fr       */
+/*   Updated: 2025/07/18 19:04:31 by yihakan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -81,7 +81,7 @@ static int	handle_export_arg(char *arg, t_shell *shell)
 	j = 0;
 	while (arg[j] && arg[j] != '=')
 		j++;
-	key = str_ndup(arg, j);
+	key = ft_strndup(arg, j);
 	if (!is_valid_env_name(key))
 	{
 		print_export_error(arg);
