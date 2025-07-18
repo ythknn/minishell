@@ -6,7 +6,7 @@
 /*   By: mdusunen <mdusunen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/09 19:15:29 by yihakan           #+#    #+#             */
-/*   Updated: 2025/07/15 18:05:44 by mdusunen         ###   ########.fr       */
+/*   Updated: 2025/07/18 18:53:05 by mdusunen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -107,13 +107,10 @@ int	ft_export(char **args, t_shell *shell)
 	int	ret;
 
 	if (!args[1])
-	{
-		print_exported_vars(shell->env_list);
-		return (0);
-	}
-	i = 1;
+		return (print_exported_vars(shell->env_list), 0);
+	i = -1;
 	ret = 0;
-	while (args[i])
+	while (args[++i])
 	{
 		ret = handle_export_arg(args[i], shell);
 		if (ret != 0)
@@ -122,7 +119,6 @@ int	ft_export(char **args, t_shell *shell)
 			shell->env_array = env_list_to_array(shell->env_list);
 			return (ret);
 		}
-		i++;
 	}
 	i = 0;
 	while (shell->env_array[i])

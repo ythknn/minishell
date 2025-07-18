@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   env_utils.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: yihakan <yihakan@student.42istanbul.com    +#+  +:+       +#+        */
+/*   By: mdusunen <mdusunen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/15 18:35:36 by mdusunen          #+#    #+#             */
-/*   Updated: 2025/07/18 18:44:47 by yihakan          ###   ########.fr       */
+/*   Updated: 2025/07/18 19:13:32 by mdusunen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -192,7 +192,7 @@ t_env	*add_env_var(t_env *env_list, char *key, char *value)
 	current = env_list;
 	while (current)
 	{
-		if (ft_strcmp(current->key, key) == 0)
+		if (strcmp(current->key, key) == 0)
 		{
 			free(current->value);
 			current->value = strdup(value);
@@ -216,7 +216,7 @@ void	remove_env_var(t_env **env_list, char *key)
 
 	if (!*env_list)
 		return ;
-	if (ft_strcmp((*env_list)->key, key) == 0)
+	if (strcmp((*env_list)->key, key) == 0)
 	{
 		current = *env_list;
 		*env_list = (*env_list)->next;
@@ -229,7 +229,7 @@ void	remove_env_var(t_env **env_list, char *key)
 	current = (*env_list)->next;
 	while (current)
 	{
-		if (ft_strcmp(current->key, key) == 0)
+		if (strcmp(current->key, key) == 0)
 		{
 			prev->next = current->next;
 			free(current->key);
@@ -249,7 +249,7 @@ char	*get_env_value(t_env *env_list, char *key)
 	current = env_list;
 	while (current)
 	{
-		if (ft_strcmp(current->key, key) == 0)
+		if (strcmp(current->key, key) == 0)
 			return (current->value);
 		current = current->next;
 	}
