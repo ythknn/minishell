@@ -6,68 +6,85 @@
 /*   By: mdusunen <mdusunen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/15 18:35:00 by mdusunen          #+#    #+#             */
-/*   Updated: 2025/07/15 18:35:01 by mdusunen         ###   ########.fr       */
+/*   Updated: 2025/07/21 17:58:53 by mdusunen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/minishell.h"
 
-char	*find_executable(char *cmd, t_shell *shell)
+static char	*check_absolute_path(char *cmd)
 {
-	char		*path_env;
-	char		*path;
-	char		*exec_path;
-	char		*token;
 	struct stat	st;
 
-	if (!cmd || !*cmd)
-		return (NULL);
-	if (cmd[0] == '/' || (cmd[0] == '.' && cmd[1] == '/')
-		|| (cmd[0] == '.' && cmd[1] == '.' && cmd[2] == '/'))
+	if (access(cmd, F_OK) != 0)
 	{
-		if (access(cmd, F_OK) != 0)
-		{
-			print_no_such_file(cmd);
-			return (NULL);
-		}
-		if (stat(cmd, &st) == 0 && S_ISDIR(st.st_mode))
-		{
-			print_is_directory(cmd);
-			return (NULL);
-		}
-		if (access(cmd, X_OK) != 0)
-		{
-			print_permission_denied(cmd);
-			return (NULL);
-		}
-		return (strdup(cmd));
+		print_no_such_file(cmd);
+		return (NULL);
 	}
+	if (stat(cmd, &st) == 0 && S_ISDIR(st.st_mode))
+	{
+		print_is_directory(cmd);
+		return (NULL);
+	}
+	if (access(cmd, X_OK) != 0)
+	{
+		print_permission_denied(cmd);
+		return (NULL);
+	}
+	return (strdup(cmd));
+}
+
+static char	*check_relative_path(char *cmd)
+{
+	struct stat	st;
+
 	if (access(cmd, F_OK) == 0)
 	{
 		if (stat(cmd, &st) == 0 && S_ISDIR(st.st_mode))
-		{
 			return (NULL);
-		}
 		if (access(cmd, X_OK) == 0)
 			return (strdup(cmd));
-		return (NULL);
 	}
-	path_env = get_env_value(shell->env_list, "PATH");
-	if (!path_env)
+	return (NULL);
+}
+
+static int	is_absolute_or_relative_path(char *cmd)
+{
+	if (cmd[0] == '/')
+		return (1);
+	if (cmd[0] == '.' && cmd[1] == '/')
+		return (1);
+	if (cmd[0] == '.' && cmd[1] == '.' && cmd[2] == '/')
+		return (1);
+	return (0);
+}
+
+static char	*build_exec_path(char *dir, char *cmd)
+{
+	char	*exec_path;
+
+	exec_path = malloc(ft_strlen(dir) + ft_strlen(cmd) + 2);
+	if (!exec_path)
 		return (NULL);
+	sprintf(exec_path, "%s/%s", dir, cmd);
+	return (exec_path);
+}
+
+static char	*search_in_path(char *cmd, char *path_env)
+{
+	char	*path;
+	char	*token;
+	char	*exec_path;
+
 	path = strdup(path_env);
 	if (!path)
 		return (NULL);
 	token = strtok(path, ":");
 	while (token)
 	{
-		exec_path = malloc(ft_strlen(token) + ft_strlen(cmd) + 2);
+		exec_path = build_exec_path(token, cmd);
 		if (!exec_path)
-		{
-			free(path);
-			return (NULL);
-		}
-		sprintf(exec_path, "%s/%s", token, cmd);
+			return (free(path), NULL);
 		if (access(exec_path, X_OK) == 0)
 		{
 			free(path);
@@ -78,4 +95,22 @@ char	*find_executable(char *cmd, t_shell *shell)
 	}
 	free(path);
 	return (NULL);
+}
+
+char	*find_executable(char *cmd, t_shell *shell)
+{
+	char	*path_env;
+	char	*result;
+
+	if (!cmd || !*cmd)
+		return (NULL);
+	if (is_absolute_or_relative_path(cmd))
+		return (check_absolute_path(cmd));
+	result = check_relative_path(cmd);
+	if (result)
+		return (result);
+	path_env = get_env_value(shell->env_list, "PATH");
+	if (!path_env)
+		return (NULL);
+	return (search_in_path(cmd, path_env));
 }

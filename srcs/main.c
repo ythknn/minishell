@@ -14,6 +14,12 @@ static void setup_terminal(void)
 	
 }
 
+
+t_command	*parse(t_token *tokens)
+{
+	return (parse_token_loop(tokens));
+}
+
 int main(int argc, char **argv, char **env)
 {
 	t_shell shell;
@@ -27,7 +33,6 @@ int main(int argc, char **argv, char **env)
 	setup_terminal();
 	setup_signals();
 	init_shell(&shell, env);
-	//init_history();
 	while (1)
 	{
 		line = display_prompt();
@@ -56,7 +61,6 @@ int main(int argc, char **argv, char **env)
 		}
 		free(line);
 	}
-	//save_history();
 	free_shell(&shell);
 	return (shell.exit_status);
 }

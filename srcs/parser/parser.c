@@ -6,7 +6,7 @@
 /*   By: mdusunen <mdusunen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/11 17:43:02 by yihakan           #+#    #+#             */
-/*   Updated: 2025/07/14 20:37:37 by mdusunen         ###   ########.fr       */
+/*   Updated: 2025/07/21 17:48:27 by mdusunen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -102,60 +102,95 @@ static t_token	*find_next_valid_token(t_token *token)
 	return (token);
 }
 
-t_command	*parse(t_token *tokens)
+static int	handle_pipe_error(t_command *current_cmd, t_token *current_token,
+	t_command *commands)
 {
-	t_command		*commands;
-	t_command		*current_cmd;
-	t_token			*current_token;
+	if (!has_valid_command_content(current_cmd))
+	{
+		print_syntax_error(current_token->value);
+		free_commands(commands);
+		free_commands(current_cmd);
+		return (0);
+	}
+	if (!find_next_valid_token(current_token->next))
+	{
+		print_syntax_error("|");
+		free_commands(commands);
+		free_commands(current_cmd);
+		return (0);
+	}
+	return (1);
+}
+
+static int	handle_redir_error(t_token *current_token, t_command *commands,
+	t_command *current_cmd)
+{
+	if (current_token)
+		print_syntax_error(current_token->value);
+	else
+		print_syntax_error("newline");
+	free_commands(commands);
+	free_commands(current_cmd);
+	return (0);
+}
+
+static int	process_pipe_token(t_command **commands, t_command **current_cmd,
+	t_token *current_token)
+{
+	if (!handle_pipe_error(*current_cmd, current_token, *commands))
+		return (0);
+	add_command(commands, *current_cmd);
+	*current_cmd = NULL;
+	return (1);
+}
+
+static int	process_redir_token(t_command *current_cmd, t_token **current_token,
+	t_command *commands)
+{
 	t_token_type	redir_type;
+
+	redir_type = (*current_token)->type;
+	*current_token = (*current_token)->next;
+	if (!*current_token || (*current_token)->type != T_WORD)
+		return (handle_redir_error(*current_token, commands, current_cmd));
+	add_redir_to_command(current_cmd,
+		create_redir(redir_type, (*current_token)->value));
+	return (1);
+}
+
+static int	process_current_token(t_command **current_cmd,
+	t_token **current_token, t_command **commands)
+{
+	if (!*current_cmd)
+		*current_cmd = create_command();
+	if ((*current_token)->type == T_PIPE)
+	{
+		if (!process_pipe_token(commands, current_cmd, *current_token))
+			return (0);
+	}
+	else if (is_redirection((*current_token)->type))
+	{
+		if (!process_redir_token(*current_cmd, current_token, *commands))
+			return (0);
+	}
+	else if ((*current_token)->type == T_WORD)
+		add_arg(*current_cmd, (*current_token)->value);
+	return (1);
+}
+
+t_command	*parse_token_loop(t_token *tokens)
+{
+	t_command	*commands;
+	t_command	*current_cmd;
+	t_token		*current_token;
 
 	commands = NULL;
 	current_cmd = NULL;
 	current_token = tokens;
 	while (current_token)
 	{
-		if (!current_cmd)
-			current_cmd = create_command();
-		if (current_token->type == T_PIPE)
-		{
-			if (!has_valid_command_content(current_cmd))
-			{
-				print_syntax_error(current_token->value);
-				free_commands(commands);
-				free_commands(current_cmd);
-				return (NULL);
-			}
-			if (!find_next_valid_token(current_token->next))
-			{
-				print_syntax_error("|");
-				free_commands(commands);
-				free_commands(current_cmd);
-				return (NULL);
-			}
-			add_command(&commands, current_cmd);
-			current_cmd = NULL;
-		}
-		else if (is_redirection(current_token->type))
-		{
-			redir_type = current_token->type;
-			current_token = current_token->next;
-			if (!current_token || current_token->type != T_WORD)
-			{
-				if (current_token)
-					print_syntax_error(current_token->value);
-				else
-					print_syntax_error("newline");
-				free_commands(commands);
-				free_commands(current_cmd);
-				return (NULL);
-			}
-			add_redir_to_command(current_cmd,
-				create_redir(redir_type, current_token->value));
-		}
-		else if (current_token->type == T_WORD)
-		{
-			add_arg(current_cmd, current_token->value);
-		}
+		if (!process_current_token(&current_cmd, &current_token, &commands))
+			return (NULL);
 		current_token = current_token->next;
 	}
 	if (current_cmd)
