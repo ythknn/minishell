@@ -6,7 +6,7 @@
 /*   By: mdusunen <mdusunen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/15 18:21:39 by mdusunen          #+#    #+#             */
-/*   Updated: 2025/07/15 18:36:11 by mdusunen         ###   ########.fr       */
+/*   Updated: 2025/07/22 17:56:18 by mdusunen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,11 +24,21 @@ char	*display_prompt(void)
 {
 	char	*line;
 	char	*prompt;
+	char	*temp1;
+	char	*temp2;
+	char	*temp3;
 
-	prompt = malloc(100);
-	if (!prompt)
-		return (NULL);
-	sprintf(prompt, "%sminishell%s%s$>%s ", GREEN, RESET, YELLOW, RESET);
+	temp1 = ft_strjoin(GREEN, "minishell");
+	temp2 = ft_strjoin(temp1, RESET);
+	free(temp1);
+	temp1 = ft_strjoin(temp2, YELLOW);
+	free(temp2);
+	temp2 = ft_strjoin(temp1, "$>");
+	free(temp1);
+	temp3 = ft_strjoin(temp2, RESET);
+	free(temp2);
+	prompt = ft_strjoin(temp3, " ");
+	free(temp3);
 	line = readline(prompt);
 	free(prompt);
 	return (line);
