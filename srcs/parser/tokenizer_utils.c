@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   tokenizer_urils.c                                  :+:      :+:    :+:   */
+/*   tokenizer_utils.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mdusunen <mdusunen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/21 15:55:05 by mdusunen          #+#    #+#             */
-/*   Updated: 2025/07/21 15:56:04 by mdusunen         ###   ########.fr       */
+/*   Updated: 2025/07/22 14:52:03 by mdusunen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ void	skip_whitespace(char *input, int *i)
 
 void	pipes(int *i, t_token **tokens)
 {
-	add_token(tokens, create_token(T_PIPE, strdup("|")));
+	add_token(tokens, create_token(T_PIPE, ft_strdup("|")));
 	(*i)++;
 }
 
@@ -35,10 +35,10 @@ void	in_redirects(char *input, int *i, t_token **tokens)
 	if (input[*i] == '<')
 	{
 		(*i)++;
-		add_token(tokens, create_token(T_HEREDOC, strdup("<<")));
+		add_token(tokens, create_token(T_HEREDOC, ft_strdup("<<")));
 	}
 	else
-		add_token(tokens, create_token(T_REDIR_IN, strdup("<")));
+		add_token(tokens, create_token(T_REDIR_IN, ft_strdup("<")));
 }
 
 void	out_redirects(char *input, int *i, t_token **tokens)

@@ -6,7 +6,7 @@
 /*   By: mdusunen <mdusunen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/25 17:18:32 by mdusunen          #+#    #+#             */
-/*   Updated: 2025/07/05 20:25:32 by mdusunen         ###   ########.fr       */
+/*   Updated: 2025/07/22 14:52:28 by mdusunen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,7 +35,7 @@ t_redir	*create_redir(t_token_type type, char *file)
 	if (!redir)
 		return (NULL);
 	redir->type = type;
-	redir->file = strdup(file);
+	redir->file = ft_strdup(file);
 	redir->next = NULL;
 	return (redir);
 }

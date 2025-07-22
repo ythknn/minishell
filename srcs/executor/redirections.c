@@ -6,7 +6,7 @@
 /*   By: mdusunen <mdusunen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/11 16:29:36 by yihakan           #+#    #+#             */
-/*   Updated: 2025/07/18 19:13:32 by mdusunen         ###   ########.fr       */
+/*   Updated: 2025/07/22 17:56:18 by mdusunen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,7 @@ static char	*strip_quotes(char *str)
 		result[len - 2] = '\0';
 		return (result);
 	}
-	return (strdup(str));
+	return (ft_strdup(str));
 }
 
 static char	*handle_multiple_heredocs(t_redir *heredocs)
@@ -85,7 +85,7 @@ static char	*handle_multiple_heredocs(t_redir *heredocs)
 		}
 		if (is_last_heredoc && !content)
 		{
-			content = strdup("");
+			content = ft_strdup("");
 			content_size = 1;
 			if (!content)
 			{

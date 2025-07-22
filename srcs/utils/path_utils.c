@@ -6,7 +6,7 @@
 /*   By: mdusunen <mdusunen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/15 18:35:00 by mdusunen          #+#    #+#             */
-/*   Updated: 2025/07/21 17:58:53 by mdusunen         ###   ########.fr       */
+/*   Updated: 2025/07/22 17:56:18 by mdusunen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,7 @@ static char	*check_absolute_path(char *cmd)
 		print_permission_denied(cmd);
 		return (NULL);
 	}
-	return (strdup(cmd));
+	return (ft_strdup(cmd));
 }
 
 static char	*check_relative_path(char *cmd)
@@ -43,7 +43,7 @@ static char	*check_relative_path(char *cmd)
 		if (stat(cmd, &st) == 0 && S_ISDIR(st.st_mode))
 			return (NULL);
 		if (access(cmd, X_OK) == 0)
-			return (strdup(cmd));
+			return (ft_strdup(cmd));
 	}
 	return (NULL);
 }
@@ -62,11 +62,13 @@ static int	is_absolute_or_relative_path(char *cmd)
 static char	*build_exec_path(char *dir, char *cmd)
 {
 	char	*exec_path;
+	char	*temp;
 
-	exec_path = malloc(ft_strlen(dir) + ft_strlen(cmd) + 2);
-	if (!exec_path)
+	temp = ft_strjoin(dir, "/");
+	if (!temp)
 		return (NULL);
-	sprintf(exec_path, "%s/%s", dir, cmd);
+	exec_path = ft_strjoin(temp, cmd);
+	free(temp);
 	return (exec_path);
 }
 
@@ -76,7 +78,7 @@ static char	*search_in_path(char *cmd, char *path_env)
 	char	*token;
 	char	*exec_path;
 
-	path = strdup(path_env);
+	path = ft_strdup(path_env);
 	if (!path)
 		return (NULL);
 	token = strtok(path, ":");

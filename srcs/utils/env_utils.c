@@ -6,7 +6,7 @@
 /*   By: mdusunen <mdusunen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/15 18:35:36 by mdusunen          #+#    #+#             */
-/*   Updated: 2025/07/21 17:51:42 by mdusunen         ###   ########.fr       */
+/*   Updated: 2025/07/22 17:56:18 by mdusunen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -197,7 +197,7 @@ t_env	*add_env_var(t_env *env_list, char *key, char *value)
 		if (strcmp(current->key, key) == 0)
 		{
 			free(current->value);
-			current->value = strdup(value);
+			current->value = ft_strdup(value);
 			return (env_list);
 		}
 		current = current->next;
@@ -205,8 +205,8 @@ t_env	*add_env_var(t_env *env_list, char *key, char *value)
 	new_node = malloc(sizeof(t_env));
 	if (!new_node)
 		return (env_list);
-	new_node->key = strdup(key);
-	new_node->value = strdup(value);
+	new_node->key = ft_strdup(key);
+	new_node->value = ft_strdup(value);
 	new_node->next = env_list;
 	return (new_node);
 }
