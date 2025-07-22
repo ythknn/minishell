@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   env_utils.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: yihakan <yihakan@student.42istanbul.com    +#+  +:+       +#+        */
+/*   By: mdusunen <mdusunen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/15 18:35:36 by mdusunen          #+#    #+#             */
-/*   Updated: 2025/07/18 18:44:47 by yihakan          ###   ########.fr       */
+/*   Updated: 2025/07/21 17:51:42 by mdusunen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,15 +30,69 @@ static char	*ft_strndup(const char *s, size_t n)
 	return (dup);
 }
 
+static void	free_env_list(t_env *env_list)
+{
+	t_env	*current;
+
+	while (env_list)
+	{
+		current = env_list;
+		env_list = env_list->next;
+		free(current->key);
+		free(current->value);
+		free(current);
+	}
+}
+
+static t_env	*create_env_node(char *env_str)
+{
+	t_env	*new_node;
+	char	*key;
+	char	*value;
+	int		j;
+
+	j = 0;
+	while (env_str[j] && env_str[j] != '=')
+		j++;
+	key = ft_strndup(env_str, j);
+	if (!key)
+		return (NULL);
+	value = ft_strdup(env_str + j + 1);
+	if (!value)
+		return (free(key), NULL);
+	new_node = malloc(sizeof(t_env));
+	if (!new_node)
+	{
+		free(key);
+		free(value);
+		return (NULL);
+	}
+	new_node->key = key;
+	new_node->value = value;
+	new_node->next = NULL;
+	return (new_node);
+}
+
+static void	add_node_to_list(t_env **env_list, t_env *new_node)
+{
+	t_env	*current;
+
+	if (!*env_list)
+		*env_list = new_node;
+	else
+	{
+		current = *env_list;
+		while (current->next)
+			current = current->next;
+		current->next = new_node;
+	}
+}
+
 t_env	*create_env_list(char **env)
 {
 	t_env	*env_list;
 	t_env	*new_node;
-	t_env	*current;
 	int		i;
-	int		j;
-	char	*key;
-	char	*value;
 
 	if (!env)
 		return (NULL);
@@ -46,63 +100,13 @@ t_env	*create_env_list(char **env)
 	i = 0;
 	while (env[i])
 	{
-		j = 0;
-		while (env[i][j] && env[i][j] != '=')
-			j++;
-		key = ft_strndup(env[i], j);
-		if (!key)
-		{
-			while (env_list)
-			{
-				current = env_list;
-				env_list = env_list->next;
-				free(current->key);
-				free(current->value);
-				free(current);
-			}
-			return (NULL);
-		}
-		value = strdup(env[i] + j + 1);
-		if (!value)
-		{
-			free(key);
-			while (env_list)
-			{
-				current = env_list;
-				env_list = env_list->next;
-				free(current->key);
-				free(current->value);
-				free(current);
-			}
-			return (NULL);
-		}
-		new_node = malloc(sizeof(t_env));
+		new_node = create_env_node(env[i]);
 		if (!new_node)
 		{
-			free(key);
-			free(value);
-			while (env_list)
-			{
-				current = env_list;
-				env_list = env_list->next;
-				free(current->key);
-				free(current->value);
-				free(current);
-			}
+			free_env_list(env_list);
 			return (NULL);
 		}
-		new_node->key = key;
-		new_node->value = value;
-		new_node->next = NULL;
-		if (!env_list)
-			env_list = new_node;
-		else
-		{
-			current = env_list;
-			while (current->next)
-				current = current->next;
-			current->next = new_node;
-		}
+		add_node_to_list(&env_list, new_node);
 		i++;
 	}
 	return (env_list);
@@ -169,9 +173,7 @@ char	**env_list_to_array(t_env *env_list)
 	char	**env_array;
 	t_env	*current;
 	char	*tojoin;
-	int		count;
 
-	count = 0;
 	env_array = NULL;
 	current = env_list;
 	while (current)
@@ -192,7 +194,7 @@ t_env	*add_env_var(t_env *env_list, char *key, char *value)
 	current = env_list;
 	while (current)
 	{
-		if (ft_strcmp(current->key, key) == 0)
+		if (strcmp(current->key, key) == 0)
 		{
 			free(current->value);
 			current->value = strdup(value);
@@ -216,7 +218,7 @@ void	remove_env_var(t_env **env_list, char *key)
 
 	if (!*env_list)
 		return ;
-	if (ft_strcmp((*env_list)->key, key) == 0)
+	if (strcmp((*env_list)->key, key) == 0)
 	{
 		current = *env_list;
 		*env_list = (*env_list)->next;
@@ -229,7 +231,7 @@ void	remove_env_var(t_env **env_list, char *key)
 	current = (*env_list)->next;
 	while (current)
 	{
-		if (ft_strcmp(current->key, key) == 0)
+		if (strcmp(current->key, key) == 0)
 		{
 			prev->next = current->next;
 			free(current->key);
@@ -249,7 +251,7 @@ char	*get_env_value(t_env *env_list, char *key)
 	current = env_list;
 	while (current)
 	{
-		if (ft_strcmp(current->key, key) == 0)
+		if (strcmp(current->key, key) == 0)
 			return (current->value);
 		current = current->next;
 	}

@@ -6,7 +6,7 @@
 /*   By: mdusunen <mdusunen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/15 18:35:49 by mdusunen          #+#    #+#             */
-/*   Updated: 2025/07/15 18:35:50 by mdusunen         ###   ########.fr       */
+/*   Updated: 2025/07/21 16:44:58 by mdusunen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,5 +51,5 @@ void	print_no_such_file(char *path)
 
 void	print_is_directory(char *path)
 {
-	print_error(path, NULL, "is a directory");
+	print_error(path, NULL, "Is a directory");
 }

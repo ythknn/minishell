@@ -26,6 +26,12 @@ static void setup_terminal(void)
 	
 }
 
+
+t_command	*parse(t_token *tokens)
+{
+	return (parse_token_loop(tokens));
+}
+
 int main(int argc, char **argv, char **env)
 {
 	t_shell shell;

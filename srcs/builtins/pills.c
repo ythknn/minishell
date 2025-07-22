@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   pills.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: yihakan <yihakan@student.42istanbul.com    +#+  +:+       +#+        */
+/*   By: mdusunen <mdusunen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/09 19:15:45 by yihakan           #+#    #+#             */
-/*   Updated: 2025/07/18 18:44:47 by yihakan          ###   ########.fr       */
+/*   Updated: 2025/07/18 19:13:32 by mdusunen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -246,9 +246,9 @@ static int get_pill_choice(void)
         input[i] = tolower(input[i]);
         i++;
     }
-    if (ft_strcmp(input, "red") == 0)
+    if (strcmp(input, "red") == 0)
         return (1);
-    else if (ft_strcmp(input, "blue") == 0)
+    else if (strcmp(input, "blue") == 0)
         return (0);
     else
         return (-1);

@@ -133,7 +133,11 @@ void handle_sigquit(int sig);
 
 void handle_heredoc_sigint(int sig);
 void setup_heredoc_signals(void);
+
+t_token	*create_token(t_token_type type, char *value);
+void	add_token(t_token **tokens, t_token *new_token);
 // parser_utils.c
+t_command	*parse_token_loop(t_token *tokens);
 t_token *handle_redirection(t_token *current, t_command *cmd);
 void add_redir(t_redir **redirs, t_redir *new_redir);
 void free_commands(t_command *cmds);
@@ -157,5 +161,12 @@ void print_command_not_found(char *cmd);
 void print_permission_denied(char *path);
 void print_no_such_file(char *path);
 void print_is_directory(char *path);
+
+//tokenizer_utils.c
+void	out_redirects(char *input, int *i, t_token **tokens);
+void	in_redirects(char *input, int *i, t_token **tokens);
+void	pipes(int *i, t_token **tokens);
+void	skip_whitespace(char *input, int *i);
+int	is_whitespace(char c);
 
 #endif

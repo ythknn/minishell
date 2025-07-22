@@ -52,7 +52,8 @@ char	*handle_env_var(char *str, int *i, char *result, int *j, t_shell *shell)
 	return (result);
 }
 
-char	*handle_dollar_sign(char *str, int *i, char *result, int *j, t_shell *shell)
+char	*handle_dollar_sign(char *str, int *i,
+	char *result, int *j, t_shell *shell)
 {
 	(*i)++;
 	if (str[*i] == '?')

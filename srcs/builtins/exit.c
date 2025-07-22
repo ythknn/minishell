@@ -6,7 +6,7 @@
 /*   By: mdusunen <mdusunen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/09 19:14:19 by yihakan           #+#    #+#             */
-/*   Updated: 2025/07/15 18:05:06 by mdusunen         ###   ########.fr       */
+/*   Updated: 2025/07/21 17:33:02 by mdusunen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,15 +35,15 @@ static int	handle_exit_error(char **args, t_shell *shell, int error_type)
 	if (error_type == 1)
 	{
 		print_error("exit", args[1], "numeric argument required");
-		shell->exit_status = 255;
+		shell->exit_status = 2;
 		if (!shell->interactive)
 		{
 			free_shell(shell);
-			exit(255);
+			exit(2);
 		}
 		return (2);
 	}
-	print_error("exit", NULL, "too many arguments"); 
+	print_error("exit", NULL, "too many arguments");
 	shell->exit_status = ERROR;
 	if (!shell->interactive)
 	{
