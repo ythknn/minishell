@@ -85,6 +85,7 @@ typedef struct s_shell
 
 void init_shell(t_shell *shell, char **env);
 void free_shell(t_shell *shell);
+int ft_strcmp(const char *s1, const char *s2);
 void cleanup_shell_resources(t_shell *shell);
 
 char *display_prompt(void);
