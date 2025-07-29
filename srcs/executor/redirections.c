@@ -6,7 +6,7 @@
 /*   By: mdusunen <mdusunen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/11 16:29:36 by yihakan           #+#    #+#             */
-/*   Updated: 2025/07/22 17:56:18 by mdusunen         ###   ########.fr       */
+/*   Updated: 2025/07/28 18:17:30 by mdusunen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,6 +32,25 @@ static char	*strip_quotes(char *str)
 		return (result);
 	}
 	return (ft_strdup(str));
+}
+
+static void cleanup_heredoc_resources(char *content, char *delimiter, t_shell *shell, int stdin_copy)
+{
+	(void)content; // Unused parameter - GC handles content cleanup
+	
+	// GC sistemindeki heredoc memory'yi temizle
+	gc_free_all();
+	
+	if (delimiter)
+		free(delimiter);
+	if (shell)
+		free_shell(shell);
+	if (stdin_copy != -1)
+	{
+		dup2(stdin_copy, STDIN_FILENO);
+		close(stdin_copy);
+	}
+	setup_signals();
 }
 
 static char	*handle_multiple_heredocs(t_redir *heredocs)
@@ -60,14 +79,14 @@ static char	*handle_multiple_heredocs(t_redir *heredocs)
 	}
 	if (heredoc_count == 0)
 	{
-		free_shell(&shell);
-		close(stdin_copy);
+		cleanup_heredoc_resources(NULL, NULL, &shell, stdin_copy);
 		return (NULL);
 	}
 	setup_heredoc_signals();
+	// free_heredoc(&shell);
 	g_signal = 0;
 	current = heredocs;
-	while (current && current_heredoc < heredoc_count)
+	while (current && current_heredoc < heredoc_count && g_signal != SIGINT)
 	{
 		if (current->type != T_HEREDOC)
 		{
@@ -78,48 +97,27 @@ static char	*handle_multiple_heredocs(t_redir *heredocs)
 		delimiter = strip_quotes(current->file);
 		if (!delimiter)
 		{
-			free(content);
-			free_shell(&shell);
-			close(stdin_copy);
+			cleanup_heredoc_resources(content, NULL, &shell, stdin_copy);
 			return (NULL);
 		}
 		if (is_last_heredoc && !content)
 		{
-			content = ft_strdup("");
+			content = gc_strdup("", GC_HEREDOC);
 			content_size = 1;
 			if (!content)
 			{
-				free(delimiter);
-				free_shell(&shell);
-				close(stdin_copy);
+				cleanup_heredoc_resources(NULL, delimiter, &shell, stdin_copy);
 				return (NULL);
 			}
 		}
-		while (1)
+		while (g_signal != SIGINT)
 		{
 			line = readline("> ");
-			if (!line)
+			if (!line || g_signal == SIGINT)
 			{
-				free(content);
-				free(delimiter);
-				free_shell(&shell);
-				dup2(stdin_copy, STDIN_FILENO);
-				close(stdin_copy);
-				rl_replace_line("", 0);
-				setup_signals();
-				return (NULL);
-			}
-			if (g_signal == SIGINT)
-			{
-				free(line);
-				free(content);
-				free(delimiter);
-				free_shell(&shell);
-				dup2(stdin_copy, STDIN_FILENO);
-				close(stdin_copy);
-				rl_replace_line("", 0);
-				setup_signals();
-				g_signal = 0;
+				if (line)
+					free(line);
+				cleanup_heredoc_resources(content, delimiter, &shell, stdin_copy);
 				return (NULL);
 			}
 			if (strcmp(line, delimiter) == 0)
@@ -141,23 +139,19 @@ static char	*handle_multiple_heredocs(t_redir *heredocs)
 					expanded_line = line;
 				}
 				content_size += strlen(expanded_line) + 1;
-				temp = malloc(content_size);
+				temp = gc_malloc(content_size, GC_TEMP_STR);
 				if (!temp)
 				{
-					free(content);
 					free(expanded_line);
-					free(delimiter);
-					free_shell(&shell);
-					dup2(stdin_copy, STDIN_FILENO);
-					close(stdin_copy);
-					rl_replace_line("", 0);
-					setup_signals();
+					cleanup_heredoc_resources(content, delimiter, &shell, stdin_copy);
 					return (NULL);
 				}
 				sprintf(temp, "%s%s\n", content, expanded_line);
-				free(content);
+				// Eski content'i serbest bırak, yeni temp GC_HEREDOC'a ata
+				gc_free_type(GC_HEREDOC);
+				content = gc_strdup(temp, GC_HEREDOC);
+				gc_free_type(GC_TEMP_STR);
 				free(expanded_line);
-				content = temp;
 			}
 			else
 			{
@@ -168,6 +162,12 @@ static char	*handle_multiple_heredocs(t_redir *heredocs)
 		current_heredoc++;
 		current = current->next;
 	}
+	if (g_signal == SIGINT)
+	{
+		cleanup_heredoc_resources(content, NULL, &shell, stdin_copy);
+		return (NULL);
+	}
+	
 	dup2(stdin_copy, STDIN_FILENO);
 	close(stdin_copy);
 	rl_replace_line("", 0);
@@ -175,7 +175,15 @@ static char	*handle_multiple_heredocs(t_redir *heredocs)
 	rl_end = 0;
 	setup_signals();
 	free_shell(&shell);
-	return (content);
+	
+	// Normal completion'da content'i GC'den çıkar ve return et
+	char *final_content = NULL;
+	if (content)
+	{
+		final_content = ft_strdup(content);
+		gc_free_type(GC_HEREDOC);
+	}
+	return (final_content);
 }
 
 int	setup_redirections(t_redir *redirs)
@@ -226,13 +234,20 @@ int	setup_redirections(t_redir *redirs)
 		else if (current->type == T_HEREDOC && !heredoc_processed)
 		{
 			int	pipe_fd[2];
+			
+			// Check for signal before processing heredoc
+			if (g_signal == SIGINT)
+			{
+				g_signal = 0;
+				return (1);
+			}
+			
 			heredoc_content = handle_multiple_heredocs(redirs);
 			if (!heredoc_content)
 			{
 				if (g_signal == SIGINT)
 				{
 					g_signal = 0;
-					return (1);
 				}
 				return (1);
 			}

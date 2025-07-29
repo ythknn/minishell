@@ -23,6 +23,24 @@
 
 extern int g_signal;
 
+// Garbage Collector benzeri memory management sistem
+typedef enum e_gc_type
+{
+	GC_LINE,
+	GC_PROCESSED_LINE,
+	GC_TOKENS,
+	GC_COMMANDS,
+	GC_ARGS,
+	GC_ENV_VAR,
+	GC_PATH,
+	GC_EXEC_PATH,
+	GC_HEREDOC,
+	GC_TEMP_STR,
+	GC_ENV_ARRAY,
+	GC_REDIR,
+	GC_GENERAL
+} t_gc_type;
+
 typedef struct s_env
 {
 	char *key;
@@ -82,6 +100,14 @@ typedef struct s_shell
 	int exit_status;
 	int interactive;
 } t_shell;
+
+// Static parsing state access functions
+t_token *get_current_tokens(void);
+t_command *get_current_commands(void);
+void set_current_tokens(t_token *tokens);
+void set_current_commands(t_command *commands);
+void clear_current_tokens(void);
+void clear_current_commands(void);
 
 void init_shell(t_shell *shell, char **env);
 void free_shell(t_shell *shell);
@@ -168,5 +194,17 @@ void	in_redirects(char *input, int *i, t_token **tokens);
 void	pipes(int *i, t_token **tokens);
 void	skip_whitespace(char *input, int *i);
 int	is_whitespace(char c);
+
+//void free_heredoc(t_shell *shell);
+
+// Garbage Collector Functions
+void *gc_malloc(size_t size, t_gc_type type);
+void *gc_get_static_ptr(t_gc_type type);
+void gc_set_static_ptr(void *ptr, t_gc_type type);
+void gc_free_type(t_gc_type type);
+void gc_free_all(void);
+char *gc_strdup(const char *s, t_gc_type type);
+char *gc_strjoin(const char *s1, const char *s2, t_gc_type type);
+char **gc_malloc_array(size_t count, t_gc_type type);
 
 #endif

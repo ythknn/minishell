@@ -41,5 +41,14 @@ char	*display_prompt(void)
 	free(temp3);
 	line = readline(prompt);
 	free(prompt);
+	
+	// EOF (Ctrl+D) durumunda global cleanup
+	if (!line)
+	{
+		clear_current_tokens();
+		clear_current_commands();
+		gc_free_all();
+	}
+	
 	return (line);
 }
