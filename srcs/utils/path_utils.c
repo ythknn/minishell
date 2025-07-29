@@ -86,7 +86,10 @@ static char	*search_in_path(char *cmd, char *path_env)
 	{
 		exec_path = build_exec_path(token, cmd);
 		if (!exec_path)
-			return (free(path), NULL);
+		{
+			free(path);
+			return (NULL);
+		}
 		if (access(exec_path, X_OK) == 0)
 		{
 			free(path);

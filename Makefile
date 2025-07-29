@@ -6,7 +6,7 @@
 #    By: mdusunen <mdusunen@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/06/07 14:33:48 by yihakan           #+#    #+#              #
-#    Updated: 2025/07/21 15:56:54 by mdusunen         ###   ########.fr        #
+#    Updated: 2025/07/26 19:34:52 by mdusunen         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -72,6 +72,8 @@ SRCS = $(SRCS_DIR)/main.c \
 	   $(SRCS_DIR)/utils/path_utils.c \
 	   $(SRCS_DIR)/utils/error_utils.c \
 	   $(SRCS_DIR)/utils/shell_utils.c \
+	   $(SRCS_DIR)/utils/gc_manager.c \
+	   $(SRCS_DIR)/utils/static_vars.c \
 	   $(SRCS_DIR)/signals/signals.c
 
 # Object files

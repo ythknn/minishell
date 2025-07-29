@@ -47,8 +47,8 @@ void	out_redirects(char *input, int *i, t_token **tokens)
 	if (input[*i] == '>')
 	{
 		(*i)++;
-		add_token(tokens, create_token(T_REDIR_APPEND, strdup(">>")));
+		add_token(tokens, create_token(T_REDIR_APPEND, ft_strdup(">>")));
 	}
 	else
-		add_token(tokens, create_token(T_REDIR_OUT, strdup(">")));
+		add_token(tokens, create_token(T_REDIR_OUT, ft_strdup(">")));
 }

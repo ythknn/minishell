@@ -74,18 +74,22 @@ static int	execute_external_command(t_command *cmd, t_shell *shell, char *path)
 	{
 		if (setup_redirections(cmd->redirections) != 0)
 		{
+			free(path);
 			free_shell(shell);
 			exit(1);
 		}
 		execve(path, cmd->args, shell->env_array);
 		print_error(cmd->args[0], NULL, strerror(errno));
+		free(path);
 		free_shell(shell);
 		exit(1);
 	}
 	else if (pid < 0)
 	{
 		print_error("fork", NULL, strerror(errno));
-		return (free(path), shell->exit_status = 1, 1);
+		free(path);
+		shell->exit_status = 1;
+		return (1);
 	}
 	waitpid(pid, &status, 0);
 	free(path);
