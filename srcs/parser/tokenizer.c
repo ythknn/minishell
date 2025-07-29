@@ -48,7 +48,7 @@ static void	words(char *input, int *i, t_token **tokens)
 
 	j = 0;
 	while (input[*i] && !is_whitespace(input[*i])
-		&& input[*i] != '|' && input[*i] != '<' && input[*i] != '>')
+		&& input[*i] != '|' && input[*i] != '<' && input[*i] != '>' && input[*i] != '&')
 	{
 		if (input[*i] == '\'' || input[*i] == '"')
 		{
@@ -79,11 +79,13 @@ t_token	*tokenize(char *input)
 		if (!input[i])
 			break ;
 		if (input[i] == '|')
-			pipes(&i, &tokens);
+			or_operator(input, &i, &tokens);
 		else if (input[i] == '<')
 			in_redirects(input, &i, &tokens);
 		else if (input[i] == '>')
 			out_redirects(input, &i, &tokens);
+		else if (input[i] == '&')
+			and_operator(input, &i, &tokens);
 		else
 			words(input, &i, &tokens);
 	}

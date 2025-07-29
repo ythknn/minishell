@@ -50,6 +50,7 @@ static t_command	*create_command(void)
 		return (NULL);
 	cmd->args = NULL;
 	cmd->redirections = NULL;
+	cmd->operator = T_EOF;  // Default to T_EOF (no operator)
 	cmd->next = NULL;
 	return (cmd);
 }
@@ -139,6 +140,7 @@ static int	process_pipe_token(t_command **commands, t_command **current_cmd,
 {
 	if (!handle_pipe_error(*current_cmd, current_token, *commands))
 		return (0);
+	(*current_cmd)->operator = current_token->type;  // Store operator type
 	add_command(commands, *current_cmd);
 	*current_cmd = NULL;
 	return (1);
@@ -164,6 +166,16 @@ static int	process_current_token(t_command **current_cmd,
 	if (!*current_cmd)
 		*current_cmd = create_command();
 	if ((*current_token)->type == T_PIPE)
+	{
+		if (!process_pipe_token(commands, current_cmd, *current_token))
+			return (0);
+	}
+	else if ((*current_token)->type == T_AND)
+	{
+		if (!process_pipe_token(commands, current_cmd, *current_token))
+			return (0);
+	}
+	else if ((*current_token)->type == T_OR)
 	{
 		if (!process_pipe_token(commands, current_cmd, *current_token))
 			return (0);
