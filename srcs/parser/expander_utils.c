@@ -78,6 +78,8 @@ void	expand_redirections(t_command *cmd, t_shell *shell)
 		if (current_redir->type != T_HEREDOC)
 		{
 			expanded = expand_env_vars(current_redir->file, shell);
+			if (!expanded)
+				return ;
 			free(current_redir->file);
 			current_redir->file = expanded;
 		}
@@ -93,12 +95,18 @@ void	expand_args(t_command *cmd, t_shell *shell)
 	char	**new_args;
 	int		count;
 
-	if (!cmd->args)
+	if (!cmd || !cmd->args)
 		return ;
 	i = 0;
 	while (cmd->args[i])
 	{
 		expanded = expand_env_vars(cmd->args[i], shell);
+		if (!expanded)
+		{
+			free_args(cmd->args);
+			cmd->args = NULL;
+			return ;
+		}
 		free(cmd->args[i]);
 		cmd->args[i] = expanded;
 		i++;
@@ -119,7 +127,11 @@ void	expand_args(t_command *cmd, t_shell *shell)
 	}
 	new_args = malloc(sizeof(char *) * (count + 1));
 	if (!new_args)
+	{
+		free_args(cmd->args);
+		cmd->args = NULL;
 		return ;
+	}
 	i = 0;
 	j = 0;
 	while (cmd->args[i])

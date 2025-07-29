@@ -45,13 +45,15 @@ static int	handle_specials(t_lexer *lex)
 	if (lex->in_quotes)
 		return (0);
 	if (lex->input[*lex->i] == '|' || lex->input[*lex->i] == '<'
-		|| lex->input[*lex->i] == '>')
+		|| lex->input[*lex->i] == '>' || lex->input[*lex->i] == '&')
 	{
 		if (*lex->j > 0 && lex->processed[*lex->j - 1] != ' ')
 			lex->processed[(*lex->j)++] = ' ';
 		lex->processed[(*lex->j)++] = lex->input[(*lex->i)++];
 		if ((lex->input[*lex->i - 1] == '<' && lex->input[*lex->i] == '<')
-			|| (lex->input[*lex->i - 1] == '>' && lex->input[*lex->i] == '>'))
+			|| (lex->input[*lex->i - 1] == '>' && lex->input[*lex->i] == '>')
+			|| (lex->input[*lex->i - 1] == '&' && lex->input[*lex->i] == '&')
+			|| (lex->input[*lex->i - 1] == '|' && lex->input[*lex->i] == '|'))
 			lex->processed[(*lex->j)++] = lex->input[(*lex->i)++];
 		if (lex->input[*lex->i] && lex->input[*lex->i] != ' ')
 			lex->processed[(*lex->j)++] = ' ';

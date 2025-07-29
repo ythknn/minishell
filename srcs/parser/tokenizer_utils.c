@@ -52,3 +52,32 @@ void	out_redirects(char *input, int *i, t_token **tokens)
 	else
 		add_token(tokens, create_token(T_REDIR_OUT, ft_strdup(">")));
 }
+
+void	and_operator(char *input, int *i, t_token **tokens)
+{
+	if (input[*i + 1] == '&')
+	{
+		(*i) += 2;  // Skip both & characters
+		add_token(tokens, create_token(T_AND, ft_strdup("&&")));
+	}
+	else
+	{
+		// Single & is not supported in this shell, skip it
+		(*i)++;
+	}
+}
+
+void	or_operator(char *input, int *i, t_token **tokens)
+{
+	if (input[*i + 1] == '|')
+	{
+		(*i) += 2;  // Skip both | characters
+		add_token(tokens, create_token(T_OR, ft_strdup("||")));
+	}
+	else
+	{
+		// This is a regular pipe, handle it normally
+		add_token(tokens, create_token(T_PIPE, ft_strdup("|")));
+		(*i)++;
+	}
+}

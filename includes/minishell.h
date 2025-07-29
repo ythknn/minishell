@@ -56,6 +56,8 @@ typedef enum e_token_type
 	T_REDIR_OUT,
 	T_REDIR_APPEND,
 	T_HEREDOC,
+	T_AND,
+	T_OR,
 	T_EOF
 } t_token_type;
 
@@ -77,6 +79,7 @@ typedef struct s_command
 {
 	char **args;
 	t_redir *redirections;
+	t_token_type operator;  // T_PIPE or T_AND for connection to next command
 	struct s_command *next;
 } t_command;
 
@@ -192,6 +195,8 @@ void print_is_directory(char *path);
 void	out_redirects(char *input, int *i, t_token **tokens);
 void	in_redirects(char *input, int *i, t_token **tokens);
 void	pipes(int *i, t_token **tokens);
+void	and_operator(char *input, int *i, t_token **tokens);
+void	or_operator(char *input, int *i, t_token **tokens);
 void	skip_whitespace(char *input, int *i);
 int	is_whitespace(char c);
 
