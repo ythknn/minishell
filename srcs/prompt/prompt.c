@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   prompt.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mdusunen <mdusunen@student.42.fr>          +#+  +:+       +#+        */
+/*   By: yihakan <yihakan@student.42istanbul.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/15 18:21:39 by mdusunen          #+#    #+#             */
-/*   Updated: 2025/07/22 17:56:18 by mdusunen         ###   ########.fr       */
+/*   Updated: 2025/07/30 17:51:21 by yihakan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,7 +53,7 @@ char	*display_prompt(void)
 	{
 		clear_current_tokens();
 		clear_current_commands();
-		gc_free_all();
+		// Note: GC cleanup handled in main exit path
 	}
 	return (line);
 }

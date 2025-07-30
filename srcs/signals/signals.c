@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   signals.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mdusunen <mdusunen@student.42.fr>          +#+  +:+       +#+        */
+/*   By: yihakan <yihakan@student.42istanbul.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/15 18:36:07 by mdusunen          #+#    #+#             */
-/*   Updated: 2025/07/28 18:14:23 by mdusunen         ###   ########.fr       */
+/*   Updated: 2025/07/30 17:50:56 by yihakan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,7 +44,7 @@ void	handle_heredoc_sigint(int sig)
 	g_signal = SIGINT;
 	clear_current_tokens();
 	clear_current_commands();
-	gc_free_all();
+	// Note: GC cleanup handled elsewhere due to signal handler constraints
 	rl_replace_line("", 0);
 	rl_on_new_line();
 	rl_redisplay();

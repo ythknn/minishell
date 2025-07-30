@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   expander_utils.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mdusunen <mdusunen@student.42.fr>          +#+  +:+       +#+        */
+/*   By: yihakan <yihakan@student.42istanbul.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/15 18:16:30 by mdusunen          #+#    #+#             */
-/*   Updated: 2025/07/15 18:16:30 by mdusunen         ###   ########.fr       */
+/*   Updated: 2025/07/30 17:27:40 by yihakan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -88,12 +88,85 @@ void	expand_redirections(t_command *cmd, t_shell *shell)
 	}
 }
 
+static char	**expand_wildcard_args(char **args)
+{
+	char	**result;
+	char	**matches;
+	int		total_count;
+	int		result_index;
+	int		i;
+	int		j;
+
+	total_count = 0;
+	i = 0;
+	while (args[i])
+	{
+		if (has_wildcard(args[i]))
+		{
+			matches = expand_wildcard(args[i]);
+			if (matches)
+			{
+				j = 0;
+				while (matches[j])
+				{
+					total_count++;
+					j++;
+				}
+				free_args(matches);
+			}
+			else
+				total_count++;
+		}
+		else
+			total_count++;
+		i++;
+	}
+	result = malloc(sizeof(char *) * (total_count + 1));
+	if (!result)
+		return (NULL);
+	result_index = 0;
+	i = 0;
+	while (args[i])
+	{
+		if (has_wildcard(args[i]))
+		{
+			matches = expand_wildcard(args[i]);
+			if (matches)
+			{
+				sort_matches(matches);
+				j = 0;
+				while (matches[j])
+				{
+					result[result_index] = ft_strdup(matches[j]);
+					result_index++;
+					j++;
+				}
+				free_args(matches);
+			}
+			else
+			{
+				result[result_index] = ft_strdup(args[i]);
+				result_index++;
+			}
+		}
+		else
+		{
+			result[result_index] = ft_strdup(args[i]);
+			result_index++;
+		}
+		i++;
+	}
+	result[result_index] = NULL;
+	return (result);
+}
+
 void	expand_args(t_command *cmd, t_shell *shell)
 {
 	int		i;
 	int		j;
 	char	*expanded;
 	char	**new_args;
+	char	**wildcard_expanded;
 	int		count;
 
 	if (!cmd || !cmd->args)
@@ -112,6 +185,15 @@ void	expand_args(t_command *cmd, t_shell *shell)
 		cmd->args[i] = expanded;
 		i++;
 	}
+	wildcard_expanded = expand_wildcard_args(cmd->args);
+	if (!wildcard_expanded)
+	{
+		free_args(cmd->args);
+		cmd->args = NULL;
+		return ;
+	}
+	free_args(cmd->args);
+	cmd->args = wildcard_expanded;
 	count = 0;
 	i = 0;
 	while (cmd->args[i])

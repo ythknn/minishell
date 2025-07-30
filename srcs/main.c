@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mdusunen <mdusunen@student.42.fr>          +#+  +:+       +#+        */
+/*   By: yihakan <yihakan@student.42istanbul.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/18 18:50:53 by yihakan           #+#    #+#             */
-/*   Updated: 2025/07/28 17:29:10 by mdusunen         ###   ########.fr       */
+/*   Updated: 2025/07/30 17:50:39 by yihakan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ void	cleanup_on_exit(void)
 {
 	clear_current_tokens();
 	clear_current_commands();
-	gc_free_all();
+	// Note: gc_free_all requires shell context, handled in main
 }
 
 static void	process_input_line(char *line, t_shell *shell)
@@ -33,11 +33,11 @@ static void	process_input_line(char *line, t_shell *shell)
 	}
 }
 
-static void	cleanup_and_exit(void)
+static void	cleanup_and_exit(t_shell *shell)
 {
 	clear_current_tokens();
 	clear_current_commands();
-	gc_free_all();
+	gc_free_all(shell);
 }
 
 static int	handle_prompt_input(t_shell *shell)
@@ -47,14 +47,14 @@ static int	handle_prompt_input(t_shell *shell)
 	line = display_prompt();
 	if (!line)
 	{
-		cleanup_and_exit();
+		cleanup_and_exit(shell);
 		return (0);
 	}
 	clear_current_tokens();
 	clear_current_commands();
-	gc_set_static_ptr(line, GC_LINE);
+	gc_set_static_ptr(shell, line, GC_LINE);
 	process_input_line(line, shell);
-	gc_free_type(GC_LINE);
+	gc_free_type(shell, GC_LINE);
 	if (g_signal == SIGINT)
 		handle_sigint_cleanup(shell);
 	return (1);
@@ -69,8 +69,8 @@ int	main(int argc, char **argv, char **env)
 	init_minishell(&shell, env);
 	while (handle_prompt_input(&shell))
 		continue ;
-	cleanup_and_exit();
-	gc_free_all();
+	cleanup_and_exit(&shell);
+	gc_free_all(&shell);
 	free_shell(&shell);
 	return (shell.exit_status);
 }

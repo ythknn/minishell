@@ -3,15 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   redirections.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mdusunen <mdusunen@student.42.fr>          +#+  +:+       +#+        */
+/*   By: yihakan <yihakan@student.42istanbul.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/11 16:29:36 by yihakan           #+#    #+#             */
-/*   Updated: 2025/07/28 18:17:30 by mdusunen         ###   ########.fr       */
+/*   Updated: 2025/07/30 17:43:38 by yihakan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/minishell.h"
 
+/* Commented out - replaced by preprocessing
 static char	*strip_quotes(char *str)
 {
 	char	*result;
@@ -52,7 +53,9 @@ static void cleanup_heredoc_resources(char *content, char *delimiter, t_shell *s
 	}
 	setup_signals();
 }
+*/
 
+/* Commented out - replaced by preprocessing
 static char	*handle_multiple_heredocs(t_redir *heredocs)
 {
 	t_redir		*current;
@@ -185,6 +188,7 @@ static char	*handle_multiple_heredocs(t_redir *heredocs)
 	}
 	return (final_content);
 }
+*/
 
 int	setup_redirections(t_redir *redirs)
 {
@@ -242,13 +246,9 @@ int	setup_redirections(t_redir *redirs)
 				return (1);
 			}
 			
-			heredoc_content = handle_multiple_heredocs(redirs);
+			heredoc_content = get_preprocessed_heredoc_content();
 			if (!heredoc_content)
 			{
-				if (g_signal == SIGINT)
-				{
-					g_signal = 0;
-				}
 				return (1);
 			}
 			pipe(pipe_fd);

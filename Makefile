@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: mdusunen <mdusunen@student.42.fr>          +#+  +:+       +#+         #
+#    By: yihakan <yihakan@student.42istanbul.com    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/06/07 14:33:48 by yihakan           #+#    #+#              #
-#    Updated: 2025/07/26 19:34:52 by mdusunen         ###   ########.fr        #
+#    Updated: 2025/07/30 17:36:02 by yihakan          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -78,6 +78,8 @@ SRCS = $(SRCS_DIR)/main.c \
 	   $(SRCS_DIR)/utils/cleanup_utils.c \
 	   $(SRCS_DIR)/utils/gc_manager.c \
 	   $(SRCS_DIR)/utils/static_vars.c \
+	   $(SRCS_DIR)/utils/wildcard.c \
+	   $(SRCS_DIR)/executor/heredoc_preprocess.c \
 	   $(SRCS_DIR)/signals/signals.c
 
 # Object files

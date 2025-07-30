@@ -8,8 +8,13 @@ void	init_shell(t_shell *shell, char **env)
 	shell->env_array = env_list_to_array(shell->env_list);
 	if (!shell->env_array)
 		return ;
+	shell->tokens = NULL;
+	shell->commands = NULL;
+	shell->processed_line = NULL;
 	shell->exit_status = 0;
 	shell->interactive = isatty(STDIN_FILENO);
+	// Initialize GC manager to NULL
+	ft_memset(&shell->gc, 0, sizeof(t_gc_manager));
 }
 
 void	free_shell(t_shell *shell)
@@ -21,6 +26,10 @@ void	free_shell(t_shell *shell)
 	i = 0;
 	if (!shell)
 		return ;
+	
+	// Free GC-managed memory first
+	gc_free_all(shell);
+	
 	current = shell->env_list;
 	while (current)
 	{

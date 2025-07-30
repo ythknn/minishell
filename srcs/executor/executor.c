@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   executor.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mdusunen <mdusunen@student.42.fr>          +#+  +:+       +#+        */
+/*   By: yihakan <yihakan@student.42istanbul.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/09 19:23:11 by yihakan           #+#    #+#             */
-/*   Updated: 2025/07/18 20:00:39 by mdusunen         ###   ########.fr       */
+/*   Updated: 2025/07/30 17:36:38 by yihakan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -295,10 +295,18 @@ int	execute_commands(t_command *cmds, t_shell *shell)
 
 	if (!cmds)
 		return (0);
+	
+	// Preprocess all heredocs before any execution
+	if (preprocess_all_heredocs(cmds, shell))
+	{
+		clear_heredoc_contents();
+		return (1);
+	}
 	if (!cmds->next)
 	{
 		status = execute_single_command(cmds, shell);
 		shell->exit_status = status;
+		clear_heredoc_contents();
 		return (status);
 	}
 	check_operator_type(cmds, &has_and_operator, &has_or_operator);
@@ -306,15 +314,18 @@ int	execute_commands(t_command *cmds, t_shell *shell)
 	{
 		status = execute_and_chain(cmds, shell);
 		shell->exit_status = status;
+		clear_heredoc_contents();
 		return (status);
 	}
 	else if (has_or_operator)
 	{
 		status = execute_or_chain(cmds, shell);
 		shell->exit_status = status;
+		clear_heredoc_contents();
 		return (status);
 	}
 	status = execute_pipeline(cmds, shell);
 	shell->exit_status = status;
+	clear_heredoc_contents();
 	return (status);
 }

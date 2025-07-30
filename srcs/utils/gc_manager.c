@@ -3,120 +3,112 @@
 /*                                                        :::      ::::::::   */
 /*   gc_manager.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mdusunen <mdusunen@student.42.fr>          +#+  +:+       +#+        */
+/*   By: yihakan <yihakan@student.42istanbul.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/29 00:00:00 by mdusunen          #+#    #+#             */
-/*   Updated: 2025/07/29 00:00:00 by mdusunen         ###   ########.fr       */
+/*   Updated: 2025/07/30 17:49:55 by yihakan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../includes/minishell.h"
 
-// Statik değişkenler - her type için ayrı pointer
-static void *gc_line = NULL;
-static void *gc_processed_line = NULL;
-static void *gc_tokens = NULL;
-static void *gc_commands = NULL;
-static void *gc_args = NULL;
-static void *gc_env_var = NULL;
-static void *gc_path = NULL;
-static void *gc_exec_path = NULL;
-static void *gc_heredoc = NULL;
-static void *gc_temp_str = NULL;
-static void *gc_env_array = NULL;
-static void *gc_redir = NULL;
-static void *gc_general = NULL;
-
 /**
- * Statik pointer'ı döndürür
+ * Returns the pointer for the specified GC type
  */
-void *gc_get_static_ptr(t_gc_type type)
+void *gc_get_static_ptr(t_shell *shell, t_gc_type type)
 {
+	if (!shell)
+		return (NULL);
 	if (type == GC_LINE)
-		return (gc_line);
+		return (shell->gc.gc_line);
 	else if (type == GC_PROCESSED_LINE)
-		return (gc_processed_line);
+		return (shell->gc.gc_processed_line);
 	else if (type == GC_TOKENS)
-		return (gc_tokens);
+		return (shell->gc.gc_tokens);
 	else if (type == GC_COMMANDS)
-		return (gc_commands);
+		return (shell->gc.gc_commands);
 	else if (type == GC_ARGS)
-		return (gc_args);
+		return (shell->gc.gc_args);
 	else if (type == GC_ENV_VAR)
-		return (gc_env_var);
+		return (shell->gc.gc_env_var);
 	else if (type == GC_PATH)
-		return (gc_path);
+		return (shell->gc.gc_path);
 	else if (type == GC_EXEC_PATH)
-		return (gc_exec_path);
+		return (shell->gc.gc_exec_path);
 	else if (type == GC_HEREDOC)
-		return (gc_heredoc);
+		return (shell->gc.gc_heredoc);
 	else if (type == GC_TEMP_STR)
-		return (gc_temp_str);
+		return (shell->gc.gc_temp_str);
 	else if (type == GC_ENV_ARRAY)
-		return (gc_env_array);
+		return (shell->gc.gc_env_array);
 	else if (type == GC_REDIR)
-		return (gc_redir);
+		return (shell->gc.gc_redir);
 	else if (type == GC_GENERAL)
-		return (gc_general);
+		return (shell->gc.gc_general);
 	return (NULL);
 }
 
 /**
- * Statik pointer'ı set eder
+ * Sets the pointer for the specified GC type
  */
-void gc_set_static_ptr(void *ptr, t_gc_type type)
+void gc_set_static_ptr(t_shell *shell, void *ptr, t_gc_type type)
 {
+	if (!shell)
+		return ;
 	if (type == GC_LINE)
-		gc_line = ptr;
+		shell->gc.gc_line = ptr;
 	else if (type == GC_PROCESSED_LINE)
-		gc_processed_line = ptr;
+		shell->gc.gc_processed_line = ptr;
 	else if (type == GC_TOKENS)
-		gc_tokens = ptr;
+		shell->gc.gc_tokens = ptr;
 	else if (type == GC_COMMANDS)
-		gc_commands = ptr;
+		shell->gc.gc_commands = ptr;
 	else if (type == GC_ARGS)
-		gc_args = ptr;
+		shell->gc.gc_args = ptr;
 	else if (type == GC_ENV_VAR)
-		gc_env_var = ptr;
+		shell->gc.gc_env_var = ptr;
 	else if (type == GC_PATH)
-		gc_path = ptr;
+		shell->gc.gc_path = ptr;
 	else if (type == GC_EXEC_PATH)
-		gc_exec_path = ptr;
+		shell->gc.gc_exec_path = ptr;
 	else if (type == GC_HEREDOC)
-		gc_heredoc = ptr;
+		shell->gc.gc_heredoc = ptr;
 	else if (type == GC_TEMP_STR)
-		gc_temp_str = ptr;
+		shell->gc.gc_temp_str = ptr;
 	else if (type == GC_ENV_ARRAY)
-		gc_env_array = ptr;
+		shell->gc.gc_env_array = ptr;
 	else if (type == GC_REDIR)
-		gc_redir = ptr;
+		shell->gc.gc_redir = ptr;
 	else if (type == GC_GENERAL)
-		gc_general = ptr;
+		shell->gc.gc_general = ptr;
 }
 
 /**
- * Belirli tip için malloc yapar ve statik pointer'a atar
+ * Allocates memory and assigns it to the specified GC type
  */
-void *gc_malloc(size_t size, t_gc_type type)
+void *gc_malloc(t_shell *shell, size_t size, t_gc_type type)
 {
 	void *ptr;
 
-	// Önce eski pointer'ı free et
-	gc_free_type(type);
+	if (!shell)
+		return (malloc(size));
+	
+	// Free the old pointer first
+	gc_free_type(shell, type);
 	
 	ptr = malloc(size);
 	if (!ptr)
 		return (NULL);
 	
-	// Yeni pointer'ı statik değişkene ata
-	gc_set_static_ptr(ptr, type);
+	// Assign new pointer to GC
+	gc_set_static_ptr(shell, ptr, type);
 	return (ptr);
 }
 
 /**
- * Belirli tip için strdup yapar
+ * Creates a duplicate string with GC management
  */
-char *gc_strdup(const char *s, t_gc_type type)
+char *gc_strdup(t_shell *shell, const char *s, t_gc_type type)
 {
 	char *new_str;
 	size_t len;
@@ -125,7 +117,7 @@ char *gc_strdup(const char *s, t_gc_type type)
 		return (NULL);
 		
 	len = ft_strlen(s);
-	new_str = gc_malloc(len + 1, type);
+	new_str = gc_malloc(shell, len + 1, type);
 	if (!new_str)
 		return (NULL);
 		
@@ -134,9 +126,9 @@ char *gc_strdup(const char *s, t_gc_type type)
 }
 
 /**
- * Belirli tip için strjoin yapar
+ * Joins two strings with GC management
  */
-char *gc_strjoin(const char *s1, const char *s2, t_gc_type type)
+char *gc_strjoin(t_shell *shell, const char *s1, const char *s2, t_gc_type type)
 {
 	char *new_str;
 	size_t len1, len2;
@@ -146,7 +138,7 @@ char *gc_strjoin(const char *s1, const char *s2, t_gc_type type)
 		
 	len1 = ft_strlen(s1);
 	len2 = ft_strlen(s2);
-	new_str = gc_malloc(len1 + len2 + 1, type);
+	new_str = gc_malloc(shell, len1 + len2 + 1, type);
 	if (!new_str)
 		return (NULL);
 		
@@ -156,40 +148,45 @@ char *gc_strjoin(const char *s1, const char *s2, t_gc_type type)
 }
 
 /**
- * Array için malloc yapar
+ * Allocates an array with GC management
  */
-char **gc_malloc_array(size_t count, t_gc_type type)
+char **gc_malloc_array(t_shell *shell, size_t count, t_gc_type type)
 {
 	char **array;
 
-	array = gc_malloc(sizeof(char *) * count, type);
+	array = gc_malloc(shell, sizeof(char *) * count, type);
 	return (array);
 }
 
 /**
- * Belirli bir tip için memory'yi free eder
+ * Frees memory for a specific GC type
  */
-void gc_free_type(t_gc_type type)
+void gc_free_type(t_shell *shell, t_gc_type type)
 {
 	void *ptr;
 
-	ptr = gc_get_static_ptr(type);
+	if (!shell)
+		return ;
+	
+	ptr = gc_get_static_ptr(shell, type);
 	if (ptr)
 	{
 		free(ptr);
-		// Statik pointer'ı NULL yap
-		gc_set_static_ptr(NULL, type);
+		// Set pointer to NULL
+		gc_set_static_ptr(shell, NULL, type);
 	}
 }
 
 /**
- * Tüm statik pointer'ları free eder
+ * Frees all GC-managed memory
  */
-void gc_free_all(void)
+void gc_free_all(t_shell *shell)
 {
-	gc_free_type(GC_LINE);
-	gc_free_type(GC_PROCESSED_LINE);
-	gc_free_type(GC_HEREDOC);
-	gc_free_type(GC_TEMP_STR);
-	gc_free_type(GC_GENERAL);
+	if (!shell)
+		return ;
+	gc_free_type(shell, GC_LINE);
+	gc_free_type(shell, GC_PROCESSED_LINE);
+	gc_free_type(shell, GC_HEREDOC);
+	gc_free_type(shell, GC_TEMP_STR);
+	gc_free_type(shell, GC_GENERAL);
 }

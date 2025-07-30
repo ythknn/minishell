@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   minishell.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: yihakan <yihakan@student.42.fr>            +#+  +:+       +#+        */
+/*   By: yihakan <yihakan@student.42istanbul.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/17 10:30:00 by yihakan           #+#    #+#             */
-/*   Updated: 2025/01/17 10:30:00 by yihakan          ###   ########.fr       */
+/*   Updated: 2025/07/30 17:49:14 by yihakan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -116,15 +116,33 @@ typedef struct s_lexer
 	char	quote_char;
 }	t_lexer;
 
+typedef struct s_gc_manager
+{
+	void	*gc_line;
+	void	*gc_processed_line;
+	void	*gc_tokens;
+	void	*gc_commands;
+	void	*gc_args;
+	void	*gc_env_var;
+	void	*gc_path;
+	void	*gc_exec_path;
+	void	*gc_heredoc;
+	void	*gc_temp_str;
+	void	*gc_env_array;
+	void	*gc_redir;
+	void	*gc_general;
+}	t_gc_manager;
+
 typedef struct s_shell
 {
-	t_env		*env_list;
-	char		**env_array;
-	t_token		*tokens;
-	t_command	*commands;
-	char		*processed_line;
-	int			exit_status;
-	int			interactive;
+	t_env			*env_list;
+	char			**env_array;
+	t_token			*tokens;
+	t_command		*commands;
+	char			*processed_line;
+	int				exit_status;
+	int				interactive;
+	t_gc_manager	gc;
 }	t_shell;
 
 typedef struct s_expand_ctx
@@ -234,13 +252,24 @@ void		or_operator(char *input, int *i, t_token **tokens);
 void		skip_whitespace(char *input, int *i);
 int			is_whitespace(char c);
 
-void		*gc_malloc(size_t size, t_gc_type type);
-void		*gc_get_static_ptr(t_gc_type type);
-void		gc_set_static_ptr(void *ptr, t_gc_type type);
-void		gc_free_type(t_gc_type type);
-void		gc_free_all(void);
-char		*gc_strdup(const char *s, t_gc_type type);
-char		*gc_strjoin(const char *s1, const char *s2, t_gc_type type);
-char		**gc_malloc_array(size_t count, t_gc_type type);
+void		*gc_malloc(t_shell *shell, size_t size, t_gc_type type);
+void		*gc_get_static_ptr(t_shell *shell, t_gc_type type);
+void		gc_set_static_ptr(t_shell *shell, void *ptr, t_gc_type type);
+void		gc_free_type(t_shell *shell, t_gc_type type);
+void		gc_free_all(t_shell *shell);
+char		*gc_strdup(t_shell *shell, const char *s, t_gc_type type);
+char		*gc_strjoin(t_shell *shell, const char *s1, const char *s2, t_gc_type type);
+char		**gc_malloc_array(t_shell *shell, size_t count, t_gc_type type);
+
+// Wildcard functions
+int			has_wildcard(const char *str);
+int			match_pattern(const char *pattern, const char *str);
+char		**expand_wildcard(const char *pattern);
+void		sort_matches(char **matches);
+
+// Heredoc preprocessing functions
+int			preprocess_all_heredocs(t_command *cmds, t_shell *shell);
+char		*get_preprocessed_heredoc_content(void);
+void		clear_heredoc_contents(void);
 
 #endif
