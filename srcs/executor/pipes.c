@@ -31,7 +31,7 @@ int	execute_pipeline(t_command *cmds, t_shell *shell)
 	{
 		if (current->next)
 			pipe(pipe_fd);
-		if (!current->args || !current->args[0])
+		if ((!current->args || !current->args[0]) && !current->is_group)
 		{
 			if (current->next)
 			{
@@ -41,7 +41,7 @@ int	execute_pipeline(t_command *cmds, t_shell *shell)
 			current = current->next;
 			continue ;
 		}
-		if (is_builtin(current->args[0]) && !current->next && !prev_pipe_read)
+		if (!current->is_group && is_builtin(current->args[0]) && !current->next && !prev_pipe_read)
 		{
 			last_status = execute_builtin(current->args, shell);
 			shell->exit_status = last_status;
@@ -49,25 +49,28 @@ int	execute_pipeline(t_command *cmds, t_shell *shell)
 			current = current->next;
 			continue ;
 		}	
-		path = find_executable(current->args[0], shell);
-		if (!path && !is_builtin(current->args[0]))
+		if (!current->is_group)
 		{
-			print_command_not_found(current->args[0]);
-			last_status = 127;
-			shell->exit_status = last_status;
-			if (!current->next)
-				last_cmd_not_found = 1;
-			else
-				last_cmd_not_found = 0;
-			if (current->next)
+			path = find_executable(current->args[0], shell);
+			if (!path && !is_builtin(current->args[0]))
 			{
-				close(pipe_fd[0]);
-				close(pipe_fd[1]);
+				print_command_not_found(current->args[0]);
+				last_status = 127;
+				shell->exit_status = last_status;
+				if (!current->next)
+					last_cmd_not_found = 1;
+				else
+					last_cmd_not_found = 0;
+				if (current->next)
+				{
+					close(pipe_fd[0]);
+					close(pipe_fd[1]);
+				}
+				if (prev_pipe_read != -1)
+					close(prev_pipe_read);
+				current = current->next;
+				continue ;
 			}
-			if (prev_pipe_read != -1)
-				close(prev_pipe_read);
-			current = current->next;
-			continue ;
 		}
 		last_cmd_not_found = 0;
 		pid = fork();
@@ -89,16 +92,25 @@ int	execute_pipeline(t_command *cmds, t_shell *shell)
 				free_shell(shell);
 				exit(1);
 			}
-			if (is_builtin(current->args[0]))
+			if (current->is_group)
+			{
+				status = execute_commands(current->group->commands, shell);
+				free_shell(shell);
+				exit(status);
+			}
+			else if (is_builtin(current->args[0]))
 			{
 				status = execute_builtin(current->args, shell);
 				free_shell(shell);
 				exit(status);
 			}
-			execve(path, current->args, shell->env_array);
-			print_error(current->args[0], NULL, strerror(errno));
-			free_shell(shell);
-			exit(1);
+			else
+			{
+				execve(path, current->args, shell->env_array);
+				print_error(current->args[0], NULL, strerror(errno));
+				free_shell(shell);
+				exit(1);
+			}
 		}
 		if (prev_pipe_read != -1)
 			close(prev_pipe_read);

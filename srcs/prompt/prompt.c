@@ -20,13 +20,12 @@
 #define CYAN "\033[36m"
 #define RESET "\033[0m"
 
-char	*display_prompt(void)
+static char	*create_prompt_string(void)
 {
-	char	*line;
-	char	*prompt;
 	char	*temp1;
 	char	*temp2;
 	char	*temp3;
+	char	*prompt;
 
 	temp1 = ft_strjoin(GREEN, "minishell");
 	temp2 = ft_strjoin(temp1, RESET);
@@ -39,16 +38,22 @@ char	*display_prompt(void)
 	free(temp2);
 	prompt = ft_strjoin(temp3, " ");
 	free(temp3);
+	return (prompt);
+}
+
+char	*display_prompt(void)
+{
+	char	*line;
+	char	*prompt;
+
+	prompt = create_prompt_string();
 	line = readline(prompt);
 	free(prompt);
-	
-	// EOF (Ctrl+D) durumunda global cleanup
 	if (!line)
 	{
 		clear_current_tokens();
 		clear_current_commands();
 		gc_free_all();
 	}
-	
 	return (line);
 }

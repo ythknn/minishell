@@ -1,7 +1,7 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   static_vars.c                                      :+:      :+:    :+:   */
+/*   tokenizer_operators.c                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: yihakan <yihakan@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
@@ -12,34 +12,27 @@
 
 #include "../includes/minishell.h"
 
-static t_token		*g_current_tokens = NULL;
-static t_command	*g_current_commands = NULL;
-
-t_token	*get_current_tokens(void)
+void	and_operator(char *input, int *i, t_token **tokens)
 {
-	return (g_current_tokens);
-}
-
-t_command	*get_current_commands(void)
-{
-	return (g_current_commands);
-}
-
-void	set_current_tokens(t_token *tokens)
-{
-	g_current_tokens = tokens;
-}
-
-void	set_current_commands(t_command *commands)
-{
-	g_current_commands = commands;
-}
-
-void	clear_current_tokens(void)
-{
-	if (g_current_tokens)
+	if (input[*i + 1] == '&')
 	{
-		free_tokens(g_current_tokens);
-		g_current_tokens = NULL;
+		add_token(tokens, create_token(T_AND, ft_strdup("&&")));
+		(*i) += 2;
+	}
+	else
+		(*i)++;
+}
+
+void	or_operator(char *input, int *i, t_token **tokens)
+{
+	if (input[*i + 1] == '|')
+	{
+		add_token(tokens, create_token(T_OR, ft_strdup("||")));
+		(*i) += 2;
+	}
+	else
+	{
+		add_token(tokens, create_token(T_PIPE, ft_strdup("|")));
+		(*i)++;
 	}
 }

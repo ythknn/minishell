@@ -61,6 +61,8 @@ void	free_commands(t_command *cmds)
 			free(current_redir);
 			current_redir = next_redir;
 		}
+		if (current_cmd->group)
+			free_command_groups(current_cmd->group);
 		free(current_cmd);
 		current_cmd = next_cmd;
 	}

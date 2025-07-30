@@ -29,42 +29,43 @@ char	*handle_exit_status(char *result, int *j, int *i, t_shell *shell)
 	return (result);
 }
 
-char	*handle_env_var(char *str, int *i, char *result, int *j, t_shell *shell)
+char	*handle_env_var(t_expand_ctx *ctx, t_shell *shell)
 {
 	char	var_name[256];
 	char	*env_value;
 	int		k;
 
 	k = 0;
-	while (str[*i] && (str[*i] == '_' || (str[*i] >= 'a' && str[*i] <= 'z')
-			|| (str[*i] >= 'A' && str[*i] <= 'Z')
-			|| (str[*i] >= '0' && str[*i] <= '9')))
+	while (ctx->str[*ctx->i] && (ctx->str[*ctx->i] == '_' 
+		|| (ctx->str[*ctx->i] >= 'a' && ctx->str[*ctx->i] <= 'z')
+		|| (ctx->str[*ctx->i] >= 'A' && ctx->str[*ctx->i] <= 'Z')
+		|| (ctx->str[*ctx->i] >= '0' && ctx->str[*ctx->i] <= '9')))
 	{
-		var_name[k++] = str[(*i)++];
+		var_name[k++] = ctx->str[(*ctx->i)++];
 	}
 	var_name[k] = '\0';
 	env_value = get_env_value(shell->env_list, var_name);
 	if (env_value)
 	{
-		ft_strlcpy(result + *j, env_value, 4096 - *j);
-		*j += ft_strlen(env_value);
+		ft_strlcpy(ctx->result + *ctx->j, env_value, 4096 - *ctx->j);
+		*ctx->j += ft_strlen(env_value);
 	}
-	return (result);
+	return (ctx->result);
 }
 
-char	*handle_dollar_sign(char *str, int *i,
-	char *result, int *j, t_shell *shell)
+char	*handle_dollar_sign(t_expand_ctx *ctx, t_shell *shell)
 {
-	(*i)++;
-	if (str[*i] == '?')
-		result = handle_exit_status(result, j, i, shell);
-	else if (str[*i] && (str[*i] == '_' || (str[*i] >= 'a' && str[*i] <= 'z')
-			|| (str[*i] >= 'A' && str[*i] <= 'Z')
-			|| (str[*i] >= '0' && str[*i] <= '9')))
-		result = handle_env_var(str, i, result, j, shell);
+	(*ctx->i)++;
+	if (ctx->str[*ctx->i] == '?')
+		ctx->result = handle_exit_status(ctx->result, ctx->j, ctx->i, shell);
+	else if (ctx->str[*ctx->i] && (ctx->str[*ctx->i] == '_' 
+		|| (ctx->str[*ctx->i] >= 'a' && ctx->str[*ctx->i] <= 'z')
+		|| (ctx->str[*ctx->i] >= 'A' && ctx->str[*ctx->i] <= 'Z')
+		|| (ctx->str[*ctx->i] >= '0' && ctx->str[*ctx->i] <= '9')))
+		ctx->result = handle_env_var(ctx, shell);
 	else
-		result[(*j)++] = '$';
-	return (result);
+		ctx->result[(*ctx->j)++] = '$';
+	return (ctx->result);
 }
 
 void	expand_redirections(t_command *cmd, t_shell *shell)

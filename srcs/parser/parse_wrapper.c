@@ -1,7 +1,7 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   static_vars.c                                      :+:      :+:    :+:   */
+/*   parse_wrapper.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: yihakan <yihakan@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
@@ -12,34 +12,7 @@
 
 #include "../includes/minishell.h"
 
-static t_token		*g_current_tokens = NULL;
-static t_command	*g_current_commands = NULL;
-
-t_token	*get_current_tokens(void)
+t_command	*parse(t_token *tokens)
 {
-	return (g_current_tokens);
-}
-
-t_command	*get_current_commands(void)
-{
-	return (g_current_commands);
-}
-
-void	set_current_tokens(t_token *tokens)
-{
-	g_current_tokens = tokens;
-}
-
-void	set_current_commands(t_command *commands)
-{
-	g_current_commands = commands;
-}
-
-void	clear_current_tokens(void)
-{
-	if (g_current_tokens)
-	{
-		free_tokens(g_current_tokens);
-		g_current_tokens = NULL;
-	}
+	return (parse_token_loop(tokens));
 }

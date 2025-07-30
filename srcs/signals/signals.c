@@ -30,11 +30,8 @@ void	handle_sigint(int sig)
 {
 	(void)sig;
 	g_signal = SIGINT;
-	
-	// Static parsing state'i temizle
 	clear_current_tokens();
 	clear_current_commands();
-	
 	write(STDOUT_FILENO, "\n", 1);
 	rl_replace_line("", 0);
 	rl_on_new_line();
@@ -45,15 +42,12 @@ void	handle_heredoc_sigint(int sig)
 {
 	(void)sig;
 	g_signal = SIGINT;
-	
-	// Static parsing state'i temizle
 	clear_current_tokens();
 	clear_current_commands();
-	
-	// Heredoc interrupt'ında tüm parsing memory'yi temizle
 	gc_free_all();
 	rl_replace_line("", 0);
-	rl_done = 1;
+	rl_on_new_line();
+	rl_redisplay();
 }
 
 void	setup_signals(void)

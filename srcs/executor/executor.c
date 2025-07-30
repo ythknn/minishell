@@ -100,10 +100,48 @@ static int	execute_external_command(t_command *cmd, t_shell *shell, char *path)
 	return (shell->exit_status);
 }
 
+static int	execute_command_group(t_command *cmd, t_shell *shell)
+{
+	pid_t	pid;
+	int		status;
+
+	if (!cmd->group || !cmd->group->commands)
+		return (0);
+	
+	pid = fork();
+	if (pid == 0)
+	{
+		// Child process - execute the group commands
+		if (setup_redirections(cmd->redirections) != 0)
+		{
+			free_shell(shell);
+			exit(1);
+		}
+		status = execute_commands(cmd->group->commands, shell);
+		free_shell(shell);
+		exit(status);
+	}
+	else if (pid < 0)
+	{
+		print_error("fork", NULL, strerror(errno));
+		shell->exit_status = 1;
+		return (1);
+	}
+	
+	waitpid(pid, &status, 0);
+	if (WIFEXITED(status))
+		shell->exit_status = WEXITSTATUS(status);
+	else
+		shell->exit_status = 1;
+	return (shell->exit_status);
+}
+
 static int	execute_single_command(t_command *cmd, t_shell *shell)
 {
 	char	*path;
 
+	if (cmd->is_group)
+		return (execute_command_group(cmd, shell));
 	if (!cmd->args || !cmd->args[0] || is_builtin(cmd->args[0]))
 		return (handle_redirections_builtin(cmd, shell));
 	path = find_executable(cmd->args[0], shell);
@@ -112,44 +150,66 @@ static int	execute_single_command(t_command *cmd, t_shell *shell)
 	return (execute_external_command(cmd, shell, path));
 }
 
-static int	execute_logical_segment(t_command *start_cmd, t_shell *shell)
+static int	execute_segment_type(t_command *segment_start)
 {
-	t_command *current;
-	t_command *segment_start;
-	int status;
+	if (!segment_start->next)
+		return (0);
+	return (1);
+}
 
-	segment_start = start_cmd;
+static int	execute_segment_command(t_command *segment_start, t_shell *shell,
+	int is_pipeline)
+{
+	if (is_pipeline)
+		return (execute_pipeline(segment_start, shell));
+	return (execute_single_command(segment_start, shell));
+}
+
+static t_command	*find_segment_end(t_command *start_cmd)
+{
+	t_command	*current;
+
 	current = start_cmd;
-	
-	// Find the end of this pipeline segment (until we hit && or || or end)
 	while (current && current->operator != T_AND && current->operator != T_OR)
 		current = current->next;
-	
-	// Temporarily break the chain to isolate this segment
+	return (current);
+}
+
+static int	execute_logical_segment(t_command *start_cmd, t_shell *shell)
+{
+	t_command	*current;
+	t_command	*segment_start;
+	t_command	*next_segment;
+	int			status;
+	int			is_pipeline;
+
+	segment_start = start_cmd;
+	current = find_segment_end(start_cmd);
 	if (current)
 	{
-		t_command *next_segment = current->next;
+		next_segment = current->next;
 		current->next = NULL;
-		
-		// Execute this segment (might be single command or pipeline)
-		if (!segment_start->next)
-			status = execute_single_command(segment_start, shell);
-		else
-			status = execute_pipeline(segment_start, shell);
-			
-		// Restore the chain
+		is_pipeline = execute_segment_type(segment_start);
+		status = execute_segment_command(segment_start, shell, is_pipeline);
 		current->next = next_segment;
 	}
 	else
 	{
-		// This is the last segment
-		if (!segment_start->next)
-			status = execute_single_command(segment_start, shell);
-		else
-			status = execute_pipeline(segment_start, shell);
+		is_pipeline = execute_segment_type(segment_start);
+		status = execute_segment_command(segment_start, shell, is_pipeline);
 	}
-	
-	return status;
+	return (status);
+}
+
+static t_command	*move_to_next_and_segment(t_command *current)
+{
+	while (current && current->operator != T_AND && current->operator != T_OR)
+		current = current->next;
+	if (current && current->operator == T_AND)
+		current = current->next;
+	else
+		current = NULL;
+	return (current);
 }
 
 static int	execute_and_chain(t_command *cmds, t_shell *shell)
@@ -159,29 +219,28 @@ static int	execute_and_chain(t_command *cmds, t_shell *shell)
 
 	if (!cmds || !shell)
 		return (1);
-		
 	current = cmds;
 	while (current)
 	{
-		// Execute this logical segment
 		status = execute_logical_segment(current, shell);
 		if (shell)
 			shell->exit_status = status;
-		
-		// If command failed, stop executing the chain
 		if (status != 0)
 			return (status);
-			
-		// Move to the next logical segment
-		while (current && current->operator != T_AND && current->operator != T_OR)
-			current = current->next;
-			
-		if (current && current->operator == T_AND)
-			current = current->next;
-		else
-			break;
+		current = move_to_next_and_segment(current);
 	}
 	return (shell ? shell->exit_status : status);
+}
+
+static t_command	*move_to_next_or_segment(t_command *current)
+{
+	while (current && current->operator != T_AND && current->operator != T_OR)
+		current = current->next;
+	if (current && current->operator == T_OR)
+		current = current->next;
+	else
+		current = NULL;
+	return (current);
 }
 
 static int	execute_or_chain(t_command *cmds, t_shell *shell)
@@ -191,37 +250,48 @@ static int	execute_or_chain(t_command *cmds, t_shell *shell)
 
 	if (!cmds || !shell)
 		return (1);
-		
 	current = cmds;
 	while (current)
 	{
-		// Execute this logical segment
 		status = execute_logical_segment(current, shell);
 		if (shell)
 			shell->exit_status = status;
-		
-		// If command succeeded, stop executing the chain
 		if (status == 0)
 			return (status);
-			
-		// Move to the next logical segment
-		while (current && current->operator != T_AND && current->operator != T_OR)
-			current = current->next;
-			
-		if (current && current->operator == T_OR)
-			current = current->next;
-		else
-			break;
+		current = move_to_next_or_segment(current);
 	}
 	return (shell ? shell->exit_status : status);
+}
+
+static int	check_operator_type(t_command *cmds, int *has_and, int *has_or)
+{
+	t_command	*current;
+
+	*has_and = 0;
+	*has_or = 0;
+	current = cmds;
+	while (current && current->next)
+	{
+		if (current->operator == T_AND)
+		{
+			*has_and = 1;
+			break ;
+		}
+		else if (current->operator == T_OR)
+		{
+			*has_or = 1;
+			break ;
+		}
+		current = current->next;
+	}
+	return (*has_and || *has_or);
 }
 
 int	execute_commands(t_command *cmds, t_shell *shell)
 {
 	int	status;
-	t_command *current;
-	int has_and_operator;
-	int has_or_operator;
+	int	has_and_operator;
+	int	has_or_operator;
 
 	if (!cmds)
 		return (0);
@@ -231,26 +301,7 @@ int	execute_commands(t_command *cmds, t_shell *shell)
 		shell->exit_status = status;
 		return (status);
 	}
-	
-	// Check for logical operators (&& or ||)
-	has_and_operator = 0;
-	has_or_operator = 0;
-	current = cmds;
-	while (current && current->next)
-	{
-		if (current->operator == T_AND)
-		{
-			has_and_operator = 1;
-			break;
-		}
-		else if (current->operator == T_OR)
-		{
-			has_or_operator = 1;
-			break;
-		}
-		current = current->next;
-	}
-	
+	check_operator_type(cmds, &has_and_operator, &has_or_operator);
 	if (has_and_operator)
 	{
 		status = execute_and_chain(cmds, shell);
@@ -263,8 +314,6 @@ int	execute_commands(t_command *cmds, t_shell *shell)
 		shell->exit_status = status;
 		return (status);
 	}
-	
-	// Default to pipeline execution for | operators
 	status = execute_pipeline(cmds, shell);
 	shell->exit_status = status;
 	return (status);
