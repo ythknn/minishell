@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   prompt.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mdusunen <mdusunen@student.42.fr>          +#+  +:+       +#+        */
+/*   By: yihakan <yihakan@student.42istanbul.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/15 18:21:39 by mdusunen          #+#    #+#             */
-/*   Updated: 2025/07/22 17:56:18 by mdusunen         ###   ########.fr       */
+/*   Updated: 2025/08/03 10:02:47 by yihakan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@
 #define CYAN "\033[36m"
 #define RESET "\033[0m"
 
-char	*display_prompt(void)
+char	*display_prompt(t_shell *shell)
 {
 	char	*line;
 	char	*prompt;
@@ -42,12 +42,12 @@ char	*display_prompt(void)
 	line = readline(prompt);
 	free(prompt);
 	
-	// EOF (Ctrl+D) durumunda global cleanup
+	// EOF (Ctrl+D) durumunda shell cleanup
 	if (!line)
 	{
-		clear_current_tokens();
-		clear_current_commands();
-		gc_free_all();
+		clear_current_tokens(shell);
+		clear_current_commands(shell);
+		gc_free_all(shell);
 	}
 	
 	return (line);

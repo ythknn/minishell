@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   signals.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mdusunen <mdusunen@student.42.fr>          +#+  +:+       +#+        */
+/*   By: yihakan <yihakan@student.42istanbul.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/15 18:36:07 by mdusunen          #+#    #+#             */
-/*   Updated: 2025/07/28 18:14:23 by mdusunen         ###   ########.fr       */
+/*   Updated: 2025/08/03 10:04:37 by yihakan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,8 +32,11 @@ void	handle_sigint(int sig)
 	g_signal = SIGINT;
 	
 	// Static parsing state'i temizle
-	clear_current_tokens();
-	clear_current_commands();
+	if (g_shell_ptr)
+	{
+		clear_current_tokens((t_shell *)g_shell_ptr);
+		clear_current_commands((t_shell *)g_shell_ptr);
+	}
 	
 	write(STDOUT_FILENO, "\n", 1);
 	rl_replace_line("", 0);
@@ -47,11 +50,14 @@ void	handle_heredoc_sigint(int sig)
 	g_signal = SIGINT;
 	
 	// Static parsing state'i temizle
-	clear_current_tokens();
-	clear_current_commands();
-	
-	// Heredoc interrupt'ında tüm parsing memory'yi temizle
-	gc_free_all();
+	if (g_shell_ptr)
+	{
+		clear_current_tokens((t_shell *)g_shell_ptr);
+		clear_current_commands((t_shell *)g_shell_ptr);
+		
+		// Heredoc interrupt'ında tüm parsing memory'yi temizle
+		gc_free_all((t_shell *)g_shell_ptr);
+	}
 	rl_replace_line("", 0);
 	rl_done = 1;
 }

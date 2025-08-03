@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   redirections.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mdusunen <mdusunen@student.42.fr>          +#+  +:+       +#+        */
+/*   By: yihakan <yihakan@student.42istanbul.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/11 16:29:36 by yihakan           #+#    #+#             */
-/*   Updated: 2025/07/28 18:17:30 by mdusunen         ###   ########.fr       */
+/*   Updated: 2025/08/03 10:07:05 by yihakan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,7 +39,8 @@ static void cleanup_heredoc_resources(char *content, char *delimiter, t_shell *s
 	(void)content; // Unused parameter - GC handles content cleanup
 	
 	// GC sistemindeki heredoc memory'yi temizle
-	gc_free_all();
+	if (shell)
+		gc_free_all(shell);
 	
 	if (delimiter)
 		free(delimiter);
@@ -102,7 +103,7 @@ static char	*handle_multiple_heredocs(t_redir *heredocs)
 		}
 		if (is_last_heredoc && !content)
 		{
-			content = gc_strdup("", GC_HEREDOC);
+			content = gc_strdup(&shell, "", GC_HEREDOC);
 			content_size = 1;
 			if (!content)
 			{
@@ -139,7 +140,7 @@ static char	*handle_multiple_heredocs(t_redir *heredocs)
 					expanded_line = line;
 				}
 				content_size += strlen(expanded_line) + 1;
-				temp = gc_malloc(content_size, GC_TEMP_STR);
+				temp = gc_malloc(&shell, content_size, GC_TEMP_STR);
 				if (!temp)
 				{
 					free(expanded_line);
@@ -148,9 +149,9 @@ static char	*handle_multiple_heredocs(t_redir *heredocs)
 				}
 				sprintf(temp, "%s%s\n", content, expanded_line);
 				// Eski content'i serbest bırak, yeni temp GC_HEREDOC'a ata
-				gc_free_type(GC_HEREDOC);
-				content = gc_strdup(temp, GC_HEREDOC);
-				gc_free_type(GC_TEMP_STR);
+				gc_free_type(&shell, GC_HEREDOC);
+				content = gc_strdup(&shell, temp, GC_HEREDOC);
+				gc_free_type(&shell, GC_TEMP_STR);
 				free(expanded_line);
 			}
 			else
@@ -174,15 +175,16 @@ static char	*handle_multiple_heredocs(t_redir *heredocs)
 	rl_point = 0;
 	rl_end = 0;
 	setup_signals();
-	free_shell(&shell);
 	
 	// Normal completion'da content'i GC'den çıkar ve return et
 	char *final_content = NULL;
 	if (content)
 	{
 		final_content = ft_strdup(content);
-		gc_free_type(GC_HEREDOC);
+		gc_free_type(&shell, GC_HEREDOC);
 	}
+	
+	free_shell(&shell);
 	return (final_content);
 }
 
