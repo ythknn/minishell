@@ -99,22 +99,41 @@ typedef struct s_shell
 	char *processed_line;
 	int exit_status;
 	int interactive;
+	
+	// Garbage collection pointers (replaces global static variables)
+	void *gc_line;
+	void *gc_processed_line;
+	void *gc_tokens;
+	void *gc_commands;
+	void *gc_args;
+	void *gc_env_var;
+	void *gc_path;
+	void *gc_exec_path;
+	void *gc_heredoc;
+	void *gc_temp_str;
+	void *gc_env_array;
+	void *gc_redir;
+	void *gc_general;
+	
+	// Static parsing state (replaces global static variables)
+	t_token *current_tokens;
+	t_command *current_commands;
 } t_shell;
 
 // Static parsing state access functions
-t_token *get_current_tokens(void);
-t_command *get_current_commands(void);
-void set_current_tokens(t_token *tokens);
-void set_current_commands(t_command *commands);
-void clear_current_tokens(void);
-void clear_current_commands(void);
+t_token *get_current_tokens(t_shell *shell);
+t_command *get_current_commands(t_shell *shell);
+void set_current_tokens(t_shell *shell, t_token *tokens);
+void set_current_commands(t_shell *shell, t_command *commands);
+void clear_current_tokens(t_shell *shell);
+void clear_current_commands(t_shell *shell);
 
 void init_shell(t_shell *shell, char **env);
 void free_shell(t_shell *shell);
 int ft_strcmp(const char *s1, const char *s2);
 void cleanup_shell_resources(t_shell *shell);
 
-char *display_prompt(void);
+char *display_prompt(t_shell *shell);
 void add_to_history(char *line);
 void init_history(void);
 void save_history(void);
@@ -197,14 +216,20 @@ int	is_whitespace(char c);
 
 //void free_heredoc(t_shell *shell);
 
+// Export utility functions
+int is_valid_env_name(const char *name);
+void print_export_error(char *arg);
+void print_exported_vars(t_env *env);
+char *extract_key(char *arg);
+
 // Garbage Collector Functions
-void *gc_malloc(size_t size, t_gc_type type);
-void *gc_get_static_ptr(t_gc_type type);
-void gc_set_static_ptr(void *ptr, t_gc_type type);
-void gc_free_type(t_gc_type type);
-void gc_free_all(void);
-char *gc_strdup(const char *s, t_gc_type type);
-char *gc_strjoin(const char *s1, const char *s2, t_gc_type type);
-char **gc_malloc_array(size_t count, t_gc_type type);
+void *gc_malloc(t_shell *shell, size_t size, t_gc_type type);
+void *gc_get_static_ptr(t_shell *shell, t_gc_type type);
+void gc_set_static_ptr(t_shell *shell, void *ptr, t_gc_type type);
+void gc_free_type(t_shell *shell, t_gc_type type);
+void gc_free_all(t_shell *shell);
+char *gc_strdup(t_shell *shell, const char *s, t_gc_type type);
+char *gc_strjoin(t_shell *shell, const char *s1, const char *s2, t_gc_type type);
+char **gc_malloc_array(t_shell *shell, size_t count, t_gc_type type);
 
 #endif

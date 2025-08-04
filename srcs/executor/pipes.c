@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   pipes.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mdusunen <mdusunen@student.42.fr>          +#+  +:+       +#+        */
+/*   By: yihakan <yihakan@student.42istanbul.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/09 19:23:59 by yihakan           #+#    #+#             */
-/*   Updated: 2025/07/15 18:11:34 by mdusunen         ###   ########.fr       */
+/*   Updated: 2025/08/03 10:44:15 by yihakan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,15 +41,17 @@ int	execute_pipeline(t_command *cmds, t_shell *shell)
 			current = current->next;
 			continue ;
 		}
+		path = find_executable(current->args[0], shell);
 		if (is_builtin(current->args[0]) && !current->next && !prev_pipe_read)
 		{
+			if (path)
+				free(path);
 			last_status = execute_builtin(current->args, shell);
 			shell->exit_status = last_status;
 			last_cmd_not_found = 0;
 			current = current->next;
 			continue ;
-		}	
-		path = find_executable(current->args[0], shell);
+		}
 		if (!path && !is_builtin(current->args[0]))
 		{
 			print_command_not_found(current->args[0]);

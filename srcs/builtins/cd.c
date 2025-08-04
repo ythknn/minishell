@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   cd.c                                               :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mdusunen <mdusunen@student.42.fr>          +#+  +:+       +#+        */
+/*   By: yihakan <yihakan@student.42istanbul.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/09 19:11:41 by yihakan           #+#    #+#             */
-/*   Updated: 2025/07/26 18:24:15 by mdusunen         ###   ########.fr       */
+/*   Updated: 2025/08/03 10:48:19 by yihakan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,17 +36,11 @@ static int	handle_cd_path(char **args, t_shell *shell, char **path)
 	return (0);
 }
 
-int	ft_cd(char **args, t_shell *shell)
+static void	update_env_vars(t_shell *shell, char *path)
 {
-	char	*path;
 	char	cwd[4096];
 	char	*old_pwd;
-	int		ret;
-	int		i;
 
-	ret = handle_cd_path(args, shell, &path);
-	if (ret != 0)
-		return (ret);
 	old_pwd = getcwd(cwd, 4096);
 	if (old_pwd)
 		shell->env_list = add_env_var(shell->env_list, "OLDPWD", old_pwd);
@@ -54,10 +48,16 @@ int	ft_cd(char **args, t_shell *shell)
 	{
 		print_error("cd", path, strerror(errno));
 		shell->exit_status = ERROR;
-		return (ERROR);
+		return ;
 	}
 	if (getcwd(cwd, 4096))
 		shell->env_list = add_env_var(shell->env_list, "PWD", cwd);
+}
+
+static void	refresh_env_array(t_shell *shell)
+{
+	int	i;
+
 	if (shell->env_array)
 	{
 		i = 0;
@@ -66,6 +66,20 @@ int	ft_cd(char **args, t_shell *shell)
 		free(shell->env_array);
 	}
 	shell->env_array = env_list_to_array(shell->env_list);
+}
+
+int	ft_cd(char **args, t_shell *shell)
+{
+	char	*path;
+	int		ret;
+
+	ret = handle_cd_path(args, shell, &path);
+	if (ret != 0)
+		return (ret);
+	update_env_vars(shell, path);
+	if (shell->exit_status == ERROR)
+		return (ERROR);
+	refresh_env_array(shell);
 	shell->exit_status = SUCCESS;
 	return (SUCCESS);
 }

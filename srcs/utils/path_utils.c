@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   path_utils.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mdusunen <mdusunen@student.42.fr>          +#+  +:+       +#+        */
+/*   By: yihakan <yihakan@student.42istanbul.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/15 18:35:00 by mdusunen          #+#    #+#             */
-/*   Updated: 2025/07/22 17:56:18 by mdusunen         ###   ########.fr       */
+/*   Updated: 2025/08/03 10:43:15 by yihakan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,11 +64,15 @@ static char	*build_exec_path(char *dir, char *cmd)
 	char	*exec_path;
 	char	*temp;
 
+	if (!dir || !cmd)
+		return (NULL);
 	temp = ft_strjoin(dir, "/");
 	if (!temp)
 		return (NULL);
 	exec_path = ft_strjoin(temp, cmd);
 	free(temp);
+	if (!exec_path)
+		return (NULL);
 	return (exec_path);
 }
 
@@ -77,11 +81,14 @@ static char	*search_in_path(char *cmd, char *path_env)
 	char	*path;
 	char	*token;
 	char	*exec_path;
+	char	*saveptr;
 
+	if (!cmd || !path_env)
+		return (NULL);
 	path = ft_strdup(path_env);
 	if (!path)
 		return (NULL);
-	token = strtok(path, ":");
+	token = strtok_r(path, ":", &saveptr);
 	while (token)
 	{
 		exec_path = build_exec_path(token, cmd);
@@ -96,7 +103,8 @@ static char	*search_in_path(char *cmd, char *path_env)
 			return (exec_path);
 		}
 		free(exec_path);
-		token = strtok(NULL, ":");
+		exec_path = NULL;
+		token = strtok_r(NULL, ":", &saveptr);
 	}
 	free(path);
 	return (NULL);
