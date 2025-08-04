@@ -6,25 +6,11 @@
 /*   By: yihakan <yihakan@student.42istanbul.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/15 18:36:07 by mdusunen          #+#    #+#             */
-/*   Updated: 2025/08/03 10:35:26 by yihakan          ###   ########.fr       */
+/*   Updated: 2025/08/04 04:34:08 by yihakan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/minishell.h"
-
-// void free_heredoc(t_shell *shell)
-// {
-// 	static t_shell *temp_shell;
-
-// 	if (shell)
-// 	{
-// 		temp_shell = shell;
-// 	}
-// 	else
-// 	{
-// 		free_shell(shell);
-// 	}
-// }
 
 void	handle_sigint(int sig)
 {
