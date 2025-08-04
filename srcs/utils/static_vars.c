@@ -6,13 +6,12 @@
 /*   By: yihakan <yihakan@student.42istanbul.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/29 00:00:00 by mdusunen          #+#    #+#             */
-/*   Updated: 2025/08/03 10:00:49 by yihakan          ###   ########.fr       */
+/*   Updated: 2025/08/04 04:36:01 by yihakan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/minishell.h"
 
-// Static parsing state access functions using shell structure
 t_token *get_current_tokens(t_shell *shell)
 {
 	return (shell->current_tokens);

@@ -6,7 +6,7 @@
 #    By: yihakan <yihakan@student.42istanbul.com    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/06/07 14:33:48 by yihakan           #+#    #+#              #
-#    Updated: 2025/08/03 10:55:14 by yihakan          ###   ########.fr        #
+#    Updated: 2025/08/04 05:06:54 by yihakan          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -69,6 +69,7 @@ SRCS = $(SRCS_DIR)/main.c \
 	   $(SRCS_DIR)/builtins/env.c \
 	   $(SRCS_DIR)/builtins/exit.c \
 	   $(SRCS_DIR)/builtins/pills.c \
+	   $(SRCS_DIR)/builtins/pills_utils.c \
 	   $(SRCS_DIR)/utils/env_utils.c \
 	   $(SRCS_DIR)/utils/path_utils.c \
 	   $(SRCS_DIR)/utils/error_utils.c \

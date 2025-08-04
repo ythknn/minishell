@@ -23,7 +23,6 @@
 
 extern int g_signal;
 
-// Garbage Collector benzeri memory management sistem
 typedef enum e_gc_type
 {
 	GC_LINE,
@@ -100,7 +99,6 @@ typedef struct s_shell
 	int exit_status;
 	int interactive;
 	
-	// Garbage collection pointers (replaces global static variables)
 	void *gc_line;
 	void *gc_processed_line;
 	void *gc_tokens;
@@ -115,12 +113,10 @@ typedef struct s_shell
 	void *gc_redir;
 	void *gc_general;
 	
-	// Static parsing state (replaces global static variables)
 	t_token *current_tokens;
 	t_command *current_commands;
 } t_shell;
 
-// Static parsing state access functions
 t_token *get_current_tokens(t_shell *shell);
 t_command *get_current_commands(t_shell *shell);
 void set_current_tokens(t_shell *shell, t_token *tokens);
@@ -162,6 +158,10 @@ int ft_env(t_shell *shell);
 int ft_exit(char **args, t_shell *shell);
 int ft_pills(char **args, t_shell *shell);
 
+void print_matrix_ascii(void);
+void print_morpheus_quote(void);
+void matrix_effect(void);
+
 t_env *create_env_list(char **env);
 char **env_list_to_array(t_env *env_list);
 t_env *add_env_var(t_env *env_list, char *key, char *value);
@@ -181,7 +181,6 @@ void setup_heredoc_signals(void);
 
 t_token	*create_token(t_token_type type, char *value);
 void	add_token(t_token **tokens, t_token *new_token);
-// parser_utils.c
 t_command	*parse_token_loop(t_token *tokens);
 t_token *handle_redirection(t_token *current, t_command *cmd);
 void add_redir(t_redir **redirs, t_redir *new_redir);
@@ -191,7 +190,6 @@ void free_args(char **args);
 
 t_command *get_commands_from_tokens(t_token *tokens);
 
-// expander_utils.c
 char *expand_env_vars(char *str, t_shell *shell);
 char *handle_exit_status(char *result, int *j, int *i, t_shell *shell);
 char *handle_env_var(char *str, int *i, char *result, int *j, t_shell *shell);
@@ -199,7 +197,6 @@ char *handle_dollar_sign(char *str, int *i, char *result, int *j, t_shell *shell
 void expand_redirections(t_command *cmd, t_shell *shell);
 void expand_args(t_command *cmd, t_shell *shell);
 
-// error_utils.c
 void print_error(char *cmd, char *arg, char *msg);
 void print_syntax_error(char *token);
 void print_command_not_found(char *cmd);
@@ -207,22 +204,17 @@ void print_permission_denied(char *path);
 void print_no_such_file(char *path);
 void print_is_directory(char *path);
 
-//tokenizer_utils.c
 void	out_redirects(char *input, int *i, t_token **tokens);
 void	in_redirects(char *input, int *i, t_token **tokens);
 void	pipes(int *i, t_token **tokens);
 void	skip_whitespace(char *input, int *i);
 int	is_whitespace(char c);
 
-//void free_heredoc(t_shell *shell);
-
-// Export utility functions
 int is_valid_env_name(const char *name);
 void print_export_error(char *arg);
 void print_exported_vars(t_env *env);
 char *extract_key(char *arg);
 
-// Garbage Collector Functions
 void *gc_malloc(t_shell *shell, size_t size, t_gc_type type);
 void *gc_get_static_ptr(t_shell *shell, t_gc_type type);
 void gc_set_static_ptr(t_shell *shell, void *ptr, t_gc_type type);

@@ -6,7 +6,7 @@
 /*   By: yihakan <yihakan@student.42istanbul.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/15 18:21:39 by mdusunen          #+#    #+#             */
-/*   Updated: 2025/08/03 10:02:47 by yihakan          ###   ########.fr       */
+/*   Updated: 2025/08/04 04:34:03 by yihakan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,7 +42,6 @@ char	*display_prompt(t_shell *shell)
 	line = readline(prompt);
 	free(prompt);
 	
-	// EOF (Ctrl+D) durumunda shell cleanup
 	if (!line)
 	{
 		clear_current_tokens(shell);

@@ -6,7 +6,7 @@
 /*   By: yihakan <yihakan@student.42istanbul.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/29 00:00:00 by mdusunen          #+#    #+#             */
-/*   Updated: 2025/08/03 10:01:10 by yihakan          ###   ########.fr       */
+/*   Updated: 2025/08/04 04:35:56 by yihakan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -86,14 +86,12 @@ void *gc_malloc(t_shell *shell, size_t size, t_gc_type type)
 {
 	void *ptr;
 
-	// Free previous pointer of this type
 	gc_free_type(shell, type);
 	
 	ptr = malloc(size);
 	if (!ptr)
 		return (NULL);
 	
-	// Store new pointer in shell structure
 	gc_set_static_ptr(shell, ptr, type);
 	return (ptr);
 }
@@ -162,7 +160,6 @@ void gc_free_type(t_shell *shell, t_gc_type type)
 	if (ptr)
 	{
 		free(ptr);
-		// Set pointer to NULL in shell structure
 		gc_set_static_ptr(shell, NULL, type);
 	}
 }
