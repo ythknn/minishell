@@ -1,0 +1,5 @@
+cat << a | grep g
+test
+g
+hello
+a

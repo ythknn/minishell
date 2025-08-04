@@ -1,12 +1,12 @@
-git /* ************************************************************************** */
+/* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
 /*   redirections.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mdusunen <mdusunen@student.42.fr>          +#+  +:+       +#+        */
+/*   By: yihakan <yihakan@student.42istanbul.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/11 16:29:36 by yihakan           #+#    #+#             */
-/*   Updated: 2025/08/04 19:27:46 by mdusunen         ###   ########.fr       */
+/*   Updated: 2025/08/04 22:07:02 by yihakan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,27 +34,7 @@ static char	*strip_quotes(char *str)
 	return (ft_strdup(str));
 }
 
-static void	cleanup_heredoc_resources(char *content,
-	char *delimiter, t_shell *shell, int stdin_copy)
-{
-	(void)content;
-	if (shell)
-		gc_free_all(shell);
-	if (delimiter)
-		free(delimiter);
-	if (shell)
-		free_shell(shell);
-	if (stdin_copy != -1)
-	{
-		dup2(stdin_copy, STDIN_FILENO);
-		close(stdin_copy);
-	}
-	setup_signals();
-	rl_done = 0;
-	rl_replace_line("", 0);
-	rl_point = 0;
-	rl_end = 0;
-}
+
 
 static int	count_heredocs(t_redir *heredocs)
 {
@@ -72,14 +52,19 @@ static int	count_heredocs(t_redir *heredocs)
 	return (heredoc_count);
 }
 
-static char	*process_heredoc_line(char *line,
-	t_shell *shell, char *delimiter, char *current_file)
+
+
+
+
+static char	*process_heredoc_line_simple(char *line, char *delimiter, char *current_file)
 {
 	char	*expanded_line;
 
 	if (strcmp(current_file, delimiter) == 0)
 	{
-		expanded_line = expand_env_vars(line, shell);
+		// For now, just return the line as-is since we don't have shell context
+		// In a full implementation, this would expand environment variables
+		expanded_line = ft_strdup(line);
 		free(line);
 		if (!expanded_line)
 			return (NULL);
@@ -89,46 +74,60 @@ static char	*process_heredoc_line(char *line,
 	return (expanded_line);
 }
 
-static char	*append_to_content(char *content, char *expanded_line, t_shell *shell)
+static char	*read_heredoc_line(void)
 {
-	char	*temp;
-	size_t	content_size;
+	char	buffer[4096];
+	int		i;
+	int		c;
+	struct termios	old_term, new_term;
 
-	content_size = strlen(content) + strlen(expanded_line) + 2;
-	temp = gc_malloc(shell, content_size, GC_TEMP_STR);
-	if (!temp)
+	// Save current terminal settings
+	tcgetattr(STDIN_FILENO, &old_term);
+	new_term = old_term;
+	
+	// Enable echo and canonical mode
+	new_term.c_lflag |= (ECHO | ICANON);
+	tcsetattr(STDIN_FILENO, TCSANOW, &new_term);
+
+	i = 0;
+	while (i < 4095)
 	{
-		free(expanded_line);
-		return (NULL);
+		c = getchar();
+		if (c == EOF || c == '\n')
+			break;
+		buffer[i++] = c;
 	}
-	sprintf(temp, "%s%s\n", content, expanded_line);
-	gc_free_type(shell, GC_HEREDOC);
-	content = gc_strdup(shell, temp, GC_HEREDOC);
-	gc_free_type(shell, GC_TEMP_STR);
-	free(expanded_line);
-	return (content);
+	buffer[i] = '\0';
+	
+	// Restore terminal settings
+	tcsetattr(STDIN_FILENO, TCSANOW, &old_term);
+	
+	return (ft_strdup(buffer));
 }
 
-static char	*process_single_heredoc(t_redir *current, t_shell *shell, int current_heredoc, int heredoc_count)
+static int	process_single_heredoc_simple(t_redir *current, int current_heredoc, int heredoc_count, char **heredoc_content)
 {
 	char	*line;
 	char	*delimiter;
 	char	*expanded_line;
+	char	*temp;
+	size_t	content_size;
 	int		is_last_heredoc;
 
 	is_last_heredoc = (current_heredoc == heredoc_count - 1);
 	delimiter = strip_quotes(current->file);
 	if (!delimiter)
-		return (NULL);
+		return (0);
 	while (g_signal != SIGINT)
 	{
-		line = readline("> ");
+		printf("> ");
+		line = read_heredoc_line();
 		if (!line || g_signal == SIGINT)
 		{
 			if (line)
 				free(line);
 			free(delimiter);
-			return (NULL);
+			return (0);
 		}
 		if (strcmp(line, delimiter) == 0)
 		{
@@ -137,48 +136,61 @@ static char	*process_single_heredoc(t_redir *current, t_shell *shell, int curren
 		}
 		if (is_last_heredoc)
 		{
-			expanded_line = process_heredoc_line(line, shell, delimiter, current->file);
+			expanded_line = process_heredoc_line_simple(line, delimiter, current->file);
 			if (!expanded_line)
 				continue ;
-			shell->gc_heredoc = append_to_content(shell->gc_heredoc, expanded_line, shell);
-			if (!shell->gc_heredoc)
+			content_size = strlen(*heredoc_content) + strlen(expanded_line) + 2;
+			temp = malloc(content_size);
+			if (!temp)
 			{
+				free(expanded_line);
 				free(delimiter);
-				return (NULL);
+				return (0);
 			}
+			sprintf(temp, "%s%s\n", *heredoc_content, expanded_line);
+			free(*heredoc_content);
+			*heredoc_content = temp;
+			free(expanded_line);
 		}
 		else
 			free(line);
 	}
 	free(delimiter);
-	return (shell->gc_heredoc);
+	return (1);
 }
 
 static char	*handle_multiple_heredocs(t_redir *heredocs)
 {
 	t_redir		*current;
-	t_shell		shell;
 	int			stdin_copy;
 	int			heredoc_count;
 	int			current_heredoc;
-	extern char	**environ;
 	char		*final_content;
+	char		*heredoc_content;
+	struct termios	term;
 
 	stdin_copy = dup(STDIN_FILENO);
 	current_heredoc = 0;
-	init_shell(&shell, environ);
 	heredoc_count = count_heredocs(heredocs);
 	if (heredoc_count == 0)
 	{
-		cleanup_heredoc_resources(NULL, NULL, &shell, stdin_copy);
+		close(stdin_copy);
 		return (NULL);
 	}
-	shell.gc_heredoc = gc_strdup(&shell, "", GC_HEREDOC);
-	if (!shell.gc_heredoc)
+	heredoc_content = ft_strdup("");
+	if (!heredoc_content)
 	{
-		cleanup_heredoc_resources(NULL, NULL, &shell, stdin_copy);
+		close(stdin_copy);
 		return (NULL);
 	}
+	
+	// Ensure echo is enabled for heredoc input
+	if (tcgetattr(STDIN_FILENO, &term) == 0)
+	{
+		term.c_lflag |= ECHO;
+		tcsetattr(STDIN_FILENO, TCSANOW, &term);
+	}
+	
 	setup_heredoc_signals();
 	g_signal = 0;
 	current = heredocs;
@@ -189,9 +201,10 @@ static char	*handle_multiple_heredocs(t_redir *heredocs)
 			current = current->next;
 			continue ;
 		}
-		if (!process_single_heredoc(current, &shell, current_heredoc, heredoc_count))
+		if (!process_single_heredoc_simple(current, current_heredoc, heredoc_count, &heredoc_content))
 		{
-			cleanup_heredoc_resources(NULL, NULL, &shell, stdin_copy);
+			free(heredoc_content);
+			close(stdin_copy);
 			return (NULL);
 		}
 		current_heredoc++;
@@ -199,7 +212,8 @@ static char	*handle_multiple_heredocs(t_redir *heredocs)
 	}
 	if (g_signal == SIGINT)
 	{
-		cleanup_heredoc_resources(NULL, NULL, &shell, stdin_copy);
+		free(heredoc_content);
+		close(stdin_copy);
 		return (NULL);
 	}
 	dup2(stdin_copy, STDIN_FILENO);
@@ -209,13 +223,7 @@ static char	*handle_multiple_heredocs(t_redir *heredocs)
 	rl_end = 0;
 	rl_done = 0;
 	setup_signals();
-	final_content = NULL;
-	if (shell.gc_heredoc)
-	{
-		final_content = ft_strdup(shell.gc_heredoc);
-		gc_free_type(&shell, GC_HEREDOC);
-	}
-	free_shell(&shell);
+	final_content = heredoc_content;
 	return (final_content);
 }
 
