@@ -1,4 +1,4 @@
-/* ************************************************************************** */
+git /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
 /*   redirections.c                                     :+:      :+:    :+:   */
@@ -6,7 +6,7 @@
 /*   By: yihakan <yihakan@student.42istanbul.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/11 16:29:36 by yihakan           #+#    #+#             */
-/*   Updated: 2025/08/04 04:45:29 by yihakan          ###   ########.fr       */
+/*   Updated: 2025/08/04 19:26:34 by yihakan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -295,6 +295,20 @@ int	setup_redirections(t_redir *redirs)
 	int		heredoc_processed;
 
 	heredoc_processed = 0;
+	
+	// First pass: process all heredocs
+	current = redirs;
+	while (current)
+	{
+		if (current->type == T_HEREDOC && !heredoc_processed)
+		{
+			if (handle_heredoc_redirection(redirs, &heredoc_processed))
+				return (1);
+		}
+		current = current->next;
+	}
+	
+	// Second pass: process other redirections
 	current = redirs;
 	while (current)
 	{
@@ -311,11 +325,6 @@ int	setup_redirections(t_redir *redirs)
 		else if (current->type == T_REDIR_APPEND)
 		{
 			if (handle_append_redirection(current))
-				return (1);
-		}
-		else if (current->type == T_HEREDOC && !heredoc_processed)
-		{
-			if (handle_heredoc_redirection(redirs, &heredoc_processed))
 				return (1);
 		}
 		current = current->next;
