@@ -6,7 +6,7 @@
 /*   By: yihakan <yihakan@student.42istanbul.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/15 18:35:00 by mdusunen          #+#    #+#             */
-/*   Updated: 2025/08/03 10:43:15 by yihakan          ###   ########.fr       */
+/*   Updated: 2025/08/04 17:03:06 by yihakan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,51 +62,79 @@ static int	is_absolute_or_relative_path(char *cmd)
 static char	*build_exec_path(char *dir, char *cmd)
 {
 	char	*exec_path;
-	char	*temp;
+	int		dir_len;
+	int		cmd_len;
+	int		i;
 
-	if (!dir || !cmd)
+	if (!dir || !cmd || !*dir)
 		return (NULL);
-	temp = ft_strjoin(dir, "/");
-	if (!temp)
-		return (NULL);
-	exec_path = ft_strjoin(temp, cmd);
-	free(temp);
+	dir_len = 0;
+	while (dir[dir_len])
+		dir_len++;
+	cmd_len = 0;
+	while (cmd[cmd_len])
+		cmd_len++;
+	exec_path = malloc(dir_len + cmd_len + 2);
 	if (!exec_path)
 		return (NULL);
+	i = 0;
+	while (i < dir_len)
+	{
+		exec_path[i] = dir[i];
+		i++;
+	}
+	exec_path[i] = '/';
+	i++;
+	while (i - dir_len - 1 < cmd_len)
+	{
+		exec_path[i] = cmd[i - dir_len - 1];
+		i++;
+	}
+	exec_path[i] = '\0';
 	return (exec_path);
+}
+
+static void	free_paths_array(char **paths)
+{
+	int	i;
+
+	i = 0;
+	while (paths[i])
+	{
+		free(paths[i]);
+		i++;
+	}
+	free(paths);
 }
 
 static char	*search_in_path(char *cmd, char *path_env)
 {
-	char	*path;
-	char	*token;
+	char	**paths;
 	char	*exec_path;
-	char	*saveptr;
+	int		i;
 
-	if (!cmd || !path_env)
+	if (!cmd || !path_env || !*path_env)
 		return (NULL);
-	path = ft_strdup(path_env);
-	if (!path)
+	paths = ft_split(path_env, ':');
+	if (!paths)
 		return (NULL);
-	token = strtok_r(path, ":", &saveptr);
-	while (token)
+	i = 0;
+	while (paths[i])
 	{
-		exec_path = build_exec_path(token, cmd);
-		if (!exec_path)
+		if (paths[i] && paths[i][0])
 		{
-			free(path);
-			return (NULL);
+			exec_path = build_exec_path(paths[i], cmd);
+			if (exec_path && access(exec_path, X_OK) == 0)
+			{
+				free_paths_array(paths);
+				return (exec_path);
+			}
+			if (exec_path)
+				free(exec_path);
 		}
-		if (access(exec_path, X_OK) == 0)
-		{
-			free(path);
-			return (exec_path);
-		}
-		free(exec_path);
-		exec_path = NULL;
-		token = strtok_r(NULL, ":", &saveptr);
+		i++;
 	}
-	free(path);
+	free_paths_array(paths);
 	return (NULL);
 }
 

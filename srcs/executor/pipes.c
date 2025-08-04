@@ -6,7 +6,7 @@
 /*   By: yihakan <yihakan@student.42istanbul.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/09 19:23:59 by yihakan           #+#    #+#             */
-/*   Updated: 2025/08/04 04:43:16 by yihakan          ###   ########.fr       */
+/*   Updated: 2025/08/04 17:36:23 by yihakan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -92,6 +92,7 @@ int	execute_pipeline(t_command *cmds, t_shell *shell)
 	int			last_cmd_not_found;
 
 	current = cmds;
+	path = NULL;
 	prev_pipe_read = -1;
 	last_status = 0;
 	last_cmd_not_found = 0;
@@ -105,7 +106,6 @@ int	execute_pipeline(t_command *cmds, t_shell *shell)
 			current = current->next;
 			continue ;
 		}
-		path = find_executable(current->args[0], shell);
 		if (is_builtin(current->args[0]) && !current->next && !prev_pipe_read)
 		{
 			last_status = handle_builtin_single_command(current, shell, path);
@@ -113,6 +113,8 @@ int	execute_pipeline(t_command *cmds, t_shell *shell)
 			current = current->next;
 			continue ;
 		}
+		if (!is_builtin(current->args[0]))
+			path = find_executable(current->args[0], shell);
 		if (!path && !is_builtin(current->args[0]))
 		{
 			last_status = handle_command_not_found(current, shell, pipe_fd, prev_pipe_read);

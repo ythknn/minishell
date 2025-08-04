@@ -10,7 +10,6 @@ void	init_shell(t_shell *shell, char **env)
 		return ;
 	shell->exit_status = 0;
 	shell->interactive = isatty(STDIN_FILENO);
-	
 	shell->gc_line = NULL;
 	shell->gc_processed_line = NULL;
 	shell->gc_tokens = NULL;
@@ -24,7 +23,6 @@ void	init_shell(t_shell *shell, char **env)
 	shell->gc_env_array = NULL;
 	shell->gc_redir = NULL;
 	shell->gc_general = NULL;
-	
 	shell->current_tokens = NULL;
 	shell->current_commands = NULL;
 }
@@ -38,12 +36,9 @@ void	free_shell(t_shell *shell)
 	i = 0;
 	if (!shell)
 		return ;
-	
 	clear_current_tokens(shell);
 	clear_current_commands(shell);
-	
 	gc_free_all(shell);
-	
 	current = shell->env_list;
 	while (current)
 	{
