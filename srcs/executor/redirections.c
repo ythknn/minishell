@@ -6,7 +6,7 @@
 /*   By: yihakan <yihakan@student.42istanbul.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/11 16:29:36 by yihakan           #+#    #+#             */
-/*   Updated: 2025/08/03 10:07:05 by yihakan          ###   ########.fr       */
+/*   Updated: 2025/08/04 04:30:23 by yihakan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,6 +52,13 @@ static void cleanup_heredoc_resources(char *content, char *delimiter, t_shell *s
 		close(stdin_copy);
 	}
 	setup_signals();
+	
+	// Reset readline state after heredoc exit
+	rl_done = 0;
+	rl_replace_line("", 0);
+	rl_point = 0;
+	rl_end = 0;
+	rl_on_new_line();
 }
 
 static char	*handle_multiple_heredocs(t_redir *heredocs)
@@ -174,6 +181,8 @@ static char	*handle_multiple_heredocs(t_redir *heredocs)
 	rl_replace_line("", 0);
 	rl_point = 0;
 	rl_end = 0;
+	rl_done = 0;
+	rl_on_new_line();
 	setup_signals();
 	
 	// Normal completion'da content'i GC'den çıkar ve return et

@@ -6,21 +6,13 @@
 /*   By: yihakan <yihakan@student.42istanbul.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/18 18:50:53 by yihakan           #+#    #+#             */
-/*   Updated: 2025/08/03 10:04:24 by yihakan          ###   ########.fr       */
+/*   Updated: 2025/08/03 10:35:13 by yihakan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 # include "../includes/minishell.h"
 
 int g_signal = 0;
-void *g_shell_ptr = NULL;
-
-// Atexit cleanup function - Note: This will need to be updated to use shell structure
-void cleanup_on_exit(void)
-{
-	// This function can't access shell structure, so we'll handle cleanup in main
-	// The atexit function is not ideal for this case anymore
-}
 
 static void setup_terminal(void)
 {
@@ -53,7 +45,6 @@ int main(int argc, char **argv, char **env)
 	setup_terminal();
 	setup_signals();
 	init_shell(&shell, env);
-	g_shell_ptr = &shell;
 	while (1)
 	{
 		line = display_prompt(&shell);

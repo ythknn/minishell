@@ -22,7 +22,6 @@
 #define TRUE 1
 
 extern int g_signal;
-extern void *g_shell_ptr;
 
 // Garbage Collector benzeri memory management sistem
 typedef enum e_gc_type
@@ -216,6 +215,12 @@ void	skip_whitespace(char *input, int *i);
 int	is_whitespace(char c);
 
 //void free_heredoc(t_shell *shell);
+
+// Export utility functions
+int is_valid_env_name(const char *name);
+void print_export_error(char *arg);
+void print_exported_vars(t_env *env);
+char *extract_key(char *arg);
 
 // Garbage Collector Functions
 void *gc_malloc(t_shell *shell, size_t size, t_gc_type type);

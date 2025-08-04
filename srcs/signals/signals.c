@@ -6,7 +6,7 @@
 /*   By: yihakan <yihakan@student.42istanbul.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/15 18:36:07 by mdusunen          #+#    #+#             */
-/*   Updated: 2025/08/03 10:04:37 by yihakan          ###   ########.fr       */
+/*   Updated: 2025/08/03 10:35:26 by yihakan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,13 +31,6 @@ void	handle_sigint(int sig)
 	(void)sig;
 	g_signal = SIGINT;
 	
-	// Static parsing state'i temizle
-	if (g_shell_ptr)
-	{
-		clear_current_tokens((t_shell *)g_shell_ptr);
-		clear_current_commands((t_shell *)g_shell_ptr);
-	}
-	
 	write(STDOUT_FILENO, "\n", 1);
 	rl_replace_line("", 0);
 	rl_on_new_line();
@@ -49,15 +42,6 @@ void	handle_heredoc_sigint(int sig)
 	(void)sig;
 	g_signal = SIGINT;
 	
-	// Static parsing state'i temizle
-	if (g_shell_ptr)
-	{
-		clear_current_tokens((t_shell *)g_shell_ptr);
-		clear_current_commands((t_shell *)g_shell_ptr);
-		
-		// Heredoc interrupt'ında tüm parsing memory'yi temizle
-		gc_free_all((t_shell *)g_shell_ptr);
-	}
 	rl_replace_line("", 0);
 	rl_done = 1;
 }
