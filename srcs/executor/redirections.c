@@ -1,4 +1,4 @@
-/* ************************************************************************** */
+git /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
 /*   redirections.c                                     :+:      :+:    :+:   */
@@ -297,6 +297,20 @@ int	setup_redirections(t_redir *redirs)
 	int		heredoc_processed;
 
 	heredoc_processed = 0;
+	
+	// First pass: process all heredocs
+	current = redirs;
+	while (current)
+	{
+		if (current->type == T_HEREDOC && !heredoc_processed)
+		{
+			if (handle_heredoc_redirection(redirs, &heredoc_processed))
+				return (1);
+		}
+		current = current->next;
+	}
+	
+	// Second pass: process other redirections
 	current = redirs;
 	while (current)
 	{
@@ -313,11 +327,6 @@ int	setup_redirections(t_redir *redirs)
 		else if (current->type == T_REDIR_APPEND)
 		{
 			if (handle_append_redirection(current))
-				return (1);
-		}
-		else if (current->type == T_HEREDOC && !heredoc_processed)
-		{
-			if (handle_heredoc_redirection(redirs, &heredoc_processed))
 				return (1);
 		}
 		current = current->next;
