@@ -203,6 +203,7 @@ void print_command_not_found(char *cmd);
 void print_permission_denied(char *path);
 void print_no_such_file(char *path);
 void print_is_directory(char *path);
+void	print_too_many_arguments_error(char *cmd);
 
 void	out_redirects(char *input, int *i, t_token **tokens);
 void	in_redirects(char *input, int *i, t_token **tokens);
