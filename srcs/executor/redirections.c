@@ -34,13 +34,12 @@ static char	*strip_quotes(char *str)
 	return (ft_strdup(str));
 }
 
-static void cleanup_heredoc_resources(char *content, char *delimiter, t_shell *shell, int stdin_copy)
+static void	cleanup_heredoc_resources(char *content,
+	char *delimiter, t_shell *shell, int stdin_copy)
 {
 	(void)content;
-	
 	if (shell)
 		gc_free_all(shell);
-	
 	if (delimiter)
 		free(delimiter);
 	if (shell)
@@ -51,14 +50,13 @@ static void cleanup_heredoc_resources(char *content, char *delimiter, t_shell *s
 		close(stdin_copy);
 	}
 	setup_signals();
-	
 	rl_done = 0;
 	rl_replace_line("", 0);
 	rl_point = 0;
 	rl_end = 0;
 }
 
-static int count_heredocs(t_redir *heredocs)
+static int	count_heredocs(t_redir *heredocs)
 {
 	t_redir	*current;
 	int		heredoc_count;
@@ -74,9 +72,10 @@ static int count_heredocs(t_redir *heredocs)
 	return (heredoc_count);
 }
 
-static char *process_heredoc_line(char *line, t_shell *shell, char *delimiter, char *current_file)
+static char	*process_heredoc_line(char *line,
+	t_shell *shell, char *delimiter, char *current_file)
 {
-	char *expanded_line;
+	char	*expanded_line;
 
 	if (strcmp(current_file, delimiter) == 0)
 	{
@@ -90,7 +89,7 @@ static char *process_heredoc_line(char *line, t_shell *shell, char *delimiter, c
 	return (expanded_line);
 }
 
-static char *append_to_content(char *content, char *expanded_line, t_shell *shell)
+static char	*append_to_content(char *content, char *expanded_line, t_shell *shell)
 {
 	char	*temp;
 	size_t	content_size;
@@ -110,7 +109,7 @@ static char *append_to_content(char *content, char *expanded_line, t_shell *shel
 	return (content);
 }
 
-static char *process_single_heredoc(t_redir *current, t_shell *shell, int current_heredoc, int heredoc_count)
+static char	*process_single_heredoc(t_redir *current, t_shell *shell, int current_heredoc, int heredoc_count)
 {
 	char	*line;
 	char	*delimiter;
@@ -159,11 +158,13 @@ static char	*handle_multiple_heredocs(t_redir *heredocs)
 {
 	t_redir		*current;
 	t_shell		shell;
-	int			stdin_copy = dup(STDIN_FILENO);
+	int			stdin_copy;
 	int			heredoc_count;
-	int			current_heredoc = 0;
-	extern char **environ;
+	int			current_heredoc;
+	extern char	**environ;
 
+	stdin_copy = dup(STDIN_FILENO);
+	current_heredoc = 0;
 	init_shell(&shell, environ);
 	heredoc_count = count_heredocs(heredocs);
 	if (heredoc_count == 0)
@@ -217,7 +218,7 @@ static char	*handle_multiple_heredocs(t_redir *heredocs)
 	return (final_content);
 }
 
-static int handle_input_redirection(t_redir *current)
+static int	handle_input_redirection(t_redir *current)
 {
 	int fd;
 
@@ -232,7 +233,7 @@ static int handle_input_redirection(t_redir *current)
 	return (0);
 }
 
-static int handle_output_redirection(t_redir *current)
+static int	handle_output_redirection(t_redir *current)
 {
 	int fd;
 
@@ -247,7 +248,7 @@ static int handle_output_redirection(t_redir *current)
 	return (0);
 }
 
-static int handle_append_redirection(t_redir *current)
+static int	handle_append_redirection(t_redir *current)
 {
 	int fd;
 
@@ -262,7 +263,7 @@ static int handle_append_redirection(t_redir *current)
 	return (0);
 }
 
-static int handle_heredoc_redirection(t_redir *redirs, int *heredoc_processed)
+static int	handle_heredoc_redirection(t_redir *redirs, int *heredoc_processed)
 {
 	char	*heredoc_content;
 	int		pipe_fd[2];

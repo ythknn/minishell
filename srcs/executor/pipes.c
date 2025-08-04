@@ -12,7 +12,8 @@
 
 #include "../includes/minishell.h"
 
-static void setup_child_pipes(int prev_pipe_read, int *pipe_fd, t_command *current)
+static void	setup_child_pipes(int prev_pipe_read,
+		int *pipe_fd, t_command *current)
 {
 	if (prev_pipe_read != -1)
 	{
@@ -27,8 +28,11 @@ static void setup_child_pipes(int prev_pipe_read, int *pipe_fd, t_command *curre
 	}
 }
 
-static void execute_child_process(t_command *current, t_shell *shell, char *path)
+static void	execute_child_process(t_command *current,
+		t_shell *shell, char *path)
 {
+	int	status;
+
 	if (setup_redirections(current->redirections) != 0)
 	{
 		free_shell(shell);
@@ -36,7 +40,7 @@ static void execute_child_process(t_command *current, t_shell *shell, char *path
 	}
 	if (is_builtin(current->args[0]))
 	{
-		int status = execute_builtin(current->args, shell);
+		status = execute_builtin(current->args, shell);
 		free_shell(shell);
 		exit(status);
 	}
@@ -46,7 +50,8 @@ static void execute_child_process(t_command *current, t_shell *shell, char *path
 	exit(1);
 }
 
-static int handle_empty_command(t_command *current, int *pipe_fd, int *prev_pipe_read)
+static int	handle_empty_command(t_command *current,
+		int *pipe_fd, int *prev_pipe_read)
 {
 	if (current->next)
 	{
@@ -56,19 +61,25 @@ static int handle_empty_command(t_command *current, int *pipe_fd, int *prev_pipe
 	return (0);
 }
 
-static int handle_builtin_single_command(t_command *current, t_shell *shell, char *path)
+static int	handle_builtin_single_command(t_command *current,
+		t_shell *shell, char *path)
 {
+	int	last_status;
+
 	if (path)
 		free(path);
-	int last_status = execute_builtin(current->args, shell);
+	last_status = execute_builtin(current->args, shell);
 	shell->exit_status = last_status;
 	return (last_status);
 }
 
-static int handle_command_not_found(t_command *current, t_shell *shell, int *pipe_fd, int prev_pipe_read)
+static int	handle_command_not_found(t_command *current,
+		t_shell *shell, int *pipe_fd, int prev_pipe_read)
 {
+	int	last_status;
+
 	print_command_not_found(current->args[0]);
-	int last_status = 127;
+	last_status = 127;
 	shell->exit_status = last_status;
 	if (current->next)
 	{
@@ -117,7 +128,8 @@ int	execute_pipeline(t_command *cmds, t_shell *shell)
 			path = find_executable(current->args[0], shell);
 		if (!path && !is_builtin(current->args[0]))
 		{
-			last_status = handle_command_not_found(current, shell, pipe_fd, prev_pipe_read);
+			last_status = handle_command_not_found(current,
+					shell, pipe_fd, prev_pipe_read);
 			if (!current->next)
 				last_cmd_not_found = 1;
 			else
