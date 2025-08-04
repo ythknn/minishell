@@ -118,8 +118,8 @@ static char	*search_in_path(char *cmd, char *path_env)
 	paths = ft_split(path_env, ':');
 	if (!paths)
 		return (NULL);
-	i = 0;
-	while (paths[i])
+	i = -1;
+	while (paths[++i])
 	{
 		if (paths[i] && paths[i][0])
 		{
@@ -132,10 +132,8 @@ static char	*search_in_path(char *cmd, char *path_env)
 			if (exec_path)
 				free(exec_path);
 		}
-		i++;
 	}
-	free_paths_array(paths);
-	return (NULL);
+	return (free_paths_array(paths), NULL);
 }
 
 char	*find_executable(char *cmd, t_shell *shell)

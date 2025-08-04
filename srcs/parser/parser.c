@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   parser.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: yihakan <yihakan@student.42istanbul.com    +#+  +:+       +#+        */
+/*   By: mdusunen <mdusunen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/11 17:43:02 by yihakan           #+#    #+#             */
-/*   Updated: 2025/08/04 18:47:30 by yihakan          ###   ########.fr       */
+/*   Updated: 2025/08/04 19:10:03 by mdusunen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -165,10 +165,9 @@ static int	process_current_token(t_command **current_cmd,
 		*current_cmd = create_command();
 	if ((*current_token)->type == T_PIPE)
 	{
-		// Check if the next token is a redirection
-		if ((*current_token)->next && is_redirection((*current_token)->next->type))
+		if ((*current_token)->next
+			&& is_redirection((*current_token)->next->type))
 		{
-			// Skip the pipe and process the redirection for the current command
 			*current_token = (*current_token)->next;
 			if (!process_redir_token(*current_cmd, current_token, *commands))
 				return (0);

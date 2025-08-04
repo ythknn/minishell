@@ -1,4 +1,4 @@
-# include "../includes/minishell.h"
+#include "../includes/minishell.h"
 
 void	init_shell(t_shell *shell, char **env)
 {
@@ -56,7 +56,7 @@ void	free_shell(t_shell *shell)
 	}
 }
 
-int ft_strcmp(const char *s1, const char *s2)
+int	ft_strcmp(const char *s1, const char *s2)
 {
 	size_t	i;
 

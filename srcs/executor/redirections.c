@@ -3,10 +3,10 @@ git /* *************************************************************************
 /*                                                        :::      ::::::::   */
 /*   redirections.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: yihakan <yihakan@student.42istanbul.com    +#+  +:+       +#+        */
+/*   By: mdusunen <mdusunen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/11 16:29:36 by yihakan           #+#    #+#             */
-/*   Updated: 2025/08/04 19:26:34 by yihakan          ###   ########.fr       */
+/*   Updated: 2025/08/04 19:27:46 by mdusunen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -162,6 +162,7 @@ static char	*handle_multiple_heredocs(t_redir *heredocs)
 	int			heredoc_count;
 	int			current_heredoc;
 	extern char	**environ;
+	char		*final_content;
 
 	stdin_copy = dup(STDIN_FILENO);
 	current_heredoc = 0;
@@ -208,7 +209,7 @@ static char	*handle_multiple_heredocs(t_redir *heredocs)
 	rl_end = 0;
 	rl_done = 0;
 	setup_signals();
-	char *final_content = NULL;
+	final_content = NULL;
 	if (shell.gc_heredoc)
 	{
 		final_content = ft_strdup(shell.gc_heredoc);
@@ -220,7 +221,7 @@ static char	*handle_multiple_heredocs(t_redir *heredocs)
 
 static int	handle_input_redirection(t_redir *current)
 {
-	int fd;
+	int	fd;
 
 	fd = open(current->file, O_RDONLY);
 	if (fd == -1)
@@ -235,7 +236,7 @@ static int	handle_input_redirection(t_redir *current)
 
 static int	handle_output_redirection(t_redir *current)
 {
-	int fd;
+	int	fd;
 
 	fd = open(current->file, O_WRONLY | O_CREAT | O_TRUNC, 0644);
 	if (fd == -1)
@@ -250,7 +251,7 @@ static int	handle_output_redirection(t_redir *current)
 
 static int	handle_append_redirection(t_redir *current)
 {
-	int fd;
+	int	fd;
 
 	fd = open(current->file, O_WRONLY | O_CREAT | O_APPEND, 0644);
 	if (fd == -1)
