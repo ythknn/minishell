@@ -65,11 +65,6 @@ static void handle_signal_interrupt(t_shell *shell)
 	shell->exit_status = 130;
 }
 
-t_command	*parse(t_token *tokens)
-{
-	return (parse_token_loop(tokens));
-}
-
 int main(int argc, char **argv, char **env)
 {
 	t_shell shell;

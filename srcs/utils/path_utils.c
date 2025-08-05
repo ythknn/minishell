@@ -12,7 +12,7 @@
 
 #include "../includes/minishell.h"
 
-static char	*check_absolute_path(char *cmd)
+char	*check_absolute_path(char *cmd)
 {
 	struct stat	st;
 
@@ -34,7 +34,7 @@ static char	*check_absolute_path(char *cmd)
 	return (ft_strdup(cmd));
 }
 
-static char	*check_relative_path(char *cmd)
+char	*check_relative_path(char *cmd)
 {
 	struct stat	st;
 
@@ -48,7 +48,7 @@ static char	*check_relative_path(char *cmd)
 	return (NULL);
 }
 
-static int	is_absolute_or_relative_path(char *cmd)
+int	is_absolute_or_relative_path(char *cmd)
 {
 	if (cmd[0] == '/')
 		return (1);
@@ -59,7 +59,7 @@ static int	is_absolute_or_relative_path(char *cmd)
 	return (0);
 }
 
-static char	*build_exec_path(char *dir, char *cmd)
+char	*build_exec_path(char *dir, char *cmd)
 {
 	char	*exec_path;
 	int		dir_len;
@@ -92,64 +92,4 @@ static char	*build_exec_path(char *dir, char *cmd)
 	}
 	exec_path[i] = '\0';
 	return (exec_path);
-}
-
-static void	free_paths_array(char **paths)
-{
-	int	i;
-
-	i = 0;
-	while (paths[i])
-	{
-		free(paths[i]);
-		i++;
-	}
-	free(paths);
-}
-
-static char	*search_in_path(char *cmd, char *path_env)
-{
-	char	**paths;
-	char	*exec_path;
-	int		i;
-
-	if (!cmd || !path_env || !*path_env)
-		return (NULL);
-	paths = ft_split(path_env, ':');
-	if (!paths)
-		return (NULL);
-	i = -1;
-	while (paths[++i])
-	{
-		if (paths[i] && paths[i][0])
-		{
-			exec_path = build_exec_path(paths[i], cmd);
-			if (exec_path && access(exec_path, X_OK) == 0)
-			{
-				free_paths_array(paths);
-				return (exec_path);
-			}
-			if (exec_path)
-				free(exec_path);
-		}
-	}
-	return (free_paths_array(paths), NULL);
-}
-
-char	*find_executable(char *cmd, t_shell *shell)
-{
-	char	*path_env;
-	char	*result;
-
-	if (!cmd || !*cmd)
-		return (NULL);
-	if (is_absolute_or_relative_path(cmd))
-		return (check_absolute_path(cmd));
-	result = check_relative_path(cmd);
-	if (result)
-		return (result);
-	path_env = get_env_value(shell->env_list, "PATH");
-	if (!path_env)
-		return (NULL);
-	return (search_in_path(cmd, path_env));
 }

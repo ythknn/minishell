@@ -83,8 +83,7 @@ int	ft_pills(char **args, t_shell *shell)
 		if (ft_strcmp(input, "red") == 0 || ft_strcmp(input, "blue") == 0)
 		{
 			result = handle_pill_choice(input, shell);
-			free(input);
-			return (result);
+			return (free(input), result);
 		}
 		handle_pill_choice(input, shell);
 		free(input);

@@ -36,7 +36,7 @@ BANNER	= \
 NAME = minishell
 
 CC = cc
-CFLAGS = -Wall -Wextra -Werror -g 
+CFLAGS = -Wall -Wextra -Werror -g
 RM = rm -f
 
 # Directories
@@ -53,6 +53,8 @@ SRCS = $(SRCS_DIR)/main.c \
 	   $(SRCS_DIR)/parser/tokenizer.c \
 	   $(SRCS_DIR)/parser/tokenizer_utils.c \
 	   $(SRCS_DIR)/parser/parser.c \
+	   $(SRCS_DIR)/parser/parser_2.c \
+	   $(SRCS_DIR)/parser/parser_3.c \
 	   $(SRCS_DIR)/parser/parser_utils.c \
 	   $(SRCS_DIR)/parser/expander.c \
 	   $(SRCS_DIR)/parser/expander_utils.c \
@@ -71,11 +73,17 @@ SRCS = $(SRCS_DIR)/main.c \
 	   $(SRCS_DIR)/builtins/pills.c \
 	   $(SRCS_DIR)/builtins/pills_utils.c \
 	   $(SRCS_DIR)/utils/env_utils.c \
+	   $(SRCS_DIR)/utils/env_utils_2.c \
+	   $(SRCS_DIR)/utils/env_utils_3.c \
 	   $(SRCS_DIR)/utils/path_utils.c \
+	   $(SRCS_DIR)/utils/path_utils_2.c \
 	   $(SRCS_DIR)/utils/error_utils.c \
+	   $(SRCS_DIR)/utils/error_utils_2.c \
 	   $(SRCS_DIR)/utils/shell_utils.c \
 	   $(SRCS_DIR)/utils/gc_manager.c \
+	   $(SRCS_DIR)/utils/gc_manager_utils.c \
 	   $(SRCS_DIR)/utils/static_vars.c \
+	   $(SRCS_DIR)/utils/static_vars_2.c \
 	   $(SRCS_DIR)/signals/signals.c
 
 # Object files
