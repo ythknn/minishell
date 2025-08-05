@@ -1,4 +1,4 @@
-# include "../includes/minishell.h"
+#include "../includes/minishell.h"
 
 void	init_shell(t_shell *shell, char **env)
 {
@@ -10,8 +10,6 @@ void	init_shell(t_shell *shell, char **env)
 		return ;
 	shell->exit_status = 0;
 	shell->interactive = isatty(STDIN_FILENO);
-	
-	// Initialize garbage collection pointers to NULL
 	shell->gc_line = NULL;
 	shell->gc_processed_line = NULL;
 	shell->gc_tokens = NULL;
@@ -25,8 +23,6 @@ void	init_shell(t_shell *shell, char **env)
 	shell->gc_env_array = NULL;
 	shell->gc_redir = NULL;
 	shell->gc_general = NULL;
-	
-	// Initialize static parsing state to NULL
 	shell->current_tokens = NULL;
 	shell->current_commands = NULL;
 }
@@ -40,14 +36,9 @@ void	free_shell(t_shell *shell)
 	i = 0;
 	if (!shell)
 		return ;
-	
-	// Clean up static parsing state
 	clear_current_tokens(shell);
 	clear_current_commands(shell);
-	
-	// Clean up garbage collection memory
 	gc_free_all(shell);
-	
 	current = shell->env_list;
 	while (current)
 	{
@@ -65,7 +56,7 @@ void	free_shell(t_shell *shell)
 	}
 }
 
-int ft_strcmp(const char *s1, const char *s2)
+int	ft_strcmp(const char *s1, const char *s2)
 {
 	size_t	i;
 

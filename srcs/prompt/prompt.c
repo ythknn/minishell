@@ -41,14 +41,11 @@ char	*display_prompt(t_shell *shell)
 	free(temp3);
 	line = readline(prompt);
 	free(prompt);
-	
-	// EOF (Ctrl+D) durumunda shell cleanup
 	if (!line)
 	{
 		clear_current_tokens(shell);
 		clear_current_commands(shell);
 		gc_free_all(shell);
 	}
-	
 	return (line);
 }

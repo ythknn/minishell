@@ -232,4 +232,24 @@ char *gc_strdup(t_shell *shell, const char *s, t_gc_type type);
 char *gc_strjoin(t_shell *shell, const char *s1, const char *s2, t_gc_type type);
 char **gc_malloc_array(t_shell *shell, size_t count, t_gc_type type);
 
+void	print_morpheus_quote(void);
+void	print_matrix_ascii(void);
+void	matrix_effect(void);
+
+//pat_utils.c
+char	*search_in_path(char *cmd, char *path_env);
+char	*build_exec_path(char *dir, char *cmd);
+int	is_absolute_or_relative_path(char *cmd);
+char	*check_relative_path(char *cmd);
+char	*check_absolute_path(char *cmd);
+
+void	add_command(t_command **cmds, t_command *new_cmd);
+t_command	*create_command(void);
+int	handle_pipe_error(t_command *current_cmd, t_token *current_token,
+	t_command *commands);
+int	is_redirection(t_token_type type);
+void	add_arg(t_command *cmd, char *arg);
+int	handle_redir_error(t_token *current_token, t_command *commands,
+	t_command *current_cmd);
+	void	add_redir_to_command(t_command *cmd, t_redir *new_redir);
 #endif

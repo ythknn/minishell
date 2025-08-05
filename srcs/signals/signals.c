@@ -12,25 +12,10 @@
 
 #include "../includes/minishell.h"
 
-// void free_heredoc(t_shell *shell)
-// {
-// 	static t_shell *temp_shell;
-
-// 	if (shell)
-// 	{
-// 		temp_shell = shell;
-// 	}
-// 	else
-// 	{
-// 		free_shell(shell);
-// 	}
-// }
-
 void	handle_sigint(int sig)
 {
 	(void)sig;
 	g_signal = SIGINT;
-	
 	write(STDOUT_FILENO, "\n", 1);
 	rl_replace_line("", 0);
 	rl_on_new_line();
@@ -41,7 +26,6 @@ void	handle_heredoc_sigint(int sig)
 {
 	(void)sig;
 	g_signal = SIGINT;
-	
 	rl_replace_line("", 0);
 	rl_done = 1;
 }

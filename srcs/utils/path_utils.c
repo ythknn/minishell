@@ -12,7 +12,7 @@
 
 #include "../includes/minishell.h"
 
-static char	*check_absolute_path(char *cmd)
+char	*check_absolute_path(char *cmd)
 {
 	struct stat	st;
 
@@ -34,7 +34,7 @@ static char	*check_absolute_path(char *cmd)
 	return (ft_strdup(cmd));
 }
 
-static char	*check_relative_path(char *cmd)
+char	*check_relative_path(char *cmd)
 {
 	struct stat	st;
 
@@ -48,7 +48,7 @@ static char	*check_relative_path(char *cmd)
 	return (NULL);
 }
 
-static int	is_absolute_or_relative_path(char *cmd)
+int	is_absolute_or_relative_path(char *cmd)
 {
 	if (cmd[0] == '/')
 		return (1);
@@ -59,7 +59,7 @@ static int	is_absolute_or_relative_path(char *cmd)
 	return (0);
 }
 
-static char	*build_exec_path(char *dir, char *cmd)
+char	*build_exec_path(char *dir, char *cmd)
 {
 	char	*exec_path;
 	char	*temp;
@@ -74,56 +74,4 @@ static char	*build_exec_path(char *dir, char *cmd)
 	if (!exec_path)
 		return (NULL);
 	return (exec_path);
-}
-
-static char	*search_in_path(char *cmd, char *path_env)
-{
-	char	*path;
-	char	*token;
-	char	*exec_path;
-	char	*saveptr;
-
-	if (!cmd || !path_env)
-		return (NULL);
-	path = ft_strdup(path_env);
-	if (!path)
-		return (NULL);
-	token = strtok_r(path, ":", &saveptr);
-	while (token)
-	{
-		exec_path = build_exec_path(token, cmd);
-		if (!exec_path)
-		{
-			free(path);
-			return (NULL);
-		}
-		if (access(exec_path, X_OK) == 0)
-		{
-			free(path);
-			return (exec_path);
-		}
-		free(exec_path);
-		exec_path = NULL;
-		token = strtok_r(NULL, ":", &saveptr);
-	}
-	free(path);
-	return (NULL);
-}
-
-char	*find_executable(char *cmd, t_shell *shell)
-{
-	char	*path_env;
-	char	*result;
-
-	if (!cmd || !*cmd)
-		return (NULL);
-	if (is_absolute_or_relative_path(cmd))
-		return (check_absolute_path(cmd));
-	result = check_relative_path(cmd);
-	if (result)
-		return (result);
-	path_env = get_env_value(shell->env_list, "PATH");
-	if (!path_env)
-		return (NULL);
-	return (search_in_path(cmd, path_env));
 }
