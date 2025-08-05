@@ -6,7 +6,7 @@
 /*   By: yihakan <yihakan@student.42istanbul.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/11 16:29:36 by yihakan           #+#    #+#             */
-/*   Updated: 2025/08/04 22:07:02 by yihakan          ###   ########.fr       */
+/*   Updated: 2025/08/05 20:25:16 by yihakan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,8 +62,6 @@ static char	*process_heredoc_line_simple(char *line, char *delimiter, char *curr
 
 	if (strcmp(current_file, delimiter) == 0)
 	{
-		// For now, just return the line as-is since we don't have shell context
-		// In a full implementation, this would expand environment variables
 		expanded_line = ft_strdup(line);
 		free(line);
 		if (!expanded_line)
@@ -81,14 +79,10 @@ static char	*read_heredoc_line(void)
 	int		c;
 	struct termios	old_term, new_term;
 
-	// Save current terminal settings
 	tcgetattr(STDIN_FILENO, &old_term);
 	new_term = old_term;
-	
-	// Enable echo and canonical mode
 	new_term.c_lflag |= (ECHO | ICANON);
 	tcsetattr(STDIN_FILENO, TCSANOW, &new_term);
-
 	i = 0;
 	while (i < 4095)
 	{
@@ -98,10 +92,7 @@ static char	*read_heredoc_line(void)
 		buffer[i++] = c;
 	}
 	buffer[i] = '\0';
-	
-	// Restore terminal settings
 	tcsetattr(STDIN_FILENO, TCSANOW, &old_term);
-	
 	return (ft_strdup(buffer));
 }
 
@@ -183,14 +174,11 @@ static char	*handle_multiple_heredocs(t_redir *heredocs)
 		close(stdin_copy);
 		return (NULL);
 	}
-	
-	// Ensure echo is enabled for heredoc input
 	if (tcgetattr(STDIN_FILENO, &term) == 0)
 	{
 		term.c_lflag |= ECHO;
 		tcsetattr(STDIN_FILENO, TCSANOW, &term);
 	}
-	
 	setup_heredoc_signals();
 	g_signal = 0;
 	current = heredocs;
@@ -305,8 +293,6 @@ int	setup_redirections(t_redir *redirs)
 	int		heredoc_processed;
 
 	heredoc_processed = 0;
-	
-	// First pass: process all heredocs
 	current = redirs;
 	while (current)
 	{
@@ -317,8 +303,6 @@ int	setup_redirections(t_redir *redirs)
 		}
 		current = current->next;
 	}
-	
-	// Second pass: process other redirections
 	current = redirs;
 	while (current)
 	{
