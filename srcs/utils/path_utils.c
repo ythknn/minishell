@@ -6,7 +6,7 @@
 /*   By: yihakan <yihakan@student.42istanbul.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/15 18:35:00 by mdusunen          #+#    #+#             */
-/*   Updated: 2025/08/03 10:43:15 by yihakan          ###   ########.fr       */
+/*   Updated: 2025/08/04 17:03:06 by yihakan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,16 +62,34 @@ int	is_absolute_or_relative_path(char *cmd)
 char	*build_exec_path(char *dir, char *cmd)
 {
 	char	*exec_path;
-	char	*temp;
+	int		dir_len;
+	int		cmd_len;
+	int		i;
 
-	if (!dir || !cmd)
+	if (!dir || !cmd || !*dir)
 		return (NULL);
-	temp = ft_strjoin(dir, "/");
-	if (!temp)
-		return (NULL);
-	exec_path = ft_strjoin(temp, cmd);
-	free(temp);
+	dir_len = 0;
+	while (dir[dir_len])
+		dir_len++;
+	cmd_len = 0;
+	while (cmd[cmd_len])
+		cmd_len++;
+	exec_path = malloc(dir_len + cmd_len + 2);
 	if (!exec_path)
 		return (NULL);
+	i = 0;
+	while (i < dir_len)
+	{
+		exec_path[i] = dir[i];
+		i++;
+	}
+	exec_path[i] = '/';
+	i++;
+	while (i - dir_len - 1 < cmd_len)
+	{
+		exec_path[i] = cmd[i - dir_len - 1];
+		i++;
+	}
+	exec_path[i] = '\0';
 	return (exec_path);
 }

@@ -6,7 +6,7 @@
 #    By: yihakan <yihakan@student.42istanbul.com    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/06/07 14:33:48 by yihakan           #+#    #+#              #
-#    Updated: 2025/08/03 10:55:14 by yihakan          ###   ########.fr        #
+#    Updated: 2025/08/04 17:43:00 by yihakan          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -137,6 +137,6 @@ fclean: clean
 re: fclean all
 
 leaks:
-	valgrind --leak-check=full --show-leak-kinds=all --suppressions=readline.supp ./minishell
+	valgrind --show-leak-kinds=all --leak-check=full --suppressions=readline.supp ./minishell
 
 .PHONY: all clean fclean re
