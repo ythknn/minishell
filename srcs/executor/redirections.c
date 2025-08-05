@@ -6,7 +6,7 @@
 /*   By: yihakan <yihakan@student.42istanbul.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/11 16:29:36 by yihakan           #+#    #+#             */
-/*   Updated: 2025/08/05 20:25:16 by yihakan          ###   ########.fr       */
+/*   Updated: 2025/08/05 20:29:17 by yihakan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,8 +34,6 @@ static char	*strip_quotes(char *str)
 	return (ft_strdup(str));
 }
 
-
-
 static int	count_heredocs(t_redir *heredocs)
 {
 	t_redir	*current;
@@ -51,10 +49,6 @@ static int	count_heredocs(t_redir *heredocs)
 	}
 	return (heredoc_count);
 }
-
-
-
-
 
 static char	*process_heredoc_line_simple(char *line, char *delimiter, char *current_file)
 {
