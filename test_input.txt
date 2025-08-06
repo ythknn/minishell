@@ -1,5 +1,6 @@
-at << a | grep g
+cat << a | grep g
 test
 g
 hello
-a
+world
+^C
