@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   executor.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mdusunen <mdusunen@student.42.fr>          +#+  +:+       +#+        */
+/*   By: yihakan <yihakan@student.42istanbul.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/09 19:23:11 by yihakan           #+#    #+#             */
-/*   Updated: 2025/07/18 20:00:39 by mdusunen         ###   ########.fr       */
+/*   Updated: 2025/08/06 19:03:49 by yihakan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,10 @@ static int	handle_redirections_builtin(t_command *cmd, t_shell *shell)
 	if (setup_redirections(cmd->redirections) != 0)
 	{
 		restore_redirections(stdin_copy, stdout_copy);
-		shell->exit_status = 1;
+		if (g_signal == SIGINT)
+			shell->exit_status = 130;
+		else
+			shell->exit_status = 1;
 		return (1);
 	}
 	if (cmd->args && cmd->args[0])

@@ -6,11 +6,14 @@
 /*   By: yihakan <yihakan@student.42istanbul.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/18 18:50:53 by yihakan           #+#    #+#             */
-/*   Updated: 2025/08/04 04:42:53 by yihakan          ###   ########.fr       */
+/*   Updated: 2025/08/06 19:11:55 by yihakan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 # include "../includes/minishell.h"
+
+extern int	rl_point;
+extern int	rl_end;
 
 int g_signal = 0;
 
@@ -63,6 +66,12 @@ static void handle_signal_interrupt(t_shell *shell)
 	gc_free_all(shell);
 	g_signal = 0;
 	shell->exit_status = 130;
+	write(STDOUT_FILENO, "\n", 1);
+	rl_replace_line("", 0);
+	rl_point = 0;
+	rl_end = 0;
+	rl_on_new_line();
+	rl_reset_terminal(NULL);
 }
 
 int main(int argc, char **argv, char **env)
@@ -86,13 +95,26 @@ int main(int argc, char **argv, char **env)
 			gc_free_all(&shell);
 			break;
 		}
+		if (g_signal == SIGINT)
+		{
+			handle_signal_interrupt(&shell);
+			continue;
+		}
 		clear_current_tokens(&shell);
 		clear_current_commands(&shell);
 		gc_set_static_ptr(&shell, line, GC_LINE);
 		process_command_line(line, &shell);
 		gc_free_type(&shell, GC_LINE);
 		if (g_signal == SIGINT)
+		{
 			handle_signal_interrupt(&shell);
+			continue;
+		}
+		if (shell.exit_status == 130)  /* SIGINT exit status */
+		{
+			shell.exit_status = 0;
+			continue;
+		}
 	}
 	clear_current_tokens(&shell);
 	clear_current_commands(&shell);
