@@ -68,26 +68,22 @@ static char	*process_heredoc_line_simple(char *line, char *delimiter, char *curr
 
 static char	*read_heredoc_line(void)
 {
-	char	buffer[4096];
-	int		i;
-	int		c;
-	struct termios	old_term, new_term;
+	char	*line;
+	if (g_signal == SIGINT)
+		return (NULL);
 
-	tcgetattr(STDIN_FILENO, &old_term);
-	new_term = old_term;
-	new_term.c_lflag |= (ECHO | ICANON);
-	tcsetattr(STDIN_FILENO, TCSANOW, &new_term);
-	i = 0;
-	while (i < 4095)
+	line = readline("> ");
+	if (g_signal == SIGINT || !line)
 	{
-		c = getchar();
-		if (c == EOF || c == '\n')
-			break;
-		buffer[i++] = c;
+		if (line)
+		{
+			free(line);
+			line = NULL;
+		}
+		return (NULL);
 	}
-	buffer[i] = '\0';
-	tcsetattr(STDIN_FILENO, TCSANOW, &old_term);
-	return (ft_strdup(buffer));
+	
+	return (line);
 }
 
 static int	process_single_heredoc_simple(t_redir *current, int current_heredoc, int heredoc_count, char **heredoc_content)
@@ -105,7 +101,6 @@ static int	process_single_heredoc_simple(t_redir *current, int current_heredoc, 
 		return (0);
 	while (g_signal != SIGINT)
 	{
-		printf("> ");
 		line = read_heredoc_line();
 		if (!line || g_signal == SIGINT)
 		{
@@ -144,7 +139,7 @@ static int	process_single_heredoc_simple(t_redir *current, int current_heredoc, 
 	return (1);
 }
 
-static char	*handle_multiple_heredocs(t_redir *heredocs)
+char	*handle_multiple_heredocs(t_redir *heredocs)
 {
 	t_redir		*current;
 	int			stdin_copy;
