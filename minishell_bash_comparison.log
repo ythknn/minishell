@@ -1,500 +1,320 @@
 === BASH COMPARISON REPORT ===
-Test Başlangıcı: Sal 05 Ağu 2025 20:15:52 +03
+Test Başlangıcı: Thu Aug  7 01:52:59 AM +03 2025
 
 === DIFFERENCE FOUND: env ===
 BASH OUTPUT:
-'SHELL=/bin/zsh
-SESSION_MANAGER=local/k1m20s07.42istanbul.com.tr:@/tmp/.ICE-unix/1898555,unix/k1m20s07.42istanbul.com.tr:/tmp/.ICE-unix/1898555
-USER_ZDOTDIR=/home/yihakan
+'SHELL=/bin/bash
+SESSION_MANAGER=local/mdusunen:@/tmp/.ICE-unix/2689,unix/mdusunen:/tmp/.ICE-unix/2689
 QT_ACCESSIBILITY=1
 COLORTERM=truecolor
 XDG_CONFIG_DIRS=/etc/xdg/xdg-ubuntu:/etc/xdg
-SSH_AGENT_LAUNCHER=gnome-keyring
-XDG_SESSION_PATH=/org/freedesktop/DisplayManager/Session14
 XDG_MENU_PREFIX=gnome-
-TERM_PROGRAM_VERSION=1.101.2
 GNOME_DESKTOP_SESSION_ID=this-is-deprecated
-GTK_IM_MODULE=ibus
-LANGUAGE=en_US:
-TERMINATOR_DBUS_PATH=/net/tenshu/Terminator2
-LC_ADDRESS=tr_TR.UTF-8
-LC_NAME=tr_TR.UTF-8
-SSH_AUTH_SOCK=/run/user/157249/keyring/ssh
-TERMINATOR_UUID=urn:uuid:ca223da9-0ee7-41ee-aba2-ac2d0854c3f7
+GNOME_SHELL_SESSION_MODE=ubuntu
+SSH_AUTH_SOCK=/run/user/1000/keyring/ssh
+MEMORY_PRESSURE_WRITE=c29tZSAyMDAwMDAgMjAwMDAwMAA=
 XMODIFIERS=@im=ibus
 DESKTOP_SESSION=ubuntu
-LC_MONETARY=tr_TR.UTF-8
-FT_HOOK_NAME=login-user
 GTK_MODULES=gail:atk-bridge
-FT_HOOK_PATHNAME=login-user.d
-KRB5CCNAME=FILE:/tmp/krb5cc_157249_TFYpe1
-PWD=/home/yihakan/minishell
-LOGNAME=yihakan
+PWD=/home/mdusunen/Desktop/minishell
+LOGNAME=mdusunen
 XDG_SESSION_DESKTOP=ubuntu
 XDG_SESSION_TYPE=x11
-GPG_AGENT_INFO=/run/user/157249/gnupg/S.gpg-agent:0:1
-SYSTEMD_EXEC_PID=1898584
+GPG_AGENT_INFO=/run/user/1000/gnupg/S.gpg-agent:0:1
+SYSTEMD_EXEC_PID=2733
 _=/usr/bin/env
-XAUTHORITY=/home/yihakan/.Xauthority
-VSCODE_GIT_ASKPASS_NODE=/usr/share/code/code
-XDG_GREETER_DATA_DIR=/var/lib/lightdm-data/yihakan
-GJS_DEBUG_TOPICS=JS ERROR;JS LOG
-VSCODE_INJECTION=1
-HOME=/home/yihakan
+XAUTHORITY=/run/user/1000/gdm/Xauthority
+WINDOWPATH=2
+HOME=/home/mdusunen
+USERNAME=mdusunen
 LANG=en_US.UTF-8
-LC_PAPER=tr_TR.UTF-8
-XDG_CURRENT_DESKTOP=Unity
-VTE_VERSION=6800
-GIT_ASKPASS=/usr/share/code/resources/app/extensions/git/dist/askpass.sh
-XDG_SEAT_PATH=/org/freedesktop/DisplayManager/Seat0
-INVOCATION_ID=3a1dcf4983d543bf9325661a2374f537
-TERMINATOR_DBUS_NAME=net.tenshu.Terminator21a9d5db22c73a993ff0b42f64b396873
-MANAGERPID=1897781
-CHROME_DESKTOP=code.desktop
-GJS_DEBUG_OUTPUT=stderr
-VSCODE_GIT_ASKPASS_EXTRA_ARGS=
+LS_COLORS=rs=0:di=01;34:ln=01;36:mh=00:pi=40;33:so=01;35:do=01;35:bd=40;33;01:cd=40;33;01:or=40;31;01:mi=00:su=37;41:sg=30;43:ca=00:tw=30;42:ow=34;42:st=37;44:ex=01;32:*.tar=01;31:*.tgz=01;31:*.arc=01;31:*.arj=01;31:*.taz=01;31:*.lha=01;31:*.lz4=01;31:*.lzh=01;31:*.lzma=01;31:*.tlz=01;31:*.txz=01;31:*.tzo=01;31:*.t7z=01;31:*.zip=01;31:*.z=01;31:*.dz=01;31:*.gz=01;31:*.lrz=01;31:*.lz=01;31:*.lzo=01;31:*.xz=01;31:*.zst=01;31:*.tzst=01;31:*.bz2=01;31:*.bz=01;31:*.tbz=01;31:*.tbz2=01;31:*.tz=01;31:*.deb=01;31:*.rpm=01;31:*.jar=01;31:*.war=01;31:*.ear=01;31:*.sar=01;31:*.rar=01;31:*.alz=01;31:*.ace=01;31:*.zoo=01;31:*.cpio=01;31:*.7z=01;31:*.rz=01;31:*.cab=01;31:*.wim=01;31:*.swm=01;31:*.dwm=01;31:*.esd=01;31:*.avif=01;35:*.jpg=01;35:*.jpeg=01;35:*.mjpg=01;35:*.mjpeg=01;35:*.gif=01;35:*.bmp=01;35:*.pbm=01;35:*.pgm=01;35:*.ppm=01;35:*.tga=01;35:*.xbm=01;35:*.xpm=01;35:*.tif=01;35:*.tiff=01;35:*.png=01;35:*.svg=01;35:*.svgz=01;35:*.mng=01;35:*.pcx=01;35:*.mov=01;35:*.mpg=01;35:*.mpeg=01;35:*.m2v=01;35:*.mkv=01;35:*.webm=01;35:*.webp=01;35:*.ogm=01;35:*.mp4=01;35:*.m4v=01;35:*.mp4v=01;35:*.vob=01;35:*.qt=01;35:*.nuv=01;35:*.wmv=01;35:*.asf=01;35:*.rm=01;35:*.rmvb=01;35:*.flc=01;35:*.avi=01;35:*.fli=01;35:*.flv=01;35:*.gl=01;35:*.dl=01;35:*.xcf=01;35:*.xwd=01;35:*.yuv=01;35:*.cgm=01;35:*.emf=01;35:*.ogv=01;35:*.ogx=01;35:*.aac=00;36:*.au=00;36:*.flac=00;36:*.m4a=00;36:*.mid=00;36:*.midi=00;36:*.mka=00;36:*.mp3=00;36:*.mpc=00;36:*.ogg=00;36:*.ra=00;36:*.wav=00;36:*.oga=00;36:*.opus=00;36:*.spx=00;36:*.xspf=00;36:*~=00;90:*#=00;90:*.bak=00;90:*.crdownload=00;90:*.dpkg-dist=00;90:*.dpkg-new=00;90:*.dpkg-old=00;90:*.dpkg-tmp=00;90:*.old=00;90:*.orig=00;90:*.part=00;90:*.rej=00;90:*.rpmnew=00;90:*.rpmorig=00;90:*.rpmsave=00;90:*.swp=00;90:*.tmp=00;90:*.ucf-dist=00;90:*.ucf-new=00;90:*.ucf-old=00;90:
+XDG_CURRENT_DESKTOP=ubuntu:GNOME
+MEMORY_PRESSURE_WATCH=/sys/fs/cgroup/user.slice/user-1000.slice/user@1000.service/session.slice/org.gnome.Shell@x11.service/memory.pressure
+VTE_VERSION=7600
+GNOME_TERMINAL_SCREEN=/org/gnome/Terminal/screen/59962826_f54f_4bc8_87ab_42ce4eb6e1f1
+LESSCLOSE=/usr/bin/lesspipe %s %s
 XDG_SESSION_CLASS=user
-IBUS_DISABLE_SNOOPER=1
 TERM=xterm-256color
-LC_IDENTIFICATION=tr_TR.UTF-8
-ZDOTDIR=/home/yihakan
-USER=yihakan
-VSCODE_GIT_IPC_HANDLE=/run/user/157249/vscode-git-cb673d1f83.sock
-DISPLAY=:0
+LESSOPEN=| /usr/bin/lesspipe %s
+USER=mdusunen
+GNOME_TERMINAL_SERVICE=:1.273
+CLUTTER_DISABLE_MIPMAPPED_TEXT=1
+DISPLAY=:1
 SHLVL=3
-LC_TELEPHONE=tr_TR.UTF-8
+GSM_SKIP_SSH_AGENT_WORKAROUND=true
 QT_IM_MODULE=ibus
-LC_MEASUREMENT=tr_TR.UTF-8
-XDG_RUNTIME_DIR=/run/user/157249
-LC_TIME=tr_TR.UTF-8
-DOCKER_HOST=unix:///run/user/157249/docker.sock
-VSCODE_GIT_ASKPASS_MAIN=/usr/share/code/resources/app/extensions/git/dist/askpass-main.js
-JOURNAL_STREAM=9:4773836
-XDG_DATA_DIRS=/usr/share/ubuntu:/usr/share/gnome:/home/yihakan/.local/share/flatpak/exports/share:/var/lib/flatpak/exports/share:/usr/local/share:/usr/share:/var/lib/snapd/desktop
-GDK_BACKEND=x11
-PATH=/home/yihakan/bin:/home/yihakan/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin:/home/yihakan/Wcode/bin:/home/yihakan/Wcode/bin
+XDG_RUNTIME_DIR=/run/user/1000
+DEBUGINFOD_URLS=https://debuginfod.ubuntu.com 
+XDG_DATA_DIRS=/usr/share/ubuntu:/usr/share/gnome:/usr/local/share/:/usr/share/:/var/lib/snapd/desktop
+PATH=/home/mdusunen/.local/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin:/snap/bin:/home/mdusunen/.local/bin:/home/mdusunen/.local/bin:/home/mdusunen/.venv/bin:/home/mdusunen/.venv/bin:/home/mdusunen/.venv/bin:/home/mdusunen/.venv/bin:/home/mdusunen/.venv/bin:/home/mdusunen/.venv/bin
 GDMSESSION=ubuntu
-ORIGINAL_XDG_CURRENT_DESKTOP=ubuntu:GNOME
-DBUS_SESSION_BUS_ADDRESS=unix:path=/run/user/157249/bus
-GIO_LAUNCHED_DESKTOP_FILE_PID=1901209
-GIO_LAUNCHED_DESKTOP_FILE=/usr/share/applications/terminator.desktop
-LC_NUMERIC=tr_TR.UTF-8
-OLDPWD=/home/yihakan/minishell
-TERM_PROGRAM=vscode'
+DBUS_SESSION_BUS_ADDRESS=unix:path=/run/user/1000/bus
+OLDPWD=/home/mdusunen/Desktop/minishell/srcs/executor'
 BASH EXIT CODE: 0
 
 MINISHELL RAW OUTPUT:
 '[32mminishell[0m[33m$>[0m env
-SHELL=/bin/zsh
-SESSION_MANAGER=local/k1m20s07.42istanbul.com.tr:@/tmp/.ICE-unix/1898555,unix/k1m20s07.42istanbul.com.tr:/tmp/.ICE-unix/1898555
-USER_ZDOTDIR=/home/yihakan
+SHELL=/bin/bash
+SESSION_MANAGER=local/mdusunen:@/tmp/.ICE-unix/2689,unix/mdusunen:/tmp/.ICE-unix/2689
 QT_ACCESSIBILITY=1
 COLORTERM=truecolor
 XDG_CONFIG_DIRS=/etc/xdg/xdg-ubuntu:/etc/xdg
-SSH_AGENT_LAUNCHER=gnome-keyring
-XDG_SESSION_PATH=/org/freedesktop/DisplayManager/Session14
 XDG_MENU_PREFIX=gnome-
-TERM_PROGRAM_VERSION=1.101.2
 GNOME_DESKTOP_SESSION_ID=this-is-deprecated
-GTK_IM_MODULE=ibus
-LANGUAGE=en_US:
-TERMINATOR_DBUS_PATH=/net/tenshu/Terminator2
-LC_ADDRESS=tr_TR.UTF-8
-LC_NAME=tr_TR.UTF-8
-SSH_AUTH_SOCK=/run/user/157249/keyring/ssh
-TERMINATOR_UUID=urn:uuid:ca223da9-0ee7-41ee-aba2-ac2d0854c3f7
+GNOME_SHELL_SESSION_MODE=ubuntu
+SSH_AUTH_SOCK=/run/user/1000/keyring/ssh
+MEMORY_PRESSURE_WRITE=c29tZSAyMDAwMDAgMjAwMDAwMAA=
 XMODIFIERS=@im=ibus
 DESKTOP_SESSION=ubuntu
-LC_MONETARY=tr_TR.UTF-8
-FT_HOOK_NAME=login-user
 GTK_MODULES=gail:atk-bridge
-FT_HOOK_PATHNAME=login-user.d
-PWD=/home/yihakan/minishell
-KRB5CCNAME=FILE:/tmp/krb5cc_157249_TFYpe1
+PWD=/home/mdusunen/Desktop/minishell
 XDG_SESSION_DESKTOP=ubuntu
-LOGNAME=yihakan
+LOGNAME=mdusunen
 XDG_SESSION_TYPE=x11
-GPG_AGENT_INFO=/run/user/157249/gnupg/S.gpg-agent:0:1
-SYSTEMD_EXEC_PID=1898584
-XAUTHORITY=/home/yihakan/.Xauthority
-VSCODE_GIT_ASKPASS_NODE=/usr/share/code/code
-XDG_GREETER_DATA_DIR=/var/lib/lightdm-data/yihakan
-GJS_DEBUG_TOPICS=JS ERROR;JS LOG
-VSCODE_INJECTION=1
-HOME=/home/yihakan
-LC_PAPER=tr_TR.UTF-8
+GPG_AGENT_INFO=/run/user/1000/gnupg/S.gpg-agent:0:1
+SYSTEMD_EXEC_PID=2733
+XAUTHORITY=/run/user/1000/gdm/Xauthority
+WINDOWPATH=2
+HOME=/home/mdusunen
+USERNAME=mdusunen
 LANG=en_US.UTF-8
-XDG_CURRENT_DESKTOP=Unity
-VTE_VERSION=6800
-GIT_ASKPASS=/usr/share/code/resources/app/extensions/git/dist/askpass.sh
-XDG_SEAT_PATH=/org/freedesktop/DisplayManager/Seat0
-INVOCATION_ID=3a1dcf4983d543bf9325661a2374f537
-TERMINATOR_DBUS_NAME=net.tenshu.Terminator21a9d5db22c73a993ff0b42f64b396873
-MANAGERPID=1897781
-CHROME_DESKTOP=code.desktop
-GJS_DEBUG_OUTPUT=stderr
-VSCODE_GIT_ASKPASS_EXTRA_ARGS=
+LS_COLORS=rs=0:di=01;34:ln=01;36:mh=00:pi=40;33:so=01;35:do=01;35:bd=40;33;01:cd=40;33;01:or=40;31;01:mi=00:su=37;41:sg=30;43:ca=00:tw=30;42:ow=34;42:st=37;44:ex=01;32:*.tar=01;31:*.tgz=01;31:*.arc=01;31:*.arj=01;31:*.taz=01;31:*.lha=01;31:*.lz4=01;31:*.lzh=01;31:*.lzma=01;31:*.tlz=01;31:*.txz=01;31:*.tzo=01;31:*.t7z=01;31:*.zip=01;31:*.z=01;31:*.dz=01;31:*.gz=01;31:*.lrz=01;31:*.lz=01;31:*.lzo=01;31:*.xz=01;31:*.zst=01;31:*.tzst=01;31:*.bz2=01;31:*.bz=01;31:*.tbz=01;31:*.tbz2=01;31:*.tz=01;31:*.deb=01;31:*.rpm=01;31:*.jar=01;31:*.war=01;31:*.ear=01;31:*.sar=01;31:*.rar=01;31:*.alz=01;31:*.ace=01;31:*.zoo=01;31:*.cpio=01;31:*.7z=01;31:*.rz=01;31:*.cab=01;31:*.wim=01;31:*.swm=01;31:*.dwm=01;31:*.esd=01;31:*.avif=01;35:*.jpg=01;35:*.jpeg=01;35:*.mjpg=01;35:*.mjpeg=01;35:*.gif=01;35:*.bmp=01;35:*.pbm=01;35:*.pgm=01;35:*.ppm=01;35:*.tga=01;35:*.xbm=01;35:*.xpm=01;35:*.tif=01;35:*.tiff=01;35:*.png=01;35:*.svg=01;35:*.svgz=01;35:*.mng=01;35:*.pcx=01;35:*.mov=01;35:*.mpg=01;35:*.mpeg=01;35:*.m2v=01;35:*.mkv=01;35:*.webm=01;35:*.webp=01;35:*.ogm=01;35:*.mp4=01;35:*.m4v=01;35:*.mp4v=01;35:*.vob=01;35:*.qt=01;35:*.nuv=01;35:*.wmv=01;35:*.asf=01;35:*.rm=01;35:*.rmvb=01;35:*.flc=01;35:*.avi=01;35:*.fli=01;35:*.flv=01;35:*.gl=01;35:*.dl=01;35:*.xcf=01;35:*.xwd=01;35:*.yuv=01;35:*.cgm=01;35:*.emf=01;35:*.ogv=01;35:*.ogx=01;35:*.aac=00;36:*.au=00;36:*.flac=00;36:*.m4a=00;36:*.mid=00;36:*.midi=00;36:*.mka=00;36:*.mp3=00;36:*.mpc=00;36:*.ogg=00;36:*.ra=00;36:*.wav=00;36:*.oga=00;36:*.opus=00;36:*.spx=00;36:*.xspf=00;36:*~=00;90:*#=00;90:*.bak=00;90:*.crdownload=00;90:*.dpkg-dist=00;90:*.dpkg-new=00;90:*.dpkg-old=00;90:*.dpkg-tmp=00;90:*.old=00;90:*.orig=00;90:*.part=00;90:*.rej=00;90:*.rpmnew=00;90:*.rpmorig=00;90:*.rpmsave=00;90:*.swp=00;90:*.tmp=00;90:*.ucf-dist=00;90:*.ucf-new=00;90:*.ucf-old=00;90:
+XDG_CURRENT_DESKTOP=ubuntu:GNOME
+MEMORY_PRESSURE_WATCH=/sys/fs/cgroup/user.slice/user-1000.slice/user@1000.service/session.slice/org.gnome.Shell@x11.service/memory.pressure
+VTE_VERSION=7600
+GNOME_TERMINAL_SCREEN=/org/gnome/Terminal/screen/59962826_f54f_4bc8_87ab_42ce4eb6e1f1
+LESSCLOSE=/usr/bin/lesspipe %s %s
 XDG_SESSION_CLASS=user
-IBUS_DISABLE_SNOOPER=1
-LC_IDENTIFICATION=tr_TR.UTF-8
 TERM=xterm-256color
-ZDOTDIR=/home/yihakan
-USER=yihakan
-VSCODE_GIT_IPC_HANDLE=/run/user/157249/vscode-git-cb673d1f83.sock
-DISPLAY=:0
+LESSOPEN=| /usr/bin/lesspipe %s
+USER=mdusunen
+GNOME_TERMINAL_SERVICE=:1.273
+CLUTTER_DISABLE_MIPMAPPED_TEXT=1
+DISPLAY=:1
 SHLVL=2
-LC_TELEPHONE=tr_TR.UTF-8
+GSM_SKIP_SSH_AGENT_WORKAROUND=true
 QT_IM_MODULE=ibus
-LC_MEASUREMENT=tr_TR.UTF-8
-XDG_RUNTIME_DIR=/run/user/157249
-DOCKER_HOST=unix:///run/user/157249/docker.sock
-LC_TIME=tr_TR.UTF-8
-VSCODE_GIT_ASKPASS_MAIN=/usr/share/code/resources/app/extensions/git/dist/askpass-main.js
-JOURNAL_STREAM=9:4773836
-XDG_DATA_DIRS=/usr/share/ubuntu:/usr/share/gnome:/home/yihakan/.local/share/flatpak/exports/share:/var/lib/flatpak/exports/share:/usr/local/share:/usr/share:/var/lib/snapd/desktop
-GDK_BACKEND=x11
-PATH=/home/yihakan/bin:/home/yihakan/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin:/home/yihakan/Wcode/bin:/home/yihakan/Wcode/bin
+XDG_RUNTIME_DIR=/run/user/1000
+DEBUGINFOD_URLS=https://debuginfod.ubuntu.com 
+XDG_DATA_DIRS=/usr/share/ubuntu:/usr/share/gnome:/usr/local/share/:/usr/share/:/var/lib/snapd/desktop
+PATH=/home/mdusunen/.local/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin:/snap/bin:/home/mdusunen/.local/bin:/home/mdusunen/.local/bin:/home/mdusunen/.venv/bin:/home/mdusunen/.venv/bin:/home/mdusunen/.venv/bin:/home/mdusunen/.venv/bin:/home/mdusunen/.venv/bin:/home/mdusunen/.venv/bin
 GDMSESSION=ubuntu
-ORIGINAL_XDG_CURRENT_DESKTOP=ubuntu:GNOME
-DBUS_SESSION_BUS_ADDRESS=unix:path=/run/user/157249/bus
-GIO_LAUNCHED_DESKTOP_FILE_PID=1901209
-GIO_LAUNCHED_DESKTOP_FILE=/usr/share/applications/terminator.desktop
-LC_NUMERIC=tr_TR.UTF-8
-OLDPWD=/home/yihakan/minishell
-TERM_PROGRAM=vscode
+DBUS_SESSION_BUS_ADDRESS=unix:path=/run/user/1000/bus
+OLDPWD=/home/mdusunen/Desktop/minishell/srcs/executor
 _=/usr/bin/timeout
 [32mminishell[0m[33m$>[0m '
 MINISHELL CLEANED OUTPUT:
-'SHELL=/bin/zsh
-SESSION_MANAGER=local/k1m20s07.42istanbul.com.tr:@/tmp/.ICE-unix/1898555,unix/k1m20s07.42istanbul.com.tr:/tmp/.ICE-unix/1898555
-USER_ZDOTDIR=/home/yihakan
+'SHELL=/bin/bash
+SESSION_MANAGER=local/mdusunen:@/tmp/.ICE-unix/2689,unix/mdusunen:/tmp/.ICE-unix/2689
 QT_ACCESSIBILITY=1
 COLORTERM=truecolor
 XDG_CONFIG_DIRS=/etc/xdg/xdg-ubuntu:/etc/xdg
-SSH_AGENT_LAUNCHER=gnome-keyring
-XDG_SESSION_PATH=/org/freedesktop/DisplayManager/Session14
 XDG_MENU_PREFIX=gnome-
-TERM_PROGRAM_VERSION=1.101.2
 GNOME_DESKTOP_SESSION_ID=this-is-deprecated
-GTK_IM_MODULE=ibus
-LANGUAGE=en_US:
-TERMINATOR_DBUS_PATH=/net/tenshu/Terminator2
-LC_ADDRESS=tr_TR.UTF-8
-LC_NAME=tr_TR.UTF-8
-SSH_AUTH_SOCK=/run/user/157249/keyring/ssh
-TERMINATOR_UUID=urn:uuid:ca223da9-0ee7-41ee-aba2-ac2d0854c3f7
+GNOME_SHELL_SESSION_MODE=ubuntu
+SSH_AUTH_SOCK=/run/user/1000/keyring/ssh
+MEMORY_PRESSURE_WRITE=c29tZSAyMDAwMDAgMjAwMDAwMAA=
 XMODIFIERS=@im=ibus
 DESKTOP_SESSION=ubuntu
-LC_MONETARY=tr_TR.UTF-8
-FT_HOOK_NAME=login-user
 GTK_MODULES=gail:atk-bridge
-FT_HOOK_PATHNAME=login-user.d
-PWD=/home/yihakan/minishell
-KRB5CCNAME=FILE:/tmp/krb5cc_157249_TFYpe1
+PWD=/home/mdusunen/Desktop/minishell
 XDG_SESSION_DESKTOP=ubuntu
-LOGNAME=yihakan
+LOGNAME=mdusunen
 XDG_SESSION_TYPE=x11
-GPG_AGENT_INFO=/run/user/157249/gnupg/S.gpg-agent:0:1
-SYSTEMD_EXEC_PID=1898584
-XAUTHORITY=/home/yihakan/.Xauthority
-VSCODE_GIT_ASKPASS_NODE=/usr/share/code/code
-XDG_GREETER_DATA_DIR=/var/lib/lightdm-data/yihakan
-GJS_DEBUG_TOPICS=JS ERROR;JS LOG
-VSCODE_INJECTION=1
-HOME=/home/yihakan
-LC_PAPER=tr_TR.UTF-8
+GPG_AGENT_INFO=/run/user/1000/gnupg/S.gpg-agent:0:1
+SYSTEMD_EXEC_PID=2733
+XAUTHORITY=/run/user/1000/gdm/Xauthority
+WINDOWPATH=2
+HOME=/home/mdusunen
+USERNAME=mdusunen
 LANG=en_US.UTF-8
-XDG_CURRENT_DESKTOP=Unity
-VTE_VERSION=6800
-GIT_ASKPASS=/usr/share/code/resources/app/extensions/git/dist/askpass.sh
-XDG_SEAT_PATH=/org/freedesktop/DisplayManager/Seat0
-INVOCATION_ID=3a1dcf4983d543bf9325661a2374f537
-TERMINATOR_DBUS_NAME=net.tenshu.Terminator21a9d5db22c73a993ff0b42f64b396873
-MANAGERPID=1897781
-CHROME_DESKTOP=code.desktop
-GJS_DEBUG_OUTPUT=stderr
-VSCODE_GIT_ASKPASS_EXTRA_ARGS=
+LS_COLORS=rs=0:di=01;34:ln=01;36:mh=00:pi=40;33:so=01;35:do=01;35:bd=40;33;01:cd=40;33;01:or=40;31;01:mi=00:su=37;41:sg=30;43:ca=00:tw=30;42:ow=34;42:st=37;44:ex=01;32:*.tar=01;31:*.tgz=01;31:*.arc=01;31:*.arj=01;31:*.taz=01;31:*.lha=01;31:*.lz4=01;31:*.lzh=01;31:*.lzma=01;31:*.tlz=01;31:*.txz=01;31:*.tzo=01;31:*.t7z=01;31:*.zip=01;31:*.z=01;31:*.dz=01;31:*.gz=01;31:*.lrz=01;31:*.lz=01;31:*.lzo=01;31:*.xz=01;31:*.zst=01;31:*.tzst=01;31:*.bz2=01;31:*.bz=01;31:*.tbz=01;31:*.tbz2=01;31:*.tz=01;31:*.deb=01;31:*.rpm=01;31:*.jar=01;31:*.war=01;31:*.ear=01;31:*.sar=01;31:*.rar=01;31:*.alz=01;31:*.ace=01;31:*.zoo=01;31:*.cpio=01;31:*.7z=01;31:*.rz=01;31:*.cab=01;31:*.wim=01;31:*.swm=01;31:*.dwm=01;31:*.esd=01;31:*.avif=01;35:*.jpg=01;35:*.jpeg=01;35:*.mjpg=01;35:*.mjpeg=01;35:*.gif=01;35:*.bmp=01;35:*.pbm=01;35:*.pgm=01;35:*.ppm=01;35:*.tga=01;35:*.xbm=01;35:*.xpm=01;35:*.tif=01;35:*.tiff=01;35:*.png=01;35:*.svg=01;35:*.svgz=01;35:*.mng=01;35:*.pcx=01;35:*.mov=01;35:*.mpg=01;35:*.mpeg=01;35:*.m2v=01;35:*.mkv=01;35:*.webm=01;35:*.webp=01;35:*.ogm=01;35:*.mp4=01;35:*.m4v=01;35:*.mp4v=01;35:*.vob=01;35:*.qt=01;35:*.nuv=01;35:*.wmv=01;35:*.asf=01;35:*.rm=01;35:*.rmvb=01;35:*.flc=01;35:*.avi=01;35:*.fli=01;35:*.flv=01;35:*.gl=01;35:*.dl=01;35:*.xcf=01;35:*.xwd=01;35:*.yuv=01;35:*.cgm=01;35:*.emf=01;35:*.ogv=01;35:*.ogx=01;35:*.aac=00;36:*.au=00;36:*.flac=00;36:*.m4a=00;36:*.mid=00;36:*.midi=00;36:*.mka=00;36:*.mp3=00;36:*.mpc=00;36:*.ogg=00;36:*.ra=00;36:*.wav=00;36:*.oga=00;36:*.opus=00;36:*.spx=00;36:*.xspf=00;36:*~=00;90:*#=00;90:*.bak=00;90:*.crdownload=00;90:*.dpkg-dist=00;90:*.dpkg-new=00;90:*.dpkg-old=00;90:*.dpkg-tmp=00;90:*.old=00;90:*.orig=00;90:*.part=00;90:*.rej=00;90:*.rpmnew=00;90:*.rpmorig=00;90:*.rpmsave=00;90:*.swp=00;90:*.tmp=00;90:*.ucf-dist=00;90:*.ucf-new=00;90:*.ucf-old=00;90:
+XDG_CURRENT_DESKTOP=ubuntu:GNOME
+MEMORY_PRESSURE_WATCH=/sys/fs/cgroup/user.slice/user-1000.slice/user@1000.service/session.slice/org.gnome.Shell@x11.service/memory.pressure
+VTE_VERSION=7600
+GNOME_TERMINAL_SCREEN=/org/gnome/Terminal/screen/59962826_f54f_4bc8_87ab_42ce4eb6e1f1
+LESSCLOSE=/usr/bin/lesspipe %s %s
 XDG_SESSION_CLASS=user
-IBUS_DISABLE_SNOOPER=1
-LC_IDENTIFICATION=tr_TR.UTF-8
 TERM=xterm-256color
-ZDOTDIR=/home/yihakan
-USER=yihakan
-VSCODE_GIT_IPC_HANDLE=/run/user/157249/vscode-git-cb673d1f83.sock
-DISPLAY=:0
+LESSOPEN=| /usr/bin/lesspipe %s
+USER=mdusunen
+GNOME_TERMINAL_SERVICE=:1.273
+CLUTTER_DISABLE_MIPMAPPED_TEXT=1
+DISPLAY=:1
 SHLVL=2
-LC_TELEPHONE=tr_TR.UTF-8
+GSM_SKIP_SSH_AGENT_WORKAROUND=true
 QT_IM_MODULE=ibus
-LC_MEASUREMENT=tr_TR.UTF-8
-XDG_RUNTIME_DIR=/run/user/157249
-DOCKER_HOST=unix:///run/user/157249/docker.sock
-LC_TIME=tr_TR.UTF-8
-VSCODE_GIT_ASKPASS_MAIN=/usr/share/code/resources/app/extensions/git/dist/askpass-main.js
-JOURNAL_STREAM=9:4773836
-XDG_DATA_DIRS=/usr/share/ubuntu:/usr/share/gnome:/home/yihakan/.local/share/flatpak/exports/share:/var/lib/flatpak/exports/share:/usr/local/share:/usr/share:/var/lib/snapd/desktop
-GDK_BACKEND=x11
-PATH=/home/yihakan/bin:/home/yihakan/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin:/home/yihakan/Wcode/bin:/home/yihakan/Wcode/bin
+XDG_RUNTIME_DIR=/run/user/1000
+DEBUGINFOD_URLS=https://debuginfod.ubuntu.com
+XDG_DATA_DIRS=/usr/share/ubuntu:/usr/share/gnome:/usr/local/share/:/usr/share/:/var/lib/snapd/desktop
+PATH=/home/mdusunen/.local/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin:/snap/bin:/home/mdusunen/.local/bin:/home/mdusunen/.local/bin:/home/mdusunen/.venv/bin:/home/mdusunen/.venv/bin:/home/mdusunen/.venv/bin:/home/mdusunen/.venv/bin:/home/mdusunen/.venv/bin:/home/mdusunen/.venv/bin
 GDMSESSION=ubuntu
-ORIGINAL_XDG_CURRENT_DESKTOP=ubuntu:GNOME
-DBUS_SESSION_BUS_ADDRESS=unix:path=/run/user/157249/bus
-GIO_LAUNCHED_DESKTOP_FILE_PID=1901209
-GIO_LAUNCHED_DESKTOP_FILE=/usr/share/applications/terminator.desktop
-LC_NUMERIC=tr_TR.UTF-8
-OLDPWD=/home/yihakan/minishell
-TERM_PROGRAM=vscode
+DBUS_SESSION_BUS_ADDRESS=unix:path=/run/user/1000/bus
+OLDPWD=/home/mdusunen/Desktop/minishell/srcs/executor
 _=/usr/bin/timeout'
 MINISHELL EXIT CODE: 0
 ======================================
 
 === DIFFERENCE FOUND: /usr/bin/env ===
 BASH OUTPUT:
-'SHELL=/bin/zsh
-SESSION_MANAGER=local/k1m20s07.42istanbul.com.tr:@/tmp/.ICE-unix/1898555,unix/k1m20s07.42istanbul.com.tr:/tmp/.ICE-unix/1898555
-USER_ZDOTDIR=/home/yihakan
+'SHELL=/bin/bash
+SESSION_MANAGER=local/mdusunen:@/tmp/.ICE-unix/2689,unix/mdusunen:/tmp/.ICE-unix/2689
 QT_ACCESSIBILITY=1
 COLORTERM=truecolor
 XDG_CONFIG_DIRS=/etc/xdg/xdg-ubuntu:/etc/xdg
-SSH_AGENT_LAUNCHER=gnome-keyring
-XDG_SESSION_PATH=/org/freedesktop/DisplayManager/Session14
 XDG_MENU_PREFIX=gnome-
-TERM_PROGRAM_VERSION=1.101.2
 GNOME_DESKTOP_SESSION_ID=this-is-deprecated
-GTK_IM_MODULE=ibus
-LANGUAGE=en_US:
-TERMINATOR_DBUS_PATH=/net/tenshu/Terminator2
-LC_ADDRESS=tr_TR.UTF-8
-LC_NAME=tr_TR.UTF-8
-SSH_AUTH_SOCK=/run/user/157249/keyring/ssh
-TERMINATOR_UUID=urn:uuid:ca223da9-0ee7-41ee-aba2-ac2d0854c3f7
+GNOME_SHELL_SESSION_MODE=ubuntu
+SSH_AUTH_SOCK=/run/user/1000/keyring/ssh
+MEMORY_PRESSURE_WRITE=c29tZSAyMDAwMDAgMjAwMDAwMAA=
 XMODIFIERS=@im=ibus
 DESKTOP_SESSION=ubuntu
-LC_MONETARY=tr_TR.UTF-8
-FT_HOOK_NAME=login-user
 GTK_MODULES=gail:atk-bridge
-FT_HOOK_PATHNAME=login-user.d
-KRB5CCNAME=FILE:/tmp/krb5cc_157249_TFYpe1
-PWD=/home/yihakan/minishell
-LOGNAME=yihakan
+PWD=/home/mdusunen/Desktop/minishell
+LOGNAME=mdusunen
 XDG_SESSION_DESKTOP=ubuntu
 XDG_SESSION_TYPE=x11
-GPG_AGENT_INFO=/run/user/157249/gnupg/S.gpg-agent:0:1
-SYSTEMD_EXEC_PID=1898584
+GPG_AGENT_INFO=/run/user/1000/gnupg/S.gpg-agent:0:1
+SYSTEMD_EXEC_PID=2733
 _=/usr/bin/env
-XAUTHORITY=/home/yihakan/.Xauthority
-VSCODE_GIT_ASKPASS_NODE=/usr/share/code/code
-XDG_GREETER_DATA_DIR=/var/lib/lightdm-data/yihakan
-GJS_DEBUG_TOPICS=JS ERROR;JS LOG
-VSCODE_INJECTION=1
-HOME=/home/yihakan
+XAUTHORITY=/run/user/1000/gdm/Xauthority
+WINDOWPATH=2
+HOME=/home/mdusunen
+USERNAME=mdusunen
 LANG=en_US.UTF-8
-LC_PAPER=tr_TR.UTF-8
-XDG_CURRENT_DESKTOP=Unity
-VTE_VERSION=6800
-GIT_ASKPASS=/usr/share/code/resources/app/extensions/git/dist/askpass.sh
-XDG_SEAT_PATH=/org/freedesktop/DisplayManager/Seat0
-INVOCATION_ID=3a1dcf4983d543bf9325661a2374f537
-TERMINATOR_DBUS_NAME=net.tenshu.Terminator21a9d5db22c73a993ff0b42f64b396873
-MANAGERPID=1897781
-CHROME_DESKTOP=code.desktop
-GJS_DEBUG_OUTPUT=stderr
-VSCODE_GIT_ASKPASS_EXTRA_ARGS=
+LS_COLORS=rs=0:di=01;34:ln=01;36:mh=00:pi=40;33:so=01;35:do=01;35:bd=40;33;01:cd=40;33;01:or=40;31;01:mi=00:su=37;41:sg=30;43:ca=00:tw=30;42:ow=34;42:st=37;44:ex=01;32:*.tar=01;31:*.tgz=01;31:*.arc=01;31:*.arj=01;31:*.taz=01;31:*.lha=01;31:*.lz4=01;31:*.lzh=01;31:*.lzma=01;31:*.tlz=01;31:*.txz=01;31:*.tzo=01;31:*.t7z=01;31:*.zip=01;31:*.z=01;31:*.dz=01;31:*.gz=01;31:*.lrz=01;31:*.lz=01;31:*.lzo=01;31:*.xz=01;31:*.zst=01;31:*.tzst=01;31:*.bz2=01;31:*.bz=01;31:*.tbz=01;31:*.tbz2=01;31:*.tz=01;31:*.deb=01;31:*.rpm=01;31:*.jar=01;31:*.war=01;31:*.ear=01;31:*.sar=01;31:*.rar=01;31:*.alz=01;31:*.ace=01;31:*.zoo=01;31:*.cpio=01;31:*.7z=01;31:*.rz=01;31:*.cab=01;31:*.wim=01;31:*.swm=01;31:*.dwm=01;31:*.esd=01;31:*.avif=01;35:*.jpg=01;35:*.jpeg=01;35:*.mjpg=01;35:*.mjpeg=01;35:*.gif=01;35:*.bmp=01;35:*.pbm=01;35:*.pgm=01;35:*.ppm=01;35:*.tga=01;35:*.xbm=01;35:*.xpm=01;35:*.tif=01;35:*.tiff=01;35:*.png=01;35:*.svg=01;35:*.svgz=01;35:*.mng=01;35:*.pcx=01;35:*.mov=01;35:*.mpg=01;35:*.mpeg=01;35:*.m2v=01;35:*.mkv=01;35:*.webm=01;35:*.webp=01;35:*.ogm=01;35:*.mp4=01;35:*.m4v=01;35:*.mp4v=01;35:*.vob=01;35:*.qt=01;35:*.nuv=01;35:*.wmv=01;35:*.asf=01;35:*.rm=01;35:*.rmvb=01;35:*.flc=01;35:*.avi=01;35:*.fli=01;35:*.flv=01;35:*.gl=01;35:*.dl=01;35:*.xcf=01;35:*.xwd=01;35:*.yuv=01;35:*.cgm=01;35:*.emf=01;35:*.ogv=01;35:*.ogx=01;35:*.aac=00;36:*.au=00;36:*.flac=00;36:*.m4a=00;36:*.mid=00;36:*.midi=00;36:*.mka=00;36:*.mp3=00;36:*.mpc=00;36:*.ogg=00;36:*.ra=00;36:*.wav=00;36:*.oga=00;36:*.opus=00;36:*.spx=00;36:*.xspf=00;36:*~=00;90:*#=00;90:*.bak=00;90:*.crdownload=00;90:*.dpkg-dist=00;90:*.dpkg-new=00;90:*.dpkg-old=00;90:*.dpkg-tmp=00;90:*.old=00;90:*.orig=00;90:*.part=00;90:*.rej=00;90:*.rpmnew=00;90:*.rpmorig=00;90:*.rpmsave=00;90:*.swp=00;90:*.tmp=00;90:*.ucf-dist=00;90:*.ucf-new=00;90:*.ucf-old=00;90:
+XDG_CURRENT_DESKTOP=ubuntu:GNOME
+MEMORY_PRESSURE_WATCH=/sys/fs/cgroup/user.slice/user-1000.slice/user@1000.service/session.slice/org.gnome.Shell@x11.service/memory.pressure
+VTE_VERSION=7600
+GNOME_TERMINAL_SCREEN=/org/gnome/Terminal/screen/59962826_f54f_4bc8_87ab_42ce4eb6e1f1
+LESSCLOSE=/usr/bin/lesspipe %s %s
 XDG_SESSION_CLASS=user
-IBUS_DISABLE_SNOOPER=1
 TERM=xterm-256color
-LC_IDENTIFICATION=tr_TR.UTF-8
-ZDOTDIR=/home/yihakan
-USER=yihakan
-VSCODE_GIT_IPC_HANDLE=/run/user/157249/vscode-git-cb673d1f83.sock
-DISPLAY=:0
+LESSOPEN=| /usr/bin/lesspipe %s
+USER=mdusunen
+GNOME_TERMINAL_SERVICE=:1.273
+CLUTTER_DISABLE_MIPMAPPED_TEXT=1
+DISPLAY=:1
 SHLVL=3
-LC_TELEPHONE=tr_TR.UTF-8
+GSM_SKIP_SSH_AGENT_WORKAROUND=true
 QT_IM_MODULE=ibus
-LC_MEASUREMENT=tr_TR.UTF-8
-XDG_RUNTIME_DIR=/run/user/157249
-LC_TIME=tr_TR.UTF-8
-DOCKER_HOST=unix:///run/user/157249/docker.sock
-VSCODE_GIT_ASKPASS_MAIN=/usr/share/code/resources/app/extensions/git/dist/askpass-main.js
-JOURNAL_STREAM=9:4773836
-XDG_DATA_DIRS=/usr/share/ubuntu:/usr/share/gnome:/home/yihakan/.local/share/flatpak/exports/share:/var/lib/flatpak/exports/share:/usr/local/share:/usr/share:/var/lib/snapd/desktop
-GDK_BACKEND=x11
-PATH=/home/yihakan/bin:/home/yihakan/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin:/home/yihakan/Wcode/bin:/home/yihakan/Wcode/bin
+XDG_RUNTIME_DIR=/run/user/1000
+DEBUGINFOD_URLS=https://debuginfod.ubuntu.com 
+XDG_DATA_DIRS=/usr/share/ubuntu:/usr/share/gnome:/usr/local/share/:/usr/share/:/var/lib/snapd/desktop
+PATH=/home/mdusunen/.local/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin:/snap/bin:/home/mdusunen/.local/bin:/home/mdusunen/.local/bin:/home/mdusunen/.venv/bin:/home/mdusunen/.venv/bin:/home/mdusunen/.venv/bin:/home/mdusunen/.venv/bin:/home/mdusunen/.venv/bin:/home/mdusunen/.venv/bin
 GDMSESSION=ubuntu
-ORIGINAL_XDG_CURRENT_DESKTOP=ubuntu:GNOME
-DBUS_SESSION_BUS_ADDRESS=unix:path=/run/user/157249/bus
-GIO_LAUNCHED_DESKTOP_FILE_PID=1901209
-GIO_LAUNCHED_DESKTOP_FILE=/usr/share/applications/terminator.desktop
-LC_NUMERIC=tr_TR.UTF-8
-OLDPWD=/home/yihakan/minishell
-TERM_PROGRAM=vscode'
+DBUS_SESSION_BUS_ADDRESS=unix:path=/run/user/1000/bus
+OLDPWD=/home/mdusunen/Desktop/minishell/srcs/executor'
 BASH EXIT CODE: 0
 
 MINISHELL RAW OUTPUT:
 '[32mminishell[0m[33m$>[0m /usr/bin/env
-SHELL=/bin/zsh
-SESSION_MANAGER=local/k1m20s07.42istanbul.com.tr:@/tmp/.ICE-unix/1898555,unix/k1m20s07.42istanbul.com.tr:/tmp/.ICE-unix/1898555
-USER_ZDOTDIR=/home/yihakan
+SHELL=/bin/bash
+SESSION_MANAGER=local/mdusunen:@/tmp/.ICE-unix/2689,unix/mdusunen:/tmp/.ICE-unix/2689
 QT_ACCESSIBILITY=1
 COLORTERM=truecolor
 XDG_CONFIG_DIRS=/etc/xdg/xdg-ubuntu:/etc/xdg
-SSH_AGENT_LAUNCHER=gnome-keyring
-XDG_SESSION_PATH=/org/freedesktop/DisplayManager/Session14
 XDG_MENU_PREFIX=gnome-
-TERM_PROGRAM_VERSION=1.101.2
 GNOME_DESKTOP_SESSION_ID=this-is-deprecated
-GTK_IM_MODULE=ibus
-LANGUAGE=en_US:
-TERMINATOR_DBUS_PATH=/net/tenshu/Terminator2
-LC_ADDRESS=tr_TR.UTF-8
-LC_NAME=tr_TR.UTF-8
-SSH_AUTH_SOCK=/run/user/157249/keyring/ssh
-TERMINATOR_UUID=urn:uuid:ca223da9-0ee7-41ee-aba2-ac2d0854c3f7
+GNOME_SHELL_SESSION_MODE=ubuntu
+SSH_AUTH_SOCK=/run/user/1000/keyring/ssh
+MEMORY_PRESSURE_WRITE=c29tZSAyMDAwMDAgMjAwMDAwMAA=
 XMODIFIERS=@im=ibus
 DESKTOP_SESSION=ubuntu
-LC_MONETARY=tr_TR.UTF-8
-FT_HOOK_NAME=login-user
 GTK_MODULES=gail:atk-bridge
-FT_HOOK_PATHNAME=login-user.d
-PWD=/home/yihakan/minishell
-KRB5CCNAME=FILE:/tmp/krb5cc_157249_TFYpe1
+PWD=/home/mdusunen/Desktop/minishell
 XDG_SESSION_DESKTOP=ubuntu
-LOGNAME=yihakan
+LOGNAME=mdusunen
 XDG_SESSION_TYPE=x11
-GPG_AGENT_INFO=/run/user/157249/gnupg/S.gpg-agent:0:1
-SYSTEMD_EXEC_PID=1898584
-XAUTHORITY=/home/yihakan/.Xauthority
-VSCODE_GIT_ASKPASS_NODE=/usr/share/code/code
-XDG_GREETER_DATA_DIR=/var/lib/lightdm-data/yihakan
-GJS_DEBUG_TOPICS=JS ERROR;JS LOG
-VSCODE_INJECTION=1
-HOME=/home/yihakan
-LC_PAPER=tr_TR.UTF-8
+GPG_AGENT_INFO=/run/user/1000/gnupg/S.gpg-agent:0:1
+SYSTEMD_EXEC_PID=2733
+XAUTHORITY=/run/user/1000/gdm/Xauthority
+WINDOWPATH=2
+HOME=/home/mdusunen
+USERNAME=mdusunen
 LANG=en_US.UTF-8
-XDG_CURRENT_DESKTOP=Unity
-VTE_VERSION=6800
-GIT_ASKPASS=/usr/share/code/resources/app/extensions/git/dist/askpass.sh
-XDG_SEAT_PATH=/org/freedesktop/DisplayManager/Seat0
-INVOCATION_ID=3a1dcf4983d543bf9325661a2374f537
-TERMINATOR_DBUS_NAME=net.tenshu.Terminator21a9d5db22c73a993ff0b42f64b396873
-MANAGERPID=1897781
-CHROME_DESKTOP=code.desktop
-GJS_DEBUG_OUTPUT=stderr
-VSCODE_GIT_ASKPASS_EXTRA_ARGS=
+LS_COLORS=rs=0:di=01;34:ln=01;36:mh=00:pi=40;33:so=01;35:do=01;35:bd=40;33;01:cd=40;33;01:or=40;31;01:mi=00:su=37;41:sg=30;43:ca=00:tw=30;42:ow=34;42:st=37;44:ex=01;32:*.tar=01;31:*.tgz=01;31:*.arc=01;31:*.arj=01;31:*.taz=01;31:*.lha=01;31:*.lz4=01;31:*.lzh=01;31:*.lzma=01;31:*.tlz=01;31:*.txz=01;31:*.tzo=01;31:*.t7z=01;31:*.zip=01;31:*.z=01;31:*.dz=01;31:*.gz=01;31:*.lrz=01;31:*.lz=01;31:*.lzo=01;31:*.xz=01;31:*.zst=01;31:*.tzst=01;31:*.bz2=01;31:*.bz=01;31:*.tbz=01;31:*.tbz2=01;31:*.tz=01;31:*.deb=01;31:*.rpm=01;31:*.jar=01;31:*.war=01;31:*.ear=01;31:*.sar=01;31:*.rar=01;31:*.alz=01;31:*.ace=01;31:*.zoo=01;31:*.cpio=01;31:*.7z=01;31:*.rz=01;31:*.cab=01;31:*.wim=01;31:*.swm=01;31:*.dwm=01;31:*.esd=01;31:*.avif=01;35:*.jpg=01;35:*.jpeg=01;35:*.mjpg=01;35:*.mjpeg=01;35:*.gif=01;35:*.bmp=01;35:*.pbm=01;35:*.pgm=01;35:*.ppm=01;35:*.tga=01;35:*.xbm=01;35:*.xpm=01;35:*.tif=01;35:*.tiff=01;35:*.png=01;35:*.svg=01;35:*.svgz=01;35:*.mng=01;35:*.pcx=01;35:*.mov=01;35:*.mpg=01;35:*.mpeg=01;35:*.m2v=01;35:*.mkv=01;35:*.webm=01;35:*.webp=01;35:*.ogm=01;35:*.mp4=01;35:*.m4v=01;35:*.mp4v=01;35:*.vob=01;35:*.qt=01;35:*.nuv=01;35:*.wmv=01;35:*.asf=01;35:*.rm=01;35:*.rmvb=01;35:*.flc=01;35:*.avi=01;35:*.fli=01;35:*.flv=01;35:*.gl=01;35:*.dl=01;35:*.xcf=01;35:*.xwd=01;35:*.yuv=01;35:*.cgm=01;35:*.emf=01;35:*.ogv=01;35:*.ogx=01;35:*.aac=00;36:*.au=00;36:*.flac=00;36:*.m4a=00;36:*.mid=00;36:*.midi=00;36:*.mka=00;36:*.mp3=00;36:*.mpc=00;36:*.ogg=00;36:*.ra=00;36:*.wav=00;36:*.oga=00;36:*.opus=00;36:*.spx=00;36:*.xspf=00;36:*~=00;90:*#=00;90:*.bak=00;90:*.crdownload=00;90:*.dpkg-dist=00;90:*.dpkg-new=00;90:*.dpkg-old=00;90:*.dpkg-tmp=00;90:*.old=00;90:*.orig=00;90:*.part=00;90:*.rej=00;90:*.rpmnew=00;90:*.rpmorig=00;90:*.rpmsave=00;90:*.swp=00;90:*.tmp=00;90:*.ucf-dist=00;90:*.ucf-new=00;90:*.ucf-old=00;90:
+XDG_CURRENT_DESKTOP=ubuntu:GNOME
+MEMORY_PRESSURE_WATCH=/sys/fs/cgroup/user.slice/user-1000.slice/user@1000.service/session.slice/org.gnome.Shell@x11.service/memory.pressure
+VTE_VERSION=7600
+GNOME_TERMINAL_SCREEN=/org/gnome/Terminal/screen/59962826_f54f_4bc8_87ab_42ce4eb6e1f1
+LESSCLOSE=/usr/bin/lesspipe %s %s
 XDG_SESSION_CLASS=user
-IBUS_DISABLE_SNOOPER=1
-LC_IDENTIFICATION=tr_TR.UTF-8
 TERM=xterm-256color
-ZDOTDIR=/home/yihakan
-USER=yihakan
-VSCODE_GIT_IPC_HANDLE=/run/user/157249/vscode-git-cb673d1f83.sock
-DISPLAY=:0
+LESSOPEN=| /usr/bin/lesspipe %s
+USER=mdusunen
+GNOME_TERMINAL_SERVICE=:1.273
+CLUTTER_DISABLE_MIPMAPPED_TEXT=1
+DISPLAY=:1
 SHLVL=2
-LC_TELEPHONE=tr_TR.UTF-8
+GSM_SKIP_SSH_AGENT_WORKAROUND=true
 QT_IM_MODULE=ibus
-LC_MEASUREMENT=tr_TR.UTF-8
-XDG_RUNTIME_DIR=/run/user/157249
-DOCKER_HOST=unix:///run/user/157249/docker.sock
-LC_TIME=tr_TR.UTF-8
-VSCODE_GIT_ASKPASS_MAIN=/usr/share/code/resources/app/extensions/git/dist/askpass-main.js
-JOURNAL_STREAM=9:4773836
-XDG_DATA_DIRS=/usr/share/ubuntu:/usr/share/gnome:/home/yihakan/.local/share/flatpak/exports/share:/var/lib/flatpak/exports/share:/usr/local/share:/usr/share:/var/lib/snapd/desktop
-GDK_BACKEND=x11
-PATH=/home/yihakan/bin:/home/yihakan/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin:/home/yihakan/Wcode/bin:/home/yihakan/Wcode/bin
+XDG_RUNTIME_DIR=/run/user/1000
+DEBUGINFOD_URLS=https://debuginfod.ubuntu.com 
+XDG_DATA_DIRS=/usr/share/ubuntu:/usr/share/gnome:/usr/local/share/:/usr/share/:/var/lib/snapd/desktop
+PATH=/home/mdusunen/.local/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin:/snap/bin:/home/mdusunen/.local/bin:/home/mdusunen/.local/bin:/home/mdusunen/.venv/bin:/home/mdusunen/.venv/bin:/home/mdusunen/.venv/bin:/home/mdusunen/.venv/bin:/home/mdusunen/.venv/bin:/home/mdusunen/.venv/bin
 GDMSESSION=ubuntu
-ORIGINAL_XDG_CURRENT_DESKTOP=ubuntu:GNOME
-DBUS_SESSION_BUS_ADDRESS=unix:path=/run/user/157249/bus
-GIO_LAUNCHED_DESKTOP_FILE_PID=1901209
-GIO_LAUNCHED_DESKTOP_FILE=/usr/share/applications/terminator.desktop
-LC_NUMERIC=tr_TR.UTF-8
-OLDPWD=/home/yihakan/minishell
-TERM_PROGRAM=vscode
+DBUS_SESSION_BUS_ADDRESS=unix:path=/run/user/1000/bus
+OLDPWD=/home/mdusunen/Desktop/minishell/srcs/executor
 _=/usr/bin/timeout
 [32mminishell[0m[33m$>[0m '
 MINISHELL CLEANED OUTPUT:
-'SHELL=/bin/zsh
-SESSION_MANAGER=local/k1m20s07.42istanbul.com.tr:@/tmp/.ICE-unix/1898555,unix/k1m20s07.42istanbul.com.tr:/tmp/.ICE-unix/1898555
-USER_ZDOTDIR=/home/yihakan
+'SHELL=/bin/bash
+SESSION_MANAGER=local/mdusunen:@/tmp/.ICE-unix/2689,unix/mdusunen:/tmp/.ICE-unix/2689
 QT_ACCESSIBILITY=1
 COLORTERM=truecolor
 XDG_CONFIG_DIRS=/etc/xdg/xdg-ubuntu:/etc/xdg
-SSH_AGENT_LAUNCHER=gnome-keyring
-XDG_SESSION_PATH=/org/freedesktop/DisplayManager/Session14
 XDG_MENU_PREFIX=gnome-
-TERM_PROGRAM_VERSION=1.101.2
 GNOME_DESKTOP_SESSION_ID=this-is-deprecated
-GTK_IM_MODULE=ibus
-LANGUAGE=en_US:
-TERMINATOR_DBUS_PATH=/net/tenshu/Terminator2
-LC_ADDRESS=tr_TR.UTF-8
-LC_NAME=tr_TR.UTF-8
-SSH_AUTH_SOCK=/run/user/157249/keyring/ssh
-TERMINATOR_UUID=urn:uuid:ca223da9-0ee7-41ee-aba2-ac2d0854c3f7
+GNOME_SHELL_SESSION_MODE=ubuntu
+SSH_AUTH_SOCK=/run/user/1000/keyring/ssh
+MEMORY_PRESSURE_WRITE=c29tZSAyMDAwMDAgMjAwMDAwMAA=
 XMODIFIERS=@im=ibus
 DESKTOP_SESSION=ubuntu
-LC_MONETARY=tr_TR.UTF-8
-FT_HOOK_NAME=login-user
 GTK_MODULES=gail:atk-bridge
-FT_HOOK_PATHNAME=login-user.d
-PWD=/home/yihakan/minishell
-KRB5CCNAME=FILE:/tmp/krb5cc_157249_TFYpe1
+PWD=/home/mdusunen/Desktop/minishell
 XDG_SESSION_DESKTOP=ubuntu
-LOGNAME=yihakan
+LOGNAME=mdusunen
 XDG_SESSION_TYPE=x11
-GPG_AGENT_INFO=/run/user/157249/gnupg/S.gpg-agent:0:1
-SYSTEMD_EXEC_PID=1898584
-XAUTHORITY=/home/yihakan/.Xauthority
-VSCODE_GIT_ASKPASS_NODE=/usr/share/code/code
-XDG_GREETER_DATA_DIR=/var/lib/lightdm-data/yihakan
-GJS_DEBUG_TOPICS=JS ERROR;JS LOG
-VSCODE_INJECTION=1
-HOME=/home/yihakan
-LC_PAPER=tr_TR.UTF-8
+GPG_AGENT_INFO=/run/user/1000/gnupg/S.gpg-agent:0:1
+SYSTEMD_EXEC_PID=2733
+XAUTHORITY=/run/user/1000/gdm/Xauthority
+WINDOWPATH=2
+HOME=/home/mdusunen
+USERNAME=mdusunen
 LANG=en_US.UTF-8
-XDG_CURRENT_DESKTOP=Unity
-VTE_VERSION=6800
-GIT_ASKPASS=/usr/share/code/resources/app/extensions/git/dist/askpass.sh
-XDG_SEAT_PATH=/org/freedesktop/DisplayManager/Seat0
-INVOCATION_ID=3a1dcf4983d543bf9325661a2374f537
-TERMINATOR_DBUS_NAME=net.tenshu.Terminator21a9d5db22c73a993ff0b42f64b396873
-MANAGERPID=1897781
-CHROME_DESKTOP=code.desktop
-GJS_DEBUG_OUTPUT=stderr
-VSCODE_GIT_ASKPASS_EXTRA_ARGS=
+LS_COLORS=rs=0:di=01;34:ln=01;36:mh=00:pi=40;33:so=01;35:do=01;35:bd=40;33;01:cd=40;33;01:or=40;31;01:mi=00:su=37;41:sg=30;43:ca=00:tw=30;42:ow=34;42:st=37;44:ex=01;32:*.tar=01;31:*.tgz=01;31:*.arc=01;31:*.arj=01;31:*.taz=01;31:*.lha=01;31:*.lz4=01;31:*.lzh=01;31:*.lzma=01;31:*.tlz=01;31:*.txz=01;31:*.tzo=01;31:*.t7z=01;31:*.zip=01;31:*.z=01;31:*.dz=01;31:*.gz=01;31:*.lrz=01;31:*.lz=01;31:*.lzo=01;31:*.xz=01;31:*.zst=01;31:*.tzst=01;31:*.bz2=01;31:*.bz=01;31:*.tbz=01;31:*.tbz2=01;31:*.tz=01;31:*.deb=01;31:*.rpm=01;31:*.jar=01;31:*.war=01;31:*.ear=01;31:*.sar=01;31:*.rar=01;31:*.alz=01;31:*.ace=01;31:*.zoo=01;31:*.cpio=01;31:*.7z=01;31:*.rz=01;31:*.cab=01;31:*.wim=01;31:*.swm=01;31:*.dwm=01;31:*.esd=01;31:*.avif=01;35:*.jpg=01;35:*.jpeg=01;35:*.mjpg=01;35:*.mjpeg=01;35:*.gif=01;35:*.bmp=01;35:*.pbm=01;35:*.pgm=01;35:*.ppm=01;35:*.tga=01;35:*.xbm=01;35:*.xpm=01;35:*.tif=01;35:*.tiff=01;35:*.png=01;35:*.svg=01;35:*.svgz=01;35:*.mng=01;35:*.pcx=01;35:*.mov=01;35:*.mpg=01;35:*.mpeg=01;35:*.m2v=01;35:*.mkv=01;35:*.webm=01;35:*.webp=01;35:*.ogm=01;35:*.mp4=01;35:*.m4v=01;35:*.mp4v=01;35:*.vob=01;35:*.qt=01;35:*.nuv=01;35:*.wmv=01;35:*.asf=01;35:*.rm=01;35:*.rmvb=01;35:*.flc=01;35:*.avi=01;35:*.fli=01;35:*.flv=01;35:*.gl=01;35:*.dl=01;35:*.xcf=01;35:*.xwd=01;35:*.yuv=01;35:*.cgm=01;35:*.emf=01;35:*.ogv=01;35:*.ogx=01;35:*.aac=00;36:*.au=00;36:*.flac=00;36:*.m4a=00;36:*.mid=00;36:*.midi=00;36:*.mka=00;36:*.mp3=00;36:*.mpc=00;36:*.ogg=00;36:*.ra=00;36:*.wav=00;36:*.oga=00;36:*.opus=00;36:*.spx=00;36:*.xspf=00;36:*~=00;90:*#=00;90:*.bak=00;90:*.crdownload=00;90:*.dpkg-dist=00;90:*.dpkg-new=00;90:*.dpkg-old=00;90:*.dpkg-tmp=00;90:*.old=00;90:*.orig=00;90:*.part=00;90:*.rej=00;90:*.rpmnew=00;90:*.rpmorig=00;90:*.rpmsave=00;90:*.swp=00;90:*.tmp=00;90:*.ucf-dist=00;90:*.ucf-new=00;90:*.ucf-old=00;90:
+XDG_CURRENT_DESKTOP=ubuntu:GNOME
+MEMORY_PRESSURE_WATCH=/sys/fs/cgroup/user.slice/user-1000.slice/user@1000.service/session.slice/org.gnome.Shell@x11.service/memory.pressure
+VTE_VERSION=7600
+GNOME_TERMINAL_SCREEN=/org/gnome/Terminal/screen/59962826_f54f_4bc8_87ab_42ce4eb6e1f1
+LESSCLOSE=/usr/bin/lesspipe %s %s
 XDG_SESSION_CLASS=user
-IBUS_DISABLE_SNOOPER=1
-LC_IDENTIFICATION=tr_TR.UTF-8
 TERM=xterm-256color
-ZDOTDIR=/home/yihakan
-USER=yihakan
-VSCODE_GIT_IPC_HANDLE=/run/user/157249/vscode-git-cb673d1f83.sock
-DISPLAY=:0
+LESSOPEN=| /usr/bin/lesspipe %s
+USER=mdusunen
+GNOME_TERMINAL_SERVICE=:1.273
+CLUTTER_DISABLE_MIPMAPPED_TEXT=1
+DISPLAY=:1
 SHLVL=2
-LC_TELEPHONE=tr_TR.UTF-8
+GSM_SKIP_SSH_AGENT_WORKAROUND=true
 QT_IM_MODULE=ibus
-LC_MEASUREMENT=tr_TR.UTF-8
-XDG_RUNTIME_DIR=/run/user/157249
-DOCKER_HOST=unix:///run/user/157249/docker.sock
-LC_TIME=tr_TR.UTF-8
-VSCODE_GIT_ASKPASS_MAIN=/usr/share/code/resources/app/extensions/git/dist/askpass-main.js
-JOURNAL_STREAM=9:4773836
-XDG_DATA_DIRS=/usr/share/ubuntu:/usr/share/gnome:/home/yihakan/.local/share/flatpak/exports/share:/var/lib/flatpak/exports/share:/usr/local/share:/usr/share:/var/lib/snapd/desktop
-GDK_BACKEND=x11
-PATH=/home/yihakan/bin:/home/yihakan/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin:/home/yihakan/Wcode/bin:/home/yihakan/Wcode/bin
+XDG_RUNTIME_DIR=/run/user/1000
+DEBUGINFOD_URLS=https://debuginfod.ubuntu.com
+XDG_DATA_DIRS=/usr/share/ubuntu:/usr/share/gnome:/usr/local/share/:/usr/share/:/var/lib/snapd/desktop
+PATH=/home/mdusunen/.local/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin:/snap/bin:/home/mdusunen/.local/bin:/home/mdusunen/.local/bin:/home/mdusunen/.venv/bin:/home/mdusunen/.venv/bin:/home/mdusunen/.venv/bin:/home/mdusunen/.venv/bin:/home/mdusunen/.venv/bin:/home/mdusunen/.venv/bin
 GDMSESSION=ubuntu
-ORIGINAL_XDG_CURRENT_DESKTOP=ubuntu:GNOME
-DBUS_SESSION_BUS_ADDRESS=unix:path=/run/user/157249/bus
-GIO_LAUNCHED_DESKTOP_FILE_PID=1901209
-GIO_LAUNCHED_DESKTOP_FILE=/usr/share/applications/terminator.desktop
-LC_NUMERIC=tr_TR.UTF-8
-OLDPWD=/home/yihakan/minishell
-TERM_PROGRAM=vscode
+DBUS_SESSION_BUS_ADDRESS=unix:path=/run/user/1000/bus
+OLDPWD=/home/mdusunen/Desktop/minishell/srcs/executor
 _=/usr/bin/timeout'
 MINISHELL EXIT CODE: 0
 ======================================
 
 === DIFFERENCE FOUND: /bin/cat /etc/hosts ===
 BASH OUTPUT:
-'127.0.0.1	localhost
-127.0.1.1	ubuntu
+'127.0.0.1 localhost
+127.0.1.1 mdusunen-ABRA-A5-V15-2
 
 # The following lines are desirable for IPv6 capable hosts
 ::1     ip6-localhost ip6-loopback
@@ -506,8 +326,8 @@ BASH EXIT CODE: 0
 
 MINISHELL RAW OUTPUT:
 '[32mminishell[0m[33m$>[0m /bin/cat /etc/hosts
-127.0.0.1	localhost
-127.0.1.1	ubuntu
+127.0.0.1 localhost
+127.0.1.1 mdusunen-ABRA-A5-V15-2
 
 # The following lines are desirable for IPv6 capable hosts
 ::1     ip6-localhost ip6-loopback
@@ -517,8 +337,8 @@ ff02::1 ip6-allnodes
 ff02::2 ip6-allrouters
 [32mminishell[0m[33m$>[0m '
 MINISHELL CLEANED OUTPUT:
-'127.0.0.1	localhost
-127.0.1.1	ubuntu
+'127.0.0.1 localhost
+127.0.1.1 mdusunen-ABRA-A5-V15-2
 # The following lines are desirable for IPv6 capable hosts
 ::1     ip6-localhost ip6-loopback
 fe00::0 ip6-localnet
@@ -567,32 +387,6 @@ MINISHELL CLEANED OUTPUT:
 MINISHELL EXIT CODE: 0
 ======================================
 
-=== DIFFERENCE FOUND: /bin/true && echo success ===
-BASH OUTPUT:
-'success'
-BASH EXIT CODE: 0
-
-MINISHELL RAW OUTPUT:
-'[32mminishell[0m[33m$>[0m /bin/true && echo success
-[32mminishell[0m[33m$>[0m '
-MINISHELL CLEANED OUTPUT:
-''
-MINISHELL EXIT CODE: 0
-======================================
-
-=== DIFFERENCE FOUND: /bin/false || echo failed ===
-BASH OUTPUT:
-'failed'
-BASH EXIT CODE: 0
-
-MINISHELL RAW OUTPUT:
-'[32mminishell[0m[33m$>[0m /bin/false || echo failed
-[32mminishell[0m[33m$>[0m '
-MINISHELL CLEANED OUTPUT:
-''
-MINISHELL EXIT CODE: 0
-======================================
-
 === DIFFERENCE FOUND: echo "quotes inside \"nested\"" ===
 BASH OUTPUT:
 'quotes inside "nested"'
@@ -609,613 +403,312 @@ MINISHELL EXIT CODE: 0
 
 === DIFFERENCE FOUND: env ===
 BASH OUTPUT:
-'SHELL=/bin/zsh
-SESSION_MANAGER=local/k1m20s07.42istanbul.com.tr:@/tmp/.ICE-unix/1898555,unix/k1m20s07.42istanbul.com.tr:/tmp/.ICE-unix/1898555
-USER_ZDOTDIR=/home/yihakan
+'SHELL=/bin/bash
+SESSION_MANAGER=local/mdusunen:@/tmp/.ICE-unix/2689,unix/mdusunen:/tmp/.ICE-unix/2689
 QT_ACCESSIBILITY=1
 COLORTERM=truecolor
 XDG_CONFIG_DIRS=/etc/xdg/xdg-ubuntu:/etc/xdg
-SSH_AGENT_LAUNCHER=gnome-keyring
-XDG_SESSION_PATH=/org/freedesktop/DisplayManager/Session14
 XDG_MENU_PREFIX=gnome-
-TERM_PROGRAM_VERSION=1.101.2
 GNOME_DESKTOP_SESSION_ID=this-is-deprecated
-GTK_IM_MODULE=ibus
-LANGUAGE=en_US:
-TERMINATOR_DBUS_PATH=/net/tenshu/Terminator2
-LC_ADDRESS=tr_TR.UTF-8
-LC_NAME=tr_TR.UTF-8
-SSH_AUTH_SOCK=/run/user/157249/keyring/ssh
-TERMINATOR_UUID=urn:uuid:ca223da9-0ee7-41ee-aba2-ac2d0854c3f7
+GNOME_SHELL_SESSION_MODE=ubuntu
+SSH_AUTH_SOCK=/run/user/1000/keyring/ssh
+MEMORY_PRESSURE_WRITE=c29tZSAyMDAwMDAgMjAwMDAwMAA=
 XMODIFIERS=@im=ibus
 DESKTOP_SESSION=ubuntu
-LC_MONETARY=tr_TR.UTF-8
-FT_HOOK_NAME=login-user
 GTK_MODULES=gail:atk-bridge
-FT_HOOK_PATHNAME=login-user.d
-KRB5CCNAME=FILE:/tmp/krb5cc_157249_TFYpe1
-PWD=/home/yihakan/minishell
-LOGNAME=yihakan
+PWD=/home/mdusunen/Desktop/minishell
+LOGNAME=mdusunen
 XDG_SESSION_DESKTOP=ubuntu
 XDG_SESSION_TYPE=x11
-GPG_AGENT_INFO=/run/user/157249/gnupg/S.gpg-agent:0:1
-SYSTEMD_EXEC_PID=1898584
+GPG_AGENT_INFO=/run/user/1000/gnupg/S.gpg-agent:0:1
+SYSTEMD_EXEC_PID=2733
 _=/usr/bin/env
-XAUTHORITY=/home/yihakan/.Xauthority
-VSCODE_GIT_ASKPASS_NODE=/usr/share/code/code
-XDG_GREETER_DATA_DIR=/var/lib/lightdm-data/yihakan
-GJS_DEBUG_TOPICS=JS ERROR;JS LOG
-VSCODE_INJECTION=1
-HOME=/home/yihakan
+XAUTHORITY=/run/user/1000/gdm/Xauthority
+WINDOWPATH=2
+HOME=/home/mdusunen
+USERNAME=mdusunen
 LANG=en_US.UTF-8
-LC_PAPER=tr_TR.UTF-8
-XDG_CURRENT_DESKTOP=Unity
-VTE_VERSION=6800
-GIT_ASKPASS=/usr/share/code/resources/app/extensions/git/dist/askpass.sh
-XDG_SEAT_PATH=/org/freedesktop/DisplayManager/Seat0
-INVOCATION_ID=3a1dcf4983d543bf9325661a2374f537
-TERMINATOR_DBUS_NAME=net.tenshu.Terminator21a9d5db22c73a993ff0b42f64b396873
-MANAGERPID=1897781
-CHROME_DESKTOP=code.desktop
-GJS_DEBUG_OUTPUT=stderr
-VSCODE_GIT_ASKPASS_EXTRA_ARGS=
+LS_COLORS=rs=0:di=01;34:ln=01;36:mh=00:pi=40;33:so=01;35:do=01;35:bd=40;33;01:cd=40;33;01:or=40;31;01:mi=00:su=37;41:sg=30;43:ca=00:tw=30;42:ow=34;42:st=37;44:ex=01;32:*.tar=01;31:*.tgz=01;31:*.arc=01;31:*.arj=01;31:*.taz=01;31:*.lha=01;31:*.lz4=01;31:*.lzh=01;31:*.lzma=01;31:*.tlz=01;31:*.txz=01;31:*.tzo=01;31:*.t7z=01;31:*.zip=01;31:*.z=01;31:*.dz=01;31:*.gz=01;31:*.lrz=01;31:*.lz=01;31:*.lzo=01;31:*.xz=01;31:*.zst=01;31:*.tzst=01;31:*.bz2=01;31:*.bz=01;31:*.tbz=01;31:*.tbz2=01;31:*.tz=01;31:*.deb=01;31:*.rpm=01;31:*.jar=01;31:*.war=01;31:*.ear=01;31:*.sar=01;31:*.rar=01;31:*.alz=01;31:*.ace=01;31:*.zoo=01;31:*.cpio=01;31:*.7z=01;31:*.rz=01;31:*.cab=01;31:*.wim=01;31:*.swm=01;31:*.dwm=01;31:*.esd=01;31:*.avif=01;35:*.jpg=01;35:*.jpeg=01;35:*.mjpg=01;35:*.mjpeg=01;35:*.gif=01;35:*.bmp=01;35:*.pbm=01;35:*.pgm=01;35:*.ppm=01;35:*.tga=01;35:*.xbm=01;35:*.xpm=01;35:*.tif=01;35:*.tiff=01;35:*.png=01;35:*.svg=01;35:*.svgz=01;35:*.mng=01;35:*.pcx=01;35:*.mov=01;35:*.mpg=01;35:*.mpeg=01;35:*.m2v=01;35:*.mkv=01;35:*.webm=01;35:*.webp=01;35:*.ogm=01;35:*.mp4=01;35:*.m4v=01;35:*.mp4v=01;35:*.vob=01;35:*.qt=01;35:*.nuv=01;35:*.wmv=01;35:*.asf=01;35:*.rm=01;35:*.rmvb=01;35:*.flc=01;35:*.avi=01;35:*.fli=01;35:*.flv=01;35:*.gl=01;35:*.dl=01;35:*.xcf=01;35:*.xwd=01;35:*.yuv=01;35:*.cgm=01;35:*.emf=01;35:*.ogv=01;35:*.ogx=01;35:*.aac=00;36:*.au=00;36:*.flac=00;36:*.m4a=00;36:*.mid=00;36:*.midi=00;36:*.mka=00;36:*.mp3=00;36:*.mpc=00;36:*.ogg=00;36:*.ra=00;36:*.wav=00;36:*.oga=00;36:*.opus=00;36:*.spx=00;36:*.xspf=00;36:*~=00;90:*#=00;90:*.bak=00;90:*.crdownload=00;90:*.dpkg-dist=00;90:*.dpkg-new=00;90:*.dpkg-old=00;90:*.dpkg-tmp=00;90:*.old=00;90:*.orig=00;90:*.part=00;90:*.rej=00;90:*.rpmnew=00;90:*.rpmorig=00;90:*.rpmsave=00;90:*.swp=00;90:*.tmp=00;90:*.ucf-dist=00;90:*.ucf-new=00;90:*.ucf-old=00;90:
+XDG_CURRENT_DESKTOP=ubuntu:GNOME
+MEMORY_PRESSURE_WATCH=/sys/fs/cgroup/user.slice/user-1000.slice/user@1000.service/session.slice/org.gnome.Shell@x11.service/memory.pressure
+VTE_VERSION=7600
+GNOME_TERMINAL_SCREEN=/org/gnome/Terminal/screen/59962826_f54f_4bc8_87ab_42ce4eb6e1f1
+LESSCLOSE=/usr/bin/lesspipe %s %s
 XDG_SESSION_CLASS=user
-IBUS_DISABLE_SNOOPER=1
 TERM=xterm-256color
-LC_IDENTIFICATION=tr_TR.UTF-8
-ZDOTDIR=/home/yihakan
-USER=yihakan
-VSCODE_GIT_IPC_HANDLE=/run/user/157249/vscode-git-cb673d1f83.sock
-DISPLAY=:0
+LESSOPEN=| /usr/bin/lesspipe %s
+USER=mdusunen
+GNOME_TERMINAL_SERVICE=:1.273
+CLUTTER_DISABLE_MIPMAPPED_TEXT=1
+DISPLAY=:1
 SHLVL=3
-LC_TELEPHONE=tr_TR.UTF-8
+GSM_SKIP_SSH_AGENT_WORKAROUND=true
 QT_IM_MODULE=ibus
-LC_MEASUREMENT=tr_TR.UTF-8
-XDG_RUNTIME_DIR=/run/user/157249
-LC_TIME=tr_TR.UTF-8
-DOCKER_HOST=unix:///run/user/157249/docker.sock
-VSCODE_GIT_ASKPASS_MAIN=/usr/share/code/resources/app/extensions/git/dist/askpass-main.js
-JOURNAL_STREAM=9:4773836
-XDG_DATA_DIRS=/usr/share/ubuntu:/usr/share/gnome:/home/yihakan/.local/share/flatpak/exports/share:/var/lib/flatpak/exports/share:/usr/local/share:/usr/share:/var/lib/snapd/desktop
-GDK_BACKEND=x11
-PATH=/home/yihakan/bin:/home/yihakan/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin:/home/yihakan/Wcode/bin:/home/yihakan/Wcode/bin
+XDG_RUNTIME_DIR=/run/user/1000
+DEBUGINFOD_URLS=https://debuginfod.ubuntu.com 
+XDG_DATA_DIRS=/usr/share/ubuntu:/usr/share/gnome:/usr/local/share/:/usr/share/:/var/lib/snapd/desktop
+PATH=/home/mdusunen/.local/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin:/snap/bin:/home/mdusunen/.local/bin:/home/mdusunen/.local/bin:/home/mdusunen/.venv/bin:/home/mdusunen/.venv/bin:/home/mdusunen/.venv/bin:/home/mdusunen/.venv/bin:/home/mdusunen/.venv/bin:/home/mdusunen/.venv/bin
 GDMSESSION=ubuntu
-ORIGINAL_XDG_CURRENT_DESKTOP=ubuntu:GNOME
-DBUS_SESSION_BUS_ADDRESS=unix:path=/run/user/157249/bus
-GIO_LAUNCHED_DESKTOP_FILE_PID=1901209
-GIO_LAUNCHED_DESKTOP_FILE=/usr/share/applications/terminator.desktop
-LC_NUMERIC=tr_TR.UTF-8
-OLDPWD=/home/yihakan/minishell
-TERM_PROGRAM=vscode'
+DBUS_SESSION_BUS_ADDRESS=unix:path=/run/user/1000/bus
+OLDPWD=/home/mdusunen/Desktop/minishell/srcs/executor'
 BASH EXIT CODE: 0
 
 MINISHELL RAW OUTPUT:
 '[32mminishell[0m[33m$>[0m env
-SHELL=/bin/zsh
-SESSION_MANAGER=local/k1m20s07.42istanbul.com.tr:@/tmp/.ICE-unix/1898555,unix/k1m20s07.42istanbul.com.tr:/tmp/.ICE-unix/1898555
-USER_ZDOTDIR=/home/yihakan
+SHELL=/bin/bash
+SESSION_MANAGER=local/mdusunen:@/tmp/.ICE-unix/2689,unix/mdusunen:/tmp/.ICE-unix/2689
 QT_ACCESSIBILITY=1
 COLORTERM=truecolor
 XDG_CONFIG_DIRS=/etc/xdg/xdg-ubuntu:/etc/xdg
-SSH_AGENT_LAUNCHER=gnome-keyring
-XDG_SESSION_PATH=/org/freedesktop/DisplayManager/Session14
 XDG_MENU_PREFIX=gnome-
-TERM_PROGRAM_VERSION=1.101.2
 GNOME_DESKTOP_SESSION_ID=this-is-deprecated
-GTK_IM_MODULE=ibus
-LANGUAGE=en_US:
-TERMINATOR_DBUS_PATH=/net/tenshu/Terminator2
-LC_ADDRESS=tr_TR.UTF-8
-LC_NAME=tr_TR.UTF-8
-SSH_AUTH_SOCK=/run/user/157249/keyring/ssh
-TERMINATOR_UUID=urn:uuid:ca223da9-0ee7-41ee-aba2-ac2d0854c3f7
+GNOME_SHELL_SESSION_MODE=ubuntu
+SSH_AUTH_SOCK=/run/user/1000/keyring/ssh
+MEMORY_PRESSURE_WRITE=c29tZSAyMDAwMDAgMjAwMDAwMAA=
 XMODIFIERS=@im=ibus
 DESKTOP_SESSION=ubuntu
-LC_MONETARY=tr_TR.UTF-8
-FT_HOOK_NAME=login-user
 GTK_MODULES=gail:atk-bridge
-FT_HOOK_PATHNAME=login-user.d
-PWD=/home/yihakan/minishell
-KRB5CCNAME=FILE:/tmp/krb5cc_157249_TFYpe1
+PWD=/home/mdusunen/Desktop/minishell
 XDG_SESSION_DESKTOP=ubuntu
-LOGNAME=yihakan
+LOGNAME=mdusunen
 XDG_SESSION_TYPE=x11
-GPG_AGENT_INFO=/run/user/157249/gnupg/S.gpg-agent:0:1
-SYSTEMD_EXEC_PID=1898584
-XAUTHORITY=/home/yihakan/.Xauthority
-VSCODE_GIT_ASKPASS_NODE=/usr/share/code/code
-XDG_GREETER_DATA_DIR=/var/lib/lightdm-data/yihakan
-GJS_DEBUG_TOPICS=JS ERROR;JS LOG
-VSCODE_INJECTION=1
-HOME=/home/yihakan
-LC_PAPER=tr_TR.UTF-8
+GPG_AGENT_INFO=/run/user/1000/gnupg/S.gpg-agent:0:1
+SYSTEMD_EXEC_PID=2733
+XAUTHORITY=/run/user/1000/gdm/Xauthority
+WINDOWPATH=2
+HOME=/home/mdusunen
+USERNAME=mdusunen
 LANG=en_US.UTF-8
-XDG_CURRENT_DESKTOP=Unity
-VTE_VERSION=6800
-GIT_ASKPASS=/usr/share/code/resources/app/extensions/git/dist/askpass.sh
-XDG_SEAT_PATH=/org/freedesktop/DisplayManager/Seat0
-INVOCATION_ID=3a1dcf4983d543bf9325661a2374f537
-TERMINATOR_DBUS_NAME=net.tenshu.Terminator21a9d5db22c73a993ff0b42f64b396873
-MANAGERPID=1897781
-CHROME_DESKTOP=code.desktop
-GJS_DEBUG_OUTPUT=stderr
-VSCODE_GIT_ASKPASS_EXTRA_ARGS=
+LS_COLORS=rs=0:di=01;34:ln=01;36:mh=00:pi=40;33:so=01;35:do=01;35:bd=40;33;01:cd=40;33;01:or=40;31;01:mi=00:su=37;41:sg=30;43:ca=00:tw=30;42:ow=34;42:st=37;44:ex=01;32:*.tar=01;31:*.tgz=01;31:*.arc=01;31:*.arj=01;31:*.taz=01;31:*.lha=01;31:*.lz4=01;31:*.lzh=01;31:*.lzma=01;31:*.tlz=01;31:*.txz=01;31:*.tzo=01;31:*.t7z=01;31:*.zip=01;31:*.z=01;31:*.dz=01;31:*.gz=01;31:*.lrz=01;31:*.lz=01;31:*.lzo=01;31:*.xz=01;31:*.zst=01;31:*.tzst=01;31:*.bz2=01;31:*.bz=01;31:*.tbz=01;31:*.tbz2=01;31:*.tz=01;31:*.deb=01;31:*.rpm=01;31:*.jar=01;31:*.war=01;31:*.ear=01;31:*.sar=01;31:*.rar=01;31:*.alz=01;31:*.ace=01;31:*.zoo=01;31:*.cpio=01;31:*.7z=01;31:*.rz=01;31:*.cab=01;31:*.wim=01;31:*.swm=01;31:*.dwm=01;31:*.esd=01;31:*.avif=01;35:*.jpg=01;35:*.jpeg=01;35:*.mjpg=01;35:*.mjpeg=01;35:*.gif=01;35:*.bmp=01;35:*.pbm=01;35:*.pgm=01;35:*.ppm=01;35:*.tga=01;35:*.xbm=01;35:*.xpm=01;35:*.tif=01;35:*.tiff=01;35:*.png=01;35:*.svg=01;35:*.svgz=01;35:*.mng=01;35:*.pcx=01;35:*.mov=01;35:*.mpg=01;35:*.mpeg=01;35:*.m2v=01;35:*.mkv=01;35:*.webm=01;35:*.webp=01;35:*.ogm=01;35:*.mp4=01;35:*.m4v=01;35:*.mp4v=01;35:*.vob=01;35:*.qt=01;35:*.nuv=01;35:*.wmv=01;35:*.asf=01;35:*.rm=01;35:*.rmvb=01;35:*.flc=01;35:*.avi=01;35:*.fli=01;35:*.flv=01;35:*.gl=01;35:*.dl=01;35:*.xcf=01;35:*.xwd=01;35:*.yuv=01;35:*.cgm=01;35:*.emf=01;35:*.ogv=01;35:*.ogx=01;35:*.aac=00;36:*.au=00;36:*.flac=00;36:*.m4a=00;36:*.mid=00;36:*.midi=00;36:*.mka=00;36:*.mp3=00;36:*.mpc=00;36:*.ogg=00;36:*.ra=00;36:*.wav=00;36:*.oga=00;36:*.opus=00;36:*.spx=00;36:*.xspf=00;36:*~=00;90:*#=00;90:*.bak=00;90:*.crdownload=00;90:*.dpkg-dist=00;90:*.dpkg-new=00;90:*.dpkg-old=00;90:*.dpkg-tmp=00;90:*.old=00;90:*.orig=00;90:*.part=00;90:*.rej=00;90:*.rpmnew=00;90:*.rpmorig=00;90:*.rpmsave=00;90:*.swp=00;90:*.tmp=00;90:*.ucf-dist=00;90:*.ucf-new=00;90:*.ucf-old=00;90:
+XDG_CURRENT_DESKTOP=ubuntu:GNOME
+MEMORY_PRESSURE_WATCH=/sys/fs/cgroup/user.slice/user-1000.slice/user@1000.service/session.slice/org.gnome.Shell@x11.service/memory.pressure
+VTE_VERSION=7600
+GNOME_TERMINAL_SCREEN=/org/gnome/Terminal/screen/59962826_f54f_4bc8_87ab_42ce4eb6e1f1
+LESSCLOSE=/usr/bin/lesspipe %s %s
 XDG_SESSION_CLASS=user
-IBUS_DISABLE_SNOOPER=1
-LC_IDENTIFICATION=tr_TR.UTF-8
 TERM=xterm-256color
-ZDOTDIR=/home/yihakan
-USER=yihakan
-VSCODE_GIT_IPC_HANDLE=/run/user/157249/vscode-git-cb673d1f83.sock
-DISPLAY=:0
+LESSOPEN=| /usr/bin/lesspipe %s
+USER=mdusunen
+GNOME_TERMINAL_SERVICE=:1.273
+CLUTTER_DISABLE_MIPMAPPED_TEXT=1
+DISPLAY=:1
 SHLVL=2
-LC_TELEPHONE=tr_TR.UTF-8
+GSM_SKIP_SSH_AGENT_WORKAROUND=true
 QT_IM_MODULE=ibus
-LC_MEASUREMENT=tr_TR.UTF-8
-XDG_RUNTIME_DIR=/run/user/157249
-DOCKER_HOST=unix:///run/user/157249/docker.sock
-LC_TIME=tr_TR.UTF-8
-VSCODE_GIT_ASKPASS_MAIN=/usr/share/code/resources/app/extensions/git/dist/askpass-main.js
-JOURNAL_STREAM=9:4773836
-XDG_DATA_DIRS=/usr/share/ubuntu:/usr/share/gnome:/home/yihakan/.local/share/flatpak/exports/share:/var/lib/flatpak/exports/share:/usr/local/share:/usr/share:/var/lib/snapd/desktop
-GDK_BACKEND=x11
-PATH=/home/yihakan/bin:/home/yihakan/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin:/home/yihakan/Wcode/bin:/home/yihakan/Wcode/bin
+XDG_RUNTIME_DIR=/run/user/1000
+DEBUGINFOD_URLS=https://debuginfod.ubuntu.com 
+XDG_DATA_DIRS=/usr/share/ubuntu:/usr/share/gnome:/usr/local/share/:/usr/share/:/var/lib/snapd/desktop
+PATH=/home/mdusunen/.local/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin:/snap/bin:/home/mdusunen/.local/bin:/home/mdusunen/.local/bin:/home/mdusunen/.venv/bin:/home/mdusunen/.venv/bin:/home/mdusunen/.venv/bin:/home/mdusunen/.venv/bin:/home/mdusunen/.venv/bin:/home/mdusunen/.venv/bin
 GDMSESSION=ubuntu
-ORIGINAL_XDG_CURRENT_DESKTOP=ubuntu:GNOME
-DBUS_SESSION_BUS_ADDRESS=unix:path=/run/user/157249/bus
-GIO_LAUNCHED_DESKTOP_FILE_PID=1901209
-GIO_LAUNCHED_DESKTOP_FILE=/usr/share/applications/terminator.desktop
-LC_NUMERIC=tr_TR.UTF-8
-OLDPWD=/home/yihakan/minishell
-TERM_PROGRAM=vscode
+DBUS_SESSION_BUS_ADDRESS=unix:path=/run/user/1000/bus
+OLDPWD=/home/mdusunen/Desktop/minishell/srcs/executor
 _=/usr/bin/timeout
 [32mminishell[0m[33m$>[0m '
 MINISHELL CLEANED OUTPUT:
-'SHELL=/bin/zsh
-SESSION_MANAGER=local/k1m20s07.42istanbul.com.tr:@/tmp/.ICE-unix/1898555,unix/k1m20s07.42istanbul.com.tr:/tmp/.ICE-unix/1898555
-USER_ZDOTDIR=/home/yihakan
+'SHELL=/bin/bash
+SESSION_MANAGER=local/mdusunen:@/tmp/.ICE-unix/2689,unix/mdusunen:/tmp/.ICE-unix/2689
 QT_ACCESSIBILITY=1
 COLORTERM=truecolor
 XDG_CONFIG_DIRS=/etc/xdg/xdg-ubuntu:/etc/xdg
-SSH_AGENT_LAUNCHER=gnome-keyring
-XDG_SESSION_PATH=/org/freedesktop/DisplayManager/Session14
 XDG_MENU_PREFIX=gnome-
-TERM_PROGRAM_VERSION=1.101.2
 GNOME_DESKTOP_SESSION_ID=this-is-deprecated
-GTK_IM_MODULE=ibus
-LANGUAGE=en_US:
-TERMINATOR_DBUS_PATH=/net/tenshu/Terminator2
-LC_ADDRESS=tr_TR.UTF-8
-LC_NAME=tr_TR.UTF-8
-SSH_AUTH_SOCK=/run/user/157249/keyring/ssh
-TERMINATOR_UUID=urn:uuid:ca223da9-0ee7-41ee-aba2-ac2d0854c3f7
+GNOME_SHELL_SESSION_MODE=ubuntu
+SSH_AUTH_SOCK=/run/user/1000/keyring/ssh
+MEMORY_PRESSURE_WRITE=c29tZSAyMDAwMDAgMjAwMDAwMAA=
 XMODIFIERS=@im=ibus
 DESKTOP_SESSION=ubuntu
-LC_MONETARY=tr_TR.UTF-8
-FT_HOOK_NAME=login-user
 GTK_MODULES=gail:atk-bridge
-FT_HOOK_PATHNAME=login-user.d
-PWD=/home/yihakan/minishell
-KRB5CCNAME=FILE:/tmp/krb5cc_157249_TFYpe1
+PWD=/home/mdusunen/Desktop/minishell
 XDG_SESSION_DESKTOP=ubuntu
-LOGNAME=yihakan
+LOGNAME=mdusunen
 XDG_SESSION_TYPE=x11
-GPG_AGENT_INFO=/run/user/157249/gnupg/S.gpg-agent:0:1
-SYSTEMD_EXEC_PID=1898584
-XAUTHORITY=/home/yihakan/.Xauthority
-VSCODE_GIT_ASKPASS_NODE=/usr/share/code/code
-XDG_GREETER_DATA_DIR=/var/lib/lightdm-data/yihakan
-GJS_DEBUG_TOPICS=JS ERROR;JS LOG
-VSCODE_INJECTION=1
-HOME=/home/yihakan
-LC_PAPER=tr_TR.UTF-8
+GPG_AGENT_INFO=/run/user/1000/gnupg/S.gpg-agent:0:1
+SYSTEMD_EXEC_PID=2733
+XAUTHORITY=/run/user/1000/gdm/Xauthority
+WINDOWPATH=2
+HOME=/home/mdusunen
+USERNAME=mdusunen
 LANG=en_US.UTF-8
-XDG_CURRENT_DESKTOP=Unity
-VTE_VERSION=6800
-GIT_ASKPASS=/usr/share/code/resources/app/extensions/git/dist/askpass.sh
-XDG_SEAT_PATH=/org/freedesktop/DisplayManager/Seat0
-INVOCATION_ID=3a1dcf4983d543bf9325661a2374f537
-TERMINATOR_DBUS_NAME=net.tenshu.Terminator21a9d5db22c73a993ff0b42f64b396873
-MANAGERPID=1897781
-CHROME_DESKTOP=code.desktop
-GJS_DEBUG_OUTPUT=stderr
-VSCODE_GIT_ASKPASS_EXTRA_ARGS=
+LS_COLORS=rs=0:di=01;34:ln=01;36:mh=00:pi=40;33:so=01;35:do=01;35:bd=40;33;01:cd=40;33;01:or=40;31;01:mi=00:su=37;41:sg=30;43:ca=00:tw=30;42:ow=34;42:st=37;44:ex=01;32:*.tar=01;31:*.tgz=01;31:*.arc=01;31:*.arj=01;31:*.taz=01;31:*.lha=01;31:*.lz4=01;31:*.lzh=01;31:*.lzma=01;31:*.tlz=01;31:*.txz=01;31:*.tzo=01;31:*.t7z=01;31:*.zip=01;31:*.z=01;31:*.dz=01;31:*.gz=01;31:*.lrz=01;31:*.lz=01;31:*.lzo=01;31:*.xz=01;31:*.zst=01;31:*.tzst=01;31:*.bz2=01;31:*.bz=01;31:*.tbz=01;31:*.tbz2=01;31:*.tz=01;31:*.deb=01;31:*.rpm=01;31:*.jar=01;31:*.war=01;31:*.ear=01;31:*.sar=01;31:*.rar=01;31:*.alz=01;31:*.ace=01;31:*.zoo=01;31:*.cpio=01;31:*.7z=01;31:*.rz=01;31:*.cab=01;31:*.wim=01;31:*.swm=01;31:*.dwm=01;31:*.esd=01;31:*.avif=01;35:*.jpg=01;35:*.jpeg=01;35:*.mjpg=01;35:*.mjpeg=01;35:*.gif=01;35:*.bmp=01;35:*.pbm=01;35:*.pgm=01;35:*.ppm=01;35:*.tga=01;35:*.xbm=01;35:*.xpm=01;35:*.tif=01;35:*.tiff=01;35:*.png=01;35:*.svg=01;35:*.svgz=01;35:*.mng=01;35:*.pcx=01;35:*.mov=01;35:*.mpg=01;35:*.mpeg=01;35:*.m2v=01;35:*.mkv=01;35:*.webm=01;35:*.webp=01;35:*.ogm=01;35:*.mp4=01;35:*.m4v=01;35:*.mp4v=01;35:*.vob=01;35:*.qt=01;35:*.nuv=01;35:*.wmv=01;35:*.asf=01;35:*.rm=01;35:*.rmvb=01;35:*.flc=01;35:*.avi=01;35:*.fli=01;35:*.flv=01;35:*.gl=01;35:*.dl=01;35:*.xcf=01;35:*.xwd=01;35:*.yuv=01;35:*.cgm=01;35:*.emf=01;35:*.ogv=01;35:*.ogx=01;35:*.aac=00;36:*.au=00;36:*.flac=00;36:*.m4a=00;36:*.mid=00;36:*.midi=00;36:*.mka=00;36:*.mp3=00;36:*.mpc=00;36:*.ogg=00;36:*.ra=00;36:*.wav=00;36:*.oga=00;36:*.opus=00;36:*.spx=00;36:*.xspf=00;36:*~=00;90:*#=00;90:*.bak=00;90:*.crdownload=00;90:*.dpkg-dist=00;90:*.dpkg-new=00;90:*.dpkg-old=00;90:*.dpkg-tmp=00;90:*.old=00;90:*.orig=00;90:*.part=00;90:*.rej=00;90:*.rpmnew=00;90:*.rpmorig=00;90:*.rpmsave=00;90:*.swp=00;90:*.tmp=00;90:*.ucf-dist=00;90:*.ucf-new=00;90:*.ucf-old=00;90:
+XDG_CURRENT_DESKTOP=ubuntu:GNOME
+MEMORY_PRESSURE_WATCH=/sys/fs/cgroup/user.slice/user-1000.slice/user@1000.service/session.slice/org.gnome.Shell@x11.service/memory.pressure
+VTE_VERSION=7600
+GNOME_TERMINAL_SCREEN=/org/gnome/Terminal/screen/59962826_f54f_4bc8_87ab_42ce4eb6e1f1
+LESSCLOSE=/usr/bin/lesspipe %s %s
 XDG_SESSION_CLASS=user
-IBUS_DISABLE_SNOOPER=1
-LC_IDENTIFICATION=tr_TR.UTF-8
 TERM=xterm-256color
-ZDOTDIR=/home/yihakan
-USER=yihakan
-VSCODE_GIT_IPC_HANDLE=/run/user/157249/vscode-git-cb673d1f83.sock
-DISPLAY=:0
+LESSOPEN=| /usr/bin/lesspipe %s
+USER=mdusunen
+GNOME_TERMINAL_SERVICE=:1.273
+CLUTTER_DISABLE_MIPMAPPED_TEXT=1
+DISPLAY=:1
 SHLVL=2
-LC_TELEPHONE=tr_TR.UTF-8
+GSM_SKIP_SSH_AGENT_WORKAROUND=true
 QT_IM_MODULE=ibus
-LC_MEASUREMENT=tr_TR.UTF-8
-XDG_RUNTIME_DIR=/run/user/157249
-DOCKER_HOST=unix:///run/user/157249/docker.sock
-LC_TIME=tr_TR.UTF-8
-VSCODE_GIT_ASKPASS_MAIN=/usr/share/code/resources/app/extensions/git/dist/askpass-main.js
-JOURNAL_STREAM=9:4773836
-XDG_DATA_DIRS=/usr/share/ubuntu:/usr/share/gnome:/home/yihakan/.local/share/flatpak/exports/share:/var/lib/flatpak/exports/share:/usr/local/share:/usr/share:/var/lib/snapd/desktop
-GDK_BACKEND=x11
-PATH=/home/yihakan/bin:/home/yihakan/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin:/home/yihakan/Wcode/bin:/home/yihakan/Wcode/bin
+XDG_RUNTIME_DIR=/run/user/1000
+DEBUGINFOD_URLS=https://debuginfod.ubuntu.com
+XDG_DATA_DIRS=/usr/share/ubuntu:/usr/share/gnome:/usr/local/share/:/usr/share/:/var/lib/snapd/desktop
+PATH=/home/mdusunen/.local/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin:/snap/bin:/home/mdusunen/.local/bin:/home/mdusunen/.local/bin:/home/mdusunen/.venv/bin:/home/mdusunen/.venv/bin:/home/mdusunen/.venv/bin:/home/mdusunen/.venv/bin:/home/mdusunen/.venv/bin:/home/mdusunen/.venv/bin
 GDMSESSION=ubuntu
-ORIGINAL_XDG_CURRENT_DESKTOP=ubuntu:GNOME
-DBUS_SESSION_BUS_ADDRESS=unix:path=/run/user/157249/bus
-GIO_LAUNCHED_DESKTOP_FILE_PID=1901209
-GIO_LAUNCHED_DESKTOP_FILE=/usr/share/applications/terminator.desktop
-LC_NUMERIC=tr_TR.UTF-8
-OLDPWD=/home/yihakan/minishell
-TERM_PROGRAM=vscode
+DBUS_SESSION_BUS_ADDRESS=unix:path=/run/user/1000/bus
+OLDPWD=/home/mdusunen/Desktop/minishell/srcs/executor
 _=/usr/bin/timeout'
 MINISHELL EXIT CODE: 0
 ======================================
 
 === DIFFERENCE FOUND: export ===
 BASH OUTPUT:
-'declare -x CHROME_DESKTOP="code.desktop"
+'declare -x CLUTTER_DISABLE_MIPMAPPED_TEXT="1"
 declare -x COLORTERM="truecolor"
-declare -x DBUS_SESSION_BUS_ADDRESS="unix:path=/run/user/157249/bus"
+declare -x DBUS_SESSION_BUS_ADDRESS="unix:path=/run/user/1000/bus"
+declare -x DEBUGINFOD_URLS="https://debuginfod.ubuntu.com "
 declare -x DESKTOP_SESSION="ubuntu"
-declare -x DISPLAY=":0"
-declare -x DOCKER_HOST="unix:///run/user/157249/docker.sock"
-declare -x FT_HOOK_NAME="login-user"
-declare -x FT_HOOK_PATHNAME="login-user.d"
-declare -x GDK_BACKEND="x11"
+declare -x DISPLAY=":1"
 declare -x GDMSESSION="ubuntu"
-declare -x GIO_LAUNCHED_DESKTOP_FILE="/usr/share/applications/terminator.desktop"
-declare -x GIO_LAUNCHED_DESKTOP_FILE_PID="1901209"
-declare -x GIT_ASKPASS="/usr/share/code/resources/app/extensions/git/dist/askpass.sh"
-declare -x GJS_DEBUG_OUTPUT="stderr"
-declare -x GJS_DEBUG_TOPICS="JS ERROR;JS LOG"
 declare -x GNOME_DESKTOP_SESSION_ID="this-is-deprecated"
-declare -x GPG_AGENT_INFO="/run/user/157249/gnupg/S.gpg-agent:0:1"
-declare -x GTK_IM_MODULE="ibus"
+declare -x GNOME_SHELL_SESSION_MODE="ubuntu"
+declare -x GNOME_TERMINAL_SCREEN="/org/gnome/Terminal/screen/59962826_f54f_4bc8_87ab_42ce4eb6e1f1"
+declare -x GNOME_TERMINAL_SERVICE=":1.273"
+declare -x GPG_AGENT_INFO="/run/user/1000/gnupg/S.gpg-agent:0:1"
+declare -x GSM_SKIP_SSH_AGENT_WORKAROUND="true"
 declare -x GTK_MODULES="gail:atk-bridge"
-declare -x HOME="/home/yihakan"
-declare -x IBUS_DISABLE_SNOOPER="1"
-declare -x INVOCATION_ID="3a1dcf4983d543bf9325661a2374f537"
-declare -x JOURNAL_STREAM="9:4773836"
-declare -x KRB5CCNAME="FILE:/tmp/krb5cc_157249_TFYpe1"
+declare -x HOME="/home/mdusunen"
 declare -x LANG="en_US.UTF-8"
-declare -x LANGUAGE="en_US:"
-declare -x LC_ADDRESS="tr_TR.UTF-8"
-declare -x LC_IDENTIFICATION="tr_TR.UTF-8"
-declare -x LC_MEASUREMENT="tr_TR.UTF-8"
-declare -x LC_MONETARY="tr_TR.UTF-8"
-declare -x LC_NAME="tr_TR.UTF-8"
-declare -x LC_NUMERIC="tr_TR.UTF-8"
-declare -x LC_PAPER="tr_TR.UTF-8"
-declare -x LC_TELEPHONE="tr_TR.UTF-8"
-declare -x LC_TIME="tr_TR.UTF-8"
-declare -x LOGNAME="yihakan"
-declare -x MANAGERPID="1897781"
-declare -x OLDPWD="/home/yihakan/minishell"
-declare -x ORIGINAL_XDG_CURRENT_DESKTOP="ubuntu:GNOME"
-declare -x PATH="/home/yihakan/bin:/home/yihakan/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin:/home/yihakan/Wcode/bin:/home/yihakan/Wcode/bin"
-declare -x PWD="/home/yihakan/minishell"
+declare -x LESSCLOSE="/usr/bin/lesspipe %s %s"
+declare -x LESSOPEN="| /usr/bin/lesspipe %s"
+declare -x LOGNAME="mdusunen"
+declare -x LS_COLORS="rs=0:di=01;34:ln=01;36:mh=00:pi=40;33:so=01;35:do=01;35:bd=40;33;01:cd=40;33;01:or=40;31;01:mi=00:su=37;41:sg=30;43:ca=00:tw=30;42:ow=34;42:st=37;44:ex=01;32:*.tar=01;31:*.tgz=01;31:*.arc=01;31:*.arj=01;31:*.taz=01;31:*.lha=01;31:*.lz4=01;31:*.lzh=01;31:*.lzma=01;31:*.tlz=01;31:*.txz=01;31:*.tzo=01;31:*.t7z=01;31:*.zip=01;31:*.z=01;31:*.dz=01;31:*.gz=01;31:*.lrz=01;31:*.lz=01;31:*.lzo=01;31:*.xz=01;31:*.zst=01;31:*.tzst=01;31:*.bz2=01;31:*.bz=01;31:*.tbz=01;31:*.tbz2=01;31:*.tz=01;31:*.deb=01;31:*.rpm=01;31:*.jar=01;31:*.war=01;31:*.ear=01;31:*.sar=01;31:*.rar=01;31:*.alz=01;31:*.ace=01;31:*.zoo=01;31:*.cpio=01;31:*.7z=01;31:*.rz=01;31:*.cab=01;31:*.wim=01;31:*.swm=01;31:*.dwm=01;31:*.esd=01;31:*.avif=01;35:*.jpg=01;35:*.jpeg=01;35:*.mjpg=01;35:*.mjpeg=01;35:*.gif=01;35:*.bmp=01;35:*.pbm=01;35:*.pgm=01;35:*.ppm=01;35:*.tga=01;35:*.xbm=01;35:*.xpm=01;35:*.tif=01;35:*.tiff=01;35:*.png=01;35:*.svg=01;35:*.svgz=01;35:*.mng=01;35:*.pcx=01;35:*.mov=01;35:*.mpg=01;35:*.mpeg=01;35:*.m2v=01;35:*.mkv=01;35:*.webm=01;35:*.webp=01;35:*.ogm=01;35:*.mp4=01;35:*.m4v=01;35:*.mp4v=01;35:*.vob=01;35:*.qt=01;35:*.nuv=01;35:*.wmv=01;35:*.asf=01;35:*.rm=01;35:*.rmvb=01;35:*.flc=01;35:*.avi=01;35:*.fli=01;35:*.flv=01;35:*.gl=01;35:*.dl=01;35:*.xcf=01;35:*.xwd=01;35:*.yuv=01;35:*.cgm=01;35:*.emf=01;35:*.ogv=01;35:*.ogx=01;35:*.aac=00;36:*.au=00;36:*.flac=00;36:*.m4a=00;36:*.mid=00;36:*.midi=00;36:*.mka=00;36:*.mp3=00;36:*.mpc=00;36:*.ogg=00;36:*.ra=00;36:*.wav=00;36:*.oga=00;36:*.opus=00;36:*.spx=00;36:*.xspf=00;36:*~=00;90:*#=00;90:*.bak=00;90:*.crdownload=00;90:*.dpkg-dist=00;90:*.dpkg-new=00;90:*.dpkg-old=00;90:*.dpkg-tmp=00;90:*.old=00;90:*.orig=00;90:*.part=00;90:*.rej=00;90:*.rpmnew=00;90:*.rpmorig=00;90:*.rpmsave=00;90:*.swp=00;90:*.tmp=00;90:*.ucf-dist=00;90:*.ucf-new=00;90:*.ucf-old=00;90:"
+declare -x MEMORY_PRESSURE_WATCH="/sys/fs/cgroup/user.slice/user-1000.slice/user@1000.service/session.slice/org.gnome.Shell@x11.service/memory.pressure"
+declare -x MEMORY_PRESSURE_WRITE="c29tZSAyMDAwMDAgMjAwMDAwMAA="
+declare -x OLDPWD="/home/mdusunen/Desktop/minishell/srcs/executor"
+declare -x PATH="/home/mdusunen/.local/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin:/snap/bin:/home/mdusunen/.local/bin:/home/mdusunen/.local/bin:/home/mdusunen/.venv/bin:/home/mdusunen/.venv/bin:/home/mdusunen/.venv/bin:/home/mdusunen/.venv/bin:/home/mdusunen/.venv/bin:/home/mdusunen/.venv/bin"
+declare -x PWD="/home/mdusunen/Desktop/minishell"
 declare -x QT_ACCESSIBILITY="1"
 declare -x QT_IM_MODULE="ibus"
-declare -x SESSION_MANAGER="local/k1m20s07.42istanbul.com.tr:@/tmp/.ICE-unix/1898555,unix/k1m20s07.42istanbul.com.tr:/tmp/.ICE-unix/1898555"
-declare -x SHELL="/bin/zsh"
+declare -x SESSION_MANAGER="local/mdusunen:@/tmp/.ICE-unix/2689,unix/mdusunen:/tmp/.ICE-unix/2689"
+declare -x SHELL="/bin/bash"
 declare -x SHLVL="3"
-declare -x SSH_AGENT_LAUNCHER="gnome-keyring"
-declare -x SSH_AUTH_SOCK="/run/user/157249/keyring/ssh"
-declare -x SYSTEMD_EXEC_PID="1898584"
+declare -x SSH_AUTH_SOCK="/run/user/1000/keyring/ssh"
+declare -x SYSTEMD_EXEC_PID="2733"
 declare -x TERM="xterm-256color"
-declare -x TERMINATOR_DBUS_NAME="net.tenshu.Terminator21a9d5db22c73a993ff0b42f64b396873"
-declare -x TERMINATOR_DBUS_PATH="/net/tenshu/Terminator2"
-declare -x TERMINATOR_UUID="urn:uuid:ca223da9-0ee7-41ee-aba2-ac2d0854c3f7"
-declare -x TERM_PROGRAM="vscode"
-declare -x TERM_PROGRAM_VERSION="1.101.2"
-declare -x USER="yihakan"
-declare -x USER_ZDOTDIR="/home/yihakan"
-declare -x VSCODE_GIT_ASKPASS_EXTRA_ARGS=""
-declare -x VSCODE_GIT_ASKPASS_MAIN="/usr/share/code/resources/app/extensions/git/dist/askpass-main.js"
-declare -x VSCODE_GIT_ASKPASS_NODE="/usr/share/code/code"
-declare -x VSCODE_GIT_IPC_HANDLE="/run/user/157249/vscode-git-cb673d1f83.sock"
-declare -x VSCODE_INJECTION="1"
-declare -x VTE_VERSION="6800"
-declare -x XAUTHORITY="/home/yihakan/.Xauthority"
+declare -x USER="mdusunen"
+declare -x USERNAME="mdusunen"
+declare -x VTE_VERSION="7600"
+declare -x WINDOWPATH="2"
+declare -x XAUTHORITY="/run/user/1000/gdm/Xauthority"
 declare -x XDG_CONFIG_DIRS="/etc/xdg/xdg-ubuntu:/etc/xdg"
-declare -x XDG_CURRENT_DESKTOP="Unity"
-declare -x XDG_DATA_DIRS="/usr/share/ubuntu:/usr/share/gnome:/home/yihakan/.local/share/flatpak/exports/share:/var/lib/flatpak/exports/share:/usr/local/share:/usr/share:/var/lib/snapd/desktop"
-declare -x XDG_GREETER_DATA_DIR="/var/lib/lightdm-data/yihakan"
+declare -x XDG_CURRENT_DESKTOP="ubuntu:GNOME"
+declare -x XDG_DATA_DIRS="/usr/share/ubuntu:/usr/share/gnome:/usr/local/share/:/usr/share/:/var/lib/snapd/desktop"
 declare -x XDG_MENU_PREFIX="gnome-"
-declare -x XDG_RUNTIME_DIR="/run/user/157249"
-declare -x XDG_SEAT_PATH="/org/freedesktop/DisplayManager/Seat0"
+declare -x XDG_RUNTIME_DIR="/run/user/1000"
 declare -x XDG_SESSION_CLASS="user"
 declare -x XDG_SESSION_DESKTOP="ubuntu"
-declare -x XDG_SESSION_PATH="/org/freedesktop/DisplayManager/Session14"
 declare -x XDG_SESSION_TYPE="x11"
 declare -x XMODIFIERS="@im=ibus"
-declare -x ZDOTDIR="/home/yihakan"
 declare -x _="/usr/bin/timeout"'
 BASH EXIT CODE: 0
 
 MINISHELL RAW OUTPUT:
 '[32mminishell[0m[33m$>[0m export
-declare -x SHELL="/bin/zsh"
-declare -x SESSION_MANAGER="local/k1m20s07.42istanbul.com.tr:@/tmp/.ICE-unix/1898555,unix/k1m20s07.42istanbul.com.tr:/tmp/.ICE-unix/1898555"
-declare -x USER_ZDOTDIR="/home/yihakan"
+declare -x SHELL="/bin/bash"
+declare -x SESSION_MANAGER="local/mdusunen:@/tmp/.ICE-unix/2689,unix/mdusunen:/tmp/.ICE-unix/2689"
 declare -x QT_ACCESSIBILITY="1"
 declare -x COLORTERM="truecolor"
 declare -x XDG_CONFIG_DIRS="/etc/xdg/xdg-ubuntu:/etc/xdg"
-declare -x SSH_AGENT_LAUNCHER="gnome-keyring"
-declare -x XDG_SESSION_PATH="/org/freedesktop/DisplayManager/Session14"
 declare -x XDG_MENU_PREFIX="gnome-"
-declare -x TERM_PROGRAM_VERSION="1.101.2"
 declare -x GNOME_DESKTOP_SESSION_ID="this-is-deprecated"
-declare -x GTK_IM_MODULE="ibus"
-declare -x LANGUAGE="en_US:"
-declare -x TERMINATOR_DBUS_PATH="/net/tenshu/Terminator2"
-declare -x LC_ADDRESS="tr_TR.UTF-8"
-declare -x LC_NAME="tr_TR.UTF-8"
-declare -x SSH_AUTH_SOCK="/run/user/157249/keyring/ssh"
-declare -x TERMINATOR_UUID="urn:uuid:ca223da9-0ee7-41ee-aba2-ac2d0854c3f7"
+declare -x GNOME_SHELL_SESSION_MODE="ubuntu"
+declare -x SSH_AUTH_SOCK="/run/user/1000/keyring/ssh"
+declare -x MEMORY_PRESSURE_WRITE="c29tZSAyMDAwMDAgMjAwMDAwMAA="
 declare -x XMODIFIERS="@im=ibus"
 declare -x DESKTOP_SESSION="ubuntu"
-declare -x LC_MONETARY="tr_TR.UTF-8"
-declare -x FT_HOOK_NAME="login-user"
 declare -x GTK_MODULES="gail:atk-bridge"
-declare -x FT_HOOK_PATHNAME="login-user.d"
-declare -x PWD="/home/yihakan/minishell"
-declare -x KRB5CCNAME="FILE:/tmp/krb5cc_157249_TFYpe1"
+declare -x PWD="/home/mdusunen/Desktop/minishell"
 declare -x XDG_SESSION_DESKTOP="ubuntu"
-declare -x LOGNAME="yihakan"
+declare -x LOGNAME="mdusunen"
 declare -x XDG_SESSION_TYPE="x11"
-declare -x GPG_AGENT_INFO="/run/user/157249/gnupg/S.gpg-agent:0:1"
-declare -x SYSTEMD_EXEC_PID="1898584"
-declare -x XAUTHORITY="/home/yihakan/.Xauthority"
-declare -x VSCODE_GIT_ASKPASS_NODE="/usr/share/code/code"
-declare -x XDG_GREETER_DATA_DIR="/var/lib/lightdm-data/yihakan"
-declare -x GJS_DEBUG_TOPICS="JS ERROR;JS LOG"
-declare -x VSCODE_INJECTION="1"
-declare -x HOME="/home/yihakan"
-declare -x LC_PAPER="tr_TR.UTF-8"
+declare -x GPG_AGENT_INFO="/run/user/1000/gnupg/S.gpg-agent:0:1"
+declare -x SYSTEMD_EXEC_PID="2733"
+declare -x XAUTHORITY="/run/user/1000/gdm/Xauthority"
+declare -x WINDOWPATH="2"
+declare -x HOME="/home/mdusunen"
+declare -x USERNAME="mdusunen"
 declare -x LANG="en_US.UTF-8"
-declare -x XDG_CURRENT_DESKTOP="Unity"
-declare -x VTE_VERSION="6800"
-declare -x GIT_ASKPASS="/usr/share/code/resources/app/extensions/git/dist/askpass.sh"
-declare -x XDG_SEAT_PATH="/org/freedesktop/DisplayManager/Seat0"
-declare -x INVOCATION_ID="3a1dcf4983d543bf9325661a2374f537"
-declare -x TERMINATOR_DBUS_NAME="net.tenshu.Terminator21a9d5db22c73a993ff0b42f64b396873"
-declare -x MANAGERPID="1897781"
-declare -x CHROME_DESKTOP="code.desktop"
-declare -x GJS_DEBUG_OUTPUT="stderr"
-declare -x VSCODE_GIT_ASKPASS_EXTRA_ARGS=""
+declare -x LS_COLORS="rs=0:di=01;34:ln=01;36:mh=00:pi=40;33:so=01;35:do=01;35:bd=40;33;01:cd=40;33;01:or=40;31;01:mi=00:su=37;41:sg=30;43:ca=00:tw=30;42:ow=34;42:st=37;44:ex=01;32:*.tar=01;31:*.tgz=01;31:*.arc=01;31:*.arj=01;31:*.taz=01;31:*.lha=01;31:*.lz4=01;31:*.lzh=01;31:*.lzma=01;31:*.tlz=01;31:*.txz=01;31:*.tzo=01;31:*.t7z=01;31:*.zip=01;31:*.z=01;31:*.dz=01;31:*.gz=01;31:*.lrz=01;31:*.lz=01;31:*.lzo=01;31:*.xz=01;31:*.zst=01;31:*.tzst=01;31:*.bz2=01;31:*.bz=01;31:*.tbz=01;31:*.tbz2=01;31:*.tz=01;31:*.deb=01;31:*.rpm=01;31:*.jar=01;31:*.war=01;31:*.ear=01;31:*.sar=01;31:*.rar=01;31:*.alz=01;31:*.ace=01;31:*.zoo=01;31:*.cpio=01;31:*.7z=01;31:*.rz=01;31:*.cab=01;31:*.wim=01;31:*.swm=01;31:*.dwm=01;31:*.esd=01;31:*.avif=01;35:*.jpg=01;35:*.jpeg=01;35:*.mjpg=01;35:*.mjpeg=01;35:*.gif=01;35:*.bmp=01;35:*.pbm=01;35:*.pgm=01;35:*.ppm=01;35:*.tga=01;35:*.xbm=01;35:*.xpm=01;35:*.tif=01;35:*.tiff=01;35:*.png=01;35:*.svg=01;35:*.svgz=01;35:*.mng=01;35:*.pcx=01;35:*.mov=01;35:*.mpg=01;35:*.mpeg=01;35:*.m2v=01;35:*.mkv=01;35:*.webm=01;35:*.webp=01;35:*.ogm=01;35:*.mp4=01;35:*.m4v=01;35:*.mp4v=01;35:*.vob=01;35:*.qt=01;35:*.nuv=01;35:*.wmv=01;35:*.asf=01;35:*.rm=01;35:*.rmvb=01;35:*.flc=01;35:*.avi=01;35:*.fli=01;35:*.flv=01;35:*.gl=01;35:*.dl=01;35:*.xcf=01;35:*.xwd=01;35:*.yuv=01;35:*.cgm=01;35:*.emf=01;35:*.ogv=01;35:*.ogx=01;35:*.aac=00;36:*.au=00;36:*.flac=00;36:*.m4a=00;36:*.mid=00;36:*.midi=00;36:*.mka=00;36:*.mp3=00;36:*.mpc=00;36:*.ogg=00;36:*.ra=00;36:*.wav=00;36:*.oga=00;36:*.opus=00;36:*.spx=00;36:*.xspf=00;36:*~=00;90:*#=00;90:*.bak=00;90:*.crdownload=00;90:*.dpkg-dist=00;90:*.dpkg-new=00;90:*.dpkg-old=00;90:*.dpkg-tmp=00;90:*.old=00;90:*.orig=00;90:*.part=00;90:*.rej=00;90:*.rpmnew=00;90:*.rpmorig=00;90:*.rpmsave=00;90:*.swp=00;90:*.tmp=00;90:*.ucf-dist=00;90:*.ucf-new=00;90:*.ucf-old=00;90:"
+declare -x XDG_CURRENT_DESKTOP="ubuntu:GNOME"
+declare -x MEMORY_PRESSURE_WATCH="/sys/fs/cgroup/user.slice/user-1000.slice/user@1000.service/session.slice/org.gnome.Shell@x11.service/memory.pressure"
+declare -x VTE_VERSION="7600"
+declare -x GNOME_TERMINAL_SCREEN="/org/gnome/Terminal/screen/59962826_f54f_4bc8_87ab_42ce4eb6e1f1"
+declare -x LESSCLOSE="/usr/bin/lesspipe %s %s"
 declare -x XDG_SESSION_CLASS="user"
-declare -x IBUS_DISABLE_SNOOPER="1"
-declare -x LC_IDENTIFICATION="tr_TR.UTF-8"
 declare -x TERM="xterm-256color"
-declare -x ZDOTDIR="/home/yihakan"
-declare -x USER="yihakan"
-declare -x VSCODE_GIT_IPC_HANDLE="/run/user/157249/vscode-git-cb673d1f83.sock"
-declare -x DISPLAY=":0"
+declare -x LESSOPEN="| /usr/bin/lesspipe %s"
+declare -x USER="mdusunen"
+declare -x GNOME_TERMINAL_SERVICE=":1.273"
+declare -x CLUTTER_DISABLE_MIPMAPPED_TEXT="1"
+declare -x DISPLAY=":1"
 declare -x SHLVL="2"
-declare -x LC_TELEPHONE="tr_TR.UTF-8"
+declare -x GSM_SKIP_SSH_AGENT_WORKAROUND="true"
 declare -x QT_IM_MODULE="ibus"
-declare -x LC_MEASUREMENT="tr_TR.UTF-8"
-declare -x XDG_RUNTIME_DIR="/run/user/157249"
-declare -x DOCKER_HOST="unix:///run/user/157249/docker.sock"
-declare -x LC_TIME="tr_TR.UTF-8"
-declare -x VSCODE_GIT_ASKPASS_MAIN="/usr/share/code/resources/app/extensions/git/dist/askpass-main.js"
-declare -x JOURNAL_STREAM="9:4773836"
-declare -x XDG_DATA_DIRS="/usr/share/ubuntu:/usr/share/gnome:/home/yihakan/.local/share/flatpak/exports/share:/var/lib/flatpak/exports/share:/usr/local/share:/usr/share:/var/lib/snapd/desktop"
-declare -x GDK_BACKEND="x11"
-declare -x PATH="/home/yihakan/bin:/home/yihakan/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin:/home/yihakan/Wcode/bin:/home/yihakan/Wcode/bin"
+declare -x XDG_RUNTIME_DIR="/run/user/1000"
+declare -x DEBUGINFOD_URLS="https://debuginfod.ubuntu.com "
+declare -x XDG_DATA_DIRS="/usr/share/ubuntu:/usr/share/gnome:/usr/local/share/:/usr/share/:/var/lib/snapd/desktop"
+declare -x PATH="/home/mdusunen/.local/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin:/snap/bin:/home/mdusunen/.local/bin:/home/mdusunen/.local/bin:/home/mdusunen/.venv/bin:/home/mdusunen/.venv/bin:/home/mdusunen/.venv/bin:/home/mdusunen/.venv/bin:/home/mdusunen/.venv/bin:/home/mdusunen/.venv/bin"
 declare -x GDMSESSION="ubuntu"
-declare -x ORIGINAL_XDG_CURRENT_DESKTOP="ubuntu:GNOME"
-declare -x DBUS_SESSION_BUS_ADDRESS="unix:path=/run/user/157249/bus"
-declare -x GIO_LAUNCHED_DESKTOP_FILE_PID="1901209"
-declare -x GIO_LAUNCHED_DESKTOP_FILE="/usr/share/applications/terminator.desktop"
-declare -x LC_NUMERIC="tr_TR.UTF-8"
-declare -x OLDPWD="/home/yihakan/minishell"
-declare -x TERM_PROGRAM="vscode"
+declare -x DBUS_SESSION_BUS_ADDRESS="unix:path=/run/user/1000/bus"
+declare -x OLDPWD="/home/mdusunen/Desktop/minishell/srcs/executor"
 declare -x _="/usr/bin/timeout"
 [32mminishell[0m[33m$>[0m '
 MINISHELL CLEANED OUTPUT:
-'declare -x SHELL="/bin/zsh"
-declare -x SESSION_MANAGER="local/k1m20s07.42istanbul.com.tr:@/tmp/.ICE-unix/1898555,unix/k1m20s07.42istanbul.com.tr:/tmp/.ICE-unix/1898555"
-declare -x USER_ZDOTDIR="/home/yihakan"
+'declare -x SHELL="/bin/bash"
+declare -x SESSION_MANAGER="local/mdusunen:@/tmp/.ICE-unix/2689,unix/mdusunen:/tmp/.ICE-unix/2689"
 declare -x QT_ACCESSIBILITY="1"
 declare -x COLORTERM="truecolor"
 declare -x XDG_CONFIG_DIRS="/etc/xdg/xdg-ubuntu:/etc/xdg"
-declare -x SSH_AGENT_LAUNCHER="gnome-keyring"
-declare -x XDG_SESSION_PATH="/org/freedesktop/DisplayManager/Session14"
 declare -x XDG_MENU_PREFIX="gnome-"
-declare -x TERM_PROGRAM_VERSION="1.101.2"
 declare -x GNOME_DESKTOP_SESSION_ID="this-is-deprecated"
-declare -x GTK_IM_MODULE="ibus"
-declare -x LANGUAGE="en_US:"
-declare -x TERMINATOR_DBUS_PATH="/net/tenshu/Terminator2"
-declare -x LC_ADDRESS="tr_TR.UTF-8"
-declare -x LC_NAME="tr_TR.UTF-8"
-declare -x SSH_AUTH_SOCK="/run/user/157249/keyring/ssh"
-declare -x TERMINATOR_UUID="urn:uuid:ca223da9-0ee7-41ee-aba2-ac2d0854c3f7"
+declare -x GNOME_SHELL_SESSION_MODE="ubuntu"
+declare -x SSH_AUTH_SOCK="/run/user/1000/keyring/ssh"
+declare -x MEMORY_PRESSURE_WRITE="c29tZSAyMDAwMDAgMjAwMDAwMAA="
 declare -x XMODIFIERS="@im=ibus"
 declare -x DESKTOP_SESSION="ubuntu"
-declare -x LC_MONETARY="tr_TR.UTF-8"
-declare -x FT_HOOK_NAME="login-user"
 declare -x GTK_MODULES="gail:atk-bridge"
-declare -x FT_HOOK_PATHNAME="login-user.d"
-declare -x PWD="/home/yihakan/minishell"
-declare -x KRB5CCNAME="FILE:/tmp/krb5cc_157249_TFYpe1"
+declare -x PWD="/home/mdusunen/Desktop/minishell"
 declare -x XDG_SESSION_DESKTOP="ubuntu"
-declare -x LOGNAME="yihakan"
+declare -x LOGNAME="mdusunen"
 declare -x XDG_SESSION_TYPE="x11"
-declare -x GPG_AGENT_INFO="/run/user/157249/gnupg/S.gpg-agent:0:1"
-declare -x SYSTEMD_EXEC_PID="1898584"
-declare -x XAUTHORITY="/home/yihakan/.Xauthority"
-declare -x VSCODE_GIT_ASKPASS_NODE="/usr/share/code/code"
-declare -x XDG_GREETER_DATA_DIR="/var/lib/lightdm-data/yihakan"
-declare -x GJS_DEBUG_TOPICS="JS ERROR;JS LOG"
-declare -x VSCODE_INJECTION="1"
-declare -x HOME="/home/yihakan"
-declare -x LC_PAPER="tr_TR.UTF-8"
+declare -x GPG_AGENT_INFO="/run/user/1000/gnupg/S.gpg-agent:0:1"
+declare -x SYSTEMD_EXEC_PID="2733"
+declare -x XAUTHORITY="/run/user/1000/gdm/Xauthority"
+declare -x WINDOWPATH="2"
+declare -x HOME="/home/mdusunen"
+declare -x USERNAME="mdusunen"
 declare -x LANG="en_US.UTF-8"
-declare -x XDG_CURRENT_DESKTOP="Unity"
-declare -x VTE_VERSION="6800"
-declare -x GIT_ASKPASS="/usr/share/code/resources/app/extensions/git/dist/askpass.sh"
-declare -x XDG_SEAT_PATH="/org/freedesktop/DisplayManager/Seat0"
-declare -x INVOCATION_ID="3a1dcf4983d543bf9325661a2374f537"
-declare -x TERMINATOR_DBUS_NAME="net.tenshu.Terminator21a9d5db22c73a993ff0b42f64b396873"
-declare -x MANAGERPID="1897781"
-declare -x CHROME_DESKTOP="code.desktop"
-declare -x GJS_DEBUG_OUTPUT="stderr"
-declare -x VSCODE_GIT_ASKPASS_EXTRA_ARGS=""
+declare -x LS_COLORS="rs=0:di=01;34:ln=01;36:mh=00:pi=40;33:so=01;35:do=01;35:bd=40;33;01:cd=40;33;01:or=40;31;01:mi=00:su=37;41:sg=30;43:ca=00:tw=30;42:ow=34;42:st=37;44:ex=01;32:*.tar=01;31:*.tgz=01;31:*.arc=01;31:*.arj=01;31:*.taz=01;31:*.lha=01;31:*.lz4=01;31:*.lzh=01;31:*.lzma=01;31:*.tlz=01;31:*.txz=01;31:*.tzo=01;31:*.t7z=01;31:*.zip=01;31:*.z=01;31:*.dz=01;31:*.gz=01;31:*.lrz=01;31:*.lz=01;31:*.lzo=01;31:*.xz=01;31:*.zst=01;31:*.tzst=01;31:*.bz2=01;31:*.bz=01;31:*.tbz=01;31:*.tbz2=01;31:*.tz=01;31:*.deb=01;31:*.rpm=01;31:*.jar=01;31:*.war=01;31:*.ear=01;31:*.sar=01;31:*.rar=01;31:*.alz=01;31:*.ace=01;31:*.zoo=01;31:*.cpio=01;31:*.7z=01;31:*.rz=01;31:*.cab=01;31:*.wim=01;31:*.swm=01;31:*.dwm=01;31:*.esd=01;31:*.avif=01;35:*.jpg=01;35:*.jpeg=01;35:*.mjpg=01;35:*.mjpeg=01;35:*.gif=01;35:*.bmp=01;35:*.pbm=01;35:*.pgm=01;35:*.ppm=01;35:*.tga=01;35:*.xbm=01;35:*.xpm=01;35:*.tif=01;35:*.tiff=01;35:*.png=01;35:*.svg=01;35:*.svgz=01;35:*.mng=01;35:*.pcx=01;35:*.mov=01;35:*.mpg=01;35:*.mpeg=01;35:*.m2v=01;35:*.mkv=01;35:*.webm=01;35:*.webp=01;35:*.ogm=01;35:*.mp4=01;35:*.m4v=01;35:*.mp4v=01;35:*.vob=01;35:*.qt=01;35:*.nuv=01;35:*.wmv=01;35:*.asf=01;35:*.rm=01;35:*.rmvb=01;35:*.flc=01;35:*.avi=01;35:*.fli=01;35:*.flv=01;35:*.gl=01;35:*.dl=01;35:*.xcf=01;35:*.xwd=01;35:*.yuv=01;35:*.cgm=01;35:*.emf=01;35:*.ogv=01;35:*.ogx=01;35:*.aac=00;36:*.au=00;36:*.flac=00;36:*.m4a=00;36:*.mid=00;36:*.midi=00;36:*.mka=00;36:*.mp3=00;36:*.mpc=00;36:*.ogg=00;36:*.ra=00;36:*.wav=00;36:*.oga=00;36:*.opus=00;36:*.spx=00;36:*.xspf=00;36:*~=00;90:*#=00;90:*.bak=00;90:*.crdownload=00;90:*.dpkg-dist=00;90:*.dpkg-new=00;90:*.dpkg-old=00;90:*.dpkg-tmp=00;90:*.old=00;90:*.orig=00;90:*.part=00;90:*.rej=00;90:*.rpmnew=00;90:*.rpmorig=00;90:*.rpmsave=00;90:*.swp=00;90:*.tmp=00;90:*.ucf-dist=00;90:*.ucf-new=00;90:*.ucf-old=00;90:"
+declare -x XDG_CURRENT_DESKTOP="ubuntu:GNOME"
+declare -x MEMORY_PRESSURE_WATCH="/sys/fs/cgroup/user.slice/user-1000.slice/user@1000.service/session.slice/org.gnome.Shell@x11.service/memory.pressure"
+declare -x VTE_VERSION="7600"
+declare -x GNOME_TERMINAL_SCREEN="/org/gnome/Terminal/screen/59962826_f54f_4bc8_87ab_42ce4eb6e1f1"
+declare -x LESSCLOSE="/usr/bin/lesspipe %s %s"
 declare -x XDG_SESSION_CLASS="user"
-declare -x IBUS_DISABLE_SNOOPER="1"
-declare -x LC_IDENTIFICATION="tr_TR.UTF-8"
 declare -x TERM="xterm-256color"
-declare -x ZDOTDIR="/home/yihakan"
-declare -x USER="yihakan"
-declare -x VSCODE_GIT_IPC_HANDLE="/run/user/157249/vscode-git-cb673d1f83.sock"
-declare -x DISPLAY=":0"
+declare -x LESSOPEN="| /usr/bin/lesspipe %s"
+declare -x USER="mdusunen"
+declare -x GNOME_TERMINAL_SERVICE=":1.273"
+declare -x CLUTTER_DISABLE_MIPMAPPED_TEXT="1"
+declare -x DISPLAY=":1"
 declare -x SHLVL="2"
-declare -x LC_TELEPHONE="tr_TR.UTF-8"
+declare -x GSM_SKIP_SSH_AGENT_WORKAROUND="true"
 declare -x QT_IM_MODULE="ibus"
-declare -x LC_MEASUREMENT="tr_TR.UTF-8"
-declare -x XDG_RUNTIME_DIR="/run/user/157249"
-declare -x DOCKER_HOST="unix:///run/user/157249/docker.sock"
-declare -x LC_TIME="tr_TR.UTF-8"
-declare -x VSCODE_GIT_ASKPASS_MAIN="/usr/share/code/resources/app/extensions/git/dist/askpass-main.js"
-declare -x JOURNAL_STREAM="9:4773836"
-declare -x XDG_DATA_DIRS="/usr/share/ubuntu:/usr/share/gnome:/home/yihakan/.local/share/flatpak/exports/share:/var/lib/flatpak/exports/share:/usr/local/share:/usr/share:/var/lib/snapd/desktop"
-declare -x GDK_BACKEND="x11"
-declare -x PATH="/home/yihakan/bin:/home/yihakan/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin:/home/yihakan/Wcode/bin:/home/yihakan/Wcode/bin"
+declare -x XDG_RUNTIME_DIR="/run/user/1000"
+declare -x DEBUGINFOD_URLS="https://debuginfod.ubuntu.com "
+declare -x XDG_DATA_DIRS="/usr/share/ubuntu:/usr/share/gnome:/usr/local/share/:/usr/share/:/var/lib/snapd/desktop"
+declare -x PATH="/home/mdusunen/.local/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin:/snap/bin:/home/mdusunen/.local/bin:/home/mdusunen/.local/bin:/home/mdusunen/.venv/bin:/home/mdusunen/.venv/bin:/home/mdusunen/.venv/bin:/home/mdusunen/.venv/bin:/home/mdusunen/.venv/bin:/home/mdusunen/.venv/bin"
 declare -x GDMSESSION="ubuntu"
-declare -x ORIGINAL_XDG_CURRENT_DESKTOP="ubuntu:GNOME"
-declare -x DBUS_SESSION_BUS_ADDRESS="unix:path=/run/user/157249/bus"
-declare -x GIO_LAUNCHED_DESKTOP_FILE_PID="1901209"
-declare -x GIO_LAUNCHED_DESKTOP_FILE="/usr/share/applications/terminator.desktop"
-declare -x LC_NUMERIC="tr_TR.UTF-8"
-declare -x OLDPWD="/home/yihakan/minishell"
-declare -x TERM_PROGRAM="vscode"
+declare -x DBUS_SESSION_BUS_ADDRESS="unix:path=/run/user/1000/bus"
+declare -x OLDPWD="/home/mdusunen/Desktop/minishell/srcs/executor"
 declare -x _="/usr/bin/timeout"'
 MINISHELL EXIT CODE: 0
-======================================
-
-=== DIFFERENCE FOUND: export VAR1=hello && env | grep VAR1 ===
-BASH OUTPUT:
-'VAR1=hello'
-BASH EXIT CODE: 0
-
-MINISHELL RAW OUTPUT:
-'[32mminishell[0m[33m$>[0m export VAR1=hello && env | grep VAR1
-[32mminishell[0m[33m$>[0m '
-MINISHELL CLEANED OUTPUT:
-''
-MINISHELL EXIT CODE: 1
-======================================
-
-=== DIFFERENCE FOUND: export VAR3= && env | grep VAR3 ===
-BASH OUTPUT:
-'VAR3='
-BASH EXIT CODE: 0
-
-MINISHELL RAW OUTPUT:
-'[32mminishell[0m[33m$>[0m export VAR3= && env | grep VAR3
-[32mminishell[0m[33m$>[0m '
-MINISHELL CLEANED OUTPUT:
-''
-MINISHELL EXIT CODE: 1
-======================================
-
-=== DIFFERENCE FOUND: export TEST=value && echo $TEST ===
-BASH OUTPUT:
-'value'
-BASH EXIT CODE: 0
-
-MINISHELL RAW OUTPUT:
-'[32mminishell[0m[33m$>[0m export TEST=value && echo $TEST
-[32mminishell[0m[33m$>[0m '
-MINISHELL CLEANED OUTPUT:
-''
-MINISHELL EXIT CODE: 1
-======================================
-
-=== DIFFERENCE FOUND: unset PATH && env | grep PATH ===
-BASH OUTPUT:
-''
-BASH EXIT CODE: 127
-
-MINISHELL RAW OUTPUT:
-'[32mminishell[0m[33m$>[0m unset PATH && env | grep PATH
-[32mminishell[0m[33m$>[0m '
-MINISHELL CLEANED OUTPUT:
-''
-MINISHELL EXIT CODE: 1
-======================================
-
-=== DIFFERENCE FOUND: export A=1 B=2 && unset A && env | grep A ===
-BASH OUTPUT:
-'SESSION_MANAGER=local/k1m20s07.42istanbul.com.tr:@/tmp/.ICE-unix/1898555,unix/k1m20s07.42istanbul.com.tr:/tmp/.ICE-unix/1898555
-QT_ACCESSIBILITY=1
-SSH_AGENT_LAUNCHER=gnome-keyring
-XDG_SESSION_PATH=/org/freedesktop/DisplayManager/Session14
-TERM_PROGRAM_VERSION=1.101.2
-LANGUAGE=en_US:
-TERMINATOR_DBUS_PATH=/net/tenshu/Terminator2
-LC_ADDRESS=tr_TR.UTF-8
-LC_NAME=tr_TR.UTF-8
-SSH_AUTH_SOCK=/run/user/157249/keyring/ssh
-TERMINATOR_UUID=urn:uuid:ca223da9-0ee7-41ee-aba2-ac2d0854c3f7
-LC_MONETARY=tr_TR.UTF-8
-FT_HOOK_NAME=login-user
-FT_HOOK_PATHNAME=login-user.d
-KRB5CCNAME=FILE:/tmp/krb5cc_157249_TFYpe1
-LOGNAME=yihakan
-GPG_AGENT_INFO=/run/user/157249/gnupg/S.gpg-agent:0:1
-XAUTHORITY=/home/yihakan/.Xauthority
-VSCODE_GIT_ASKPASS_NODE=/usr/share/code/code
-XDG_GREETER_DATA_DIR=/var/lib/lightdm-data/yihakan
-LANG=en_US.UTF-8
-LC_PAPER=tr_TR.UTF-8
-GIT_ASKPASS=/usr/share/code/resources/app/extensions/git/dist/askpass.sh
-XDG_SEAT_PATH=/org/freedesktop/DisplayManager/Seat0
-INVOCATION_ID=3a1dcf4983d543bf9325661a2374f537
-TERMINATOR_DBUS_NAME=net.tenshu.Terminator21a9d5db22c73a993ff0b42f64b396873
-MANAGERPID=1897781
-VSCODE_GIT_ASKPASS_EXTRA_ARGS=
-XDG_SESSION_CLASS=user
-IBUS_DISABLE_SNOOPER=1
-LC_IDENTIFICATION=tr_TR.UTF-8
-VSCODE_GIT_IPC_HANDLE=/run/user/157249/vscode-git-cb673d1f83.sock
-DISPLAY=:0
-LC_MEASUREMENT=tr_TR.UTF-8
-VSCODE_GIT_ASKPASS_MAIN=/usr/share/code/resources/app/extensions/git/dist/askpass-main.js
-JOURNAL_STREAM=9:4773836
-XDG_DATA_DIRS=/usr/share/ubuntu:/usr/share/gnome:/home/yihakan/.local/share/flatpak/exports/share:/var/lib/flatpak/exports/share:/usr/local/share:/usr/share:/var/lib/snapd/desktop
-GDK_BACKEND=x11
-PATH=/home/yihakan/bin:/home/yihakan/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin:/home/yihakan/Wcode/bin:/home/yihakan/Wcode/bin
-ORIGINAL_XDG_CURRENT_DESKTOP=ubuntu:GNOME
-DBUS_SESSION_BUS_ADDRESS=unix:path=/run/user/157249/bus
-GIO_LAUNCHED_DESKTOP_FILE_PID=1901209
-GIO_LAUNCHED_DESKTOP_FILE=/usr/share/applications/terminator.desktop
-TERM_PROGRAM=vscode'
-BASH EXIT CODE: 0
-
-MINISHELL RAW OUTPUT:
-'[32mminishell[0m[33m$>[0m export A=1 B=2 && unset A && env | grep A
-[32mminishell[0m[33m$>[0m '
-MINISHELL CLEANED OUTPUT:
-''
-MINISHELL EXIT CODE: 1
-======================================
-
-=== DIFFERENCE FOUND: export TEST=hello && unset TEST ===
-BASH OUTPUT:
-''
-BASH EXIT CODE: 0
-
-MINISHELL RAW OUTPUT:
-'[32mminishell[0m[33m$>[0m export TEST=hello && unset TEST
-[32mminishell[0m[33m$>[0m '
-MINISHELL CLEANED OUTPUT:
-''
-MINISHELL EXIT CODE: 1
 ======================================
 
 === DIFFERENCE FOUND: cd ~ ===
@@ -1233,7 +726,7 @@ MINISHELL EXIT CODE: 1
 
 === DIFFERENCE FOUND: cd - ===
 BASH OUTPUT:
-'/home/yihakan/minishell'
+'/home/mdusunen/Desktop/minishell/srcs/executor'
 BASH EXIT CODE: 0
 
 MINISHELL RAW OUTPUT:
@@ -1242,100 +735,6 @@ MINISHELL RAW OUTPUT:
 MINISHELL CLEANED OUTPUT:
 ''
 MINISHELL EXIT CODE: 1
-======================================
-
-=== DIFFERENCE FOUND: cd /usr && pwd ===
-BASH OUTPUT:
-'/usr'
-BASH EXIT CODE: 0
-
-MINISHELL RAW OUTPUT:
-'[32mminishell[0m[33m$>[0m cd /usr && pwd
-[32mminishell[0m[33m$>[0m '
-MINISHELL CLEANED OUTPUT:
-''
-MINISHELL EXIT CODE: 1
-======================================
-
-=== DIFFERENCE FOUND: cd / && cd /tmp && pwd ===
-BASH OUTPUT:
-'/tmp'
-BASH EXIT CODE: 0
-
-MINISHELL RAW OUTPUT:
-'[32mminishell[0m[33m$>[0m cd / && cd /tmp && pwd
-[32mminishell[0m[33m$>[0m '
-MINISHELL CLEANED OUTPUT:
-''
-MINISHELL EXIT CODE: 1
-======================================
-
-=== DIFFERENCE FOUND: cd / && pwd ===
-BASH OUTPUT:
-'/'
-BASH EXIT CODE: 0
-
-MINISHELL RAW OUTPUT:
-'[32mminishell[0m[33m$>[0m cd / && pwd
-[32mminishell[0m[33m$>[0m '
-MINISHELL CLEANED OUTPUT:
-''
-MINISHELL EXIT CODE: 1
-======================================
-
-=== DIFFERENCE FOUND: cd /tmp && pwd ===
-BASH OUTPUT:
-'/tmp'
-BASH EXIT CODE: 0
-
-MINISHELL RAW OUTPUT:
-'[32mminishell[0m[33m$>[0m cd /tmp && pwd
-[32mminishell[0m[33m$>[0m '
-MINISHELL CLEANED OUTPUT:
-''
-MINISHELL EXIT CODE: 1
-======================================
-
-=== DIFFERENCE FOUND: cd .. && pwd ===
-BASH OUTPUT:
-'/home/yihakan'
-BASH EXIT CODE: 0
-
-MINISHELL RAW OUTPUT:
-'[32mminishell[0m[33m$>[0m cd .. && pwd
-[32mminishell[0m[33m$>[0m '
-MINISHELL CLEANED OUTPUT:
-''
-MINISHELL EXIT CODE: 1
-======================================
-
-=== DIFFERENCE FOUND: cd /usr && pwd && cd / && pwd ===
-BASH OUTPUT:
-'/usr
-/'
-BASH EXIT CODE: 0
-
-MINISHELL RAW OUTPUT:
-'[32mminishell[0m[33m$>[0m cd /usr && pwd && cd / && pwd
-[32mminishell[0m[33m$>[0m '
-MINISHELL CLEANED OUTPUT:
-''
-MINISHELL EXIT CODE: 1
-======================================
-
-=== DIFFERENCE FOUND: pwd && cd / && pwd ===
-BASH OUTPUT:
-'/home/yihakan/minishell
-/'
-BASH EXIT CODE: 0
-
-MINISHELL RAW OUTPUT:
-'[32mminishell[0m[33m$>[0m pwd && cd / && pwd
-/home/yihakan/minishell
-[32mminishell[0m[33m$>[0m '
-MINISHELL CLEANED OUTPUT:
-'/home/yihakan/minishell'
-MINISHELL EXIT CODE: 0
 ======================================
 
 === DIFFERENCE FOUND: ./minishell --version 2>/dev/null || echo 'relative path test' ===
@@ -1544,157 +943,6 @@ MINISHELL CLEANED OUTPUT:
 MINISHELL EXIT CODE: 0
 ======================================
 
-=== DIFFERENCE FOUND: unset PATH && ls ===
-BASH OUTPUT:
-''
-BASH EXIT CODE: 127
-
-MINISHELL RAW OUTPUT:
-'[32mminishell[0m[33m$>[0m unset PATH && ls
-[32mminishell[0m[33m$>[0m '
-MINISHELL CLEANED OUTPUT:
-''
-MINISHELL EXIT CODE: 0
-======================================
-
-=== DIFFERENCE FOUND: export PATH=/bin:/usr/bin && ls ===
-BASH OUTPUT:
-'crazy_minishel_leak_test.sh
-file
-includes
-libft
-Makefile
-minishell
-minishell_bash_comparison.log
-minishell_full_leak_report.log
-multiline.txt
-obj
-outfile
-parser_leak_test.sh
-readline.supp
-README.md
-srcs
-test_dir
-test_file.txt
-test_input.txt
-test_script.sh
-test.txt
-valgrind_tmp.log'
-BASH EXIT CODE: 0
-
-MINISHELL RAW OUTPUT:
-'[32mminishell[0m[33m$>[0m export PATH=/bin:/usr/bin && ls
-[32mminishell[0m[33m$>[0m '
-MINISHELL CLEANED OUTPUT:
-''
-MINISHELL EXIT CODE: 1
-======================================
-
-=== DIFFERENCE FOUND: export PATH=/custom/path && ls 2>/dev/null || echo 'path not found' ===
-BASH OUTPUT:
-'path not found'
-BASH EXIT CODE: 0
-
-MINISHELL RAW OUTPUT:
-'[32mminishell[0m[33m$>[0m export PATH=/custom/path && ls 2>/dev/null || echo 'path not found'
-[32mminishell[0m[33m$>[0m '
-MINISHELL CLEANED OUTPUT:
-''
-MINISHELL EXIT CODE: 0
-======================================
-
-=== DIFFERENCE FOUND: unset PATH && /bin/ls ===
-BASH OUTPUT:
-'crazy_minishel_leak_test.sh
-file
-includes
-libft
-Makefile
-minishell
-minishell_bash_comparison.log
-minishell_full_leak_report.log
-multiline.txt
-obj
-outfile
-parser_leak_test.sh
-readline.supp
-README.md
-srcs
-test_dir
-test_file.txt
-test_input.txt
-test_script.sh
-test.txt
-valgrind_tmp.log'
-BASH EXIT CODE: 0
-
-MINISHELL RAW OUTPUT:
-'[32mminishell[0m[33m$>[0m unset PATH && /bin/ls
-[32mminishell[0m[33m$>[0m '
-MINISHELL CLEANED OUTPUT:
-''
-MINISHELL EXIT CODE: 0
-======================================
-
-=== DIFFERENCE FOUND: export PATH=/bin && ls ===
-BASH OUTPUT:
-'crazy_minishel_leak_test.sh
-file
-includes
-libft
-Makefile
-minishell
-minishell_bash_comparison.log
-minishell_full_leak_report.log
-multiline.txt
-obj
-outfile
-parser_leak_test.sh
-readline.supp
-README.md
-srcs
-test_dir
-test_file.txt
-test_input.txt
-test_script.sh
-test.txt
-valgrind_tmp.log'
-BASH EXIT CODE: 0
-
-MINISHELL RAW OUTPUT:
-'[32mminishell[0m[33m$>[0m export PATH=/bin && ls
-[32mminishell[0m[33m$>[0m '
-MINISHELL CLEANED OUTPUT:
-''
-MINISHELL EXIT CODE: 1
-======================================
-
-=== DIFFERENCE FOUND: export PATH=/usr/bin:/bin && pwd ===
-BASH OUTPUT:
-'/home/yihakan/minishell'
-BASH EXIT CODE: 0
-
-MINISHELL RAW OUTPUT:
-'[32mminishell[0m[33m$>[0m export PATH=/usr/bin:/bin && pwd
-[32mminishell[0m[33m$>[0m '
-MINISHELL CLEANED OUTPUT:
-''
-MINISHELL EXIT CODE: 1
-======================================
-
-=== DIFFERENCE FOUND: echo test > out.txt && /bin/cat out.txt ===
-BASH OUTPUT:
-'test'
-BASH EXIT CODE: 0
-
-MINISHELL RAW OUTPUT:
-'[32mminishell[0m[33m$>[0m echo test > out.txt && /bin/cat out.txt
-[32mminishell[0m[33m$>[0m '
-MINISHELL CLEANED OUTPUT:
-''
-MINISHELL EXIT CODE: 0
-======================================
-
 === DIFFERENCE FOUND: ls > output.txt 2> error.txt ===
 BASH OUTPUT:
 ''
@@ -1708,19 +956,6 @@ MINISHELL CLEANED OUTPUT:
 MINISHELL EXIT CODE: 2
 ======================================
 
-=== DIFFERENCE FOUND: /bin/echo hello > redirect.txt && /bin/cat redirect.txt ===
-BASH OUTPUT:
-'hello'
-BASH EXIT CODE: 0
-
-MINISHELL RAW OUTPUT:
-'[32mminishell[0m[33m$>[0m /bin/echo hello > redirect.txt && /bin/cat redirect.txt
-[32mminishell[0m[33m$>[0m '
-MINISHELL CLEANED OUTPUT:
-''
-MINISHELL EXIT CODE: 0
-======================================
-
 === DIFFERENCE FOUND: echo "mix 'quotes' and \"escapes\"" ===
 BASH OUTPUT:
 'mix 'quotes' and "escapes"'
@@ -1732,141 +967,6 @@ mix 'quotes' and \escapes\
 [32mminishell[0m[33m$>[0m '
 MINISHELL CLEANED OUTPUT:
 'mix 'quotes' and \escapes\'
-MINISHELL EXIT CODE: 0
-======================================
-
-=== DIFFERENCE FOUND: echo first && echo second ===
-BASH OUTPUT:
-'first
-second'
-BASH EXIT CODE: 0
-
-MINISHELL RAW OUTPUT:
-'[32mminishell[0m[33m$>[0m echo first && echo second
-first && echo second
-[32mminishell[0m[33m$>[0m '
-MINISHELL CLEANED OUTPUT:
-'first && echo second'
-MINISHELL EXIT CODE: 0
-======================================
-
-=== DIFFERENCE FOUND: echo first || echo second ===
-BASH OUTPUT:
-'first'
-BASH EXIT CODE: 0
-
-MINISHELL RAW OUTPUT:
-'[32mminishell[0m[33m$>[0m echo first || echo second
-[32mminishell[0m[33m$>[0m '
-MINISHELL CLEANED OUTPUT:
-''
-MINISHELL EXIT CODE: 0
-======================================
-
-=== DIFFERENCE FOUND: /bin/false || echo should_print ===
-BASH OUTPUT:
-'should_print'
-BASH EXIT CODE: 0
-
-MINISHELL RAW OUTPUT:
-'[32mminishell[0m[33m$>[0m /bin/false || echo should_print
-[32mminishell[0m[33m$>[0m '
-MINISHELL CLEANED OUTPUT:
-''
-MINISHELL EXIT CODE: 0
-======================================
-
-=== DIFFERENCE FOUND: /bin/true && echo success ===
-BASH OUTPUT:
-'success'
-BASH EXIT CODE: 0
-
-MINISHELL RAW OUTPUT:
-'[32mminishell[0m[33m$>[0m /bin/true && echo success
-[32mminishell[0m[33m$>[0m '
-MINISHELL CLEANED OUTPUT:
-''
-MINISHELL EXIT CODE: 0
-======================================
-
-=== DIFFERENCE FOUND: echo hi && /bin/false || echo bye ===
-BASH OUTPUT:
-'hi
-bye'
-BASH EXIT CODE: 0
-
-MINISHELL RAW OUTPUT:
-'[32mminishell[0m[33m$>[0m echo hi && /bin/false || echo bye
-[32mminishell[0m[33m$>[0m '
-MINISHELL CLEANED OUTPUT:
-''
-MINISHELL EXIT CODE: 0
-======================================
-
-=== DIFFERENCE FOUND: /bin/true && echo true_worked ===
-BASH OUTPUT:
-'true_worked'
-BASH EXIT CODE: 0
-
-MINISHELL RAW OUTPUT:
-'[32mminishell[0m[33m$>[0m /bin/true && echo true_worked
-[32mminishell[0m[33m$>[0m '
-MINISHELL CLEANED OUTPUT:
-''
-MINISHELL EXIT CODE: 0
-======================================
-
-=== DIFFERENCE FOUND: /bin/false || echo false_worked ===
-BASH OUTPUT:
-'false_worked'
-BASH EXIT CODE: 0
-
-MINISHELL RAW OUTPUT:
-'[32mminishell[0m[33m$>[0m /bin/false || echo false_worked
-[32mminishell[0m[33m$>[0m '
-MINISHELL CLEANED OUTPUT:
-''
-MINISHELL EXIT CODE: 0
-======================================
-
-=== DIFFERENCE FOUND: echo test && echo success ===
-BASH OUTPUT:
-'test
-success'
-BASH EXIT CODE: 0
-
-MINISHELL RAW OUTPUT:
-'[32mminishell[0m[33m$>[0m echo test && echo success
-test && echo success
-[32mminishell[0m[33m$>[0m '
-MINISHELL CLEANED OUTPUT:
-'test && echo success'
-MINISHELL EXIT CODE: 0
-======================================
-
-=== DIFFERENCE FOUND: /bin/true && /bin/true && echo double_success ===
-BASH OUTPUT:
-'double_success'
-BASH EXIT CODE: 0
-
-MINISHELL RAW OUTPUT:
-'[32mminishell[0m[33m$>[0m /bin/true && /bin/true && echo double_success
-[32mminishell[0m[33m$>[0m '
-MINISHELL CLEANED OUTPUT:
-''
-MINISHELL EXIT CODE: 0
-======================================
-
-=== DIFFERENCE FOUND: /bin/false || /bin/false || echo finally_success ===
-BASH OUTPUT:
-'finally_success'
-BASH EXIT CODE: 0
-
-MINISHELL RAW OUTPUT:
-'[32mminishell[0m[33m$>[0m /bin/false || /bin/false || echo finally_success
-[32mminishell[0m[33m$>[0m '
-MINISHELL CLEANED OUTPUT:
-''
 MINISHELL EXIT CODE: 0
 ======================================
 
@@ -1893,60 +993,6 @@ MINISHELL RAW OUTPUT:
 [32mminishell[0m[33m$>[0m '
 MINISHELL CLEANED OUTPUT:
 ''
-MINISHELL EXIT CODE: 0
-======================================
-
-=== DIFFERENCE FOUND: || echo fail ===
-BASH OUTPUT:
-''
-BASH EXIT CODE: 2
-
-MINISHELL RAW OUTPUT:
-'[32mminishell[0m[33m$>[0m || echo fail
-[32mminishell[0m[33m$>[0m '
-MINISHELL CLEANED OUTPUT:
-''
-MINISHELL EXIT CODE: 0
-======================================
-
-=== DIFFERENCE FOUND: && echo fail ===
-BASH OUTPUT:
-''
-BASH EXIT CODE: 2
-
-MINISHELL RAW OUTPUT:
-'[32mminishell[0m[33m$>[0m && echo fail
-[32mminishell[0m[33m$>[0m '
-MINISHELL CLEANED OUTPUT:
-''
-MINISHELL EXIT CODE: 127
-======================================
-
-=== DIFFERENCE FOUND: echo "unclosed ===
-BASH OUTPUT:
-''
-BASH EXIT CODE: 2
-
-MINISHELL RAW OUTPUT:
-'[32mminishell[0m[33m$>[0m echo "unclosed
-unclosed
-[32mminishell[0m[33m$>[0m '
-MINISHELL CLEANED OUTPUT:
-'unclosed'
-MINISHELL EXIT CODE: 0
-======================================
-
-=== DIFFERENCE FOUND: echo 'unclosed ===
-BASH OUTPUT:
-''
-BASH EXIT CODE: 2
-
-MINISHELL RAW OUTPUT:
-'[32mminishell[0m[33m$>[0m echo 'unclosed
-unclosed
-[32mminishell[0m[33m$>[0m '
-MINISHELL CLEANED OUTPUT:
-'unclosed'
 MINISHELL EXIT CODE: 0
 ======================================
 
@@ -2002,20 +1048,6 @@ MINISHELL CLEANED OUTPUT:
 MINISHELL EXIT CODE: 127
 ======================================
 
-=== DIFFERENCE FOUND: echo && && echo fail ===
-BASH OUTPUT:
-''
-BASH EXIT CODE: 2
-
-MINISHELL RAW OUTPUT:
-'[32mminishell[0m[33m$>[0m echo && && echo fail
-&& && echo fail
-[32mminishell[0m[33m$>[0m '
-MINISHELL CLEANED OUTPUT:
-'&& && echo fail'
-MINISHELL EXIT CODE: 0
-======================================
-
 === DIFFERENCE FOUND: | | echo fail ===
 BASH OUTPUT:
 ''
@@ -2029,137 +1061,6 @@ MINISHELL CLEANED OUTPUT:
 MINISHELL EXIT CODE: 0
 ======================================
 
-=== DIFFERENCE FOUND: (ls) ===
-BASH OUTPUT:
-'crazy_minishel_leak_test.sh
-file
-includes
-libft
-Makefile
-minishell
-minishell_bash_comparison.log
-minishell_full_leak_report.log
-multiline.txt
-obj
-outfile
-parser_leak_test.sh
-readline.supp
-README.md
-srcs
-test_dir
-test_file.txt
-test_input.txt
-test_script.sh
-test.txt
-valgrind_tmp.log'
-BASH EXIT CODE: 0
-
-MINISHELL RAW OUTPUT:
-'[32mminishell[0m[33m$>[0m (ls)
-[32mminishell[0m[33m$>[0m '
-MINISHELL CLEANED OUTPUT:
-''
-MINISHELL EXIT CODE: 127
-======================================
-
-=== DIFFERENCE FOUND: (echo nested) ===
-BASH OUTPUT:
-'nested'
-BASH EXIT CODE: 0
-
-MINISHELL RAW OUTPUT:
-'[32mminishell[0m[33m$>[0m (echo nested)
-[32mminishell[0m[33m$>[0m '
-MINISHELL CLEANED OUTPUT:
-''
-MINISHELL EXIT CODE: 127
-======================================
-
-=== DIFFERENCE FOUND: (cd /tmp && pwd) ===
-BASH OUTPUT:
-'/tmp'
-BASH EXIT CODE: 0
-
-MINISHELL RAW OUTPUT:
-'[32mminishell[0m[33m$>[0m (cd /tmp && pwd)
-[32mminishell[0m[33m$>[0m '
-MINISHELL CLEANED OUTPUT:
-''
-MINISHELL EXIT CODE: 127
-======================================
-
-=== DIFFERENCE FOUND: (export TEST=value && echo $TEST) ===
-BASH OUTPUT:
-'value'
-BASH EXIT CODE: 0
-
-MINISHELL RAW OUTPUT:
-'[32mminishell[0m[33m$>[0m (export TEST=value && echo $TEST)
-[32mminishell[0m[33m$>[0m '
-MINISHELL CLEANED OUTPUT:
-''
-MINISHELL EXIT CODE: 127
-======================================
-
-=== DIFFERENCE FOUND: (ls | grep a) ===
-BASH OUTPUT:
-'crazy_minishel_leak_test.sh
-Makefile
-minishell_bash_comparison.log
-minishell_full_leak_report.log
-parser_leak_test.sh
-readline.supp
-valgrind_tmp.log'
-BASH EXIT CODE: 0
-
-MINISHELL RAW OUTPUT:
-'[32mminishell[0m[33m$>[0m (ls | grep a)
-[32mminishell[0m[33m$>[0m '
-MINISHELL CLEANED OUTPUT:
-''
-MINISHELL EXIT CODE: 1
-======================================
-
-=== DIFFERENCE FOUND: (echo test > file.txt) ===
-BASH OUTPUT:
-''
-BASH EXIT CODE: 0
-
-MINISHELL RAW OUTPUT:
-'[32mminishell[0m[33m$>[0m (echo test > file.txt)
-[32mminishell[0m[33m$>[0m '
-MINISHELL CLEANED OUTPUT:
-''
-MINISHELL EXIT CODE: 127
-======================================
-
-=== DIFFERENCE FOUND: (/bin/echo subshell_test) ===
-BASH OUTPUT:
-'subshell_test'
-BASH EXIT CODE: 0
-
-MINISHELL RAW OUTPUT:
-'[32mminishell[0m[33m$>[0m (/bin/echo subshell_test)
-[32mminishell[0m[33m$>[0m '
-MINISHELL CLEANED OUTPUT:
-''
-MINISHELL EXIT CODE: 127
-======================================
-
-=== DIFFERENCE FOUND: (pwd && cd / && pwd) ===
-BASH OUTPUT:
-'/home/yihakan/minishell
-/'
-BASH EXIT CODE: 0
-
-MINISHELL RAW OUTPUT:
-'[32mminishell[0m[33m$>[0m (pwd && cd / && pwd)
-[32mminishell[0m[33m$>[0m '
-MINISHELL CLEANED OUTPUT:
-''
-MINISHELL EXIT CODE: 127
-======================================
-
 === DIFFERENCE FOUND: cat << EOF
 test line 1
 test line 2
@@ -2171,6 +1072,9 @@ BASH EXIT CODE: 0
 
 MINISHELL RAW OUTPUT:
 '[32mminishell[0m[33m$>[0m cat << EOF
+> test line 1
+> test line 2
+> EOF
 test line 1
 test line 2
 [32mminishell[0m[33m$>[0m '
@@ -2189,6 +1093,9 @@ BASH EXIT CODE: 0
 
 MINISHELL RAW OUTPUT:
 '[32mminishell[0m[33m$>[0m grep hello << DELIMITER
+> hello world  
+> goodbye world
+> DELIMITER
 hello world  
 [32mminishell[0m[33m$>[0m '
 MINISHELL CLEANED OUTPUT:
@@ -2207,195 +1114,11 @@ BASH EXIT CODE: 0
 
 MINISHELL RAW OUTPUT:
 '[32mminishell[0m[33m$>[0m /bin/cat << MARKER
+> heredoc test
+> multiple lines
+> MARKER
 heredoc test
 multiple lines
-[32mminishell[0m[33m$>[0m '
-MINISHELL CLEANED OUTPUT:
-''
-MINISHELL EXIT CODE: 0
-======================================
-
-=== DIFFERENCE FOUND: export TEST1=hello && echo $TEST1 ===
-BASH OUTPUT:
-'hello'
-BASH EXIT CODE: 0
-
-MINISHELL RAW OUTPUT:
-'[32mminishell[0m[33m$>[0m export TEST1=hello && echo $TEST1
-[32mminishell[0m[33m$>[0m '
-MINISHELL CLEANED OUTPUT:
-''
-MINISHELL EXIT CODE: 1
-======================================
-
-=== DIFFERENCE FOUND: export X=foo Y=bar && echo $X$Y ===
-BASH OUTPUT:
-'foobar'
-BASH EXIT CODE: 0
-
-MINISHELL RAW OUTPUT:
-'[32mminishell[0m[33m$>[0m export X=foo Y=bar && echo $X$Y
-[32mminishell[0m[33m$>[0m '
-MINISHELL CLEANED OUTPUT:
-''
-MINISHELL EXIT CODE: 1
-======================================
-
-=== DIFFERENCE FOUND: export TEST=value && echo "$TEST" ===
-BASH OUTPUT:
-'value'
-BASH EXIT CODE: 0
-
-MINISHELL RAW OUTPUT:
-'[32mminishell[0m[33m$>[0m export TEST=value && echo "$TEST"
-[32mminishell[0m[33m$>[0m '
-MINISHELL CLEANED OUTPUT:
-''
-MINISHELL EXIT CODE: 1
-======================================
-
-=== DIFFERENCE FOUND: export TEST=value && echo '$TEST' ===
-BASH OUTPUT:
-'$TEST'
-BASH EXIT CODE: 0
-
-MINISHELL RAW OUTPUT:
-'[32mminishell[0m[33m$>[0m export TEST=value && echo '$TEST'
-[32mminishell[0m[33m$>[0m '
-MINISHELL CLEANED OUTPUT:
-''
-MINISHELL EXIT CODE: 1
-======================================
-
-=== DIFFERENCE FOUND: export A=hello B=world && echo $A$B ===
-BASH OUTPUT:
-'helloworld'
-BASH EXIT CODE: 0
-
-MINISHELL RAW OUTPUT:
-'[32mminishell[0m[33m$>[0m export A=hello B=world && echo $A$B
-[32mminishell[0m[33m$>[0m '
-MINISHELL CLEANED OUTPUT:
-''
-MINISHELL EXIT CODE: 1
-======================================
-
-=== DIFFERENCE FOUND: ls && echo done ===
-BASH OUTPUT:
-'crazy_minishel_leak_test.sh
-file
-includes
-libft
-Makefile
-minishell
-minishell_bash_comparison.log
-minishell_full_leak_report.log
-multiline.txt
-obj
-outfile
-parser_leak_test.sh
-readline.supp
-README.md
-srcs
-test_dir
-test_file.txt
-test_input.txt
-test_script.sh
-test.txt
-valgrind_tmp.log
-done'
-BASH EXIT CODE: 0
-
-MINISHELL RAW OUTPUT:
-'[32mminishell[0m[33m$>[0m ls && echo done
-[32mminishell[0m[33m$>[0m '
-MINISHELL CLEANED OUTPUT:
-''
-MINISHELL EXIT CODE: 2
-======================================
-
-=== DIFFERENCE FOUND: /bin/pwd && /bin/echo finished ===
-BASH OUTPUT:
-'/home/yihakan/minishell
-finished'
-BASH EXIT CODE: 0
-
-MINISHELL RAW OUTPUT:
-'[32mminishell[0m[33m$>[0m /bin/pwd && /bin/echo finished
-/home/yihakan/minishell
-[32mminishell[0m[33m$>[0m '
-MINISHELL CLEANED OUTPUT:
-'/home/yihakan/minishell'
-MINISHELL EXIT CODE: 0
-======================================
-
-=== DIFFERENCE FOUND: export VAR=hello && echo $VAR | /bin/cat ===
-BASH OUTPUT:
-'hello'
-BASH EXIT CODE: 0
-
-MINISHELL RAW OUTPUT:
-'[32mminishell[0m[33m$>[0m export VAR=hello && echo $VAR | /bin/cat
-[32mminishell[0m[33m$>[0m '
-MINISHELL CLEANED OUTPUT:
-''
-MINISHELL EXIT CODE: 0
-======================================
-
-=== DIFFERENCE FOUND: echo "test" > file && /bin/cat file | grep test ===
-BASH OUTPUT:
-'test'
-BASH EXIT CODE: 0
-
-MINISHELL RAW OUTPUT:
-'[32mminishell[0m[33m$>[0m echo "test" > file && /bin/cat file | grep test
-[32mminishell[0m[33m$>[0m '
-MINISHELL CLEANED OUTPUT:
-''
-MINISHELL EXIT CODE: 1
-======================================
-
-=== DIFFERENCE FOUND: (export TEST=nested && echo $TEST) && echo done ===
-BASH OUTPUT:
-'nested
-done'
-BASH EXIT CODE: 0
-
-MINISHELL RAW OUTPUT:
-'[32mminishell[0m[33m$>[0m (export TEST=nested && echo $TEST) && echo done
-[32mminishell[0m[33m$>[0m '
-MINISHELL CLEANED OUTPUT:
-''
-MINISHELL EXIT CODE: 127
-======================================
-
-=== DIFFERENCE FOUND: cd /tmp && ls | head -5 && cd - ===
-BASH OUTPUT:
-'{365BD99A-2EC8-47E2-B2EA-92F318C1552C}
-{676B19A3-CA69-4F2E-8936-92C8F23683B7}
-{BA0B0B28-0C77-414A-A1A7-6787E51FFF83}
-bsevigen-code-zsh
-config-err-1xnE3n
-/home/yihakan/minishell'
-BASH EXIT CODE: 0
-
-MINISHELL RAW OUTPUT:
-'[32mminishell[0m[33m$>[0m cd /tmp && ls | head -5 && cd -
-==> standard input <==
-[32mminishell[0m[33m$>[0m '
-MINISHELL CLEANED OUTPUT:
-'==> standard input <=='
-MINISHELL EXIT CODE: 1
-======================================
-
-=== DIFFERENCE FOUND: echo hello && (echo world | /bin/cat) || echo failed ===
-BASH OUTPUT:
-'hello
-world'
-BASH EXIT CODE: 0
-
-MINISHELL RAW OUTPUT:
-'[32mminishell[0m[33m$>[0m echo hello && (echo world | /bin/cat) || echo failed
 [32mminishell[0m[33m$>[0m '
 MINISHELL CLEANED OUTPUT:
 ''
@@ -2415,76 +1138,6 @@ MINISHELL CLEANED OUTPUT:
 MINISHELL EXIT CODE: 0
 ======================================
 
-=== DIFFERENCE FOUND: export A=1 && export B=2 && echo $A$B ===
-BASH OUTPUT:
-'12'
-BASH EXIT CODE: 0
-
-MINISHELL RAW OUTPUT:
-'[32mminishell[0m[33m$>[0m export A=1 && export B=2 && echo $A$B
-[32mminishell[0m[33m$>[0m '
-MINISHELL CLEANED OUTPUT:
-''
-MINISHELL EXIT CODE: 1
-======================================
-
-=== DIFFERENCE FOUND: (/bin/echo complex) && echo " && pipes" | /bin/cat ===
-BASH OUTPUT:
-'complex
- && pipes'
-BASH EXIT CODE: 0
-
-MINISHELL RAW OUTPUT:
-'[32mminishell[0m[33m$>[0m (/bin/echo complex) && echo " && pipes" | /bin/cat [A[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[Kt
-[32mminishell[0m[33m$>[0m '
-MINISHELL CLEANED OUTPUT:
-''
-MINISHELL EXIT CODE: 0
-======================================
-
-=== DIFFERENCE FOUND: export A=1 B=2 C=3 D=4 E=5 && echo $A$B$C$D$E ===
-BASH OUTPUT:
-'12345'
-BASH EXIT CODE: 0
-
-MINISHELL RAW OUTPUT:
-'[32mminishell[0m[33m$>[0m export A=1 B=2 C=3 D=4 E=5 && echo $A$B$C$D$E
-[32mminishell[0m[33m$>[0m '
-MINISHELL CLEANED OUTPUT:
-''
-MINISHELL EXIT CODE: 1
-======================================
-
-=== DIFFERENCE FOUND: ((((echo nested)))) ===
-BASH OUTPUT:
-''
-BASH EXIT CODE: 1
-
-MINISHELL RAW OUTPUT:
-'[32mminishell[0m[33m$>[0m ((((echo nested))))
-[32mminishell[0m[33m$>[0m '
-MINISHELL CLEANED OUTPUT:
-''
-MINISHELL EXIT CODE: 127
-======================================
-
-=== DIFFERENCE FOUND: /bin/echo stress && /bin/echo test && /bin/echo multiple && /bin/echo commands ===
-BASH OUTPUT:
-'stress
-test
-multiple
-commands'
-BASH EXIT CODE: 0
-
-MINISHELL RAW OUTPUT:
-'[32mminishell[0m[33m$>[0m /bin/echo stress && /bin/echo test && /bin/echo multiple && /bin/echo commands
-stress && /bin/echo test && /bin/echo multiple && /bin/echo commands
-[32mminishell[0m[33m$>[0m '
-MINISHELL CLEANED OUTPUT:
-'stress && /bin/echo test && /bin/echo multiple && /bin/echo commands'
-MINISHELL EXIT CODE: 0
-======================================
-
 === DIFFERENCE FOUND: echo "\"cat lol.c | cat > lol.c\"" ===
 BASH OUTPUT:
 '"cat lol.c | cat > lol.c"'
@@ -2496,31 +1149,5 @@ MINISHELL RAW OUTPUT:
 MINISHELL CLEANED OUTPUT:
 ''
 MINISHELL EXIT CODE: 0
-======================================
-
-=== DIFFERENCE FOUND: export TEST=value && echo $TEST ===
-BASH OUTPUT:
-'value'
-BASH EXIT CODE: 0
-
-MINISHELL RAW OUTPUT:
-'[32mminishell[0m[33m$>[0m export TEST=value && echo $TEST
-[32mminishell[0m[33m$>[0m '
-MINISHELL CLEANED OUTPUT:
-''
-MINISHELL EXIT CODE: 1
-======================================
-
-=== DIFFERENCE FOUND: cd / && pwd ===
-BASH OUTPUT:
-'/'
-BASH EXIT CODE: 0
-
-MINISHELL RAW OUTPUT:
-'[32mminishell[0m[33m$>[0m cd / && pwd
-[32mminishell[0m[33m$>[0m '
-MINISHELL CLEANED OUTPUT:
-''
-MINISHELL EXIT CODE: 1
 ======================================
 

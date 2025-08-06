@@ -1,4 +1,6 @@
-cat << TEST
+cat << a | grep g
+test
+g
 hello
 world
 ^C

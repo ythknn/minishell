@@ -1,5 +1,5 @@
 === ENHANCED Minishell Leak Test & Bash Comparison (Ultimate Version) ===
-Test Başlangıcı: Sal 05 Ağu 2025 20:15:52 +03
+Test Başlangıcı: Thu Aug  7 01:52:59 AM +03 2025
 Comparison Mode: true
 
 === Kategori: Temel Komutlar ===
@@ -119,447 +119,339 @@ Comparison Mode: true
 
 === TEST 56: ls / ===
 
-=== TEST 57: /bin/true && echo success ===
+=== TEST 57: expr $? = 0 ===
 
-=== TEST 58: /bin/false || echo failed ===
-
-=== TEST 59: expr $? = 0 ===
-
-=== TEST 60: expr $? + $? ===
+=== TEST 58: expr $? + $? ===
 
 === Kategori: Double Quote Tests ===
-=== TEST 61: echo "hello world" ===
+=== TEST 59: echo "hello world" ===
 
-=== TEST 62: echo "cat lol.c | cat > lol.c" ===
+=== TEST 60: echo "cat lol.c | cat > lol.c" ===
 
-=== TEST 63: echo "test with spaces" ===
+=== TEST 61: echo "test with spaces" ===
 
-=== TEST 64: echo "mix 'single' in double" ===
+=== TEST 62: echo "mix 'single' in double" ===
 
-=== TEST 65: echo "$HOME should expand" ===
+=== TEST 63: echo "$HOME should expand" ===
 
-=== TEST 66: echo "whitespace   test" ===
+=== TEST 64: echo "whitespace   test" ===
 
-=== TEST 67: echo "" ===
+=== TEST 65: echo "" ===
 
-=== TEST 68: echo "multiple   spaces   here" ===
+=== TEST 66: echo "multiple   spaces   here" ===
 
-=== TEST 69: echo "tab\ttest" ===
+=== TEST 67: echo "tab\ttest" ===
 
-=== TEST 70: echo "$USER and $HOME" ===
+=== TEST 68: echo "$USER and $HOME" ===
 
-=== TEST 71: echo "quotes inside \"nested\"" ===
+=== TEST 69: echo "quotes inside \"nested\"" ===
 
 === Kategori: Single Quote Tests ===
-=== TEST 72: echo 'hello world' ===
+=== TEST 70: echo 'hello world' ===
 
-=== TEST 73: echo 'test' ===
+=== TEST 71: echo 'test' ===
 
-=== TEST 74: echo '' ===
+=== TEST 72: echo '' ===
 
-=== TEST 75: echo '$USER should not expand' ===
+=== TEST 73: echo '$USER should not expand' ===
 
-=== TEST 76: echo 'pipes | and > redirects' ===
+=== TEST 74: echo 'pipes | and > redirects' ===
 
-=== TEST 77: echo 'single quote test' ===
+=== TEST 75: echo 'single quote test' ===
 
-=== TEST 78: echo '$HOME literal' ===
+=== TEST 76: echo '$HOME literal' ===
 
-=== TEST 79: echo 'nothing $USER expands' ===
+=== TEST 77: echo 'nothing $USER expands' ===
 
-=== TEST 80: echo 'whitespace   preserved' ===
+=== TEST 78: echo 'whitespace   preserved' ===
 
-=== TEST 81: echo 'special chars !@#$%^&*()' ===
+=== TEST 79: echo 'special chars !@#$%^&*()' ===
 
 === Kategori: Environment Variable Display ===
-=== TEST 82: env ===
+=== TEST 80: env ===
 
-=== TEST 83: env | head -5 ===
+=== TEST 81: env | head -5 ===
+==117756== 2 bytes in 1 blocks are still reachable in loss record 1 of 107
+==117756== 12 bytes in 3 blocks are still reachable in loss record 12 of 107
+==117756== 12 bytes in 3 blocks are still reachable in loss record 13 of 107
+==117756== 24 bytes in 1 blocks are still reachable in loss record 26 of 107
+==117756== 27 bytes in 1 blocks are still reachable in loss record 28 of 107
+==117756== 40 bytes in 2 blocks are still reachable in loss record 32 of 107
+==117756== 48 bytes in 2 blocks are still reachable in loss record 36 of 107
+==117756== 72 bytes in 3 blocks are still reachable in loss record 37 of 107
+==117756== 119 bytes in 1 blocks are still reachable in loss record 42 of 107
+==117756== 424 bytes in 1 blocks are still reachable in loss record 50 of 107
+==117756== 731 bytes in 52 blocks are still reachable in loss record 54 of 107
+==117756== 1,248 bytes in 52 blocks are still reachable in loss record 67 of 107
+==117756== 3,210 bytes in 52 blocks are still reachable in loss record 74 of 107
+==117756== 3,822 bytes in 51 blocks are still reachable in loss record 75 of 107
 
-=== TEST 84: env | grep USER ===
+=== TEST 82: env | grep USER ===
 
-=== TEST 85: env | grep HOME ===
+=== TEST 83: env | grep HOME ===
 
-=== TEST 86: env | grep PATH ===
+=== TEST 84: env | grep PATH ===
 
 === Kategori: Export Command Tests ===
-=== TEST 87: export ===
+=== TEST 85: export ===
 
-=== TEST 88: export VAR1=hello ===
+=== TEST 86: export VAR1=hello ===
 
-=== TEST 89: export VAR2=world ===
+=== TEST 87: export VAR2=world ===
 
-=== TEST 90: export VAR1=hello && env | grep VAR1 ===
+=== TEST 88: export VAR3= ===
 
-=== TEST 91: export VAR3= && env | grep VAR3 ===
+=== TEST 89: export 123=invalid ===
 
-=== TEST 92: export 123=invalid ===
+=== TEST 90: export VAR-INVALID=test ===
 
-=== TEST 93: export VAR-INVALID=test ===
+=== TEST 91: export VAR4="hello world" ===
 
-=== TEST 94: export VAR4="hello world" ===
+=== TEST 92: export A=1 B=2 C=3 ===
 
-=== TEST 95: export TEST=value && echo $TEST ===
+=== TEST 93: export PATH=/custom/path ===
 
-=== TEST 96: export A=1 B=2 C=3 ===
-
-=== TEST 97: export PATH=/custom/path ===
-
-=== TEST 98: export TEST_VAR=test_value ===
+=== TEST 94: export TEST_VAR=test_value ===
 
 === Kategori: Unset Command Tests ===
-=== TEST 99: export TEST=hello && unset TEST && env | grep TEST ===
+=== TEST 95: unset PATH ===
 
-=== TEST 100: unset PATH && env | grep PATH ===
+=== TEST 96: unset NONEXISTENT ===
 
-=== TEST 101: unset NONEXISTENT ===
+=== TEST 97: unset ===
 
-=== TEST 102: unset ===
+=== TEST 98: unset HOME ===
 
-=== TEST 103: export A=1 B=2 && unset A && env | grep A ===
-
-=== TEST 104: export TEST=hello && unset TEST ===
-
-=== TEST 105: unset HOME && echo $HOME ===
-
-=== TEST 106: unset USER && echo $USER ===
+=== TEST 99: unset USER ===
 
 === Kategori: CD Command Tests ===
-=== TEST 107: cd ===
+=== TEST 100: cd ===
 
-=== TEST 108: cd / ===
+=== TEST 101: cd / ===
 
-=== TEST 109: cd /tmp ===
+=== TEST 102: cd /tmp ===
 
-=== TEST 110: cd .. ===
+=== TEST 103: cd .. ===
 
-=== TEST 111: cd . ===
+=== TEST 104: cd . ===
 
-=== TEST 112: cd /nonexistent ===
+=== TEST 105: cd /nonexistent ===
 
-=== TEST 113: cd ../.. ===
+=== TEST 106: cd ../.. ===
 
-=== TEST 114: cd ~ ===
+=== TEST 107: cd ~ ===
 
-=== TEST 115: cd - ===
+=== TEST 108: cd - ===
 
-=== TEST 116: cd /usr && pwd ===
-
-=== TEST 117: cd / && cd /tmp && pwd ===
-
-=== TEST 118: cd relative_path_test ===
+=== TEST 109: cd relative_path_test ===
 
 === Kategori: PWD Command Tests ===
-=== TEST 119: pwd ===
+=== TEST 110: pwd ===
 
-=== TEST 120: cd / && pwd ===
-
-=== TEST 121: cd /tmp && pwd ===
-
-=== TEST 122: cd .. && pwd ===
-
-=== TEST 123: cd /usr && pwd && cd / && pwd ===
-
-=== TEST 124: /bin/pwd ===
-
-=== TEST 125: pwd && cd / && pwd ===
+=== TEST 111: /bin/pwd ===
 
 === Kategori: Relative Path Tests ===
-=== TEST 126: ./minishell --version 2>/dev/null || echo 'relative path test' ===
+=== TEST 112: ./minishell --version 2>/dev/null || echo 'relative path test' ===
 
-=== TEST 127: ls ./src/ 2>/dev/null || echo 'relative path test' ===
+=== TEST 113: ls ./src/ 2>/dev/null || echo 'relative path test' ===
 
-=== TEST 128: ../minishell 2>/dev/null || echo 'relative path test' ===
+=== TEST 114: ../minishell 2>/dev/null || echo 'relative path test' ===
 
-=== TEST 129: /bin/cat ./Makefile 2>/dev/null || echo 'file test' ===
+=== TEST 115: /bin/cat ./Makefile 2>/dev/null || echo 'file test' ===
 
-=== TEST 130: ./test_script.sh 2>/dev/null || echo 'script test' ===
+=== TEST 116: ./test_script.sh 2>/dev/null || echo 'script test' ===
 
-=== TEST 131: ls ./ ===
+=== TEST 117: ls ./ ===
 
-=== TEST 132: ls ../ ===
+=== TEST 118: ls ../ ===
 
 === Kategori: Environment PATH Tests ===
-=== TEST 133: ls ===
+=== TEST 119: ls ===
 
-=== TEST 134: /bin/cat ===
+=== TEST 120: /bin/cat ===
 
-=== TEST 135: echo test ===
+=== TEST 121: echo test ===
 
-=== TEST 136: pwd ===
+=== TEST 122: pwd ===
 
-=== TEST 137: unset PATH && ls ===
+=== TEST 123: /bin/ls ===
 
-=== TEST 138: export PATH=/bin:/usr/bin && ls ===
+=== TEST 124: export PATH=/bin:/usr/bin ===
 
-=== TEST 139: export PATH=/custom/path && ls 2>/dev/null || echo 'path not found' ===
+=== TEST 125: export PATH=/custom/path ===
 
-=== TEST 140: unset PATH && /bin/ls ===
+=== TEST 126: export PATH=/bin ===
 
-=== TEST 141: export PATH=/bin && ls ===
-
-=== TEST 142: export PATH=/usr/bin:/bin && pwd ===
+=== TEST 127: export PATH=/usr/bin:/bin ===
 
 === Kategori: Redirection Tests ===
-=== TEST 143: echo test > out.txt && /bin/cat out.txt ===
+=== TEST 128: ls > file.txt ===
 
-=== TEST 144: /bin/cat < /etc/passwd | head -1 ===
+=== TEST 129: /bin/cat < file.txt ===
 
-=== TEST 145: echo append >> out.txt ===
+=== TEST 130: echo overwrite > file.txt ===
 
-=== TEST 146: ls > file.txt ===
+=== TEST 131: wc -l < /etc/passwd ===
 
-=== TEST 147: /bin/cat < file.txt ===
+=== TEST 132: ls nonexistent 2> error.log ===
 
-=== TEST 148: echo overwrite > file.txt ===
+=== TEST 133: ls > output.txt 2> error.txt ===
 
-=== TEST 149: wc -l < /etc/passwd ===
-
-=== TEST 150: ls nonexistent 2> error.log ===
-
-=== TEST 151: ls > output.txt 2> error.txt ===
-
-=== TEST 152: echo redirect_test > test.out ===
-
-=== TEST 153: /bin/echo hello > redirect.txt && /bin/cat redirect.txt ===
+=== TEST 134: echo redirect_test > test.out ===
 
 === Kategori: Pipe Tests ===
-=== TEST 154: ls | wc -l ===
+=== TEST 135: ls | wc -l ===
 
-=== TEST 155: ls | grep a ===
+=== TEST 136: ls | grep a ===
 
-=== TEST 156: /bin/cat /etc/passwd | grep root ===
+=== TEST 137: /bin/cat /etc/passwd | grep root ===
 
-=== TEST 157: echo hello | /bin/cat ===
+=== TEST 138: echo hello | /bin/cat ===
 
-=== TEST 158: ls | grep . | wc -l ===
+=== TEST 139: ls | grep . | wc -l ===
 
-=== TEST 159: /bin/cat /etc/passwd | head | tail ===
+=== TEST 140: /bin/cat /etc/passwd | head | tail ===
 
-=== TEST 160: echo test | /bin/cat | /bin/cat | /bin/cat ===
+=== TEST 141: echo test | /bin/cat | /bin/cat | /bin/cat ===
 
-=== TEST 161: ls /nonexistent | grep error ===
+=== TEST 142: ls /nonexistent | grep error ===
 
-=== TEST 162: echo hello | grep hello | wc -l ===
+=== TEST 143: echo hello | grep hello | wc -l ===
 
-=== TEST 163: /bin/echo pipe_test | /bin/cat ===
+=== TEST 144: /bin/echo pipe_test | /bin/cat ===
 
-=== TEST 164: ls | head -5 ===
+=== TEST 145: ls | head -5 ===
 
-=== TEST 165: /bin/ls | /bin/grep test ===
+=== TEST 146: /bin/ls | /bin/grep test ===
 
 === Kategori: Quote/Escape Tests ===
-=== TEST 166: echo "hello world" ===
+=== TEST 147: echo "hello world" ===
 
-=== TEST 167: echo 'single quote test' ===
+=== TEST 148: echo 'single quote test' ===
 
-=== TEST 168: echo "mix 'quotes' and \"escapes\"" ===
+=== TEST 149: echo "mix 'quotes' and \"escapes\"" ===
 
-=== TEST 169: echo $HOME ===
+=== TEST 150: echo $HOME ===
 
-=== TEST 170: echo '$HOME literal' ===
+=== TEST 151: echo '$HOME literal' ===
 
-=== TEST 171: echo "$USER in quotes" ===
+=== TEST 152: echo "$USER in quotes" ===
 
-=== TEST 172: echo 'cannot expand $USER' ===
+=== TEST 153: echo 'cannot expand $USER' ===
 
-=== TEST 173: echo "nested 'single' quotes" ===
+=== TEST 154: echo "nested 'single' quotes" ===
 
-=== TEST 174: echo 'nested "double" quotes' ===
+=== TEST 155: echo 'nested "double" quotes' ===
 
-=== TEST 175: echo "$HOME/$USER" ===
-
-=== Kategori: Logical Operators (&&, ||) ===
-=== TEST 176: echo first && echo second ===
-
-=== TEST 177: echo first || echo second ===
-
-=== TEST 178: /bin/false && echo should_not_print ===
-
-=== TEST 179: /bin/false || echo should_print ===
-
-=== TEST 180: /bin/true && echo success ===
-
-=== TEST 181: echo hi && /bin/false || echo bye ===
-
-=== TEST 182: /bin/true && echo true_worked ===
-
-=== TEST 183: /bin/false || echo false_worked ===
-
-=== TEST 184: echo test && echo success ===
-
-=== TEST 185: /bin/true && /bin/true && echo double_success ===
-
-=== TEST 186: /bin/false || /bin/false || echo finally_success ===
+=== TEST 156: echo "$HOME/$USER" ===
 
 === Kategori: Syntax Error Tests ===
-=== TEST 187: | ls ===
+=== TEST 157: | ls ===
 
-=== TEST 188: ls | ===
+=== TEST 158: ls | ===
 
-=== TEST 189: || echo fail ===
+=== TEST 159: /bin/cat < ===
 
-=== TEST 190: && echo fail ===
+=== TEST 160: echo > ===
 
-=== TEST 191: ls && ===
+=== TEST 161: ;; ===
 
-=== TEST 192: echo "unclosed ===
+=== TEST 162: ;;; ===
 
-=== TEST 193: echo 'unclosed ===
+=== TEST 163: ls ;;; echo test ===
 
-=== TEST 194: /bin/cat < ===
-
-=== TEST 195: echo > ===
-
-=== TEST 196: ;; ===
-
-=== TEST 197: ;;; ===
-
-=== TEST 198: ls ;;; echo test ===
-
-=== TEST 199: echo && && echo fail ===
-
-=== TEST 200: | | echo fail ===
-
-=== Kategori: Subshell/Parentheses Tests ===
-=== TEST 201: (ls) ===
-
-=== TEST 202: (echo nested) ===
-
-=== TEST 203: (cd /tmp && pwd) ===
-
-=== TEST 204: (export TEST=value && echo $TEST) ===
-
-=== TEST 205: (ls | grep a) ===
-
-=== TEST 206: (echo test > file.txt) ===
-
-=== TEST 207: (/bin/echo subshell_test) ===
-
-=== TEST 208: (pwd && cd / && pwd) ===
+=== TEST 164: | | echo fail ===
 
 === Kategori: Heredoc Tests ===
-=== TEST 209: cat << EOF
+=== TEST 165: cat << EOF
 test line 1
 test line 2
 EOF ===
 
-=== TEST 210: grep hello << DELIMITER
+=== TEST 166: grep hello << DELIMITER
 hello world  
 goodbye world
 DELIMITER ===
 
-=== TEST 211: wc -l << END
+=== TEST 167: wc -l << END
 line 1
 line 2
 line 3
 END ===
 
-=== TEST 212: /bin/cat << MARKER
+=== TEST 168: /bin/cat << MARKER
 heredoc test
 multiple lines
 MARKER ===
 
 === Kategori: Environment Variable Expansion ===
-=== TEST 213: export TEST1=hello && echo $TEST1 ===
+=== TEST 169: echo $HOME ===
 
-=== TEST 214: export X=foo Y=bar && echo $X$Y ===
+=== TEST 170: echo $USER ===
 
-=== TEST 215: echo $HOME ===
+=== TEST 171: echo $PATH ===
 
-=== TEST 216: echo $USER ===
+=== TEST 172: echo $NONEXISTENT ===
 
-=== TEST 217: echo $PATH ===
-
-=== TEST 218: echo $NONEXISTENT ===
-
-=== TEST 219: export TEST=value && echo "$TEST" ===
-
-=== TEST 220: export TEST=value && echo '$TEST' ===
-
-=== TEST 221: unset HOME && echo $HOME ===
-
-=== TEST 222: echo $USER$HOME ===
-
-=== TEST 223: export A=hello B=world && echo $A$B ===
-
-=== TEST 224: echo "$USER" and '$USER' ===
+=== TEST 173: echo "$USER" and '$USER' ===
 
 === Kategori: History and Command Tests ===
-=== TEST 225: echo command1 ===
+=== TEST 174: echo command1 ===
 
-=== TEST 226: ls -la ===
+=== TEST 175: ls -la ===
 
-=== TEST 227: pwd ===
+=== TEST 176: pwd ===
 
-=== TEST 228: echo test ===
+=== TEST 177: echo test ===
 
-=== TEST 229: /bin/cat /etc/passwd | head -1 ===
+=== TEST 178: /bin/cat /etc/passwd | head -1 ===
 
-=== TEST 230: /bin/echo history_test ===
-
-=== TEST 231: ls && echo done ===
-
-=== TEST 232: /bin/pwd && /bin/echo finished ===
+=== TEST 179: /bin/echo history_test ===
 
 === Kategori: Complex Mixed Tests ===
-=== TEST 233: export VAR=hello && echo $VAR | /bin/cat ===
+=== TEST 180: ls -la | grep ^d | wc -l ===
 
-=== TEST 234: ls -la | grep ^d | wc -l ===
+=== TEST 181: echo "test" > file ===
 
-=== TEST 235: echo "test" > file && /bin/cat file | grep test ===
+=== TEST 182: cd /tmp ===
 
-=== TEST 236: (export TEST=nested && echo $TEST) && echo done ===
+=== TEST 183: ls /nonexistent 2>/dev/null || echo "directory not found" ===
 
-=== TEST 237: cd /tmp && ls | head -5 && cd - ===
-
-=== TEST 238: echo hello && (echo world | /bin/cat) || echo failed ===
-
-=== TEST 239: ls /nonexistent 2>/dev/null || echo "directory not found" ===
-
-=== TEST 240: /bin/echo test | /bin/cat | wc -l ===
-
-=== TEST 241: export A=1 && export B=2 && echo $A$B ===
-
-=== TEST 242: (/bin/echo complex) && echo " && pipes" | /bin/cat ===
+=== TEST 184: /bin/echo test | /bin/cat | wc -l ===
 
 === Kategori: Stress Tests ===
-=== TEST 243: echo very long command with many arguments here to test argument parsing and memory management ===
+=== TEST 185: echo very long command with many arguments here to test argument parsing and memory management ===
 
-=== TEST 244: ls -la -h -t -r -S ===
+=== TEST 186: ls -la -h -t -r -S ===
 
-=== TEST 245: export A=1 B=2 C=3 D=4 E=5 && echo $A$B$C$D$E ===
+=== TEST 187: echo a | echo b | echo c | echo d ===
 
-=== TEST 246: echo a | echo b | echo c | echo d ===
+=== TEST 188: /bin/echo stress ===
 
-=== TEST 247: ((((echo nested)))) ===
-
-=== TEST 248: /bin/echo stress && /bin/echo test && /bin/echo multiple && /bin/echo commands ===
-
-=== TEST 249: echo arg1 arg2 arg3 arg4 arg5 arg6 arg7 arg8 arg9 arg10 ===
+=== TEST 189: echo arg1 arg2 arg3 arg4 arg5 arg6 arg7 arg8 arg9 arg10 ===
 
 === Kategori: PDF Requirement Tests ===
-=== TEST 250: echo $USER must print $USER ===
+=== TEST 190: echo $USER must print $USER ===
 
-=== TEST 251: echo '$USER' must print $USER ===
+=== TEST 191: echo '$USER' must print $USER ===
 
-=== TEST 252: echo "\"cat lol.c | cat > lol.c\"" ===
+=== TEST 192: echo "\"cat lol.c | cat > lol.c\"" ===
 
-=== TEST 253: /bin/ls filethatdoesntexist ===
+=== TEST 193: /bin/ls filethatdoesntexist ===
 
-=== TEST 254: expr $? + $? ===
+=== TEST 194: expr $? + $? ===
 
-=== TEST 255: /bin/ls > /dev/null ===
+=== TEST 195: /bin/ls > /dev/null ===
 
-=== TEST 256: echo $? ===
+=== TEST 196: echo $? ===
 
-=== TEST 257: export TEST=value && echo $TEST ===
+=== TEST 197: export TEST=value ===
 
-=== TEST 258: unset TEST && echo $TEST ===
+=== TEST 198: unset TEST ===
 
-=== TEST 259: cd / && pwd ===
+=== TEST 199: cd / ===
 
-=== TEST 260: cd nonexistent ===
+=== TEST 200: cd nonexistent ===
 
-=== TEST 261: pwd ===
+=== TEST 201: pwd ===
 

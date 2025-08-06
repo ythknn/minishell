@@ -101,6 +101,16 @@ typedef struct s_lexer
 	char	quote_char;
 }	t_lexer;
 
+typedef struct s_pipe_data
+{
+	int	pipe_fd[2];
+	int	heredoc_pipe_fd[2];
+	int	prev_pipe_read;
+	int	last_status;
+	int	last_cmd_not_found;
+	int	has_heredoc_flag;
+}	t_pipe_data;
+
 typedef struct s_shell
 {
 	t_env		*env_list;
@@ -258,4 +268,7 @@ void		add_arg(t_command *cmd, char *arg);
 int			handle_redir_error(t_token *current_token, t_command *commands,
 				t_command *current_cmd);
 void		add_redir_to_command(t_command *cmd, t_redir *new_redir);
+
+
+char	*handle_multiple_heredocs(t_redir *heredocs);
 #endif

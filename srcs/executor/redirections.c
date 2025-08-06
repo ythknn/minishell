@@ -74,15 +74,18 @@ static char	*read_heredoc_line(void)
 {
 	char	*line;
 
-	line = readline("");
-	if (!line)
+	if (g_signal == SIGINT)
+		return (NULL);
+
+	line = readline("> ");
+	if (g_signal == SIGINT || !line)
 	{
-		if (g_signal == SIGINT)
+		if (line)
 		{
-			rl_replace_line("", 0);
-			return (NULL);
+			free(line);
+			line = NULL;
 		}
-		return (ft_strdup(""));
+		return (NULL);
 	}
 	return (line);
 }
@@ -102,7 +105,6 @@ static int	process_single_heredoc_simple(t_redir *current, int current_heredoc, 
 		return (0);
 	while (g_signal != SIGINT)
 	{
-		printf("> ");
 		line = read_heredoc_line();
 		if (!line)
 		{
@@ -152,7 +154,7 @@ static int	process_single_heredoc_simple(t_redir *current, int current_heredoc, 
 	return (1);
 }
 
-static char	*handle_multiple_heredocs(t_redir *heredocs)
+char	*handle_multiple_heredocs(t_redir *heredocs)
 {
 	t_redir		*current;
 	int			stdin_copy;

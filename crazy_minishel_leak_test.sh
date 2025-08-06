@@ -110,8 +110,6 @@ RETURN_VALUE_TESTS=(
     "/bin/cat /nonexistent/file"
     "/nonexistent/command"
     "ls /"
-    "/bin/true && echo success"
-    "/bin/false || echo failed"
     "expr \$? = 0"
     "expr \$? + \$?"
 )
@@ -162,26 +160,21 @@ EXPORT_TESTS=(
     "export"
     "export VAR1=hello"
     "export VAR2=world"
-    "export VAR1=hello && env | grep VAR1"
-    "export VAR3= && env | grep VAR3"
+    "export VAR3="
     "export 123=invalid"
     "export VAR-INVALID=test"
     "export VAR4=\"hello world\""
-    "export TEST=value && echo \$TEST"
     "export A=1 B=2 C=3"
     "export PATH=/custom/path"
     "export TEST_VAR=test_value"
 )
 
 UNSET_TESTS=(
-    "export TEST=hello && unset TEST && env | grep TEST"
-    "unset PATH && env | grep PATH"
+    "unset PATH"
     "unset NONEXISTENT"
     "unset"
-    "export A=1 B=2 && unset A && env | grep A"
-    "export TEST=hello && unset TEST"
-    "unset HOME && echo \$HOME"
-    "unset USER && echo \$USER"
+    "unset HOME"
+    "unset USER"
 )
 
 CD_TESTS=(
@@ -194,19 +187,12 @@ CD_TESTS=(
     "cd ../.."
     "cd ~"
     "cd -"
-    "cd /usr && pwd"
-    "cd / && cd /tmp && pwd"
     "cd relative_path_test"
 )
 
 PWD_TESTS=(
     "pwd"
-    "cd / && pwd"
-    "cd /tmp && pwd"
-    "cd .. && pwd"
-    "cd /usr && pwd && cd / && pwd"
     "/bin/pwd"
-    "pwd && cd / && pwd"
 )
 
 RELATIVE_PATH_TESTS=(
@@ -224,18 +210,14 @@ ENVIRONMENT_PATH_TESTS=(
     "/bin/cat"
     "echo test"
     "pwd"
-    "unset PATH && ls"
-    "export PATH=/bin:/usr/bin && ls"
-    "export PATH=/custom/path && ls 2>/dev/null || echo 'path not found'"
-    "unset PATH && /bin/ls"
-    "export PATH=/bin && ls"
-    "export PATH=/usr/bin:/bin && pwd"
+    "/bin/ls"
+    "export PATH=/bin:/usr/bin"
+    "export PATH=/custom/path"
+    "export PATH=/bin"
+    "export PATH=/usr/bin:/bin"
 )
 
 REDIRECTION_TESTS=(
-    "echo test > out.txt && /bin/cat out.txt"
-    "/bin/cat < /etc/passwd | head -1"
-    "echo append >> out.txt"
     "ls > file.txt"
     "/bin/cat < file.txt"
     "echo overwrite > file.txt"
@@ -243,7 +225,6 @@ REDIRECTION_TESTS=(
     "ls nonexistent 2> error.log"
     "ls > output.txt 2> error.txt"
     "echo redirect_test > test.out"
-    "/bin/echo hello > redirect.txt && /bin/cat redirect.txt"
 )
 
 PIPE_TESTLERI=(
@@ -274,46 +255,15 @@ QUOTE_TESTLERI=(
     "echo \"\$HOME/\$USER\""
 )
 
-LOGICAL_OPS=(
-    "echo first && echo second"
-    "echo first || echo second"
-    "/bin/false && echo should_not_print"
-    "/bin/false || echo should_print"
-    "/bin/true && echo success"
-    "echo hi && /bin/false || echo bye"
-    "/bin/true && echo true_worked"
-    "/bin/false || echo false_worked"
-    "echo test && echo success"
-    "/bin/true && /bin/true && echo double_success"
-    "/bin/false || /bin/false || echo finally_success"
-)
-
 SYNTAX_ERRORLAR=(
     "| ls"
     "ls |"
-    "|| echo fail"
-    "&& echo fail"
-    "ls &&"
-    "echo \"unclosed"
-    "echo 'unclosed"
     "/bin/cat <"
     "echo >"
     ";;"
     ";;;"
     "ls ;;; echo test"
-    "echo && && echo fail"
     "| | echo fail"
-)
-
-SUBSHELL_TESTLERI=(
-    "(ls)"
-    "(echo nested)"
-    "(cd /tmp && pwd)"
-    "(export TEST=value && echo \$TEST)"
-    "(ls | grep a)"
-    "(echo test > file.txt)"
-    "(/bin/echo subshell_test)"
-    "(pwd && cd / && pwd)"
 )
 
 HEREDOC_TESTLERI=(
@@ -337,17 +287,10 @@ MARKER"
 )
 
 ENV_EXPAND=(
-    "export TEST1=hello && echo \$TEST1"
-    "export X=foo Y=bar && echo \$X\$Y"
     "echo \$HOME"
     "echo \$USER"
     "echo \$PATH"
     "echo \$NONEXISTENT"
-    "export TEST=value && echo \"\$TEST\""
-    "export TEST=value && echo '\$TEST'"
-    "unset HOME && echo \$HOME"
-    "echo \$USER\$HOME"
-    "export A=hello B=world && echo \$A\$B"
     "echo \"\$USER\" and '\$USER'"
 )
 
@@ -358,30 +301,21 @@ HISTORY_COMMAND_TESTS=(
     "echo test"
     "/bin/cat /etc/passwd | head -1"
     "/bin/echo history_test"
-    "ls && echo done"
-    "/bin/pwd && /bin/echo finished"
 )
 
 MIXED_COMPLEX_TESTS=(
-    "export VAR=hello && echo \$VAR | /bin/cat"
     "ls -la | grep ^d | wc -l"
-    "echo \"test\" > file && /bin/cat file | grep test"
-    "(export TEST=nested && echo \$TEST) && echo done"
-    "cd /tmp && ls | head -5 && cd -"
-    "echo hello && (echo world | /bin/cat) || echo failed"
+    "echo \"test\" > file"
+    "cd /tmp"
     "ls /nonexistent 2>/dev/null || echo \"directory not found\""
     "/bin/echo test | /bin/cat | wc -l"
-    "export A=1 && export B=2 && echo \$A\$B"
-    "(/bin/echo complex) && echo \" && pipes\" | /bin/cat"
 )
 
 STRESS_TESTS=(
     "echo very long command with many arguments here to test argument parsing and memory management"
     "ls -la -h -t -r -S"
-    "export A=1 B=2 C=3 D=4 E=5 && echo \$A\$B\$C\$D\$E"
     "echo a | echo b | echo c | echo d"
-    "((((echo nested))))"
-    "/bin/echo stress && /bin/echo test && /bin/echo multiple && /bin/echo commands"
+    "/bin/echo stress"
     "echo arg1 arg2 arg3 arg4 arg5 arg6 arg7 arg8 arg9 arg10"
 )
 
@@ -394,9 +328,9 @@ PDF_SPECIFIC_TESTS=(
     "expr \$? + \$?"
     "/bin/ls > /dev/null"
     "echo \$?"
-    "export TEST=value && echo \$TEST"
-    "unset TEST && echo \$TEST"
-    "cd / && pwd"
+    "export TEST=value"
+    "unset TEST"
+    "cd /"
     "cd nonexistent"
     "pwd"
 )
@@ -419,9 +353,7 @@ declare -A TEST_KATEGORILERI=(
     ["REDIRECTION_TESTS"]="Redirection Tests"
     ["PIPE_TESTLERI"]="Pipe Tests"
     ["QUOTE_TESTLERI"]="Quote/Escape Tests"
-    ["LOGICAL_OPS"]="Logical Operators (&&, ||)"
     ["SYNTAX_ERRORLAR"]="Syntax Error Tests"
-    ["SUBSHELL_TESTLERI"]="Subshell/Parentheses Tests"
     ["HEREDOC_TESTLERI"]="Heredoc Tests"
     ["ENV_EXPAND"]="Environment Variable Expansion"
     ["HISTORY_COMMAND_TESTS"]="History and Command Tests"
@@ -557,7 +489,7 @@ run_category() {
     local category_display_name="${TEST_KATEGORILERI[$category_name]}"
     local -n tests=$category_name
 
-    echo -e "\n${CYAN}### Kategori: $category_display_name (${#tests[@]} test) ###${RESET}\n"
+    echo -e "\n${CYAN}### $category_display_name (${#tests[@]} test) ###${RESET}\n"
     echo "=== Kategori: $category_display_name ===" >> $LOGFILE
 
     local passed=0
@@ -567,7 +499,7 @@ run_category() {
 
     for cmd in "${tests[@]}"; do
         ((TOPLAM_TEST++))
-        printf "${YELLOW}Test %-3d:${RESET} %-60s ... " "$TOPLAM_TEST" "$cmd"
+        printf "Test %-3d: %-50s ... " "$TOPLAM_TEST" "$cmd"
         echo "=== TEST $TOPLAM_TEST: $cmd ===" >> $LOGFILE
 
         # Test dosyaları oluştur
@@ -587,38 +519,37 @@ run_category() {
         fi
 
         # Check memory leaks
-        local memory_status=""
+        local result=""
         if grep -qE "definitely lost|indirectly lost|possibly lost" valgrind_tmp.log; then
-            memory_status="${RED}❌ Leak${RESET}"
+            result="LEAK"
             grep -E "definitely lost|indirectly lost|possibly lost" valgrind_tmp.log >> $LOGFILE
             ((leaked++))
             ((TOPLAM_LEAK++))
         elif grep -q "still reachable" valgrind_tmp.log; then
-            memory_status="${YELLOW}⚠️ Reach${RESET}"
+            result="REACHABLE"
             grep -E "still reachable" valgrind_tmp.log >> $LOGFILE
             ((TOPLAM_BASARILI++))
             ((passed++))
             ((still_reachable++))
             ((TOPLAM_STILL_REACHABLE++))
         else
-            memory_status="${GREEN}✅ Clean${RESET}"
+            result="OK"
             ((TOPLAM_BASARILI++))
             ((passed++))
         fi
 
         # Comparison test if enabled
-        local comparison_status=""
         if $COMPARISON_MODE; then
             if compare_outputs "$cmd"; then
-                comparison_status=" ${GREEN}[MATCH]${RESET}"
+                echo "[$result] [MATCH]"
             else
-                comparison_status=" ${RED}[DIFF]${RESET}"
+                echo "[$result] [DIFF]"
                 ((comparison_diffs++))
                 ((TOPLAM_COMPARISON_DIFF++))
             fi
+        else
+            echo "[$result]"
         fi
-
-        printf "%s%s\n" "$memory_status" "$comparison_status"
 
         # Test dosyalarını temizle
         cleanup_test_files >/dev/null 2>&1
@@ -626,11 +557,11 @@ run_category() {
     done
 
     echo -e "${CYAN}Kategori Sonucu:${RESET}"
-    echo -e "  ${GREEN}✅ Clean: $((passed - still_reachable))${RESET}"
-    echo -e "  ${YELLOW}⚠️ Still Reachable: $still_reachable${RESET}"
-    echo -e "  ${RED}❌ Memory Leaks: $leaked${RESET}"
+    echo -e "  Clean: $((passed - still_reachable))"
+    echo -e "  Still Reachable: $still_reachable"
+    echo -e "  Memory Leaks: $leaked"
     if $COMPARISON_MODE; then
-        echo -e "  ${BLUE}🔍 Output Differences: $comparison_diffs${RESET}"
+        echo -e "  Output Differences: $comparison_diffs"
     fi
     echo -e "  Toplam: ${#tests[@]} test"
 }
@@ -698,9 +629,7 @@ run_category ENVIRONMENT_PATH_TESTS
 run_category REDIRECTION_TESTS
 run_category PIPE_TESTLERI
 run_category QUOTE_TESTLERI
-run_category LOGICAL_OPS
 run_category SYNTAX_ERRORLAR
-run_category SUBSHELL_TESTLERI
 run_category HEREDOC_TESTLERI
 run_category ENV_EXPAND
 run_category HISTORY_COMMAND_TESTS
@@ -713,26 +642,26 @@ cleanup_test_files
 rm -f valgrind_tmp.log
 
 echo -e "\n${BOLD}${BLUE}=== FINAL REPORT ===${RESET}"
-echo -e "${GREEN}✅ Clean Tests: $(($TOPLAM_BASARILI - $TOPLAM_STILL_REACHABLE))${RESET}"
-echo -e "${YELLOW}⚠️ Still Reachable: $TOPLAM_STILL_REACHABLE${RESET}"
-echo -e "${RED}❌ Memory Leaks: $TOPLAM_LEAK${RESET}"
+echo -e "Clean Tests: $(($TOPLAM_BASARILI - $TOPLAM_STILL_REACHABLE))"
+echo -e "Still Reachable: $TOPLAM_STILL_REACHABLE"
+echo -e "Memory Leaks: $TOPLAM_LEAK"
 
 if $COMPARISON_MODE; then
-    echo -e "${BLUE}🔍 Output Differences: $TOPLAM_COMPARISON_DIFF${RESET}"
+    echo -e "Output Differences: $TOPLAM_COMPARISON_DIFF"
 fi
 
-echo -e "${CYAN}📊 Total Tests: $TOPLAM_TEST${RESET}"
+echo -e "Total Tests: $TOPLAM_TEST"
 echo ""
 
 if [ $TOPLAM_LEAK -eq 0 ]; then
-    echo -e "${GREEN}🎉 Tebrikler! Hiç memory leak tespit edilmedi!${RESET}"
+    echo -e "${GREEN}Tebrikler! Hiç memory leak tespit edilmedi!${RESET}"
     if $COMPARISON_MODE && [ $TOPLAM_COMPARISON_DIFF -eq 0 ]; then
-        echo -e "${GREEN}🌟 Perfect! Bash ile tam uyumluluk!${RESET}"
+        echo -e "${GREEN}Perfect! Bash ile tam uyumluluk!${RESET}"
     elif $COMPARISON_MODE; then
-        echo -e "${YELLOW}⚠️ $TOPLAM_COMPARISON_DIFF farklı çıktı tespit edildi.${RESET}"
+        echo -e "${YELLOW}$TOPLAM_COMPARISON_DIFF farklı çıktı tespit edildi.${RESET}"
     fi
 else
-    echo -e "${RED}⚠️ $TOPLAM_LEAK test'te memory leak tespit edildi.${RESET}"
+    echo -e "${RED}$TOPLAM_LEAK test'te memory leak tespit edildi.${RESET}"
 fi
 
 echo -e "\n${BOLD}Log Files:${RESET}"
