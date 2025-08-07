@@ -6,14 +6,11 @@
 /*   By: yihakan <yihakan@student.42istanbul.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/15 18:36:07 by mdusunen          #+#    #+#             */
-/*   Updated: 2025/08/06 19:10:45 by yihakan          ###   ########.fr       */
+/*   Updated: 2025/08/04 04:34:08 by yihakan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/minishell.h"
-
-extern int	rl_point;
-extern int	rl_end;
 
 void	handle_sigint(int sig)
 {
@@ -21,8 +18,6 @@ void	handle_sigint(int sig)
 	g_signal = SIGINT;
 	write(STDOUT_FILENO, "\n", 1);
 	rl_replace_line("", 0);
-	rl_point = 0;
-	rl_end = 0;
 	rl_on_new_line();
 	rl_redisplay();
 }
@@ -31,12 +26,8 @@ void	handle_heredoc_sigint(int sig)
 {
 	(void)sig;
 	g_signal = SIGINT;
-	write(STDOUT_FILENO, "\n", 1);
 	rl_replace_line("", 0);
-	rl_point = 0;
-	rl_end = 0;
-	rl_on_new_line();
-	rl_reset_terminal(NULL);
+	rl_done = 1;
 }
 
 void	setup_signals(void)

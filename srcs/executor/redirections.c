@@ -6,15 +6,11 @@
 /*   By: yihakan <yihakan@student.42istanbul.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/11 16:29:36 by yihakan           #+#    #+#             */
-/*   Updated: 2025/08/06 19:13:33 by yihakan          ###   ########.fr       */
+/*   Updated: 2025/08/05 20:29:17 by yihakan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/minishell.h"
-
-extern int	rl_done;
-extern int	rl_point;
-extern int	rl_end;
 
 static char	*strip_quotes(char *str)
 {
@@ -73,7 +69,6 @@ static char	*process_heredoc_line_simple(char *line, char *delimiter, char *curr
 static char	*read_heredoc_line(void)
 {
 	char	*line;
-
 	if (g_signal == SIGINT)
 		return (NULL);
 
@@ -87,6 +82,7 @@ static char	*read_heredoc_line(void)
 		}
 		return (NULL);
 	}
+	
 	return (line);
 }
 
@@ -106,18 +102,10 @@ static int	process_single_heredoc_simple(t_redir *current, int current_heredoc, 
 	while (g_signal != SIGINT)
 	{
 		line = read_heredoc_line();
-		if (!line)
+		if (!line || g_signal == SIGINT)
 		{
-			if (g_signal == SIGINT)
-			{
-				free(delimiter);
-				return (0);
-			}
-			continue;
-		}
-		if (g_signal == SIGINT)
-		{
-			free(line);
+			if (line)
+				free(line);
 			free(delimiter);
 			return (0);
 		}
@@ -130,10 +118,7 @@ static int	process_single_heredoc_simple(t_redir *current, int current_heredoc, 
 		{
 			expanded_line = process_heredoc_line_simple(line, delimiter, current->file);
 			if (!expanded_line)
-			{
-				free(line);
 				continue ;
-			}
 			content_size = strlen(*heredoc_content) + strlen(expanded_line) + 2;
 			temp = malloc(content_size);
 			if (!temp)
@@ -142,7 +127,7 @@ static int	process_single_heredoc_simple(t_redir *current, int current_heredoc, 
 				free(delimiter);
 				return (0);
 			}
-			snprintf(temp, content_size, "%s%s\n", *heredoc_content, expanded_line);
+			sprintf(temp, "%s%s\n", *heredoc_content, expanded_line);
 			free(*heredoc_content);
 			*heredoc_content = temp;
 			free(expanded_line);
@@ -162,6 +147,7 @@ char	*handle_multiple_heredocs(t_redir *heredocs)
 	int			current_heredoc;
 	char		*final_content;
 	char		*heredoc_content;
+	struct termios	term;
 
 	stdin_copy = dup(STDIN_FILENO);
 	current_heredoc = 0;
@@ -176,6 +162,11 @@ char	*handle_multiple_heredocs(t_redir *heredocs)
 	{
 		close(stdin_copy);
 		return (NULL);
+	}
+	if (tcgetattr(STDIN_FILENO, &term) == 0)
+	{
+		term.c_lflag |= ECHO;
+		tcsetattr(STDIN_FILENO, TCSANOW, &term);
 	}
 	setup_heredoc_signals();
 	g_signal = 0;
@@ -200,17 +191,6 @@ char	*handle_multiple_heredocs(t_redir *heredocs)
 	{
 		free(heredoc_content);
 		close(stdin_copy);
-		dup2(stdin_copy, STDIN_FILENO);
-		close(stdin_copy);
-		rl_replace_line("", 0);
-		rl_point = 0;
-		rl_end = 0;
-		rl_done = 0;
-		rl_on_new_line();
-		rl_reset_terminal(NULL);
-		setup_signals();
-		// Clear any remaining input in the buffer
-		tcflush(STDIN_FILENO, TCIFLUSH);
 		return (NULL);
 	}
 	dup2(stdin_copy, STDIN_FILENO);
@@ -219,11 +199,7 @@ char	*handle_multiple_heredocs(t_redir *heredocs)
 	rl_point = 0;
 	rl_end = 0;
 	rl_done = 0;
-	rl_on_new_line();
-	rl_reset_terminal(NULL);
 	setup_signals();
-	// Clear any remaining input in the buffer
-	tcflush(STDIN_FILENO, TCIFLUSH);
 	final_content = heredoc_content;
 	return (final_content);
 }
@@ -287,25 +263,12 @@ static int	handle_heredoc_redirection(t_redir *redirs, int *heredoc_processed)
 	if (!heredoc_content)
 	{
 		if (g_signal == SIGINT)
-		{
 			g_signal = 0;
-			return (1);
-		}
 		return (1);
 	}
-	if (pipe(pipe_fd) == -1)
-	{
-		free(heredoc_content);
-		return (1);
-	}
-	if (write(pipe_fd[1], heredoc_content, strlen(heredoc_content)) == -1)	// NORM: move this to a function
-	{
-		close(pipe_fd[0]);
-		close(pipe_fd[1]);
-		free(heredoc_content);
-		return (1);
-	}
-	close(pipe_fd[1]); // NORM: these can be in a cleanup function
+	pipe(pipe_fd);
+	write(pipe_fd[1], heredoc_content, strlen(heredoc_content));
+	close(pipe_fd[1]);
 	dup2(pipe_fd[0], STDIN_FILENO);
 	close(pipe_fd[0]);
 	free(heredoc_content);
