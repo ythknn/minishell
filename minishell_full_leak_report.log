@@ -1,5 +1,5 @@
 === ENHANCED Minishell Leak Test & Bash Comparison (Ultimate Version) ===
-Test Başlangıcı: Thu Aug  7 01:52:59 AM +03 2025
+Test Başlangıcı: Thu Aug  7 02:40:24 AM +03 2025
 Comparison Mode: true
 
 === Kategori: Temel Komutlar ===
@@ -171,20 +171,20 @@ Comparison Mode: true
 === TEST 80: env ===
 
 === TEST 81: env | head -5 ===
-==117756== 2 bytes in 1 blocks are still reachable in loss record 1 of 107
-==117756== 12 bytes in 3 blocks are still reachable in loss record 12 of 107
-==117756== 12 bytes in 3 blocks are still reachable in loss record 13 of 107
-==117756== 24 bytes in 1 blocks are still reachable in loss record 26 of 107
-==117756== 27 bytes in 1 blocks are still reachable in loss record 28 of 107
-==117756== 40 bytes in 2 blocks are still reachable in loss record 32 of 107
-==117756== 48 bytes in 2 blocks are still reachable in loss record 36 of 107
-==117756== 72 bytes in 3 blocks are still reachable in loss record 37 of 107
-==117756== 119 bytes in 1 blocks are still reachable in loss record 42 of 107
-==117756== 424 bytes in 1 blocks are still reachable in loss record 50 of 107
-==117756== 731 bytes in 52 blocks are still reachable in loss record 54 of 107
-==117756== 1,248 bytes in 52 blocks are still reachable in loss record 67 of 107
-==117756== 3,210 bytes in 52 blocks are still reachable in loss record 74 of 107
-==117756== 3,822 bytes in 51 blocks are still reachable in loss record 75 of 107
+==151014== 2 bytes in 1 blocks are still reachable in loss record 1 of 107
+==151014== 12 bytes in 3 blocks are still reachable in loss record 12 of 107
+==151014== 12 bytes in 3 blocks are still reachable in loss record 13 of 107
+==151014== 24 bytes in 1 blocks are still reachable in loss record 26 of 107
+==151014== 27 bytes in 1 blocks are still reachable in loss record 28 of 107
+==151014== 40 bytes in 2 blocks are still reachable in loss record 32 of 107
+==151014== 48 bytes in 2 blocks are still reachable in loss record 36 of 107
+==151014== 72 bytes in 3 blocks are still reachable in loss record 37 of 107
+==151014== 119 bytes in 1 blocks are still reachable in loss record 42 of 107
+==151014== 424 bytes in 1 blocks are still reachable in loss record 50 of 107
+==151014== 731 bytes in 52 blocks are still reachable in loss record 54 of 107
+==151014== 1,248 bytes in 52 blocks are still reachable in loss record 67 of 107
+==151014== 3,377 bytes in 52 blocks are still reachable in loss record 74 of 107
+==151014== 3,989 bytes in 51 blocks are still reachable in loss record 75 of 107
 
 === TEST 82: env | grep USER ===
 

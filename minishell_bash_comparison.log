@@ -1,5 +1,5 @@
 === BASH COMPARISON REPORT ===
-Test Başlangıcı: Thu Aug  7 01:52:59 AM +03 2025
+Test Başlangıcı: Thu Aug  7 02:40:24 AM +03 2025
 
 === DIFFERENCE FOUND: env ===
 BASH OUTPUT:
@@ -17,8 +17,8 @@ XMODIFIERS=@im=ibus
 DESKTOP_SESSION=ubuntu
 GTK_MODULES=gail:atk-bridge
 PWD=/home/mdusunen/Desktop/minishell
-LOGNAME=mdusunen
 XDG_SESSION_DESKTOP=ubuntu
+LOGNAME=mdusunen
 XDG_SESSION_TYPE=x11
 GPG_AGENT_INFO=/run/user/1000/gnupg/S.gpg-agent:0:1
 SYSTEMD_EXEC_PID=2733
@@ -32,7 +32,7 @@ LS_COLORS=rs=0:di=01;34:ln=01;36:mh=00:pi=40;33:so=01;35:do=01;35:bd=40;33;01:cd
 XDG_CURRENT_DESKTOP=ubuntu:GNOME
 MEMORY_PRESSURE_WATCH=/sys/fs/cgroup/user.slice/user-1000.slice/user@1000.service/session.slice/org.gnome.Shell@x11.service/memory.pressure
 VTE_VERSION=7600
-GNOME_TERMINAL_SCREEN=/org/gnome/Terminal/screen/59962826_f54f_4bc8_87ab_42ce4eb6e1f1
+GNOME_TERMINAL_SCREEN=/org/gnome/Terminal/screen/964b6049_38d8_43df_8a1f_c46bd3e8603d
 LESSCLOSE=/usr/bin/lesspipe %s %s
 XDG_SESSION_CLASS=user
 TERM=xterm-256color
@@ -41,16 +41,16 @@ USER=mdusunen
 GNOME_TERMINAL_SERVICE=:1.273
 CLUTTER_DISABLE_MIPMAPPED_TEXT=1
 DISPLAY=:1
-SHLVL=3
+SHLVL=4
 GSM_SKIP_SSH_AGENT_WORKAROUND=true
 QT_IM_MODULE=ibus
 XDG_RUNTIME_DIR=/run/user/1000
 DEBUGINFOD_URLS=https://debuginfod.ubuntu.com 
 XDG_DATA_DIRS=/usr/share/ubuntu:/usr/share/gnome:/usr/local/share/:/usr/share/:/var/lib/snapd/desktop
-PATH=/home/mdusunen/.local/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin:/snap/bin:/home/mdusunen/.local/bin:/home/mdusunen/.local/bin:/home/mdusunen/.venv/bin:/home/mdusunen/.venv/bin:/home/mdusunen/.venv/bin:/home/mdusunen/.venv/bin:/home/mdusunen/.venv/bin:/home/mdusunen/.venv/bin
+PATH=/home/mdusunen/.local/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin:/snap/bin:/home/mdusunen/.local/bin:/home/mdusunen/.local/bin:/home/mdusunen/.venv/bin:/home/mdusunen/.venv/bin:/home/mdusunen/.venv/bin:/home/mdusunen/.venv/bin:/home/mdusunen/.venv/bin:/home/mdusunen/.venv/bin:/home/mdusunen/.local/bin:/home/mdusunen/.venv/bin:/home/mdusunen/.venv/bin:/home/mdusunen/.venv/bin:/home/mdusunen/.venv/bin:/home/mdusunen/.venv/bin:/home/mdusunen/.venv/bin
 GDMSESSION=ubuntu
 DBUS_SESSION_BUS_ADDRESS=unix:path=/run/user/1000/bus
-OLDPWD=/home/mdusunen/Desktop/minishell/srcs/executor'
+OLDPWD=/home/mdusunen/Desktop/minishell/srcs'
 BASH EXIT CODE: 0
 
 MINISHELL RAW OUTPUT:
@@ -69,8 +69,8 @@ XMODIFIERS=@im=ibus
 DESKTOP_SESSION=ubuntu
 GTK_MODULES=gail:atk-bridge
 PWD=/home/mdusunen/Desktop/minishell
-XDG_SESSION_DESKTOP=ubuntu
 LOGNAME=mdusunen
+XDG_SESSION_DESKTOP=ubuntu
 XDG_SESSION_TYPE=x11
 GPG_AGENT_INFO=/run/user/1000/gnupg/S.gpg-agent:0:1
 SYSTEMD_EXEC_PID=2733
@@ -83,7 +83,7 @@ LS_COLORS=rs=0:di=01;34:ln=01;36:mh=00:pi=40;33:so=01;35:do=01;35:bd=40;33;01:cd
 XDG_CURRENT_DESKTOP=ubuntu:GNOME
 MEMORY_PRESSURE_WATCH=/sys/fs/cgroup/user.slice/user-1000.slice/user@1000.service/session.slice/org.gnome.Shell@x11.service/memory.pressure
 VTE_VERSION=7600
-GNOME_TERMINAL_SCREEN=/org/gnome/Terminal/screen/59962826_f54f_4bc8_87ab_42ce4eb6e1f1
+GNOME_TERMINAL_SCREEN=/org/gnome/Terminal/screen/964b6049_38d8_43df_8a1f_c46bd3e8603d
 LESSCLOSE=/usr/bin/lesspipe %s %s
 XDG_SESSION_CLASS=user
 TERM=xterm-256color
@@ -92,16 +92,16 @@ USER=mdusunen
 GNOME_TERMINAL_SERVICE=:1.273
 CLUTTER_DISABLE_MIPMAPPED_TEXT=1
 DISPLAY=:1
-SHLVL=2
+SHLVL=3
 GSM_SKIP_SSH_AGENT_WORKAROUND=true
 QT_IM_MODULE=ibus
 XDG_RUNTIME_DIR=/run/user/1000
 DEBUGINFOD_URLS=https://debuginfod.ubuntu.com 
 XDG_DATA_DIRS=/usr/share/ubuntu:/usr/share/gnome:/usr/local/share/:/usr/share/:/var/lib/snapd/desktop
-PATH=/home/mdusunen/.local/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin:/snap/bin:/home/mdusunen/.local/bin:/home/mdusunen/.local/bin:/home/mdusunen/.venv/bin:/home/mdusunen/.venv/bin:/home/mdusunen/.venv/bin:/home/mdusunen/.venv/bin:/home/mdusunen/.venv/bin:/home/mdusunen/.venv/bin
+PATH=/home/mdusunen/.local/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin:/snap/bin:/home/mdusunen/.local/bin:/home/mdusunen/.local/bin:/home/mdusunen/.venv/bin:/home/mdusunen/.venv/bin:/home/mdusunen/.venv/bin:/home/mdusunen/.venv/bin:/home/mdusunen/.venv/bin:/home/mdusunen/.venv/bin:/home/mdusunen/.local/bin:/home/mdusunen/.venv/bin:/home/mdusunen/.venv/bin:/home/mdusunen/.venv/bin:/home/mdusunen/.venv/bin:/home/mdusunen/.venv/bin:/home/mdusunen/.venv/bin
 GDMSESSION=ubuntu
 DBUS_SESSION_BUS_ADDRESS=unix:path=/run/user/1000/bus
-OLDPWD=/home/mdusunen/Desktop/minishell/srcs/executor
+OLDPWD=/home/mdusunen/Desktop/minishell/srcs
 _=/usr/bin/timeout
 [32mminishell[0m[33m$>[0m '
 MINISHELL CLEANED OUTPUT:
@@ -119,8 +119,8 @@ XMODIFIERS=@im=ibus
 DESKTOP_SESSION=ubuntu
 GTK_MODULES=gail:atk-bridge
 PWD=/home/mdusunen/Desktop/minishell
-XDG_SESSION_DESKTOP=ubuntu
 LOGNAME=mdusunen
+XDG_SESSION_DESKTOP=ubuntu
 XDG_SESSION_TYPE=x11
 GPG_AGENT_INFO=/run/user/1000/gnupg/S.gpg-agent:0:1
 SYSTEMD_EXEC_PID=2733
@@ -133,7 +133,7 @@ LS_COLORS=rs=0:di=01;34:ln=01;36:mh=00:pi=40;33:so=01;35:do=01;35:bd=40;33;01:cd
 XDG_CURRENT_DESKTOP=ubuntu:GNOME
 MEMORY_PRESSURE_WATCH=/sys/fs/cgroup/user.slice/user-1000.slice/user@1000.service/session.slice/org.gnome.Shell@x11.service/memory.pressure
 VTE_VERSION=7600
-GNOME_TERMINAL_SCREEN=/org/gnome/Terminal/screen/59962826_f54f_4bc8_87ab_42ce4eb6e1f1
+GNOME_TERMINAL_SCREEN=/org/gnome/Terminal/screen/964b6049_38d8_43df_8a1f_c46bd3e8603d
 LESSCLOSE=/usr/bin/lesspipe %s %s
 XDG_SESSION_CLASS=user
 TERM=xterm-256color
@@ -142,16 +142,16 @@ USER=mdusunen
 GNOME_TERMINAL_SERVICE=:1.273
 CLUTTER_DISABLE_MIPMAPPED_TEXT=1
 DISPLAY=:1
-SHLVL=2
+SHLVL=3
 GSM_SKIP_SSH_AGENT_WORKAROUND=true
 QT_IM_MODULE=ibus
 XDG_RUNTIME_DIR=/run/user/1000
 DEBUGINFOD_URLS=https://debuginfod.ubuntu.com
 XDG_DATA_DIRS=/usr/share/ubuntu:/usr/share/gnome:/usr/local/share/:/usr/share/:/var/lib/snapd/desktop
-PATH=/home/mdusunen/.local/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin:/snap/bin:/home/mdusunen/.local/bin:/home/mdusunen/.local/bin:/home/mdusunen/.venv/bin:/home/mdusunen/.venv/bin:/home/mdusunen/.venv/bin:/home/mdusunen/.venv/bin:/home/mdusunen/.venv/bin:/home/mdusunen/.venv/bin
+PATH=/home/mdusunen/.local/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin:/snap/bin:/home/mdusunen/.local/bin:/home/mdusunen/.local/bin:/home/mdusunen/.venv/bin:/home/mdusunen/.venv/bin:/home/mdusunen/.venv/bin:/home/mdusunen/.venv/bin:/home/mdusunen/.venv/bin:/home/mdusunen/.venv/bin:/home/mdusunen/.local/bin:/home/mdusunen/.venv/bin:/home/mdusunen/.venv/bin:/home/mdusunen/.venv/bin:/home/mdusunen/.venv/bin:/home/mdusunen/.venv/bin:/home/mdusunen/.venv/bin
 GDMSESSION=ubuntu
 DBUS_SESSION_BUS_ADDRESS=unix:path=/run/user/1000/bus
-OLDPWD=/home/mdusunen/Desktop/minishell/srcs/executor
+OLDPWD=/home/mdusunen/Desktop/minishell/srcs
 _=/usr/bin/timeout'
 MINISHELL EXIT CODE: 0
 ======================================
@@ -172,8 +172,8 @@ XMODIFIERS=@im=ibus
 DESKTOP_SESSION=ubuntu
 GTK_MODULES=gail:atk-bridge
 PWD=/home/mdusunen/Desktop/minishell
-LOGNAME=mdusunen
 XDG_SESSION_DESKTOP=ubuntu
+LOGNAME=mdusunen
 XDG_SESSION_TYPE=x11
 GPG_AGENT_INFO=/run/user/1000/gnupg/S.gpg-agent:0:1
 SYSTEMD_EXEC_PID=2733
@@ -187,7 +187,7 @@ LS_COLORS=rs=0:di=01;34:ln=01;36:mh=00:pi=40;33:so=01;35:do=01;35:bd=40;33;01:cd
 XDG_CURRENT_DESKTOP=ubuntu:GNOME
 MEMORY_PRESSURE_WATCH=/sys/fs/cgroup/user.slice/user-1000.slice/user@1000.service/session.slice/org.gnome.Shell@x11.service/memory.pressure
 VTE_VERSION=7600
-GNOME_TERMINAL_SCREEN=/org/gnome/Terminal/screen/59962826_f54f_4bc8_87ab_42ce4eb6e1f1
+GNOME_TERMINAL_SCREEN=/org/gnome/Terminal/screen/964b6049_38d8_43df_8a1f_c46bd3e8603d
 LESSCLOSE=/usr/bin/lesspipe %s %s
 XDG_SESSION_CLASS=user
 TERM=xterm-256color
@@ -196,16 +196,16 @@ USER=mdusunen
 GNOME_TERMINAL_SERVICE=:1.273
 CLUTTER_DISABLE_MIPMAPPED_TEXT=1
 DISPLAY=:1
-SHLVL=3
+SHLVL=4
 GSM_SKIP_SSH_AGENT_WORKAROUND=true
 QT_IM_MODULE=ibus
 XDG_RUNTIME_DIR=/run/user/1000
 DEBUGINFOD_URLS=https://debuginfod.ubuntu.com 
 XDG_DATA_DIRS=/usr/share/ubuntu:/usr/share/gnome:/usr/local/share/:/usr/share/:/var/lib/snapd/desktop
-PATH=/home/mdusunen/.local/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin:/snap/bin:/home/mdusunen/.local/bin:/home/mdusunen/.local/bin:/home/mdusunen/.venv/bin:/home/mdusunen/.venv/bin:/home/mdusunen/.venv/bin:/home/mdusunen/.venv/bin:/home/mdusunen/.venv/bin:/home/mdusunen/.venv/bin
+PATH=/home/mdusunen/.local/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin:/snap/bin:/home/mdusunen/.local/bin:/home/mdusunen/.local/bin:/home/mdusunen/.venv/bin:/home/mdusunen/.venv/bin:/home/mdusunen/.venv/bin:/home/mdusunen/.venv/bin:/home/mdusunen/.venv/bin:/home/mdusunen/.venv/bin:/home/mdusunen/.local/bin:/home/mdusunen/.venv/bin:/home/mdusunen/.venv/bin:/home/mdusunen/.venv/bin:/home/mdusunen/.venv/bin:/home/mdusunen/.venv/bin:/home/mdusunen/.venv/bin
 GDMSESSION=ubuntu
 DBUS_SESSION_BUS_ADDRESS=unix:path=/run/user/1000/bus
-OLDPWD=/home/mdusunen/Desktop/minishell/srcs/executor'
+OLDPWD=/home/mdusunen/Desktop/minishell/srcs'
 BASH EXIT CODE: 0
 
 MINISHELL RAW OUTPUT:
@@ -224,8 +224,8 @@ XMODIFIERS=@im=ibus
 DESKTOP_SESSION=ubuntu
 GTK_MODULES=gail:atk-bridge
 PWD=/home/mdusunen/Desktop/minishell
-XDG_SESSION_DESKTOP=ubuntu
 LOGNAME=mdusunen
+XDG_SESSION_DESKTOP=ubuntu
 XDG_SESSION_TYPE=x11
 GPG_AGENT_INFO=/run/user/1000/gnupg/S.gpg-agent:0:1
 SYSTEMD_EXEC_PID=2733
@@ -238,7 +238,7 @@ LS_COLORS=rs=0:di=01;34:ln=01;36:mh=00:pi=40;33:so=01;35:do=01;35:bd=40;33;01:cd
 XDG_CURRENT_DESKTOP=ubuntu:GNOME
 MEMORY_PRESSURE_WATCH=/sys/fs/cgroup/user.slice/user-1000.slice/user@1000.service/session.slice/org.gnome.Shell@x11.service/memory.pressure
 VTE_VERSION=7600
-GNOME_TERMINAL_SCREEN=/org/gnome/Terminal/screen/59962826_f54f_4bc8_87ab_42ce4eb6e1f1
+GNOME_TERMINAL_SCREEN=/org/gnome/Terminal/screen/964b6049_38d8_43df_8a1f_c46bd3e8603d
 LESSCLOSE=/usr/bin/lesspipe %s %s
 XDG_SESSION_CLASS=user
 TERM=xterm-256color
@@ -247,16 +247,16 @@ USER=mdusunen
 GNOME_TERMINAL_SERVICE=:1.273
 CLUTTER_DISABLE_MIPMAPPED_TEXT=1
 DISPLAY=:1
-SHLVL=2
+SHLVL=3
 GSM_SKIP_SSH_AGENT_WORKAROUND=true
 QT_IM_MODULE=ibus
 XDG_RUNTIME_DIR=/run/user/1000
 DEBUGINFOD_URLS=https://debuginfod.ubuntu.com 
 XDG_DATA_DIRS=/usr/share/ubuntu:/usr/share/gnome:/usr/local/share/:/usr/share/:/var/lib/snapd/desktop
-PATH=/home/mdusunen/.local/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin:/snap/bin:/home/mdusunen/.local/bin:/home/mdusunen/.local/bin:/home/mdusunen/.venv/bin:/home/mdusunen/.venv/bin:/home/mdusunen/.venv/bin:/home/mdusunen/.venv/bin:/home/mdusunen/.venv/bin:/home/mdusunen/.venv/bin
+PATH=/home/mdusunen/.local/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin:/snap/bin:/home/mdusunen/.local/bin:/home/mdusunen/.local/bin:/home/mdusunen/.venv/bin:/home/mdusunen/.venv/bin:/home/mdusunen/.venv/bin:/home/mdusunen/.venv/bin:/home/mdusunen/.venv/bin:/home/mdusunen/.venv/bin:/home/mdusunen/.local/bin:/home/mdusunen/.venv/bin:/home/mdusunen/.venv/bin:/home/mdusunen/.venv/bin:/home/mdusunen/.venv/bin:/home/mdusunen/.venv/bin:/home/mdusunen/.venv/bin
 GDMSESSION=ubuntu
 DBUS_SESSION_BUS_ADDRESS=unix:path=/run/user/1000/bus
-OLDPWD=/home/mdusunen/Desktop/minishell/srcs/executor
+OLDPWD=/home/mdusunen/Desktop/minishell/srcs
 _=/usr/bin/timeout
 [32mminishell[0m[33m$>[0m '
 MINISHELL CLEANED OUTPUT:
@@ -274,8 +274,8 @@ XMODIFIERS=@im=ibus
 DESKTOP_SESSION=ubuntu
 GTK_MODULES=gail:atk-bridge
 PWD=/home/mdusunen/Desktop/minishell
-XDG_SESSION_DESKTOP=ubuntu
 LOGNAME=mdusunen
+XDG_SESSION_DESKTOP=ubuntu
 XDG_SESSION_TYPE=x11
 GPG_AGENT_INFO=/run/user/1000/gnupg/S.gpg-agent:0:1
 SYSTEMD_EXEC_PID=2733
@@ -288,7 +288,7 @@ LS_COLORS=rs=0:di=01;34:ln=01;36:mh=00:pi=40;33:so=01;35:do=01;35:bd=40;33;01:cd
 XDG_CURRENT_DESKTOP=ubuntu:GNOME
 MEMORY_PRESSURE_WATCH=/sys/fs/cgroup/user.slice/user-1000.slice/user@1000.service/session.slice/org.gnome.Shell@x11.service/memory.pressure
 VTE_VERSION=7600
-GNOME_TERMINAL_SCREEN=/org/gnome/Terminal/screen/59962826_f54f_4bc8_87ab_42ce4eb6e1f1
+GNOME_TERMINAL_SCREEN=/org/gnome/Terminal/screen/964b6049_38d8_43df_8a1f_c46bd3e8603d
 LESSCLOSE=/usr/bin/lesspipe %s %s
 XDG_SESSION_CLASS=user
 TERM=xterm-256color
@@ -297,16 +297,16 @@ USER=mdusunen
 GNOME_TERMINAL_SERVICE=:1.273
 CLUTTER_DISABLE_MIPMAPPED_TEXT=1
 DISPLAY=:1
-SHLVL=2
+SHLVL=3
 GSM_SKIP_SSH_AGENT_WORKAROUND=true
 QT_IM_MODULE=ibus
 XDG_RUNTIME_DIR=/run/user/1000
 DEBUGINFOD_URLS=https://debuginfod.ubuntu.com
 XDG_DATA_DIRS=/usr/share/ubuntu:/usr/share/gnome:/usr/local/share/:/usr/share/:/var/lib/snapd/desktop
-PATH=/home/mdusunen/.local/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin:/snap/bin:/home/mdusunen/.local/bin:/home/mdusunen/.local/bin:/home/mdusunen/.venv/bin:/home/mdusunen/.venv/bin:/home/mdusunen/.venv/bin:/home/mdusunen/.venv/bin:/home/mdusunen/.venv/bin:/home/mdusunen/.venv/bin
+PATH=/home/mdusunen/.local/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin:/snap/bin:/home/mdusunen/.local/bin:/home/mdusunen/.local/bin:/home/mdusunen/.venv/bin:/home/mdusunen/.venv/bin:/home/mdusunen/.venv/bin:/home/mdusunen/.venv/bin:/home/mdusunen/.venv/bin:/home/mdusunen/.venv/bin:/home/mdusunen/.local/bin:/home/mdusunen/.venv/bin:/home/mdusunen/.venv/bin:/home/mdusunen/.venv/bin:/home/mdusunen/.venv/bin:/home/mdusunen/.venv/bin:/home/mdusunen/.venv/bin
 GDMSESSION=ubuntu
 DBUS_SESSION_BUS_ADDRESS=unix:path=/run/user/1000/bus
-OLDPWD=/home/mdusunen/Desktop/minishell/srcs/executor
+OLDPWD=/home/mdusunen/Desktop/minishell/srcs
 _=/usr/bin/timeout'
 MINISHELL EXIT CODE: 0
 ======================================
@@ -417,8 +417,8 @@ XMODIFIERS=@im=ibus
 DESKTOP_SESSION=ubuntu
 GTK_MODULES=gail:atk-bridge
 PWD=/home/mdusunen/Desktop/minishell
-LOGNAME=mdusunen
 XDG_SESSION_DESKTOP=ubuntu
+LOGNAME=mdusunen
 XDG_SESSION_TYPE=x11
 GPG_AGENT_INFO=/run/user/1000/gnupg/S.gpg-agent:0:1
 SYSTEMD_EXEC_PID=2733
@@ -432,7 +432,7 @@ LS_COLORS=rs=0:di=01;34:ln=01;36:mh=00:pi=40;33:so=01;35:do=01;35:bd=40;33;01:cd
 XDG_CURRENT_DESKTOP=ubuntu:GNOME
 MEMORY_PRESSURE_WATCH=/sys/fs/cgroup/user.slice/user-1000.slice/user@1000.service/session.slice/org.gnome.Shell@x11.service/memory.pressure
 VTE_VERSION=7600
-GNOME_TERMINAL_SCREEN=/org/gnome/Terminal/screen/59962826_f54f_4bc8_87ab_42ce4eb6e1f1
+GNOME_TERMINAL_SCREEN=/org/gnome/Terminal/screen/964b6049_38d8_43df_8a1f_c46bd3e8603d
 LESSCLOSE=/usr/bin/lesspipe %s %s
 XDG_SESSION_CLASS=user
 TERM=xterm-256color
@@ -441,16 +441,16 @@ USER=mdusunen
 GNOME_TERMINAL_SERVICE=:1.273
 CLUTTER_DISABLE_MIPMAPPED_TEXT=1
 DISPLAY=:1
-SHLVL=3
+SHLVL=4
 GSM_SKIP_SSH_AGENT_WORKAROUND=true
 QT_IM_MODULE=ibus
 XDG_RUNTIME_DIR=/run/user/1000
 DEBUGINFOD_URLS=https://debuginfod.ubuntu.com 
 XDG_DATA_DIRS=/usr/share/ubuntu:/usr/share/gnome:/usr/local/share/:/usr/share/:/var/lib/snapd/desktop
-PATH=/home/mdusunen/.local/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin:/snap/bin:/home/mdusunen/.local/bin:/home/mdusunen/.local/bin:/home/mdusunen/.venv/bin:/home/mdusunen/.venv/bin:/home/mdusunen/.venv/bin:/home/mdusunen/.venv/bin:/home/mdusunen/.venv/bin:/home/mdusunen/.venv/bin
+PATH=/home/mdusunen/.local/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin:/snap/bin:/home/mdusunen/.local/bin:/home/mdusunen/.local/bin:/home/mdusunen/.venv/bin:/home/mdusunen/.venv/bin:/home/mdusunen/.venv/bin:/home/mdusunen/.venv/bin:/home/mdusunen/.venv/bin:/home/mdusunen/.venv/bin:/home/mdusunen/.local/bin:/home/mdusunen/.venv/bin:/home/mdusunen/.venv/bin:/home/mdusunen/.venv/bin:/home/mdusunen/.venv/bin:/home/mdusunen/.venv/bin:/home/mdusunen/.venv/bin
 GDMSESSION=ubuntu
 DBUS_SESSION_BUS_ADDRESS=unix:path=/run/user/1000/bus
-OLDPWD=/home/mdusunen/Desktop/minishell/srcs/executor'
+OLDPWD=/home/mdusunen/Desktop/minishell/srcs'
 BASH EXIT CODE: 0
 
 MINISHELL RAW OUTPUT:
@@ -469,8 +469,8 @@ XMODIFIERS=@im=ibus
 DESKTOP_SESSION=ubuntu
 GTK_MODULES=gail:atk-bridge
 PWD=/home/mdusunen/Desktop/minishell
-XDG_SESSION_DESKTOP=ubuntu
 LOGNAME=mdusunen
+XDG_SESSION_DESKTOP=ubuntu
 XDG_SESSION_TYPE=x11
 GPG_AGENT_INFO=/run/user/1000/gnupg/S.gpg-agent:0:1
 SYSTEMD_EXEC_PID=2733
@@ -483,7 +483,7 @@ LS_COLORS=rs=0:di=01;34:ln=01;36:mh=00:pi=40;33:so=01;35:do=01;35:bd=40;33;01:cd
 XDG_CURRENT_DESKTOP=ubuntu:GNOME
 MEMORY_PRESSURE_WATCH=/sys/fs/cgroup/user.slice/user-1000.slice/user@1000.service/session.slice/org.gnome.Shell@x11.service/memory.pressure
 VTE_VERSION=7600
-GNOME_TERMINAL_SCREEN=/org/gnome/Terminal/screen/59962826_f54f_4bc8_87ab_42ce4eb6e1f1
+GNOME_TERMINAL_SCREEN=/org/gnome/Terminal/screen/964b6049_38d8_43df_8a1f_c46bd3e8603d
 LESSCLOSE=/usr/bin/lesspipe %s %s
 XDG_SESSION_CLASS=user
 TERM=xterm-256color
@@ -492,16 +492,16 @@ USER=mdusunen
 GNOME_TERMINAL_SERVICE=:1.273
 CLUTTER_DISABLE_MIPMAPPED_TEXT=1
 DISPLAY=:1
-SHLVL=2
+SHLVL=3
 GSM_SKIP_SSH_AGENT_WORKAROUND=true
 QT_IM_MODULE=ibus
 XDG_RUNTIME_DIR=/run/user/1000
 DEBUGINFOD_URLS=https://debuginfod.ubuntu.com 
 XDG_DATA_DIRS=/usr/share/ubuntu:/usr/share/gnome:/usr/local/share/:/usr/share/:/var/lib/snapd/desktop
-PATH=/home/mdusunen/.local/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin:/snap/bin:/home/mdusunen/.local/bin:/home/mdusunen/.local/bin:/home/mdusunen/.venv/bin:/home/mdusunen/.venv/bin:/home/mdusunen/.venv/bin:/home/mdusunen/.venv/bin:/home/mdusunen/.venv/bin:/home/mdusunen/.venv/bin
+PATH=/home/mdusunen/.local/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin:/snap/bin:/home/mdusunen/.local/bin:/home/mdusunen/.local/bin:/home/mdusunen/.venv/bin:/home/mdusunen/.venv/bin:/home/mdusunen/.venv/bin:/home/mdusunen/.venv/bin:/home/mdusunen/.venv/bin:/home/mdusunen/.venv/bin:/home/mdusunen/.local/bin:/home/mdusunen/.venv/bin:/home/mdusunen/.venv/bin:/home/mdusunen/.venv/bin:/home/mdusunen/.venv/bin:/home/mdusunen/.venv/bin:/home/mdusunen/.venv/bin
 GDMSESSION=ubuntu
 DBUS_SESSION_BUS_ADDRESS=unix:path=/run/user/1000/bus
-OLDPWD=/home/mdusunen/Desktop/minishell/srcs/executor
+OLDPWD=/home/mdusunen/Desktop/minishell/srcs
 _=/usr/bin/timeout
 [32mminishell[0m[33m$>[0m '
 MINISHELL CLEANED OUTPUT:
@@ -519,8 +519,8 @@ XMODIFIERS=@im=ibus
 DESKTOP_SESSION=ubuntu
 GTK_MODULES=gail:atk-bridge
 PWD=/home/mdusunen/Desktop/minishell
-XDG_SESSION_DESKTOP=ubuntu
 LOGNAME=mdusunen
+XDG_SESSION_DESKTOP=ubuntu
 XDG_SESSION_TYPE=x11
 GPG_AGENT_INFO=/run/user/1000/gnupg/S.gpg-agent:0:1
 SYSTEMD_EXEC_PID=2733
@@ -533,7 +533,7 @@ LS_COLORS=rs=0:di=01;34:ln=01;36:mh=00:pi=40;33:so=01;35:do=01;35:bd=40;33;01:cd
 XDG_CURRENT_DESKTOP=ubuntu:GNOME
 MEMORY_PRESSURE_WATCH=/sys/fs/cgroup/user.slice/user-1000.slice/user@1000.service/session.slice/org.gnome.Shell@x11.service/memory.pressure
 VTE_VERSION=7600
-GNOME_TERMINAL_SCREEN=/org/gnome/Terminal/screen/59962826_f54f_4bc8_87ab_42ce4eb6e1f1
+GNOME_TERMINAL_SCREEN=/org/gnome/Terminal/screen/964b6049_38d8_43df_8a1f_c46bd3e8603d
 LESSCLOSE=/usr/bin/lesspipe %s %s
 XDG_SESSION_CLASS=user
 TERM=xterm-256color
@@ -542,16 +542,16 @@ USER=mdusunen
 GNOME_TERMINAL_SERVICE=:1.273
 CLUTTER_DISABLE_MIPMAPPED_TEXT=1
 DISPLAY=:1
-SHLVL=2
+SHLVL=3
 GSM_SKIP_SSH_AGENT_WORKAROUND=true
 QT_IM_MODULE=ibus
 XDG_RUNTIME_DIR=/run/user/1000
 DEBUGINFOD_URLS=https://debuginfod.ubuntu.com
 XDG_DATA_DIRS=/usr/share/ubuntu:/usr/share/gnome:/usr/local/share/:/usr/share/:/var/lib/snapd/desktop
-PATH=/home/mdusunen/.local/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin:/snap/bin:/home/mdusunen/.local/bin:/home/mdusunen/.local/bin:/home/mdusunen/.venv/bin:/home/mdusunen/.venv/bin:/home/mdusunen/.venv/bin:/home/mdusunen/.venv/bin:/home/mdusunen/.venv/bin:/home/mdusunen/.venv/bin
+PATH=/home/mdusunen/.local/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin:/snap/bin:/home/mdusunen/.local/bin:/home/mdusunen/.local/bin:/home/mdusunen/.venv/bin:/home/mdusunen/.venv/bin:/home/mdusunen/.venv/bin:/home/mdusunen/.venv/bin:/home/mdusunen/.venv/bin:/home/mdusunen/.venv/bin:/home/mdusunen/.local/bin:/home/mdusunen/.venv/bin:/home/mdusunen/.venv/bin:/home/mdusunen/.venv/bin:/home/mdusunen/.venv/bin:/home/mdusunen/.venv/bin:/home/mdusunen/.venv/bin
 GDMSESSION=ubuntu
 DBUS_SESSION_BUS_ADDRESS=unix:path=/run/user/1000/bus
-OLDPWD=/home/mdusunen/Desktop/minishell/srcs/executor
+OLDPWD=/home/mdusunen/Desktop/minishell/srcs
 _=/usr/bin/timeout'
 MINISHELL EXIT CODE: 0
 ======================================
@@ -567,7 +567,7 @@ declare -x DISPLAY=":1"
 declare -x GDMSESSION="ubuntu"
 declare -x GNOME_DESKTOP_SESSION_ID="this-is-deprecated"
 declare -x GNOME_SHELL_SESSION_MODE="ubuntu"
-declare -x GNOME_TERMINAL_SCREEN="/org/gnome/Terminal/screen/59962826_f54f_4bc8_87ab_42ce4eb6e1f1"
+declare -x GNOME_TERMINAL_SCREEN="/org/gnome/Terminal/screen/964b6049_38d8_43df_8a1f_c46bd3e8603d"
 declare -x GNOME_TERMINAL_SERVICE=":1.273"
 declare -x GPG_AGENT_INFO="/run/user/1000/gnupg/S.gpg-agent:0:1"
 declare -x GSM_SKIP_SSH_AGENT_WORKAROUND="true"
@@ -580,14 +580,14 @@ declare -x LOGNAME="mdusunen"
 declare -x LS_COLORS="rs=0:di=01;34:ln=01;36:mh=00:pi=40;33:so=01;35:do=01;35:bd=40;33;01:cd=40;33;01:or=40;31;01:mi=00:su=37;41:sg=30;43:ca=00:tw=30;42:ow=34;42:st=37;44:ex=01;32:*.tar=01;31:*.tgz=01;31:*.arc=01;31:*.arj=01;31:*.taz=01;31:*.lha=01;31:*.lz4=01;31:*.lzh=01;31:*.lzma=01;31:*.tlz=01;31:*.txz=01;31:*.tzo=01;31:*.t7z=01;31:*.zip=01;31:*.z=01;31:*.dz=01;31:*.gz=01;31:*.lrz=01;31:*.lz=01;31:*.lzo=01;31:*.xz=01;31:*.zst=01;31:*.tzst=01;31:*.bz2=01;31:*.bz=01;31:*.tbz=01;31:*.tbz2=01;31:*.tz=01;31:*.deb=01;31:*.rpm=01;31:*.jar=01;31:*.war=01;31:*.ear=01;31:*.sar=01;31:*.rar=01;31:*.alz=01;31:*.ace=01;31:*.zoo=01;31:*.cpio=01;31:*.7z=01;31:*.rz=01;31:*.cab=01;31:*.wim=01;31:*.swm=01;31:*.dwm=01;31:*.esd=01;31:*.avif=01;35:*.jpg=01;35:*.jpeg=01;35:*.mjpg=01;35:*.mjpeg=01;35:*.gif=01;35:*.bmp=01;35:*.pbm=01;35:*.pgm=01;35:*.ppm=01;35:*.tga=01;35:*.xbm=01;35:*.xpm=01;35:*.tif=01;35:*.tiff=01;35:*.png=01;35:*.svg=01;35:*.svgz=01;35:*.mng=01;35:*.pcx=01;35:*.mov=01;35:*.mpg=01;35:*.mpeg=01;35:*.m2v=01;35:*.mkv=01;35:*.webm=01;35:*.webp=01;35:*.ogm=01;35:*.mp4=01;35:*.m4v=01;35:*.mp4v=01;35:*.vob=01;35:*.qt=01;35:*.nuv=01;35:*.wmv=01;35:*.asf=01;35:*.rm=01;35:*.rmvb=01;35:*.flc=01;35:*.avi=01;35:*.fli=01;35:*.flv=01;35:*.gl=01;35:*.dl=01;35:*.xcf=01;35:*.xwd=01;35:*.yuv=01;35:*.cgm=01;35:*.emf=01;35:*.ogv=01;35:*.ogx=01;35:*.aac=00;36:*.au=00;36:*.flac=00;36:*.m4a=00;36:*.mid=00;36:*.midi=00;36:*.mka=00;36:*.mp3=00;36:*.mpc=00;36:*.ogg=00;36:*.ra=00;36:*.wav=00;36:*.oga=00;36:*.opus=00;36:*.spx=00;36:*.xspf=00;36:*~=00;90:*#=00;90:*.bak=00;90:*.crdownload=00;90:*.dpkg-dist=00;90:*.dpkg-new=00;90:*.dpkg-old=00;90:*.dpkg-tmp=00;90:*.old=00;90:*.orig=00;90:*.part=00;90:*.rej=00;90:*.rpmnew=00;90:*.rpmorig=00;90:*.rpmsave=00;90:*.swp=00;90:*.tmp=00;90:*.ucf-dist=00;90:*.ucf-new=00;90:*.ucf-old=00;90:"
 declare -x MEMORY_PRESSURE_WATCH="/sys/fs/cgroup/user.slice/user-1000.slice/user@1000.service/session.slice/org.gnome.Shell@x11.service/memory.pressure"
 declare -x MEMORY_PRESSURE_WRITE="c29tZSAyMDAwMDAgMjAwMDAwMAA="
-declare -x OLDPWD="/home/mdusunen/Desktop/minishell/srcs/executor"
-declare -x PATH="/home/mdusunen/.local/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin:/snap/bin:/home/mdusunen/.local/bin:/home/mdusunen/.local/bin:/home/mdusunen/.venv/bin:/home/mdusunen/.venv/bin:/home/mdusunen/.venv/bin:/home/mdusunen/.venv/bin:/home/mdusunen/.venv/bin:/home/mdusunen/.venv/bin"
+declare -x OLDPWD="/home/mdusunen/Desktop/minishell/srcs"
+declare -x PATH="/home/mdusunen/.local/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin:/snap/bin:/home/mdusunen/.local/bin:/home/mdusunen/.local/bin:/home/mdusunen/.venv/bin:/home/mdusunen/.venv/bin:/home/mdusunen/.venv/bin:/home/mdusunen/.venv/bin:/home/mdusunen/.venv/bin:/home/mdusunen/.venv/bin:/home/mdusunen/.local/bin:/home/mdusunen/.venv/bin:/home/mdusunen/.venv/bin:/home/mdusunen/.venv/bin:/home/mdusunen/.venv/bin:/home/mdusunen/.venv/bin:/home/mdusunen/.venv/bin"
 declare -x PWD="/home/mdusunen/Desktop/minishell"
 declare -x QT_ACCESSIBILITY="1"
 declare -x QT_IM_MODULE="ibus"
 declare -x SESSION_MANAGER="local/mdusunen:@/tmp/.ICE-unix/2689,unix/mdusunen:/tmp/.ICE-unix/2689"
 declare -x SHELL="/bin/bash"
-declare -x SHLVL="3"
+declare -x SHLVL="4"
 declare -x SSH_AUTH_SOCK="/run/user/1000/keyring/ssh"
 declare -x SYSTEMD_EXEC_PID="2733"
 declare -x TERM="xterm-256color"
@@ -624,8 +624,8 @@ declare -x XMODIFIERS="@im=ibus"
 declare -x DESKTOP_SESSION="ubuntu"
 declare -x GTK_MODULES="gail:atk-bridge"
 declare -x PWD="/home/mdusunen/Desktop/minishell"
-declare -x XDG_SESSION_DESKTOP="ubuntu"
 declare -x LOGNAME="mdusunen"
+declare -x XDG_SESSION_DESKTOP="ubuntu"
 declare -x XDG_SESSION_TYPE="x11"
 declare -x GPG_AGENT_INFO="/run/user/1000/gnupg/S.gpg-agent:0:1"
 declare -x SYSTEMD_EXEC_PID="2733"
@@ -638,7 +638,7 @@ declare -x LS_COLORS="rs=0:di=01;34:ln=01;36:mh=00:pi=40;33:so=01;35:do=01;35:bd
 declare -x XDG_CURRENT_DESKTOP="ubuntu:GNOME"
 declare -x MEMORY_PRESSURE_WATCH="/sys/fs/cgroup/user.slice/user-1000.slice/user@1000.service/session.slice/org.gnome.Shell@x11.service/memory.pressure"
 declare -x VTE_VERSION="7600"
-declare -x GNOME_TERMINAL_SCREEN="/org/gnome/Terminal/screen/59962826_f54f_4bc8_87ab_42ce4eb6e1f1"
+declare -x GNOME_TERMINAL_SCREEN="/org/gnome/Terminal/screen/964b6049_38d8_43df_8a1f_c46bd3e8603d"
 declare -x LESSCLOSE="/usr/bin/lesspipe %s %s"
 declare -x XDG_SESSION_CLASS="user"
 declare -x TERM="xterm-256color"
@@ -647,16 +647,16 @@ declare -x USER="mdusunen"
 declare -x GNOME_TERMINAL_SERVICE=":1.273"
 declare -x CLUTTER_DISABLE_MIPMAPPED_TEXT="1"
 declare -x DISPLAY=":1"
-declare -x SHLVL="2"
+declare -x SHLVL="3"
 declare -x GSM_SKIP_SSH_AGENT_WORKAROUND="true"
 declare -x QT_IM_MODULE="ibus"
 declare -x XDG_RUNTIME_DIR="/run/user/1000"
 declare -x DEBUGINFOD_URLS="https://debuginfod.ubuntu.com "
 declare -x XDG_DATA_DIRS="/usr/share/ubuntu:/usr/share/gnome:/usr/local/share/:/usr/share/:/var/lib/snapd/desktop"
-declare -x PATH="/home/mdusunen/.local/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin:/snap/bin:/home/mdusunen/.local/bin:/home/mdusunen/.local/bin:/home/mdusunen/.venv/bin:/home/mdusunen/.venv/bin:/home/mdusunen/.venv/bin:/home/mdusunen/.venv/bin:/home/mdusunen/.venv/bin:/home/mdusunen/.venv/bin"
+declare -x PATH="/home/mdusunen/.local/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin:/snap/bin:/home/mdusunen/.local/bin:/home/mdusunen/.local/bin:/home/mdusunen/.venv/bin:/home/mdusunen/.venv/bin:/home/mdusunen/.venv/bin:/home/mdusunen/.venv/bin:/home/mdusunen/.venv/bin:/home/mdusunen/.venv/bin:/home/mdusunen/.local/bin:/home/mdusunen/.venv/bin:/home/mdusunen/.venv/bin:/home/mdusunen/.venv/bin:/home/mdusunen/.venv/bin:/home/mdusunen/.venv/bin:/home/mdusunen/.venv/bin"
 declare -x GDMSESSION="ubuntu"
 declare -x DBUS_SESSION_BUS_ADDRESS="unix:path=/run/user/1000/bus"
-declare -x OLDPWD="/home/mdusunen/Desktop/minishell/srcs/executor"
+declare -x OLDPWD="/home/mdusunen/Desktop/minishell/srcs"
 declare -x _="/usr/bin/timeout"
 [32mminishell[0m[33m$>[0m '
 MINISHELL CLEANED OUTPUT:
@@ -674,8 +674,8 @@ declare -x XMODIFIERS="@im=ibus"
 declare -x DESKTOP_SESSION="ubuntu"
 declare -x GTK_MODULES="gail:atk-bridge"
 declare -x PWD="/home/mdusunen/Desktop/minishell"
-declare -x XDG_SESSION_DESKTOP="ubuntu"
 declare -x LOGNAME="mdusunen"
+declare -x XDG_SESSION_DESKTOP="ubuntu"
 declare -x XDG_SESSION_TYPE="x11"
 declare -x GPG_AGENT_INFO="/run/user/1000/gnupg/S.gpg-agent:0:1"
 declare -x SYSTEMD_EXEC_PID="2733"
@@ -688,7 +688,7 @@ declare -x LS_COLORS="rs=0:di=01;34:ln=01;36:mh=00:pi=40;33:so=01;35:do=01;35:bd
 declare -x XDG_CURRENT_DESKTOP="ubuntu:GNOME"
 declare -x MEMORY_PRESSURE_WATCH="/sys/fs/cgroup/user.slice/user-1000.slice/user@1000.service/session.slice/org.gnome.Shell@x11.service/memory.pressure"
 declare -x VTE_VERSION="7600"
-declare -x GNOME_TERMINAL_SCREEN="/org/gnome/Terminal/screen/59962826_f54f_4bc8_87ab_42ce4eb6e1f1"
+declare -x GNOME_TERMINAL_SCREEN="/org/gnome/Terminal/screen/964b6049_38d8_43df_8a1f_c46bd3e8603d"
 declare -x LESSCLOSE="/usr/bin/lesspipe %s %s"
 declare -x XDG_SESSION_CLASS="user"
 declare -x TERM="xterm-256color"
@@ -697,16 +697,16 @@ declare -x USER="mdusunen"
 declare -x GNOME_TERMINAL_SERVICE=":1.273"
 declare -x CLUTTER_DISABLE_MIPMAPPED_TEXT="1"
 declare -x DISPLAY=":1"
-declare -x SHLVL="2"
+declare -x SHLVL="3"
 declare -x GSM_SKIP_SSH_AGENT_WORKAROUND="true"
 declare -x QT_IM_MODULE="ibus"
 declare -x XDG_RUNTIME_DIR="/run/user/1000"
 declare -x DEBUGINFOD_URLS="https://debuginfod.ubuntu.com "
 declare -x XDG_DATA_DIRS="/usr/share/ubuntu:/usr/share/gnome:/usr/local/share/:/usr/share/:/var/lib/snapd/desktop"
-declare -x PATH="/home/mdusunen/.local/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin:/snap/bin:/home/mdusunen/.local/bin:/home/mdusunen/.local/bin:/home/mdusunen/.venv/bin:/home/mdusunen/.venv/bin:/home/mdusunen/.venv/bin:/home/mdusunen/.venv/bin:/home/mdusunen/.venv/bin:/home/mdusunen/.venv/bin"
+declare -x PATH="/home/mdusunen/.local/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin:/snap/bin:/home/mdusunen/.local/bin:/home/mdusunen/.local/bin:/home/mdusunen/.venv/bin:/home/mdusunen/.venv/bin:/home/mdusunen/.venv/bin:/home/mdusunen/.venv/bin:/home/mdusunen/.venv/bin:/home/mdusunen/.venv/bin:/home/mdusunen/.local/bin:/home/mdusunen/.venv/bin:/home/mdusunen/.venv/bin:/home/mdusunen/.venv/bin:/home/mdusunen/.venv/bin:/home/mdusunen/.venv/bin:/home/mdusunen/.venv/bin"
 declare -x GDMSESSION="ubuntu"
 declare -x DBUS_SESSION_BUS_ADDRESS="unix:path=/run/user/1000/bus"
-declare -x OLDPWD="/home/mdusunen/Desktop/minishell/srcs/executor"
+declare -x OLDPWD="/home/mdusunen/Desktop/minishell/srcs"
 declare -x _="/usr/bin/timeout"'
 MINISHELL EXIT CODE: 0
 ======================================
@@ -726,7 +726,7 @@ MINISHELL EXIT CODE: 1
 
 === DIFFERENCE FOUND: cd - ===
 BASH OUTPUT:
-'/home/mdusunen/Desktop/minishell/srcs/executor'
+'/home/mdusunen/Desktop/minishell/srcs'
 BASH EXIT CODE: 0
 
 MINISHELL RAW OUTPUT:
