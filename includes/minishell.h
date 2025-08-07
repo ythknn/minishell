@@ -93,12 +93,12 @@ typedef struct s_command
 
 typedef struct s_lexer
 {
-	char	*input;
-	char	*processed;
-	int		*i;
-	int		*j;
-	int		in_quotes;
-	char	quote_char;
+	char				*input;
+	char				*processed;
+	int					*i;
+	int					*j;
+	int					in_quotes;
+	char				quote_char;
 }	t_lexer;
 
 typedef struct s_pipe_data
@@ -268,7 +268,5 @@ void		add_arg(t_command *cmd, char *arg);
 int			handle_redir_error(t_token *current_token, t_command *commands,
 				t_command *current_cmd);
 void		add_redir_to_command(t_command *cmd, t_redir *new_redir);
-
-
-char	*handle_multiple_heredocs(t_redir *heredocs);
+char		*handle_multiple_heredocs(t_redir *heredocs);
 #endif
