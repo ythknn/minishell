@@ -59,12 +59,35 @@ int	is_absolute_or_relative_path(char *cmd)
 	return (0);
 }
 
+static void	copy_strings_to_path(char *exec_path, char *dir, char *cmd)
+{
+	int	i;
+	int	dir_len;
+
+	i = 0;
+	dir_len = 0;
+	while (dir[dir_len])
+		dir_len++;
+	while (i < dir_len)
+	{
+		exec_path[i] = dir[i];
+		i++;
+	}
+	exec_path[i] = '/';
+	i++;
+	while (cmd[i - dir_len - 1])
+	{
+		exec_path[i] = cmd[i - dir_len - 1];
+		i++;
+	}
+	exec_path[i] = '\0';
+}
+
 char	*build_exec_path(char *dir, char *cmd)
 {
 	char	*exec_path;
 	int		dir_len;
 	int		cmd_len;
-	int		i;
 
 	if (!dir || !cmd || !*dir)
 		return (NULL);
@@ -77,19 +100,6 @@ char	*build_exec_path(char *dir, char *cmd)
 	exec_path = malloc(dir_len + cmd_len + 2);
 	if (!exec_path)
 		return (NULL);
-	i = 0;
-	while (i < dir_len)
-	{
-		exec_path[i] = dir[i];
-		i++;
-	}
-	exec_path[i] = '/';
-	i++;
-	while (i - dir_len - 1 < cmd_len)
-	{
-		exec_path[i] = cmd[i - dir_len - 1];
-		i++;
-	}
-	exec_path[i] = '\0';
+	copy_strings_to_path(exec_path, dir, cmd);
 	return (exec_path);
 }

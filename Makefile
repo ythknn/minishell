@@ -47,6 +47,7 @@ OBJ_DIR = obj
 
 # Source files
 SRCS = $(SRCS_DIR)/main.c \
+	   $(SRCS_DIR)/main_utils.c \
 	   $(SRCS_DIR)/prompt/prompt.c \
 	   $(SRCS_DIR)/prompt/history.c \
 	   $(SRCS_DIR)/parser/lexer.c \
