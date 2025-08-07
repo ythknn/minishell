@@ -1,0 +1,145 @@
+=== ENHANCED Minishell Leak Test & Bash Comparison (Ultimate Version) ===
+Test Başlangıcı: Thu Aug  7 03:13:50 AM +03 2025
+Comparison Mode: false
+
+=== Kategori: Temel Komutlar ===
+=== TEST 1: echo hello ===
+
+=== TEST 2: echo 123 456 789 ===
+
+=== TEST 3: pwd ===
+
+=== TEST 4: ls ===
+
+=== TEST 5: env ===
+
+=== TEST 6: /bin/ls ===
+
+=== TEST 7: /bin/echo test ===
+
+=== TEST 8: /bin/cat /etc/passwd ===
+
+=== TEST 9: whoami ===
+
+=== TEST 10: date ===
+
+=== TEST 11: echo test ===
+
+=== TEST 12: /bin/pwd ===
+
+=== TEST 13: ls -l ===
+
+=== TEST 14: /usr/bin/env ===
+
+=== Kategori: Arguments & History Tests ===
+=== TEST 15: /bin/ls -la ===
+
+=== TEST 16: /bin/echo hello world ===
+
+=== TEST 17: ls -l -a -h ===
+
+=== TEST 18: echo first second third ===
+
+=== TEST 19: /bin/cat /etc/hosts ===
+
+=== TEST 20: grep root /etc/passwd ===
+
+=== TEST 21: wc -l /etc/passwd ===
+
+=== TEST 22: /bin/ls -la -h -t ===
+
+=== TEST 23: echo arg1 arg2 arg3 arg4 arg5 ===
+
+=== TEST 24: /bin/echo multiple arguments here ===
+
+=== TEST 25: /bin/ls -l -a -h -t -r ===
+
+=== Kategori: Echo Command Tests ===
+=== TEST 26: echo ===
+
+=== TEST 27: echo hello ===
+
+=== TEST 28: echo -n hello ===
+
+=== TEST 29: echo hello world ===
+
+=== TEST 30: echo -n ===
+
+=== TEST 31: echo -n test ===
+
+=== TEST 32: echo multiple words here ===
+
+=== TEST 33: echo -n multiple args ===
+
+=== TEST 34: echo test with spaces ===
+
+=== TEST 35: echo $USER ===
+
+=== TEST 36: echo "" ===
+
+=== TEST 37: echo '' ===
+
+=== Kategori: Exit Command Tests ===
+=== TEST 38: exit ===
+
+=== TEST 39: exit 0 ===
+
+=== TEST 40: exit 1 ===
+
+=== TEST 41: exit 42 ===
+
+=== TEST 42: exit 255 ===
+
+=== TEST 43: exit -1 ===
+
+=== TEST 44: exit 256 ===
+
+=== TEST 45: exit abc ===
+
+=== TEST 46: exit 42 extra ===
+
+=== TEST 47: exit 999 ===
+
+=== TEST 48: exit -999 ===
+
+=== TEST 49: exit hello ===
+
+=== Kategori: Return Value Tests ===
+=== TEST 50: /bin/true ===
+
+=== TEST 51: /bin/false ===
+
+=== TEST 52: ls /nonexistent ===
+
+=== TEST 53: /bin/echo hello ===
+
+=== TEST 54: /bin/cat /nonexistent/file ===
+
+=== TEST 55: /nonexistent/command ===
+
+=== TEST 56: ls / ===
+
+=== TEST 57: expr $? = 0 ===
+
+=== TEST 58: expr $? + $? ===
+
+=== Kategori: Double Quote Tests ===
+=== TEST 59: echo "hello world" ===
+
+=== TEST 60: echo "cat lol.c | cat > lol.c" ===
+
+=== TEST 61: echo "test with spaces" ===
+
+=== TEST 62: echo "mix 'single' in double" ===
+
+=== TEST 63: echo "$HOME should expand" ===
+
+=== TEST 64: echo "whitespace   test" ===
+
+=== TEST 65: echo "" ===
+
+=== TEST 66: echo "multiple   spaces   here" ===
+
+=== TEST 67: echo "tab\ttest" ===
+
+=== TEST 68: echo "$USER and $HOME" ===

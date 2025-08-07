@@ -1,0 +1,1153 @@
+=== BASH COMPARISON REPORT ===
+Test Başlangıcı: Thu Aug  7 02:40:24 AM +03 2025
+
+=== DIFFERENCE FOUND: env ===
+BASH OUTPUT:
+'SHELL=/bin/bash
+SESSION_MANAGER=local/mdusunen:@/tmp/.ICE-unix/2689,unix/mdusunen:/tmp/.ICE-unix/2689
+QT_ACCESSIBILITY=1
+COLORTERM=truecolor
+XDG_CONFIG_DIRS=/etc/xdg/xdg-ubuntu:/etc/xdg
+XDG_MENU_PREFIX=gnome-
+GNOME_DESKTOP_SESSION_ID=this-is-deprecated
+GNOME_SHELL_SESSION_MODE=ubuntu
+SSH_AUTH_SOCK=/run/user/1000/keyring/ssh
+MEMORY_PRESSURE_WRITE=c29tZSAyMDAwMDAgMjAwMDAwMAA=
+XMODIFIERS=@im=ibus
+DESKTOP_SESSION=ubuntu
+GTK_MODULES=gail:atk-bridge
+PWD=/home/mdusunen/Desktop/minishell
+XDG_SESSION_DESKTOP=ubuntu
+LOGNAME=mdusunen
+XDG_SESSION_TYPE=x11
+GPG_AGENT_INFO=/run/user/1000/gnupg/S.gpg-agent:0:1
+SYSTEMD_EXEC_PID=2733
+_=/usr/bin/env
+XAUTHORITY=/run/user/1000/gdm/Xauthority
+WINDOWPATH=2
+HOME=/home/mdusunen
+USERNAME=mdusunen
+LANG=en_US.UTF-8
+LS_COLORS=rs=0:di=01;34:ln=01;36:mh=00:pi=40;33:so=01;35:do=01;35:bd=40;33;01:cd=40;33;01:or=40;31;01:mi=00:su=37;41:sg=30;43:ca=00:tw=30;42:ow=34;42:st=37;44:ex=01;32:*.tar=01;31:*.tgz=01;31:*.arc=01;31:*.arj=01;31:*.taz=01;31:*.lha=01;31:*.lz4=01;31:*.lzh=01;31:*.lzma=01;31:*.tlz=01;31:*.txz=01;31:*.tzo=01;31:*.t7z=01;31:*.zip=01;31:*.z=01;31:*.dz=01;31:*.gz=01;31:*.lrz=01;31:*.lz=01;31:*.lzo=01;31:*.xz=01;31:*.zst=01;31:*.tzst=01;31:*.bz2=01;31:*.bz=01;31:*.tbz=01;31:*.tbz2=01;31:*.tz=01;31:*.deb=01;31:*.rpm=01;31:*.jar=01;31:*.war=01;31:*.ear=01;31:*.sar=01;31:*.rar=01;31:*.alz=01;31:*.ace=01;31:*.zoo=01;31:*.cpio=01;31:*.7z=01;31:*.rz=01;31:*.cab=01;31:*.wim=01;31:*.swm=01;31:*.dwm=01;31:*.esd=01;31:*.avif=01;35:*.jpg=01;35:*.jpeg=01;35:*.mjpg=01;35:*.mjpeg=01;35:*.gif=01;35:*.bmp=01;35:*.pbm=01;35:*.pgm=01;35:*.ppm=01;35:*.tga=01;35:*.xbm=01;35:*.xpm=01;35:*.tif=01;35:*.tiff=01;35:*.png=01;35:*.svg=01;35:*.svgz=01;35:*.mng=01;35:*.pcx=01;35:*.mov=01;35:*.mpg=01;35:*.mpeg=01;35:*.m2v=01;35:*.mkv=01;35:*.webm=01;35:*.webp=01;35:*.ogm=01;35:*.mp4=01;35:*.m4v=01;35:*.mp4v=01;35:*.vob=01;35:*.qt=01;35:*.nuv=01;35:*.wmv=01;35:*.asf=01;35:*.rm=01;35:*.rmvb=01;35:*.flc=01;35:*.avi=01;35:*.fli=01;35:*.flv=01;35:*.gl=01;35:*.dl=01;35:*.xcf=01;35:*.xwd=01;35:*.yuv=01;35:*.cgm=01;35:*.emf=01;35:*.ogv=01;35:*.ogx=01;35:*.aac=00;36:*.au=00;36:*.flac=00;36:*.m4a=00;36:*.mid=00;36:*.midi=00;36:*.mka=00;36:*.mp3=00;36:*.mpc=00;36:*.ogg=00;36:*.ra=00;36:*.wav=00;36:*.oga=00;36:*.opus=00;36:*.spx=00;36:*.xspf=00;36:*~=00;90:*#=00;90:*.bak=00;90:*.crdownload=00;90:*.dpkg-dist=00;90:*.dpkg-new=00;90:*.dpkg-old=00;90:*.dpkg-tmp=00;90:*.old=00;90:*.orig=00;90:*.part=00;90:*.rej=00;90:*.rpmnew=00;90:*.rpmorig=00;90:*.rpmsave=00;90:*.swp=00;90:*.tmp=00;90:*.ucf-dist=00;90:*.ucf-new=00;90:*.ucf-old=00;90:
+XDG_CURRENT_DESKTOP=ubuntu:GNOME
+MEMORY_PRESSURE_WATCH=/sys/fs/cgroup/user.slice/user-1000.slice/user@1000.service/session.slice/org.gnome.Shell@x11.service/memory.pressure
+VTE_VERSION=7600
+GNOME_TERMINAL_SCREEN=/org/gnome/Terminal/screen/964b6049_38d8_43df_8a1f_c46bd3e8603d
+LESSCLOSE=/usr/bin/lesspipe %s %s
+XDG_SESSION_CLASS=user
+TERM=xterm-256color
+LESSOPEN=| /usr/bin/lesspipe %s
+USER=mdusunen
+GNOME_TERMINAL_SERVICE=:1.273
+CLUTTER_DISABLE_MIPMAPPED_TEXT=1
+DISPLAY=:1
+SHLVL=4
+GSM_SKIP_SSH_AGENT_WORKAROUND=true
+QT_IM_MODULE=ibus
+XDG_RUNTIME_DIR=/run/user/1000
+DEBUGINFOD_URLS=https://debuginfod.ubuntu.com 
+XDG_DATA_DIRS=/usr/share/ubuntu:/usr/share/gnome:/usr/local/share/:/usr/share/:/var/lib/snapd/desktop
+PATH=/home/mdusunen/.local/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin:/snap/bin:/home/mdusunen/.local/bin:/home/mdusunen/.local/bin:/home/mdusunen/.venv/bin:/home/mdusunen/.venv/bin:/home/mdusunen/.venv/bin:/home/mdusunen/.venv/bin:/home/mdusunen/.venv/bin:/home/mdusunen/.venv/bin:/home/mdusunen/.local/bin:/home/mdusunen/.venv/bin:/home/mdusunen/.venv/bin:/home/mdusunen/.venv/bin:/home/mdusunen/.venv/bin:/home/mdusunen/.venv/bin:/home/mdusunen/.venv/bin
+GDMSESSION=ubuntu
+DBUS_SESSION_BUS_ADDRESS=unix:path=/run/user/1000/bus
+OLDPWD=/home/mdusunen/Desktop/minishell/srcs'
+BASH EXIT CODE: 0
+
+MINISHELL RAW OUTPUT:
+'[32mminishell[0m[33m$>[0m env
+SHELL=/bin/bash
+SESSION_MANAGER=local/mdusunen:@/tmp/.ICE-unix/2689,unix/mdusunen:/tmp/.ICE-unix/2689
+QT_ACCESSIBILITY=1
+COLORTERM=truecolor
+XDG_CONFIG_DIRS=/etc/xdg/xdg-ubuntu:/etc/xdg
+XDG_MENU_PREFIX=gnome-
+GNOME_DESKTOP_SESSION_ID=this-is-deprecated
+GNOME_SHELL_SESSION_MODE=ubuntu
+SSH_AUTH_SOCK=/run/user/1000/keyring/ssh
+MEMORY_PRESSURE_WRITE=c29tZSAyMDAwMDAgMjAwMDAwMAA=
+XMODIFIERS=@im=ibus
+DESKTOP_SESSION=ubuntu
+GTK_MODULES=gail:atk-bridge
+PWD=/home/mdusunen/Desktop/minishell
+LOGNAME=mdusunen
+XDG_SESSION_DESKTOP=ubuntu
+XDG_SESSION_TYPE=x11
+GPG_AGENT_INFO=/run/user/1000/gnupg/S.gpg-agent:0:1
+SYSTEMD_EXEC_PID=2733
+XAUTHORITY=/run/user/1000/gdm/Xauthority
+WINDOWPATH=2
+HOME=/home/mdusunen
+USERNAME=mdusunen
+LANG=en_US.UTF-8
+LS_COLORS=rs=0:di=01;34:ln=01;36:mh=00:pi=40;33:so=01;35:do=01;35:bd=40;33;01:cd=40;33;01:or=40;31;01:mi=00:su=37;41:sg=30;43:ca=00:tw=30;42:ow=34;42:st=37;44:ex=01;32:*.tar=01;31:*.tgz=01;31:*.arc=01;31:*.arj=01;31:*.taz=01;31:*.lha=01;31:*.lz4=01;31:*.lzh=01;31:*.lzma=01;31:*.tlz=01;31:*.txz=01;31:*.tzo=01;31:*.t7z=01;31:*.zip=01;31:*.z=01;31:*.dz=01;31:*.gz=01;31:*.lrz=01;31:*.lz=01;31:*.lzo=01;31:*.xz=01;31:*.zst=01;31:*.tzst=01;31:*.bz2=01;31:*.bz=01;31:*.tbz=01;31:*.tbz2=01;31:*.tz=01;31:*.deb=01;31:*.rpm=01;31:*.jar=01;31:*.war=01;31:*.ear=01;31:*.sar=01;31:*.rar=01;31:*.alz=01;31:*.ace=01;31:*.zoo=01;31:*.cpio=01;31:*.7z=01;31:*.rz=01;31:*.cab=01;31:*.wim=01;31:*.swm=01;31:*.dwm=01;31:*.esd=01;31:*.avif=01;35:*.jpg=01;35:*.jpeg=01;35:*.mjpg=01;35:*.mjpeg=01;35:*.gif=01;35:*.bmp=01;35:*.pbm=01;35:*.pgm=01;35:*.ppm=01;35:*.tga=01;35:*.xbm=01;35:*.xpm=01;35:*.tif=01;35:*.tiff=01;35:*.png=01;35:*.svg=01;35:*.svgz=01;35:*.mng=01;35:*.pcx=01;35:*.mov=01;35:*.mpg=01;35:*.mpeg=01;35:*.m2v=01;35:*.mkv=01;35:*.webm=01;35:*.webp=01;35:*.ogm=01;35:*.mp4=01;35:*.m4v=01;35:*.mp4v=01;35:*.vob=01;35:*.qt=01;35:*.nuv=01;35:*.wmv=01;35:*.asf=01;35:*.rm=01;35:*.rmvb=01;35:*.flc=01;35:*.avi=01;35:*.fli=01;35:*.flv=01;35:*.gl=01;35:*.dl=01;35:*.xcf=01;35:*.xwd=01;35:*.yuv=01;35:*.cgm=01;35:*.emf=01;35:*.ogv=01;35:*.ogx=01;35:*.aac=00;36:*.au=00;36:*.flac=00;36:*.m4a=00;36:*.mid=00;36:*.midi=00;36:*.mka=00;36:*.mp3=00;36:*.mpc=00;36:*.ogg=00;36:*.ra=00;36:*.wav=00;36:*.oga=00;36:*.opus=00;36:*.spx=00;36:*.xspf=00;36:*~=00;90:*#=00;90:*.bak=00;90:*.crdownload=00;90:*.dpkg-dist=00;90:*.dpkg-new=00;90:*.dpkg-old=00;90:*.dpkg-tmp=00;90:*.old=00;90:*.orig=00;90:*.part=00;90:*.rej=00;90:*.rpmnew=00;90:*.rpmorig=00;90:*.rpmsave=00;90:*.swp=00;90:*.tmp=00;90:*.ucf-dist=00;90:*.ucf-new=00;90:*.ucf-old=00;90:
+XDG_CURRENT_DESKTOP=ubuntu:GNOME
+MEMORY_PRESSURE_WATCH=/sys/fs/cgroup/user.slice/user-1000.slice/user@1000.service/session.slice/org.gnome.Shell@x11.service/memory.pressure
+VTE_VERSION=7600
+GNOME_TERMINAL_SCREEN=/org/gnome/Terminal/screen/964b6049_38d8_43df_8a1f_c46bd3e8603d
+LESSCLOSE=/usr/bin/lesspipe %s %s
+XDG_SESSION_CLASS=user
+TERM=xterm-256color
+LESSOPEN=| /usr/bin/lesspipe %s
+USER=mdusunen
+GNOME_TERMINAL_SERVICE=:1.273
+CLUTTER_DISABLE_MIPMAPPED_TEXT=1
+DISPLAY=:1
+SHLVL=3
+GSM_SKIP_SSH_AGENT_WORKAROUND=true
+QT_IM_MODULE=ibus
+XDG_RUNTIME_DIR=/run/user/1000
+DEBUGINFOD_URLS=https://debuginfod.ubuntu.com 
+XDG_DATA_DIRS=/usr/share/ubuntu:/usr/share/gnome:/usr/local/share/:/usr/share/:/var/lib/snapd/desktop
+PATH=/home/mdusunen/.local/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin:/snap/bin:/home/mdusunen/.local/bin:/home/mdusunen/.local/bin:/home/mdusunen/.venv/bin:/home/mdusunen/.venv/bin:/home/mdusunen/.venv/bin:/home/mdusunen/.venv/bin:/home/mdusunen/.venv/bin:/home/mdusunen/.venv/bin:/home/mdusunen/.local/bin:/home/mdusunen/.venv/bin:/home/mdusunen/.venv/bin:/home/mdusunen/.venv/bin:/home/mdusunen/.venv/bin:/home/mdusunen/.venv/bin:/home/mdusunen/.venv/bin
+GDMSESSION=ubuntu
+DBUS_SESSION_BUS_ADDRESS=unix:path=/run/user/1000/bus
+OLDPWD=/home/mdusunen/Desktop/minishell/srcs
+_=/usr/bin/timeout
+[32mminishell[0m[33m$>[0m '
+MINISHELL CLEANED OUTPUT:
+'SHELL=/bin/bash
+SESSION_MANAGER=local/mdusunen:@/tmp/.ICE-unix/2689,unix/mdusunen:/tmp/.ICE-unix/2689
+QT_ACCESSIBILITY=1
+COLORTERM=truecolor
+XDG_CONFIG_DIRS=/etc/xdg/xdg-ubuntu:/etc/xdg
+XDG_MENU_PREFIX=gnome-
+GNOME_DESKTOP_SESSION_ID=this-is-deprecated
+GNOME_SHELL_SESSION_MODE=ubuntu
+SSH_AUTH_SOCK=/run/user/1000/keyring/ssh
+MEMORY_PRESSURE_WRITE=c29tZSAyMDAwMDAgMjAwMDAwMAA=
+XMODIFIERS=@im=ibus
+DESKTOP_SESSION=ubuntu
+GTK_MODULES=gail:atk-bridge
+PWD=/home/mdusunen/Desktop/minishell
+LOGNAME=mdusunen
+XDG_SESSION_DESKTOP=ubuntu
+XDG_SESSION_TYPE=x11
+GPG_AGENT_INFO=/run/user/1000/gnupg/S.gpg-agent:0:1
+SYSTEMD_EXEC_PID=2733
+XAUTHORITY=/run/user/1000/gdm/Xauthority
+WINDOWPATH=2
+HOME=/home/mdusunen
+USERNAME=mdusunen
+LANG=en_US.UTF-8
+LS_COLORS=rs=0:di=01;34:ln=01;36:mh=00:pi=40;33:so=01;35:do=01;35:bd=40;33;01:cd=40;33;01:or=40;31;01:mi=00:su=37;41:sg=30;43:ca=00:tw=30;42:ow=34;42:st=37;44:ex=01;32:*.tar=01;31:*.tgz=01;31:*.arc=01;31:*.arj=01;31:*.taz=01;31:*.lha=01;31:*.lz4=01;31:*.lzh=01;31:*.lzma=01;31:*.tlz=01;31:*.txz=01;31:*.tzo=01;31:*.t7z=01;31:*.zip=01;31:*.z=01;31:*.dz=01;31:*.gz=01;31:*.lrz=01;31:*.lz=01;31:*.lzo=01;31:*.xz=01;31:*.zst=01;31:*.tzst=01;31:*.bz2=01;31:*.bz=01;31:*.tbz=01;31:*.tbz2=01;31:*.tz=01;31:*.deb=01;31:*.rpm=01;31:*.jar=01;31:*.war=01;31:*.ear=01;31:*.sar=01;31:*.rar=01;31:*.alz=01;31:*.ace=01;31:*.zoo=01;31:*.cpio=01;31:*.7z=01;31:*.rz=01;31:*.cab=01;31:*.wim=01;31:*.swm=01;31:*.dwm=01;31:*.esd=01;31:*.avif=01;35:*.jpg=01;35:*.jpeg=01;35:*.mjpg=01;35:*.mjpeg=01;35:*.gif=01;35:*.bmp=01;35:*.pbm=01;35:*.pgm=01;35:*.ppm=01;35:*.tga=01;35:*.xbm=01;35:*.xpm=01;35:*.tif=01;35:*.tiff=01;35:*.png=01;35:*.svg=01;35:*.svgz=01;35:*.mng=01;35:*.pcx=01;35:*.mov=01;35:*.mpg=01;35:*.mpeg=01;35:*.m2v=01;35:*.mkv=01;35:*.webm=01;35:*.webp=01;35:*.ogm=01;35:*.mp4=01;35:*.m4v=01;35:*.mp4v=01;35:*.vob=01;35:*.qt=01;35:*.nuv=01;35:*.wmv=01;35:*.asf=01;35:*.rm=01;35:*.rmvb=01;35:*.flc=01;35:*.avi=01;35:*.fli=01;35:*.flv=01;35:*.gl=01;35:*.dl=01;35:*.xcf=01;35:*.xwd=01;35:*.yuv=01;35:*.cgm=01;35:*.emf=01;35:*.ogv=01;35:*.ogx=01;35:*.aac=00;36:*.au=00;36:*.flac=00;36:*.m4a=00;36:*.mid=00;36:*.midi=00;36:*.mka=00;36:*.mp3=00;36:*.mpc=00;36:*.ogg=00;36:*.ra=00;36:*.wav=00;36:*.oga=00;36:*.opus=00;36:*.spx=00;36:*.xspf=00;36:*~=00;90:*#=00;90:*.bak=00;90:*.crdownload=00;90:*.dpkg-dist=00;90:*.dpkg-new=00;90:*.dpkg-old=00;90:*.dpkg-tmp=00;90:*.old=00;90:*.orig=00;90:*.part=00;90:*.rej=00;90:*.rpmnew=00;90:*.rpmorig=00;90:*.rpmsave=00;90:*.swp=00;90:*.tmp=00;90:*.ucf-dist=00;90:*.ucf-new=00;90:*.ucf-old=00;90:
+XDG_CURRENT_DESKTOP=ubuntu:GNOME
+MEMORY_PRESSURE_WATCH=/sys/fs/cgroup/user.slice/user-1000.slice/user@1000.service/session.slice/org.gnome.Shell@x11.service/memory.pressure
+VTE_VERSION=7600
+GNOME_TERMINAL_SCREEN=/org/gnome/Terminal/screen/964b6049_38d8_43df_8a1f_c46bd3e8603d
+LESSCLOSE=/usr/bin/lesspipe %s %s
+XDG_SESSION_CLASS=user
+TERM=xterm-256color
+LESSOPEN=| /usr/bin/lesspipe %s
+USER=mdusunen
+GNOME_TERMINAL_SERVICE=:1.273
+CLUTTER_DISABLE_MIPMAPPED_TEXT=1
+DISPLAY=:1
+SHLVL=3
+GSM_SKIP_SSH_AGENT_WORKAROUND=true
+QT_IM_MODULE=ibus
+XDG_RUNTIME_DIR=/run/user/1000
+DEBUGINFOD_URLS=https://debuginfod.ubuntu.com
+XDG_DATA_DIRS=/usr/share/ubuntu:/usr/share/gnome:/usr/local/share/:/usr/share/:/var/lib/snapd/desktop
+PATH=/home/mdusunen/.local/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin:/snap/bin:/home/mdusunen/.local/bin:/home/mdusunen/.local/bin:/home/mdusunen/.venv/bin:/home/mdusunen/.venv/bin:/home/mdusunen/.venv/bin:/home/mdusunen/.venv/bin:/home/mdusunen/.venv/bin:/home/mdusunen/.venv/bin:/home/mdusunen/.local/bin:/home/mdusunen/.venv/bin:/home/mdusunen/.venv/bin:/home/mdusunen/.venv/bin:/home/mdusunen/.venv/bin:/home/mdusunen/.venv/bin:/home/mdusunen/.venv/bin
+GDMSESSION=ubuntu
+DBUS_SESSION_BUS_ADDRESS=unix:path=/run/user/1000/bus
+OLDPWD=/home/mdusunen/Desktop/minishell/srcs
+_=/usr/bin/timeout'
+MINISHELL EXIT CODE: 0
+======================================
+
+=== DIFFERENCE FOUND: /usr/bin/env ===
+BASH OUTPUT:
+'SHELL=/bin/bash
+SESSION_MANAGER=local/mdusunen:@/tmp/.ICE-unix/2689,unix/mdusunen:/tmp/.ICE-unix/2689
+QT_ACCESSIBILITY=1
+COLORTERM=truecolor
+XDG_CONFIG_DIRS=/etc/xdg/xdg-ubuntu:/etc/xdg
+XDG_MENU_PREFIX=gnome-
+GNOME_DESKTOP_SESSION_ID=this-is-deprecated
+GNOME_SHELL_SESSION_MODE=ubuntu
+SSH_AUTH_SOCK=/run/user/1000/keyring/ssh
+MEMORY_PRESSURE_WRITE=c29tZSAyMDAwMDAgMjAwMDAwMAA=
+XMODIFIERS=@im=ibus
+DESKTOP_SESSION=ubuntu
+GTK_MODULES=gail:atk-bridge
+PWD=/home/mdusunen/Desktop/minishell
+XDG_SESSION_DESKTOP=ubuntu
+LOGNAME=mdusunen
+XDG_SESSION_TYPE=x11
+GPG_AGENT_INFO=/run/user/1000/gnupg/S.gpg-agent:0:1
+SYSTEMD_EXEC_PID=2733
+_=/usr/bin/env
+XAUTHORITY=/run/user/1000/gdm/Xauthority
+WINDOWPATH=2
+HOME=/home/mdusunen
+USERNAME=mdusunen
+LANG=en_US.UTF-8
+LS_COLORS=rs=0:di=01;34:ln=01;36:mh=00:pi=40;33:so=01;35:do=01;35:bd=40;33;01:cd=40;33;01:or=40;31;01:mi=00:su=37;41:sg=30;43:ca=00:tw=30;42:ow=34;42:st=37;44:ex=01;32:*.tar=01;31:*.tgz=01;31:*.arc=01;31:*.arj=01;31:*.taz=01;31:*.lha=01;31:*.lz4=01;31:*.lzh=01;31:*.lzma=01;31:*.tlz=01;31:*.txz=01;31:*.tzo=01;31:*.t7z=01;31:*.zip=01;31:*.z=01;31:*.dz=01;31:*.gz=01;31:*.lrz=01;31:*.lz=01;31:*.lzo=01;31:*.xz=01;31:*.zst=01;31:*.tzst=01;31:*.bz2=01;31:*.bz=01;31:*.tbz=01;31:*.tbz2=01;31:*.tz=01;31:*.deb=01;31:*.rpm=01;31:*.jar=01;31:*.war=01;31:*.ear=01;31:*.sar=01;31:*.rar=01;31:*.alz=01;31:*.ace=01;31:*.zoo=01;31:*.cpio=01;31:*.7z=01;31:*.rz=01;31:*.cab=01;31:*.wim=01;31:*.swm=01;31:*.dwm=01;31:*.esd=01;31:*.avif=01;35:*.jpg=01;35:*.jpeg=01;35:*.mjpg=01;35:*.mjpeg=01;35:*.gif=01;35:*.bmp=01;35:*.pbm=01;35:*.pgm=01;35:*.ppm=01;35:*.tga=01;35:*.xbm=01;35:*.xpm=01;35:*.tif=01;35:*.tiff=01;35:*.png=01;35:*.svg=01;35:*.svgz=01;35:*.mng=01;35:*.pcx=01;35:*.mov=01;35:*.mpg=01;35:*.mpeg=01;35:*.m2v=01;35:*.mkv=01;35:*.webm=01;35:*.webp=01;35:*.ogm=01;35:*.mp4=01;35:*.m4v=01;35:*.mp4v=01;35:*.vob=01;35:*.qt=01;35:*.nuv=01;35:*.wmv=01;35:*.asf=01;35:*.rm=01;35:*.rmvb=01;35:*.flc=01;35:*.avi=01;35:*.fli=01;35:*.flv=01;35:*.gl=01;35:*.dl=01;35:*.xcf=01;35:*.xwd=01;35:*.yuv=01;35:*.cgm=01;35:*.emf=01;35:*.ogv=01;35:*.ogx=01;35:*.aac=00;36:*.au=00;36:*.flac=00;36:*.m4a=00;36:*.mid=00;36:*.midi=00;36:*.mka=00;36:*.mp3=00;36:*.mpc=00;36:*.ogg=00;36:*.ra=00;36:*.wav=00;36:*.oga=00;36:*.opus=00;36:*.spx=00;36:*.xspf=00;36:*~=00;90:*#=00;90:*.bak=00;90:*.crdownload=00;90:*.dpkg-dist=00;90:*.dpkg-new=00;90:*.dpkg-old=00;90:*.dpkg-tmp=00;90:*.old=00;90:*.orig=00;90:*.part=00;90:*.rej=00;90:*.rpmnew=00;90:*.rpmorig=00;90:*.rpmsave=00;90:*.swp=00;90:*.tmp=00;90:*.ucf-dist=00;90:*.ucf-new=00;90:*.ucf-old=00;90:
+XDG_CURRENT_DESKTOP=ubuntu:GNOME
+MEMORY_PRESSURE_WATCH=/sys/fs/cgroup/user.slice/user-1000.slice/user@1000.service/session.slice/org.gnome.Shell@x11.service/memory.pressure
+VTE_VERSION=7600
+GNOME_TERMINAL_SCREEN=/org/gnome/Terminal/screen/964b6049_38d8_43df_8a1f_c46bd3e8603d
+LESSCLOSE=/usr/bin/lesspipe %s %s
+XDG_SESSION_CLASS=user
+TERM=xterm-256color
+LESSOPEN=| /usr/bin/lesspipe %s
+USER=mdusunen
+GNOME_TERMINAL_SERVICE=:1.273
+CLUTTER_DISABLE_MIPMAPPED_TEXT=1
+DISPLAY=:1
+SHLVL=4
+GSM_SKIP_SSH_AGENT_WORKAROUND=true
+QT_IM_MODULE=ibus
+XDG_RUNTIME_DIR=/run/user/1000
+DEBUGINFOD_URLS=https://debuginfod.ubuntu.com 
+XDG_DATA_DIRS=/usr/share/ubuntu:/usr/share/gnome:/usr/local/share/:/usr/share/:/var/lib/snapd/desktop
+PATH=/home/mdusunen/.local/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin:/snap/bin:/home/mdusunen/.local/bin:/home/mdusunen/.local/bin:/home/mdusunen/.venv/bin:/home/mdusunen/.venv/bin:/home/mdusunen/.venv/bin:/home/mdusunen/.venv/bin:/home/mdusunen/.venv/bin:/home/mdusunen/.venv/bin:/home/mdusunen/.local/bin:/home/mdusunen/.venv/bin:/home/mdusunen/.venv/bin:/home/mdusunen/.venv/bin:/home/mdusunen/.venv/bin:/home/mdusunen/.venv/bin:/home/mdusunen/.venv/bin
+GDMSESSION=ubuntu
+DBUS_SESSION_BUS_ADDRESS=unix:path=/run/user/1000/bus
+OLDPWD=/home/mdusunen/Desktop/minishell/srcs'
+BASH EXIT CODE: 0
+
+MINISHELL RAW OUTPUT:
+'[32mminishell[0m[33m$>[0m /usr/bin/env
+SHELL=/bin/bash
+SESSION_MANAGER=local/mdusunen:@/tmp/.ICE-unix/2689,unix/mdusunen:/tmp/.ICE-unix/2689
+QT_ACCESSIBILITY=1
+COLORTERM=truecolor
+XDG_CONFIG_DIRS=/etc/xdg/xdg-ubuntu:/etc/xdg
+XDG_MENU_PREFIX=gnome-
+GNOME_DESKTOP_SESSION_ID=this-is-deprecated
+GNOME_SHELL_SESSION_MODE=ubuntu
+SSH_AUTH_SOCK=/run/user/1000/keyring/ssh
+MEMORY_PRESSURE_WRITE=c29tZSAyMDAwMDAgMjAwMDAwMAA=
+XMODIFIERS=@im=ibus
+DESKTOP_SESSION=ubuntu
+GTK_MODULES=gail:atk-bridge
+PWD=/home/mdusunen/Desktop/minishell
+LOGNAME=mdusunen
+XDG_SESSION_DESKTOP=ubuntu
+XDG_SESSION_TYPE=x11
+GPG_AGENT_INFO=/run/user/1000/gnupg/S.gpg-agent:0:1
+SYSTEMD_EXEC_PID=2733
+XAUTHORITY=/run/user/1000/gdm/Xauthority
+WINDOWPATH=2
+HOME=/home/mdusunen
+USERNAME=mdusunen
+LANG=en_US.UTF-8
+LS_COLORS=rs=0:di=01;34:ln=01;36:mh=00:pi=40;33:so=01;35:do=01;35:bd=40;33;01:cd=40;33;01:or=40;31;01:mi=00:su=37;41:sg=30;43:ca=00:tw=30;42:ow=34;42:st=37;44:ex=01;32:*.tar=01;31:*.tgz=01;31:*.arc=01;31:*.arj=01;31:*.taz=01;31:*.lha=01;31:*.lz4=01;31:*.lzh=01;31:*.lzma=01;31:*.tlz=01;31:*.txz=01;31:*.tzo=01;31:*.t7z=01;31:*.zip=01;31:*.z=01;31:*.dz=01;31:*.gz=01;31:*.lrz=01;31:*.lz=01;31:*.lzo=01;31:*.xz=01;31:*.zst=01;31:*.tzst=01;31:*.bz2=01;31:*.bz=01;31:*.tbz=01;31:*.tbz2=01;31:*.tz=01;31:*.deb=01;31:*.rpm=01;31:*.jar=01;31:*.war=01;31:*.ear=01;31:*.sar=01;31:*.rar=01;31:*.alz=01;31:*.ace=01;31:*.zoo=01;31:*.cpio=01;31:*.7z=01;31:*.rz=01;31:*.cab=01;31:*.wim=01;31:*.swm=01;31:*.dwm=01;31:*.esd=01;31:*.avif=01;35:*.jpg=01;35:*.jpeg=01;35:*.mjpg=01;35:*.mjpeg=01;35:*.gif=01;35:*.bmp=01;35:*.pbm=01;35:*.pgm=01;35:*.ppm=01;35:*.tga=01;35:*.xbm=01;35:*.xpm=01;35:*.tif=01;35:*.tiff=01;35:*.png=01;35:*.svg=01;35:*.svgz=01;35:*.mng=01;35:*.pcx=01;35:*.mov=01;35:*.mpg=01;35:*.mpeg=01;35:*.m2v=01;35:*.mkv=01;35:*.webm=01;35:*.webp=01;35:*.ogm=01;35:*.mp4=01;35:*.m4v=01;35:*.mp4v=01;35:*.vob=01;35:*.qt=01;35:*.nuv=01;35:*.wmv=01;35:*.asf=01;35:*.rm=01;35:*.rmvb=01;35:*.flc=01;35:*.avi=01;35:*.fli=01;35:*.flv=01;35:*.gl=01;35:*.dl=01;35:*.xcf=01;35:*.xwd=01;35:*.yuv=01;35:*.cgm=01;35:*.emf=01;35:*.ogv=01;35:*.ogx=01;35:*.aac=00;36:*.au=00;36:*.flac=00;36:*.m4a=00;36:*.mid=00;36:*.midi=00;36:*.mka=00;36:*.mp3=00;36:*.mpc=00;36:*.ogg=00;36:*.ra=00;36:*.wav=00;36:*.oga=00;36:*.opus=00;36:*.spx=00;36:*.xspf=00;36:*~=00;90:*#=00;90:*.bak=00;90:*.crdownload=00;90:*.dpkg-dist=00;90:*.dpkg-new=00;90:*.dpkg-old=00;90:*.dpkg-tmp=00;90:*.old=00;90:*.orig=00;90:*.part=00;90:*.rej=00;90:*.rpmnew=00;90:*.rpmorig=00;90:*.rpmsave=00;90:*.swp=00;90:*.tmp=00;90:*.ucf-dist=00;90:*.ucf-new=00;90:*.ucf-old=00;90:
+XDG_CURRENT_DESKTOP=ubuntu:GNOME
+MEMORY_PRESSURE_WATCH=/sys/fs/cgroup/user.slice/user-1000.slice/user@1000.service/session.slice/org.gnome.Shell@x11.service/memory.pressure
+VTE_VERSION=7600
+GNOME_TERMINAL_SCREEN=/org/gnome/Terminal/screen/964b6049_38d8_43df_8a1f_c46bd3e8603d
+LESSCLOSE=/usr/bin/lesspipe %s %s
+XDG_SESSION_CLASS=user
+TERM=xterm-256color
+LESSOPEN=| /usr/bin/lesspipe %s
+USER=mdusunen
+GNOME_TERMINAL_SERVICE=:1.273
+CLUTTER_DISABLE_MIPMAPPED_TEXT=1
+DISPLAY=:1
+SHLVL=3
+GSM_SKIP_SSH_AGENT_WORKAROUND=true
+QT_IM_MODULE=ibus
+XDG_RUNTIME_DIR=/run/user/1000
+DEBUGINFOD_URLS=https://debuginfod.ubuntu.com 
+XDG_DATA_DIRS=/usr/share/ubuntu:/usr/share/gnome:/usr/local/share/:/usr/share/:/var/lib/snapd/desktop
+PATH=/home/mdusunen/.local/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin:/snap/bin:/home/mdusunen/.local/bin:/home/mdusunen/.local/bin:/home/mdusunen/.venv/bin:/home/mdusunen/.venv/bin:/home/mdusunen/.venv/bin:/home/mdusunen/.venv/bin:/home/mdusunen/.venv/bin:/home/mdusunen/.venv/bin:/home/mdusunen/.local/bin:/home/mdusunen/.venv/bin:/home/mdusunen/.venv/bin:/home/mdusunen/.venv/bin:/home/mdusunen/.venv/bin:/home/mdusunen/.venv/bin:/home/mdusunen/.venv/bin
+GDMSESSION=ubuntu
+DBUS_SESSION_BUS_ADDRESS=unix:path=/run/user/1000/bus
+OLDPWD=/home/mdusunen/Desktop/minishell/srcs
+_=/usr/bin/timeout
+[32mminishell[0m[33m$>[0m '
+MINISHELL CLEANED OUTPUT:
+'SHELL=/bin/bash
+SESSION_MANAGER=local/mdusunen:@/tmp/.ICE-unix/2689,unix/mdusunen:/tmp/.ICE-unix/2689
+QT_ACCESSIBILITY=1
+COLORTERM=truecolor
+XDG_CONFIG_DIRS=/etc/xdg/xdg-ubuntu:/etc/xdg
+XDG_MENU_PREFIX=gnome-
+GNOME_DESKTOP_SESSION_ID=this-is-deprecated
+GNOME_SHELL_SESSION_MODE=ubuntu
+SSH_AUTH_SOCK=/run/user/1000/keyring/ssh
+MEMORY_PRESSURE_WRITE=c29tZSAyMDAwMDAgMjAwMDAwMAA=
+XMODIFIERS=@im=ibus
+DESKTOP_SESSION=ubuntu
+GTK_MODULES=gail:atk-bridge
+PWD=/home/mdusunen/Desktop/minishell
+LOGNAME=mdusunen
+XDG_SESSION_DESKTOP=ubuntu
+XDG_SESSION_TYPE=x11
+GPG_AGENT_INFO=/run/user/1000/gnupg/S.gpg-agent:0:1
+SYSTEMD_EXEC_PID=2733
+XAUTHORITY=/run/user/1000/gdm/Xauthority
+WINDOWPATH=2
+HOME=/home/mdusunen
+USERNAME=mdusunen
+LANG=en_US.UTF-8
+LS_COLORS=rs=0:di=01;34:ln=01;36:mh=00:pi=40;33:so=01;35:do=01;35:bd=40;33;01:cd=40;33;01:or=40;31;01:mi=00:su=37;41:sg=30;43:ca=00:tw=30;42:ow=34;42:st=37;44:ex=01;32:*.tar=01;31:*.tgz=01;31:*.arc=01;31:*.arj=01;31:*.taz=01;31:*.lha=01;31:*.lz4=01;31:*.lzh=01;31:*.lzma=01;31:*.tlz=01;31:*.txz=01;31:*.tzo=01;31:*.t7z=01;31:*.zip=01;31:*.z=01;31:*.dz=01;31:*.gz=01;31:*.lrz=01;31:*.lz=01;31:*.lzo=01;31:*.xz=01;31:*.zst=01;31:*.tzst=01;31:*.bz2=01;31:*.bz=01;31:*.tbz=01;31:*.tbz2=01;31:*.tz=01;31:*.deb=01;31:*.rpm=01;31:*.jar=01;31:*.war=01;31:*.ear=01;31:*.sar=01;31:*.rar=01;31:*.alz=01;31:*.ace=01;31:*.zoo=01;31:*.cpio=01;31:*.7z=01;31:*.rz=01;31:*.cab=01;31:*.wim=01;31:*.swm=01;31:*.dwm=01;31:*.esd=01;31:*.avif=01;35:*.jpg=01;35:*.jpeg=01;35:*.mjpg=01;35:*.mjpeg=01;35:*.gif=01;35:*.bmp=01;35:*.pbm=01;35:*.pgm=01;35:*.ppm=01;35:*.tga=01;35:*.xbm=01;35:*.xpm=01;35:*.tif=01;35:*.tiff=01;35:*.png=01;35:*.svg=01;35:*.svgz=01;35:*.mng=01;35:*.pcx=01;35:*.mov=01;35:*.mpg=01;35:*.mpeg=01;35:*.m2v=01;35:*.mkv=01;35:*.webm=01;35:*.webp=01;35:*.ogm=01;35:*.mp4=01;35:*.m4v=01;35:*.mp4v=01;35:*.vob=01;35:*.qt=01;35:*.nuv=01;35:*.wmv=01;35:*.asf=01;35:*.rm=01;35:*.rmvb=01;35:*.flc=01;35:*.avi=01;35:*.fli=01;35:*.flv=01;35:*.gl=01;35:*.dl=01;35:*.xcf=01;35:*.xwd=01;35:*.yuv=01;35:*.cgm=01;35:*.emf=01;35:*.ogv=01;35:*.ogx=01;35:*.aac=00;36:*.au=00;36:*.flac=00;36:*.m4a=00;36:*.mid=00;36:*.midi=00;36:*.mka=00;36:*.mp3=00;36:*.mpc=00;36:*.ogg=00;36:*.ra=00;36:*.wav=00;36:*.oga=00;36:*.opus=00;36:*.spx=00;36:*.xspf=00;36:*~=00;90:*#=00;90:*.bak=00;90:*.crdownload=00;90:*.dpkg-dist=00;90:*.dpkg-new=00;90:*.dpkg-old=00;90:*.dpkg-tmp=00;90:*.old=00;90:*.orig=00;90:*.part=00;90:*.rej=00;90:*.rpmnew=00;90:*.rpmorig=00;90:*.rpmsave=00;90:*.swp=00;90:*.tmp=00;90:*.ucf-dist=00;90:*.ucf-new=00;90:*.ucf-old=00;90:
+XDG_CURRENT_DESKTOP=ubuntu:GNOME
+MEMORY_PRESSURE_WATCH=/sys/fs/cgroup/user.slice/user-1000.slice/user@1000.service/session.slice/org.gnome.Shell@x11.service/memory.pressure
+VTE_VERSION=7600
+GNOME_TERMINAL_SCREEN=/org/gnome/Terminal/screen/964b6049_38d8_43df_8a1f_c46bd3e8603d
+LESSCLOSE=/usr/bin/lesspipe %s %s
+XDG_SESSION_CLASS=user
+TERM=xterm-256color
+LESSOPEN=| /usr/bin/lesspipe %s
+USER=mdusunen
+GNOME_TERMINAL_SERVICE=:1.273
+CLUTTER_DISABLE_MIPMAPPED_TEXT=1
+DISPLAY=:1
+SHLVL=3
+GSM_SKIP_SSH_AGENT_WORKAROUND=true
+QT_IM_MODULE=ibus
+XDG_RUNTIME_DIR=/run/user/1000
+DEBUGINFOD_URLS=https://debuginfod.ubuntu.com
+XDG_DATA_DIRS=/usr/share/ubuntu:/usr/share/gnome:/usr/local/share/:/usr/share/:/var/lib/snapd/desktop
+PATH=/home/mdusunen/.local/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin:/snap/bin:/home/mdusunen/.local/bin:/home/mdusunen/.local/bin:/home/mdusunen/.venv/bin:/home/mdusunen/.venv/bin:/home/mdusunen/.venv/bin:/home/mdusunen/.venv/bin:/home/mdusunen/.venv/bin:/home/mdusunen/.venv/bin:/home/mdusunen/.local/bin:/home/mdusunen/.venv/bin:/home/mdusunen/.venv/bin:/home/mdusunen/.venv/bin:/home/mdusunen/.venv/bin:/home/mdusunen/.venv/bin:/home/mdusunen/.venv/bin
+GDMSESSION=ubuntu
+DBUS_SESSION_BUS_ADDRESS=unix:path=/run/user/1000/bus
+OLDPWD=/home/mdusunen/Desktop/minishell/srcs
+_=/usr/bin/timeout'
+MINISHELL EXIT CODE: 0
+======================================
+
+=== DIFFERENCE FOUND: /bin/cat /etc/hosts ===
+BASH OUTPUT:
+'127.0.0.1 localhost
+127.0.1.1 mdusunen-ABRA-A5-V15-2
+
+# The following lines are desirable for IPv6 capable hosts
+::1     ip6-localhost ip6-loopback
+fe00::0 ip6-localnet
+ff00::0 ip6-mcastprefix
+ff02::1 ip6-allnodes
+ff02::2 ip6-allrouters'
+BASH EXIT CODE: 0
+
+MINISHELL RAW OUTPUT:
+'[32mminishell[0m[33m$>[0m /bin/cat /etc/hosts
+127.0.0.1 localhost
+127.0.1.1 mdusunen-ABRA-A5-V15-2
+
+# The following lines are desirable for IPv6 capable hosts
+::1     ip6-localhost ip6-loopback
+fe00::0 ip6-localnet
+ff00::0 ip6-mcastprefix
+ff02::1 ip6-allnodes
+ff02::2 ip6-allrouters
+[32mminishell[0m[33m$>[0m '
+MINISHELL CLEANED OUTPUT:
+'127.0.0.1 localhost
+127.0.1.1 mdusunen-ABRA-A5-V15-2
+# The following lines are desirable for IPv6 capable hosts
+::1     ip6-localhost ip6-loopback
+fe00::0 ip6-localnet
+ff00::0 ip6-mcastprefix
+ff02::1 ip6-allnodes
+ff02::2 ip6-allrouters'
+MINISHELL EXIT CODE: 0
+======================================
+
+=== DIFFERENCE FOUND: echo -n hello ===
+BASH OUTPUT:
+'hello'
+BASH EXIT CODE: 0
+
+MINISHELL RAW OUTPUT:
+'[32mminishell[0m[33m$>[0m echo -n hello
+hello[32mminishell[0m[33m$>[0m '
+MINISHELL CLEANED OUTPUT:
+'hellominishell$>'
+MINISHELL EXIT CODE: 0
+======================================
+
+=== DIFFERENCE FOUND: echo -n test ===
+BASH OUTPUT:
+'test'
+BASH EXIT CODE: 0
+
+MINISHELL RAW OUTPUT:
+'[32mminishell[0m[33m$>[0m echo -n test
+test[32mminishell[0m[33m$>[0m '
+MINISHELL CLEANED OUTPUT:
+'testminishell$>'
+MINISHELL EXIT CODE: 0
+======================================
+
+=== DIFFERENCE FOUND: echo -n multiple args ===
+BASH OUTPUT:
+'multiple args'
+BASH EXIT CODE: 0
+
+MINISHELL RAW OUTPUT:
+'[32mminishell[0m[33m$>[0m echo -n multiple args
+multiple args[32mminishell[0m[33m$>[0m '
+MINISHELL CLEANED OUTPUT:
+'multiple argsminishell$>'
+MINISHELL EXIT CODE: 0
+======================================
+
+=== DIFFERENCE FOUND: echo "quotes inside \"nested\"" ===
+BASH OUTPUT:
+'quotes inside "nested"'
+BASH EXIT CODE: 0
+
+MINISHELL RAW OUTPUT:
+'[32mminishell[0m[33m$>[0m echo "quotes inside \"nested\""
+quotes inside \nested\
+[32mminishell[0m[33m$>[0m '
+MINISHELL CLEANED OUTPUT:
+'quotes inside \nested\'
+MINISHELL EXIT CODE: 0
+======================================
+
+=== DIFFERENCE FOUND: env ===
+BASH OUTPUT:
+'SHELL=/bin/bash
+SESSION_MANAGER=local/mdusunen:@/tmp/.ICE-unix/2689,unix/mdusunen:/tmp/.ICE-unix/2689
+QT_ACCESSIBILITY=1
+COLORTERM=truecolor
+XDG_CONFIG_DIRS=/etc/xdg/xdg-ubuntu:/etc/xdg
+XDG_MENU_PREFIX=gnome-
+GNOME_DESKTOP_SESSION_ID=this-is-deprecated
+GNOME_SHELL_SESSION_MODE=ubuntu
+SSH_AUTH_SOCK=/run/user/1000/keyring/ssh
+MEMORY_PRESSURE_WRITE=c29tZSAyMDAwMDAgMjAwMDAwMAA=
+XMODIFIERS=@im=ibus
+DESKTOP_SESSION=ubuntu
+GTK_MODULES=gail:atk-bridge
+PWD=/home/mdusunen/Desktop/minishell
+XDG_SESSION_DESKTOP=ubuntu
+LOGNAME=mdusunen
+XDG_SESSION_TYPE=x11
+GPG_AGENT_INFO=/run/user/1000/gnupg/S.gpg-agent:0:1
+SYSTEMD_EXEC_PID=2733
+_=/usr/bin/env
+XAUTHORITY=/run/user/1000/gdm/Xauthority
+WINDOWPATH=2
+HOME=/home/mdusunen
+USERNAME=mdusunen
+LANG=en_US.UTF-8
+LS_COLORS=rs=0:di=01;34:ln=01;36:mh=00:pi=40;33:so=01;35:do=01;35:bd=40;33;01:cd=40;33;01:or=40;31;01:mi=00:su=37;41:sg=30;43:ca=00:tw=30;42:ow=34;42:st=37;44:ex=01;32:*.tar=01;31:*.tgz=01;31:*.arc=01;31:*.arj=01;31:*.taz=01;31:*.lha=01;31:*.lz4=01;31:*.lzh=01;31:*.lzma=01;31:*.tlz=01;31:*.txz=01;31:*.tzo=01;31:*.t7z=01;31:*.zip=01;31:*.z=01;31:*.dz=01;31:*.gz=01;31:*.lrz=01;31:*.lz=01;31:*.lzo=01;31:*.xz=01;31:*.zst=01;31:*.tzst=01;31:*.bz2=01;31:*.bz=01;31:*.tbz=01;31:*.tbz2=01;31:*.tz=01;31:*.deb=01;31:*.rpm=01;31:*.jar=01;31:*.war=01;31:*.ear=01;31:*.sar=01;31:*.rar=01;31:*.alz=01;31:*.ace=01;31:*.zoo=01;31:*.cpio=01;31:*.7z=01;31:*.rz=01;31:*.cab=01;31:*.wim=01;31:*.swm=01;31:*.dwm=01;31:*.esd=01;31:*.avif=01;35:*.jpg=01;35:*.jpeg=01;35:*.mjpg=01;35:*.mjpeg=01;35:*.gif=01;35:*.bmp=01;35:*.pbm=01;35:*.pgm=01;35:*.ppm=01;35:*.tga=01;35:*.xbm=01;35:*.xpm=01;35:*.tif=01;35:*.tiff=01;35:*.png=01;35:*.svg=01;35:*.svgz=01;35:*.mng=01;35:*.pcx=01;35:*.mov=01;35:*.mpg=01;35:*.mpeg=01;35:*.m2v=01;35:*.mkv=01;35:*.webm=01;35:*.webp=01;35:*.ogm=01;35:*.mp4=01;35:*.m4v=01;35:*.mp4v=01;35:*.vob=01;35:*.qt=01;35:*.nuv=01;35:*.wmv=01;35:*.asf=01;35:*.rm=01;35:*.rmvb=01;35:*.flc=01;35:*.avi=01;35:*.fli=01;35:*.flv=01;35:*.gl=01;35:*.dl=01;35:*.xcf=01;35:*.xwd=01;35:*.yuv=01;35:*.cgm=01;35:*.emf=01;35:*.ogv=01;35:*.ogx=01;35:*.aac=00;36:*.au=00;36:*.flac=00;36:*.m4a=00;36:*.mid=00;36:*.midi=00;36:*.mka=00;36:*.mp3=00;36:*.mpc=00;36:*.ogg=00;36:*.ra=00;36:*.wav=00;36:*.oga=00;36:*.opus=00;36:*.spx=00;36:*.xspf=00;36:*~=00;90:*#=00;90:*.bak=00;90:*.crdownload=00;90:*.dpkg-dist=00;90:*.dpkg-new=00;90:*.dpkg-old=00;90:*.dpkg-tmp=00;90:*.old=00;90:*.orig=00;90:*.part=00;90:*.rej=00;90:*.rpmnew=00;90:*.rpmorig=00;90:*.rpmsave=00;90:*.swp=00;90:*.tmp=00;90:*.ucf-dist=00;90:*.ucf-new=00;90:*.ucf-old=00;90:
+XDG_CURRENT_DESKTOP=ubuntu:GNOME
+MEMORY_PRESSURE_WATCH=/sys/fs/cgroup/user.slice/user-1000.slice/user@1000.service/session.slice/org.gnome.Shell@x11.service/memory.pressure
+VTE_VERSION=7600
+GNOME_TERMINAL_SCREEN=/org/gnome/Terminal/screen/964b6049_38d8_43df_8a1f_c46bd3e8603d
+LESSCLOSE=/usr/bin/lesspipe %s %s
+XDG_SESSION_CLASS=user
+TERM=xterm-256color
+LESSOPEN=| /usr/bin/lesspipe %s
+USER=mdusunen
+GNOME_TERMINAL_SERVICE=:1.273
+CLUTTER_DISABLE_MIPMAPPED_TEXT=1
+DISPLAY=:1
+SHLVL=4
+GSM_SKIP_SSH_AGENT_WORKAROUND=true
+QT_IM_MODULE=ibus
+XDG_RUNTIME_DIR=/run/user/1000
+DEBUGINFOD_URLS=https://debuginfod.ubuntu.com 
+XDG_DATA_DIRS=/usr/share/ubuntu:/usr/share/gnome:/usr/local/share/:/usr/share/:/var/lib/snapd/desktop
+PATH=/home/mdusunen/.local/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin:/snap/bin:/home/mdusunen/.local/bin:/home/mdusunen/.local/bin:/home/mdusunen/.venv/bin:/home/mdusunen/.venv/bin:/home/mdusunen/.venv/bin:/home/mdusunen/.venv/bin:/home/mdusunen/.venv/bin:/home/mdusunen/.venv/bin:/home/mdusunen/.local/bin:/home/mdusunen/.venv/bin:/home/mdusunen/.venv/bin:/home/mdusunen/.venv/bin:/home/mdusunen/.venv/bin:/home/mdusunen/.venv/bin:/home/mdusunen/.venv/bin
+GDMSESSION=ubuntu
+DBUS_SESSION_BUS_ADDRESS=unix:path=/run/user/1000/bus
+OLDPWD=/home/mdusunen/Desktop/minishell/srcs'
+BASH EXIT CODE: 0
+
+MINISHELL RAW OUTPUT:
+'[32mminishell[0m[33m$>[0m env
+SHELL=/bin/bash
+SESSION_MANAGER=local/mdusunen:@/tmp/.ICE-unix/2689,unix/mdusunen:/tmp/.ICE-unix/2689
+QT_ACCESSIBILITY=1
+COLORTERM=truecolor
+XDG_CONFIG_DIRS=/etc/xdg/xdg-ubuntu:/etc/xdg
+XDG_MENU_PREFIX=gnome-
+GNOME_DESKTOP_SESSION_ID=this-is-deprecated
+GNOME_SHELL_SESSION_MODE=ubuntu
+SSH_AUTH_SOCK=/run/user/1000/keyring/ssh
+MEMORY_PRESSURE_WRITE=c29tZSAyMDAwMDAgMjAwMDAwMAA=
+XMODIFIERS=@im=ibus
+DESKTOP_SESSION=ubuntu
+GTK_MODULES=gail:atk-bridge
+PWD=/home/mdusunen/Desktop/minishell
+LOGNAME=mdusunen
+XDG_SESSION_DESKTOP=ubuntu
+XDG_SESSION_TYPE=x11
+GPG_AGENT_INFO=/run/user/1000/gnupg/S.gpg-agent:0:1
+SYSTEMD_EXEC_PID=2733
+XAUTHORITY=/run/user/1000/gdm/Xauthority
+WINDOWPATH=2
+HOME=/home/mdusunen
+USERNAME=mdusunen
+LANG=en_US.UTF-8
+LS_COLORS=rs=0:di=01;34:ln=01;36:mh=00:pi=40;33:so=01;35:do=01;35:bd=40;33;01:cd=40;33;01:or=40;31;01:mi=00:su=37;41:sg=30;43:ca=00:tw=30;42:ow=34;42:st=37;44:ex=01;32:*.tar=01;31:*.tgz=01;31:*.arc=01;31:*.arj=01;31:*.taz=01;31:*.lha=01;31:*.lz4=01;31:*.lzh=01;31:*.lzma=01;31:*.tlz=01;31:*.txz=01;31:*.tzo=01;31:*.t7z=01;31:*.zip=01;31:*.z=01;31:*.dz=01;31:*.gz=01;31:*.lrz=01;31:*.lz=01;31:*.lzo=01;31:*.xz=01;31:*.zst=01;31:*.tzst=01;31:*.bz2=01;31:*.bz=01;31:*.tbz=01;31:*.tbz2=01;31:*.tz=01;31:*.deb=01;31:*.rpm=01;31:*.jar=01;31:*.war=01;31:*.ear=01;31:*.sar=01;31:*.rar=01;31:*.alz=01;31:*.ace=01;31:*.zoo=01;31:*.cpio=01;31:*.7z=01;31:*.rz=01;31:*.cab=01;31:*.wim=01;31:*.swm=01;31:*.dwm=01;31:*.esd=01;31:*.avif=01;35:*.jpg=01;35:*.jpeg=01;35:*.mjpg=01;35:*.mjpeg=01;35:*.gif=01;35:*.bmp=01;35:*.pbm=01;35:*.pgm=01;35:*.ppm=01;35:*.tga=01;35:*.xbm=01;35:*.xpm=01;35:*.tif=01;35:*.tiff=01;35:*.png=01;35:*.svg=01;35:*.svgz=01;35:*.mng=01;35:*.pcx=01;35:*.mov=01;35:*.mpg=01;35:*.mpeg=01;35:*.m2v=01;35:*.mkv=01;35:*.webm=01;35:*.webp=01;35:*.ogm=01;35:*.mp4=01;35:*.m4v=01;35:*.mp4v=01;35:*.vob=01;35:*.qt=01;35:*.nuv=01;35:*.wmv=01;35:*.asf=01;35:*.rm=01;35:*.rmvb=01;35:*.flc=01;35:*.avi=01;35:*.fli=01;35:*.flv=01;35:*.gl=01;35:*.dl=01;35:*.xcf=01;35:*.xwd=01;35:*.yuv=01;35:*.cgm=01;35:*.emf=01;35:*.ogv=01;35:*.ogx=01;35:*.aac=00;36:*.au=00;36:*.flac=00;36:*.m4a=00;36:*.mid=00;36:*.midi=00;36:*.mka=00;36:*.mp3=00;36:*.mpc=00;36:*.ogg=00;36:*.ra=00;36:*.wav=00;36:*.oga=00;36:*.opus=00;36:*.spx=00;36:*.xspf=00;36:*~=00;90:*#=00;90:*.bak=00;90:*.crdownload=00;90:*.dpkg-dist=00;90:*.dpkg-new=00;90:*.dpkg-old=00;90:*.dpkg-tmp=00;90:*.old=00;90:*.orig=00;90:*.part=00;90:*.rej=00;90:*.rpmnew=00;90:*.rpmorig=00;90:*.rpmsave=00;90:*.swp=00;90:*.tmp=00;90:*.ucf-dist=00;90:*.ucf-new=00;90:*.ucf-old=00;90:
+XDG_CURRENT_DESKTOP=ubuntu:GNOME
+MEMORY_PRESSURE_WATCH=/sys/fs/cgroup/user.slice/user-1000.slice/user@1000.service/session.slice/org.gnome.Shell@x11.service/memory.pressure
+VTE_VERSION=7600
+GNOME_TERMINAL_SCREEN=/org/gnome/Terminal/screen/964b6049_38d8_43df_8a1f_c46bd3e8603d
+LESSCLOSE=/usr/bin/lesspipe %s %s
+XDG_SESSION_CLASS=user
+TERM=xterm-256color
+LESSOPEN=| /usr/bin/lesspipe %s
+USER=mdusunen
+GNOME_TERMINAL_SERVICE=:1.273
+CLUTTER_DISABLE_MIPMAPPED_TEXT=1
+DISPLAY=:1
+SHLVL=3
+GSM_SKIP_SSH_AGENT_WORKAROUND=true
+QT_IM_MODULE=ibus
+XDG_RUNTIME_DIR=/run/user/1000
+DEBUGINFOD_URLS=https://debuginfod.ubuntu.com 
+XDG_DATA_DIRS=/usr/share/ubuntu:/usr/share/gnome:/usr/local/share/:/usr/share/:/var/lib/snapd/desktop
+PATH=/home/mdusunen/.local/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin:/snap/bin:/home/mdusunen/.local/bin:/home/mdusunen/.local/bin:/home/mdusunen/.venv/bin:/home/mdusunen/.venv/bin:/home/mdusunen/.venv/bin:/home/mdusunen/.venv/bin:/home/mdusunen/.venv/bin:/home/mdusunen/.venv/bin:/home/mdusunen/.local/bin:/home/mdusunen/.venv/bin:/home/mdusunen/.venv/bin:/home/mdusunen/.venv/bin:/home/mdusunen/.venv/bin:/home/mdusunen/.venv/bin:/home/mdusunen/.venv/bin
+GDMSESSION=ubuntu
+DBUS_SESSION_BUS_ADDRESS=unix:path=/run/user/1000/bus
+OLDPWD=/home/mdusunen/Desktop/minishell/srcs
+_=/usr/bin/timeout
+[32mminishell[0m[33m$>[0m '
+MINISHELL CLEANED OUTPUT:
+'SHELL=/bin/bash
+SESSION_MANAGER=local/mdusunen:@/tmp/.ICE-unix/2689,unix/mdusunen:/tmp/.ICE-unix/2689
+QT_ACCESSIBILITY=1
+COLORTERM=truecolor
+XDG_CONFIG_DIRS=/etc/xdg/xdg-ubuntu:/etc/xdg
+XDG_MENU_PREFIX=gnome-
+GNOME_DESKTOP_SESSION_ID=this-is-deprecated
+GNOME_SHELL_SESSION_MODE=ubuntu
+SSH_AUTH_SOCK=/run/user/1000/keyring/ssh
+MEMORY_PRESSURE_WRITE=c29tZSAyMDAwMDAgMjAwMDAwMAA=
+XMODIFIERS=@im=ibus
+DESKTOP_SESSION=ubuntu
+GTK_MODULES=gail:atk-bridge
+PWD=/home/mdusunen/Desktop/minishell
+LOGNAME=mdusunen
+XDG_SESSION_DESKTOP=ubuntu
+XDG_SESSION_TYPE=x11
+GPG_AGENT_INFO=/run/user/1000/gnupg/S.gpg-agent:0:1
+SYSTEMD_EXEC_PID=2733
+XAUTHORITY=/run/user/1000/gdm/Xauthority
+WINDOWPATH=2
+HOME=/home/mdusunen
+USERNAME=mdusunen
+LANG=en_US.UTF-8
+LS_COLORS=rs=0:di=01;34:ln=01;36:mh=00:pi=40;33:so=01;35:do=01;35:bd=40;33;01:cd=40;33;01:or=40;31;01:mi=00:su=37;41:sg=30;43:ca=00:tw=30;42:ow=34;42:st=37;44:ex=01;32:*.tar=01;31:*.tgz=01;31:*.arc=01;31:*.arj=01;31:*.taz=01;31:*.lha=01;31:*.lz4=01;31:*.lzh=01;31:*.lzma=01;31:*.tlz=01;31:*.txz=01;31:*.tzo=01;31:*.t7z=01;31:*.zip=01;31:*.z=01;31:*.dz=01;31:*.gz=01;31:*.lrz=01;31:*.lz=01;31:*.lzo=01;31:*.xz=01;31:*.zst=01;31:*.tzst=01;31:*.bz2=01;31:*.bz=01;31:*.tbz=01;31:*.tbz2=01;31:*.tz=01;31:*.deb=01;31:*.rpm=01;31:*.jar=01;31:*.war=01;31:*.ear=01;31:*.sar=01;31:*.rar=01;31:*.alz=01;31:*.ace=01;31:*.zoo=01;31:*.cpio=01;31:*.7z=01;31:*.rz=01;31:*.cab=01;31:*.wim=01;31:*.swm=01;31:*.dwm=01;31:*.esd=01;31:*.avif=01;35:*.jpg=01;35:*.jpeg=01;35:*.mjpg=01;35:*.mjpeg=01;35:*.gif=01;35:*.bmp=01;35:*.pbm=01;35:*.pgm=01;35:*.ppm=01;35:*.tga=01;35:*.xbm=01;35:*.xpm=01;35:*.tif=01;35:*.tiff=01;35:*.png=01;35:*.svg=01;35:*.svgz=01;35:*.mng=01;35:*.pcx=01;35:*.mov=01;35:*.mpg=01;35:*.mpeg=01;35:*.m2v=01;35:*.mkv=01;35:*.webm=01;35:*.webp=01;35:*.ogm=01;35:*.mp4=01;35:*.m4v=01;35:*.mp4v=01;35:*.vob=01;35:*.qt=01;35:*.nuv=01;35:*.wmv=01;35:*.asf=01;35:*.rm=01;35:*.rmvb=01;35:*.flc=01;35:*.avi=01;35:*.fli=01;35:*.flv=01;35:*.gl=01;35:*.dl=01;35:*.xcf=01;35:*.xwd=01;35:*.yuv=01;35:*.cgm=01;35:*.emf=01;35:*.ogv=01;35:*.ogx=01;35:*.aac=00;36:*.au=00;36:*.flac=00;36:*.m4a=00;36:*.mid=00;36:*.midi=00;36:*.mka=00;36:*.mp3=00;36:*.mpc=00;36:*.ogg=00;36:*.ra=00;36:*.wav=00;36:*.oga=00;36:*.opus=00;36:*.spx=00;36:*.xspf=00;36:*~=00;90:*#=00;90:*.bak=00;90:*.crdownload=00;90:*.dpkg-dist=00;90:*.dpkg-new=00;90:*.dpkg-old=00;90:*.dpkg-tmp=00;90:*.old=00;90:*.orig=00;90:*.part=00;90:*.rej=00;90:*.rpmnew=00;90:*.rpmorig=00;90:*.rpmsave=00;90:*.swp=00;90:*.tmp=00;90:*.ucf-dist=00;90:*.ucf-new=00;90:*.ucf-old=00;90:
+XDG_CURRENT_DESKTOP=ubuntu:GNOME
+MEMORY_PRESSURE_WATCH=/sys/fs/cgroup/user.slice/user-1000.slice/user@1000.service/session.slice/org.gnome.Shell@x11.service/memory.pressure
+VTE_VERSION=7600
+GNOME_TERMINAL_SCREEN=/org/gnome/Terminal/screen/964b6049_38d8_43df_8a1f_c46bd3e8603d
+LESSCLOSE=/usr/bin/lesspipe %s %s
+XDG_SESSION_CLASS=user
+TERM=xterm-256color
+LESSOPEN=| /usr/bin/lesspipe %s
+USER=mdusunen
+GNOME_TERMINAL_SERVICE=:1.273
+CLUTTER_DISABLE_MIPMAPPED_TEXT=1
+DISPLAY=:1
+SHLVL=3
+GSM_SKIP_SSH_AGENT_WORKAROUND=true
+QT_IM_MODULE=ibus
+XDG_RUNTIME_DIR=/run/user/1000
+DEBUGINFOD_URLS=https://debuginfod.ubuntu.com
+XDG_DATA_DIRS=/usr/share/ubuntu:/usr/share/gnome:/usr/local/share/:/usr/share/:/var/lib/snapd/desktop
+PATH=/home/mdusunen/.local/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin:/snap/bin:/home/mdusunen/.local/bin:/home/mdusunen/.local/bin:/home/mdusunen/.venv/bin:/home/mdusunen/.venv/bin:/home/mdusunen/.venv/bin:/home/mdusunen/.venv/bin:/home/mdusunen/.venv/bin:/home/mdusunen/.venv/bin:/home/mdusunen/.local/bin:/home/mdusunen/.venv/bin:/home/mdusunen/.venv/bin:/home/mdusunen/.venv/bin:/home/mdusunen/.venv/bin:/home/mdusunen/.venv/bin:/home/mdusunen/.venv/bin
+GDMSESSION=ubuntu
+DBUS_SESSION_BUS_ADDRESS=unix:path=/run/user/1000/bus
+OLDPWD=/home/mdusunen/Desktop/minishell/srcs
+_=/usr/bin/timeout'
+MINISHELL EXIT CODE: 0
+======================================
+
+=== DIFFERENCE FOUND: export ===
+BASH OUTPUT:
+'declare -x CLUTTER_DISABLE_MIPMAPPED_TEXT="1"
+declare -x COLORTERM="truecolor"
+declare -x DBUS_SESSION_BUS_ADDRESS="unix:path=/run/user/1000/bus"
+declare -x DEBUGINFOD_URLS="https://debuginfod.ubuntu.com "
+declare -x DESKTOP_SESSION="ubuntu"
+declare -x DISPLAY=":1"
+declare -x GDMSESSION="ubuntu"
+declare -x GNOME_DESKTOP_SESSION_ID="this-is-deprecated"
+declare -x GNOME_SHELL_SESSION_MODE="ubuntu"
+declare -x GNOME_TERMINAL_SCREEN="/org/gnome/Terminal/screen/964b6049_38d8_43df_8a1f_c46bd3e8603d"
+declare -x GNOME_TERMINAL_SERVICE=":1.273"
+declare -x GPG_AGENT_INFO="/run/user/1000/gnupg/S.gpg-agent:0:1"
+declare -x GSM_SKIP_SSH_AGENT_WORKAROUND="true"
+declare -x GTK_MODULES="gail:atk-bridge"
+declare -x HOME="/home/mdusunen"
+declare -x LANG="en_US.UTF-8"
+declare -x LESSCLOSE="/usr/bin/lesspipe %s %s"
+declare -x LESSOPEN="| /usr/bin/lesspipe %s"
+declare -x LOGNAME="mdusunen"
+declare -x LS_COLORS="rs=0:di=01;34:ln=01;36:mh=00:pi=40;33:so=01;35:do=01;35:bd=40;33;01:cd=40;33;01:or=40;31;01:mi=00:su=37;41:sg=30;43:ca=00:tw=30;42:ow=34;42:st=37;44:ex=01;32:*.tar=01;31:*.tgz=01;31:*.arc=01;31:*.arj=01;31:*.taz=01;31:*.lha=01;31:*.lz4=01;31:*.lzh=01;31:*.lzma=01;31:*.tlz=01;31:*.txz=01;31:*.tzo=01;31:*.t7z=01;31:*.zip=01;31:*.z=01;31:*.dz=01;31:*.gz=01;31:*.lrz=01;31:*.lz=01;31:*.lzo=01;31:*.xz=01;31:*.zst=01;31:*.tzst=01;31:*.bz2=01;31:*.bz=01;31:*.tbz=01;31:*.tbz2=01;31:*.tz=01;31:*.deb=01;31:*.rpm=01;31:*.jar=01;31:*.war=01;31:*.ear=01;31:*.sar=01;31:*.rar=01;31:*.alz=01;31:*.ace=01;31:*.zoo=01;31:*.cpio=01;31:*.7z=01;31:*.rz=01;31:*.cab=01;31:*.wim=01;31:*.swm=01;31:*.dwm=01;31:*.esd=01;31:*.avif=01;35:*.jpg=01;35:*.jpeg=01;35:*.mjpg=01;35:*.mjpeg=01;35:*.gif=01;35:*.bmp=01;35:*.pbm=01;35:*.pgm=01;35:*.ppm=01;35:*.tga=01;35:*.xbm=01;35:*.xpm=01;35:*.tif=01;35:*.tiff=01;35:*.png=01;35:*.svg=01;35:*.svgz=01;35:*.mng=01;35:*.pcx=01;35:*.mov=01;35:*.mpg=01;35:*.mpeg=01;35:*.m2v=01;35:*.mkv=01;35:*.webm=01;35:*.webp=01;35:*.ogm=01;35:*.mp4=01;35:*.m4v=01;35:*.mp4v=01;35:*.vob=01;35:*.qt=01;35:*.nuv=01;35:*.wmv=01;35:*.asf=01;35:*.rm=01;35:*.rmvb=01;35:*.flc=01;35:*.avi=01;35:*.fli=01;35:*.flv=01;35:*.gl=01;35:*.dl=01;35:*.xcf=01;35:*.xwd=01;35:*.yuv=01;35:*.cgm=01;35:*.emf=01;35:*.ogv=01;35:*.ogx=01;35:*.aac=00;36:*.au=00;36:*.flac=00;36:*.m4a=00;36:*.mid=00;36:*.midi=00;36:*.mka=00;36:*.mp3=00;36:*.mpc=00;36:*.ogg=00;36:*.ra=00;36:*.wav=00;36:*.oga=00;36:*.opus=00;36:*.spx=00;36:*.xspf=00;36:*~=00;90:*#=00;90:*.bak=00;90:*.crdownload=00;90:*.dpkg-dist=00;90:*.dpkg-new=00;90:*.dpkg-old=00;90:*.dpkg-tmp=00;90:*.old=00;90:*.orig=00;90:*.part=00;90:*.rej=00;90:*.rpmnew=00;90:*.rpmorig=00;90:*.rpmsave=00;90:*.swp=00;90:*.tmp=00;90:*.ucf-dist=00;90:*.ucf-new=00;90:*.ucf-old=00;90:"
+declare -x MEMORY_PRESSURE_WATCH="/sys/fs/cgroup/user.slice/user-1000.slice/user@1000.service/session.slice/org.gnome.Shell@x11.service/memory.pressure"
+declare -x MEMORY_PRESSURE_WRITE="c29tZSAyMDAwMDAgMjAwMDAwMAA="
+declare -x OLDPWD="/home/mdusunen/Desktop/minishell/srcs"
+declare -x PATH="/home/mdusunen/.local/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin:/snap/bin:/home/mdusunen/.local/bin:/home/mdusunen/.local/bin:/home/mdusunen/.venv/bin:/home/mdusunen/.venv/bin:/home/mdusunen/.venv/bin:/home/mdusunen/.venv/bin:/home/mdusunen/.venv/bin:/home/mdusunen/.venv/bin:/home/mdusunen/.local/bin:/home/mdusunen/.venv/bin:/home/mdusunen/.venv/bin:/home/mdusunen/.venv/bin:/home/mdusunen/.venv/bin:/home/mdusunen/.venv/bin:/home/mdusunen/.venv/bin"
+declare -x PWD="/home/mdusunen/Desktop/minishell"
+declare -x QT_ACCESSIBILITY="1"
+declare -x QT_IM_MODULE="ibus"
+declare -x SESSION_MANAGER="local/mdusunen:@/tmp/.ICE-unix/2689,unix/mdusunen:/tmp/.ICE-unix/2689"
+declare -x SHELL="/bin/bash"
+declare -x SHLVL="4"
+declare -x SSH_AUTH_SOCK="/run/user/1000/keyring/ssh"
+declare -x SYSTEMD_EXEC_PID="2733"
+declare -x TERM="xterm-256color"
+declare -x USER="mdusunen"
+declare -x USERNAME="mdusunen"
+declare -x VTE_VERSION="7600"
+declare -x WINDOWPATH="2"
+declare -x XAUTHORITY="/run/user/1000/gdm/Xauthority"
+declare -x XDG_CONFIG_DIRS="/etc/xdg/xdg-ubuntu:/etc/xdg"
+declare -x XDG_CURRENT_DESKTOP="ubuntu:GNOME"
+declare -x XDG_DATA_DIRS="/usr/share/ubuntu:/usr/share/gnome:/usr/local/share/:/usr/share/:/var/lib/snapd/desktop"
+declare -x XDG_MENU_PREFIX="gnome-"
+declare -x XDG_RUNTIME_DIR="/run/user/1000"
+declare -x XDG_SESSION_CLASS="user"
+declare -x XDG_SESSION_DESKTOP="ubuntu"
+declare -x XDG_SESSION_TYPE="x11"
+declare -x XMODIFIERS="@im=ibus"
+declare -x _="/usr/bin/timeout"'
+BASH EXIT CODE: 0
+
+MINISHELL RAW OUTPUT:
+'[32mminishell[0m[33m$>[0m export
+declare -x SHELL="/bin/bash"
+declare -x SESSION_MANAGER="local/mdusunen:@/tmp/.ICE-unix/2689,unix/mdusunen:/tmp/.ICE-unix/2689"
+declare -x QT_ACCESSIBILITY="1"
+declare -x COLORTERM="truecolor"
+declare -x XDG_CONFIG_DIRS="/etc/xdg/xdg-ubuntu:/etc/xdg"
+declare -x XDG_MENU_PREFIX="gnome-"
+declare -x GNOME_DESKTOP_SESSION_ID="this-is-deprecated"
+declare -x GNOME_SHELL_SESSION_MODE="ubuntu"
+declare -x SSH_AUTH_SOCK="/run/user/1000/keyring/ssh"
+declare -x MEMORY_PRESSURE_WRITE="c29tZSAyMDAwMDAgMjAwMDAwMAA="
+declare -x XMODIFIERS="@im=ibus"
+declare -x DESKTOP_SESSION="ubuntu"
+declare -x GTK_MODULES="gail:atk-bridge"
+declare -x PWD="/home/mdusunen/Desktop/minishell"
+declare -x LOGNAME="mdusunen"
+declare -x XDG_SESSION_DESKTOP="ubuntu"
+declare -x XDG_SESSION_TYPE="x11"
+declare -x GPG_AGENT_INFO="/run/user/1000/gnupg/S.gpg-agent:0:1"
+declare -x SYSTEMD_EXEC_PID="2733"
+declare -x XAUTHORITY="/run/user/1000/gdm/Xauthority"
+declare -x WINDOWPATH="2"
+declare -x HOME="/home/mdusunen"
+declare -x USERNAME="mdusunen"
+declare -x LANG="en_US.UTF-8"
+declare -x LS_COLORS="rs=0:di=01;34:ln=01;36:mh=00:pi=40;33:so=01;35:do=01;35:bd=40;33;01:cd=40;33;01:or=40;31;01:mi=00:su=37;41:sg=30;43:ca=00:tw=30;42:ow=34;42:st=37;44:ex=01;32:*.tar=01;31:*.tgz=01;31:*.arc=01;31:*.arj=01;31:*.taz=01;31:*.lha=01;31:*.lz4=01;31:*.lzh=01;31:*.lzma=01;31:*.tlz=01;31:*.txz=01;31:*.tzo=01;31:*.t7z=01;31:*.zip=01;31:*.z=01;31:*.dz=01;31:*.gz=01;31:*.lrz=01;31:*.lz=01;31:*.lzo=01;31:*.xz=01;31:*.zst=01;31:*.tzst=01;31:*.bz2=01;31:*.bz=01;31:*.tbz=01;31:*.tbz2=01;31:*.tz=01;31:*.deb=01;31:*.rpm=01;31:*.jar=01;31:*.war=01;31:*.ear=01;31:*.sar=01;31:*.rar=01;31:*.alz=01;31:*.ace=01;31:*.zoo=01;31:*.cpio=01;31:*.7z=01;31:*.rz=01;31:*.cab=01;31:*.wim=01;31:*.swm=01;31:*.dwm=01;31:*.esd=01;31:*.avif=01;35:*.jpg=01;35:*.jpeg=01;35:*.mjpg=01;35:*.mjpeg=01;35:*.gif=01;35:*.bmp=01;35:*.pbm=01;35:*.pgm=01;35:*.ppm=01;35:*.tga=01;35:*.xbm=01;35:*.xpm=01;35:*.tif=01;35:*.tiff=01;35:*.png=01;35:*.svg=01;35:*.svgz=01;35:*.mng=01;35:*.pcx=01;35:*.mov=01;35:*.mpg=01;35:*.mpeg=01;35:*.m2v=01;35:*.mkv=01;35:*.webm=01;35:*.webp=01;35:*.ogm=01;35:*.mp4=01;35:*.m4v=01;35:*.mp4v=01;35:*.vob=01;35:*.qt=01;35:*.nuv=01;35:*.wmv=01;35:*.asf=01;35:*.rm=01;35:*.rmvb=01;35:*.flc=01;35:*.avi=01;35:*.fli=01;35:*.flv=01;35:*.gl=01;35:*.dl=01;35:*.xcf=01;35:*.xwd=01;35:*.yuv=01;35:*.cgm=01;35:*.emf=01;35:*.ogv=01;35:*.ogx=01;35:*.aac=00;36:*.au=00;36:*.flac=00;36:*.m4a=00;36:*.mid=00;36:*.midi=00;36:*.mka=00;36:*.mp3=00;36:*.mpc=00;36:*.ogg=00;36:*.ra=00;36:*.wav=00;36:*.oga=00;36:*.opus=00;36:*.spx=00;36:*.xspf=00;36:*~=00;90:*#=00;90:*.bak=00;90:*.crdownload=00;90:*.dpkg-dist=00;90:*.dpkg-new=00;90:*.dpkg-old=00;90:*.dpkg-tmp=00;90:*.old=00;90:*.orig=00;90:*.part=00;90:*.rej=00;90:*.rpmnew=00;90:*.rpmorig=00;90:*.rpmsave=00;90:*.swp=00;90:*.tmp=00;90:*.ucf-dist=00;90:*.ucf-new=00;90:*.ucf-old=00;90:"
+declare -x XDG_CURRENT_DESKTOP="ubuntu:GNOME"
+declare -x MEMORY_PRESSURE_WATCH="/sys/fs/cgroup/user.slice/user-1000.slice/user@1000.service/session.slice/org.gnome.Shell@x11.service/memory.pressure"
+declare -x VTE_VERSION="7600"
+declare -x GNOME_TERMINAL_SCREEN="/org/gnome/Terminal/screen/964b6049_38d8_43df_8a1f_c46bd3e8603d"
+declare -x LESSCLOSE="/usr/bin/lesspipe %s %s"
+declare -x XDG_SESSION_CLASS="user"
+declare -x TERM="xterm-256color"
+declare -x LESSOPEN="| /usr/bin/lesspipe %s"
+declare -x USER="mdusunen"
+declare -x GNOME_TERMINAL_SERVICE=":1.273"
+declare -x CLUTTER_DISABLE_MIPMAPPED_TEXT="1"
+declare -x DISPLAY=":1"
+declare -x SHLVL="3"
+declare -x GSM_SKIP_SSH_AGENT_WORKAROUND="true"
+declare -x QT_IM_MODULE="ibus"
+declare -x XDG_RUNTIME_DIR="/run/user/1000"
+declare -x DEBUGINFOD_URLS="https://debuginfod.ubuntu.com "
+declare -x XDG_DATA_DIRS="/usr/share/ubuntu:/usr/share/gnome:/usr/local/share/:/usr/share/:/var/lib/snapd/desktop"
+declare -x PATH="/home/mdusunen/.local/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin:/snap/bin:/home/mdusunen/.local/bin:/home/mdusunen/.local/bin:/home/mdusunen/.venv/bin:/home/mdusunen/.venv/bin:/home/mdusunen/.venv/bin:/home/mdusunen/.venv/bin:/home/mdusunen/.venv/bin:/home/mdusunen/.venv/bin:/home/mdusunen/.local/bin:/home/mdusunen/.venv/bin:/home/mdusunen/.venv/bin:/home/mdusunen/.venv/bin:/home/mdusunen/.venv/bin:/home/mdusunen/.venv/bin:/home/mdusunen/.venv/bin"
+declare -x GDMSESSION="ubuntu"
+declare -x DBUS_SESSION_BUS_ADDRESS="unix:path=/run/user/1000/bus"
+declare -x OLDPWD="/home/mdusunen/Desktop/minishell/srcs"
+declare -x _="/usr/bin/timeout"
+[32mminishell[0m[33m$>[0m '
+MINISHELL CLEANED OUTPUT:
+'declare -x SHELL="/bin/bash"
+declare -x SESSION_MANAGER="local/mdusunen:@/tmp/.ICE-unix/2689,unix/mdusunen:/tmp/.ICE-unix/2689"
+declare -x QT_ACCESSIBILITY="1"
+declare -x COLORTERM="truecolor"
+declare -x XDG_CONFIG_DIRS="/etc/xdg/xdg-ubuntu:/etc/xdg"
+declare -x XDG_MENU_PREFIX="gnome-"
+declare -x GNOME_DESKTOP_SESSION_ID="this-is-deprecated"
+declare -x GNOME_SHELL_SESSION_MODE="ubuntu"
+declare -x SSH_AUTH_SOCK="/run/user/1000/keyring/ssh"
+declare -x MEMORY_PRESSURE_WRITE="c29tZSAyMDAwMDAgMjAwMDAwMAA="
+declare -x XMODIFIERS="@im=ibus"
+declare -x DESKTOP_SESSION="ubuntu"
+declare -x GTK_MODULES="gail:atk-bridge"
+declare -x PWD="/home/mdusunen/Desktop/minishell"
+declare -x LOGNAME="mdusunen"
+declare -x XDG_SESSION_DESKTOP="ubuntu"
+declare -x XDG_SESSION_TYPE="x11"
+declare -x GPG_AGENT_INFO="/run/user/1000/gnupg/S.gpg-agent:0:1"
+declare -x SYSTEMD_EXEC_PID="2733"
+declare -x XAUTHORITY="/run/user/1000/gdm/Xauthority"
+declare -x WINDOWPATH="2"
+declare -x HOME="/home/mdusunen"
+declare -x USERNAME="mdusunen"
+declare -x LANG="en_US.UTF-8"
+declare -x LS_COLORS="rs=0:di=01;34:ln=01;36:mh=00:pi=40;33:so=01;35:do=01;35:bd=40;33;01:cd=40;33;01:or=40;31;01:mi=00:su=37;41:sg=30;43:ca=00:tw=30;42:ow=34;42:st=37;44:ex=01;32:*.tar=01;31:*.tgz=01;31:*.arc=01;31:*.arj=01;31:*.taz=01;31:*.lha=01;31:*.lz4=01;31:*.lzh=01;31:*.lzma=01;31:*.tlz=01;31:*.txz=01;31:*.tzo=01;31:*.t7z=01;31:*.zip=01;31:*.z=01;31:*.dz=01;31:*.gz=01;31:*.lrz=01;31:*.lz=01;31:*.lzo=01;31:*.xz=01;31:*.zst=01;31:*.tzst=01;31:*.bz2=01;31:*.bz=01;31:*.tbz=01;31:*.tbz2=01;31:*.tz=01;31:*.deb=01;31:*.rpm=01;31:*.jar=01;31:*.war=01;31:*.ear=01;31:*.sar=01;31:*.rar=01;31:*.alz=01;31:*.ace=01;31:*.zoo=01;31:*.cpio=01;31:*.7z=01;31:*.rz=01;31:*.cab=01;31:*.wim=01;31:*.swm=01;31:*.dwm=01;31:*.esd=01;31:*.avif=01;35:*.jpg=01;35:*.jpeg=01;35:*.mjpg=01;35:*.mjpeg=01;35:*.gif=01;35:*.bmp=01;35:*.pbm=01;35:*.pgm=01;35:*.ppm=01;35:*.tga=01;35:*.xbm=01;35:*.xpm=01;35:*.tif=01;35:*.tiff=01;35:*.png=01;35:*.svg=01;35:*.svgz=01;35:*.mng=01;35:*.pcx=01;35:*.mov=01;35:*.mpg=01;35:*.mpeg=01;35:*.m2v=01;35:*.mkv=01;35:*.webm=01;35:*.webp=01;35:*.ogm=01;35:*.mp4=01;35:*.m4v=01;35:*.mp4v=01;35:*.vob=01;35:*.qt=01;35:*.nuv=01;35:*.wmv=01;35:*.asf=01;35:*.rm=01;35:*.rmvb=01;35:*.flc=01;35:*.avi=01;35:*.fli=01;35:*.flv=01;35:*.gl=01;35:*.dl=01;35:*.xcf=01;35:*.xwd=01;35:*.yuv=01;35:*.cgm=01;35:*.emf=01;35:*.ogv=01;35:*.ogx=01;35:*.aac=00;36:*.au=00;36:*.flac=00;36:*.m4a=00;36:*.mid=00;36:*.midi=00;36:*.mka=00;36:*.mp3=00;36:*.mpc=00;36:*.ogg=00;36:*.ra=00;36:*.wav=00;36:*.oga=00;36:*.opus=00;36:*.spx=00;36:*.xspf=00;36:*~=00;90:*#=00;90:*.bak=00;90:*.crdownload=00;90:*.dpkg-dist=00;90:*.dpkg-new=00;90:*.dpkg-old=00;90:*.dpkg-tmp=00;90:*.old=00;90:*.orig=00;90:*.part=00;90:*.rej=00;90:*.rpmnew=00;90:*.rpmorig=00;90:*.rpmsave=00;90:*.swp=00;90:*.tmp=00;90:*.ucf-dist=00;90:*.ucf-new=00;90:*.ucf-old=00;90:"
+declare -x XDG_CURRENT_DESKTOP="ubuntu:GNOME"
+declare -x MEMORY_PRESSURE_WATCH="/sys/fs/cgroup/user.slice/user-1000.slice/user@1000.service/session.slice/org.gnome.Shell@x11.service/memory.pressure"
+declare -x VTE_VERSION="7600"
+declare -x GNOME_TERMINAL_SCREEN="/org/gnome/Terminal/screen/964b6049_38d8_43df_8a1f_c46bd3e8603d"
+declare -x LESSCLOSE="/usr/bin/lesspipe %s %s"
+declare -x XDG_SESSION_CLASS="user"
+declare -x TERM="xterm-256color"
+declare -x LESSOPEN="| /usr/bin/lesspipe %s"
+declare -x USER="mdusunen"
+declare -x GNOME_TERMINAL_SERVICE=":1.273"
+declare -x CLUTTER_DISABLE_MIPMAPPED_TEXT="1"
+declare -x DISPLAY=":1"
+declare -x SHLVL="3"
+declare -x GSM_SKIP_SSH_AGENT_WORKAROUND="true"
+declare -x QT_IM_MODULE="ibus"
+declare -x XDG_RUNTIME_DIR="/run/user/1000"
+declare -x DEBUGINFOD_URLS="https://debuginfod.ubuntu.com "
+declare -x XDG_DATA_DIRS="/usr/share/ubuntu:/usr/share/gnome:/usr/local/share/:/usr/share/:/var/lib/snapd/desktop"
+declare -x PATH="/home/mdusunen/.local/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin:/snap/bin:/home/mdusunen/.local/bin:/home/mdusunen/.local/bin:/home/mdusunen/.venv/bin:/home/mdusunen/.venv/bin:/home/mdusunen/.venv/bin:/home/mdusunen/.venv/bin:/home/mdusunen/.venv/bin:/home/mdusunen/.venv/bin:/home/mdusunen/.local/bin:/home/mdusunen/.venv/bin:/home/mdusunen/.venv/bin:/home/mdusunen/.venv/bin:/home/mdusunen/.venv/bin:/home/mdusunen/.venv/bin:/home/mdusunen/.venv/bin"
+declare -x GDMSESSION="ubuntu"
+declare -x DBUS_SESSION_BUS_ADDRESS="unix:path=/run/user/1000/bus"
+declare -x OLDPWD="/home/mdusunen/Desktop/minishell/srcs"
+declare -x _="/usr/bin/timeout"'
+MINISHELL EXIT CODE: 0
+======================================
+
+=== DIFFERENCE FOUND: cd ~ ===
+BASH OUTPUT:
+''
+BASH EXIT CODE: 0
+
+MINISHELL RAW OUTPUT:
+'[32mminishell[0m[33m$>[0m cd ~
+[32mminishell[0m[33m$>[0m '
+MINISHELL CLEANED OUTPUT:
+''
+MINISHELL EXIT CODE: 1
+======================================
+
+=== DIFFERENCE FOUND: cd - ===
+BASH OUTPUT:
+'/home/mdusunen/Desktop/minishell/srcs'
+BASH EXIT CODE: 0
+
+MINISHELL RAW OUTPUT:
+'[32mminishell[0m[33m$>[0m cd -
+[32mminishell[0m[33m$>[0m '
+MINISHELL CLEANED OUTPUT:
+''
+MINISHELL EXIT CODE: 1
+======================================
+
+=== DIFFERENCE FOUND: ./minishell --version 2>/dev/null || echo 'relative path test' ===
+BASH OUTPUT:
+'[32mminishell[0m[33m$>[0m '
+BASH EXIT CODE: 0
+
+MINISHELL RAW OUTPUT:
+'[32mminishell[0m[33m$>[0m ./minishell --version 2>/dev/null || echo 'relative path test'
+[32mminishell[0m[33m$>[0m '
+MINISHELL CLEANED OUTPUT:
+''
+MINISHELL EXIT CODE: 0
+======================================
+
+=== DIFFERENCE FOUND: ls ./src/ 2>/dev/null || echo 'relative path test' ===
+BASH OUTPUT:
+'relative path test'
+BASH EXIT CODE: 0
+
+MINISHELL RAW OUTPUT:
+'[32mminishell[0m[33m$>[0m ls ./src/ 2>/dev/null || echo 'relative path test' [A[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[K'
+[32mminishell[0m[33m$>[0m '
+MINISHELL CLEANED OUTPUT:
+''
+MINISHELL EXIT CODE: 0
+======================================
+
+=== DIFFERENCE FOUND: ../minishell 2>/dev/null || echo 'relative path test' ===
+BASH OUTPUT:
+'relative path test'
+BASH EXIT CODE: 0
+
+MINISHELL RAW OUTPUT:
+'[32mminishell[0m[33m$>[0m ../minishell 2>/dev/null || echo 'relative path test'
+[32mminishell[0m[33m$>[0m '
+MINISHELL CLEANED OUTPUT:
+''
+MINISHELL EXIT CODE: 0
+======================================
+
+=== DIFFERENCE FOUND: /bin/cat ./Makefile 2>/dev/null || echo 'file test' ===
+BASH OUTPUT:
+'# **************************************************************************** #
+#                                                                              #
+#                                                         :::      ::::::::    #
+#    Makefile                                           :+:      :+:    :+:    #
+#                                                     +:+ +:+         +:+      #
+#    By: yihakan <yihakan@student.42istanbul.com    +#+  +:+       +#+         #
+#                                                 +#+#+#+#+#+   +#+            #
+#    Created: 2025/06/07 14:33:48 by yihakan           #+#    #+#              #
+#    Updated: 2025/08/04 17:43:00 by yihakan          ###   ########.fr        #
+#                                                                              #
+# **************************************************************************** #
+
+
+GREEN	= \033[32m
+YELLOW	= \033[33m
+BLUE	= \033[34m
+MAGENTA	= \033[35m
+CYAN	= \033[36m
+RESET	= \033[0m
+
+# Banner
+BANNER	= \
+	$(CYAN) ╔═══════════════════════════════════════════════════════════════════════╗$(RESET)\n\
+	$(CYAN)║$(RESET)                                                                       $(CYAN)║$(RESET)\n\
+	$(CYAN)║$(RESET)  $(MAGENTA)███╗   ███╗██╗███╗   ██╗██╗███████╗██╗  ██╗███████╗██╗     ██╗     $(CYAN)  ║$(RESET)\n\
+	$(CYAN)║$(RESET)  $(MAGENTA)████╗ ████║██║████╗  ██║██║██╔════╝██║  ██║██╔════╝██║     ██║     $(CYAN)  ║$(RESET)\n\
+	$(CYAN)║$(RESET)  $(MAGENTA)██╔████╔██║██║██╔██╗ ██║██║███████╗███████║█████╗  ██║     ██║     $(CYAN)  ║$(RESET)\n\
+	$(CYAN)║$(RESET)  $(MAGENTA)██║╚██╔╝██║██║██║╚██╗██║██║╚════██║██╔══██║██╔══╝  ██║     ██║     $(CYAN)  ║$(RESET)\n\
+	$(CYAN)║$(RESET)  $(MAGENTA)██║ ╚═╝ ██║██║██║ ╚████║██║███████║██║  ██║███████╗███████╗███████╗$(CYAN)  ║$(RESET)\n\
+	$(CYAN)║$(RESET)  $(MAGENTA)╚═╝     ╚═╝╚═╝╚═╝  ╚═══╝╚═╝╚══════╝╚═╝  ╚═╝╚══════╝╚══════╝╚══════╝$(CYAN)  ║$(RESET)\n\
+	$(CYAN)║$(RESET)                                                                       $(CYAN)║$(RESET)\n\
+	$(CYAN)║$(RESET)  $(YELLOW)by yihakan & mdusunen$(RESET)                                                $(CYAN)║$(RESET)\n\
+	$(CYAN)║$(RESET)                                                                       $(CYAN)║$(RESET)\n\
+	$(CYAN)╚═══════════════════════════════════════════════════════════════════════╝$(RESET)\n
+
+NAME = minishell
+
+CC = cc
+CFLAGS = -Wall -Wextra -Werror -g
+RM = rm -f
+
+# Directories
+SRCS_DIR = srcs
+INCLUDES_DIR = includes
+LIBFT_DIR = libft
+OBJ_DIR = obj
+
+# Source files
+SRCS = $(SRCS_DIR)/main.c \
+	   $(SRCS_DIR)/prompt/prompt.c \
+	   $(SRCS_DIR)/prompt/history.c \
+	   $(SRCS_DIR)/parser/lexer.c \
+	   $(SRCS_DIR)/parser/tokenizer.c \
+	   $(SRCS_DIR)/parser/tokenizer_utils.c \
+	   $(SRCS_DIR)/parser/parser.c \
+	   $(SRCS_DIR)/parser/parser_2.c \
+	   $(SRCS_DIR)/parser/parser_3.c \
+	   $(SRCS_DIR)/parser/parser_utils.c \
+	   $(SRCS_DIR)/parser/expander.c \
+	   $(SRCS_DIR)/parser/expander_utils.c \
+	   $(SRCS_DIR)/executor/executor.c \
+	   $(SRCS_DIR)/executor/redirections.c \
+	   $(SRCS_DIR)/executor/pipes.c \
+	   $(SRCS_DIR)/builtins/builtins.c \
+	   $(SRCS_DIR)/builtins/echo.c \
+	   $(SRCS_DIR)/builtins/cd.c \
+	   $(SRCS_DIR)/builtins/pwd.c \
+	   $(SRCS_DIR)/builtins/export.c \
+	   $(SRCS_DIR)/builtins/export_utils.c \
+	   $(SRCS_DIR)/builtins/unset.c \
+	   $(SRCS_DIR)/builtins/env.c \
+	   $(SRCS_DIR)/builtins/exit.c \
+	   $(SRCS_DIR)/builtins/pills.c \
+	   $(SRCS_DIR)/builtins/pills_utils.c \
+	   $(SRCS_DIR)/utils/env_utils.c \
+	   $(SRCS_DIR)/utils/env_utils_2.c \
+	   $(SRCS_DIR)/utils/env_utils_3.c \
+	   $(SRCS_DIR)/utils/path_utils.c \
+	   $(SRCS_DIR)/utils/path_utils_2.c \
+	   $(SRCS_DIR)/utils/error_utils.c \
+	   $(SRCS_DIR)/utils/error_utils_2.c \
+	   $(SRCS_DIR)/utils/shell_utils.c \
+	   $(SRCS_DIR)/utils/gc_manager.c \
+	   $(SRCS_DIR)/utils/gc_manager_utils.c \
+	   $(SRCS_DIR)/utils/static_vars.c \
+	   $(SRCS_DIR)/utils/static_vars_2.c \
+	   $(SRCS_DIR)/signals/signals.c
+
+# Object files
+OBJS = $(patsubst $(SRCS_DIR)/%.c, $(OBJ_DIR)/%.o, $(SRCS))
+
+# Libraries
+READLINE_INCLUDE = -I/opt/homebrew/opt/readline/include
+READLINE_LIB = -L/opt/homebrew/opt/readline/lib
+LIBFT = $(LIBFT_DIR)/libft.a
+LIBS = -L$(LIBFT_DIR) -lft -lreadline
+
+# Include paths
+INCLUDES = -I$(INCLUDES_DIR) -I$(LIBFT_DIR) $(READLINE_INCLUDE)
+
+# Rules
+all: $(NAME)
+
+$(NAME): $(LIBFT) $(OBJS)
+	@echo "$(BANNER)"
+	@echo "$(GREEN)Compiling minishell...$(RESET)"
+	@$(CC) $(CFLAGS) $(OBJS) $(READLINE_LIB) $(LIBS) -o $(NAME)
+	@echo "$(GREEN)minishell compiled successfully!$(RESET)"
+
+$(LIBFT):
+	@echo "$(YELLOW)Compiling libft...$(RESET)"
+	@make -C $(LIBFT_DIR)
+	@echo "$(GREEN)libft compiled successfully!$(RESET)"
+
+$(OBJ_DIR)/%.o: $(SRCS_DIR)/%.c
+	@mkdir -p $(OBJ_DIR)
+	@mkdir -p $(OBJ_DIR)/prompt
+	@mkdir -p $(OBJ_DIR)/parser
+	@mkdir -p $(OBJ_DIR)/executor
+	@mkdir -p $(OBJ_DIR)/builtins
+	@mkdir -p $(OBJ_DIR)/utils
+	@mkdir -p $(OBJ_DIR)/signals
+	@$(CC) $(CFLAGS) $(INCLUDES) -c $< -o $@
+
+clean:
+	@echo "$(YELLOW)Cleaning object files...$(RESET)"
+	@$(RM) -r $(OBJ_DIR)
+	@make -C $(LIBFT_DIR) clean
+	@echo "$(GREEN)Clean completed!$(RESET)"
+
+fclean: clean
+	@echo "$(YELLOW)Removing executable...$(RESET)"
+	@$(RM) $(NAME)
+	@make -C $(LIBFT_DIR) fclean
+	@echo "$(GREEN)Fclean completed!$(RESET)"
+
+re: fclean all
+
+leaks:
+	valgrind --show-leak-kinds=all --leak-check=full --suppressions=readline.supp ./minishell
+
+.PHONY: all clean fclean re'
+BASH EXIT CODE: 0
+
+MINISHELL RAW OUTPUT:
+'[32mminishell[0m[33m$>[0m /bin/cat ./Makefile 2>/dev/null || echo 'file test'
+[32mminishell[0m[33m$>[0m '
+MINISHELL CLEANED OUTPUT:
+''
+MINISHELL EXIT CODE: 0
+======================================
+
+=== DIFFERENCE FOUND: ./test_script.sh 2>/dev/null || echo 'script test' ===
+BASH OUTPUT:
+'script test'
+BASH EXIT CODE: 0
+
+MINISHELL RAW OUTPUT:
+'[32mminishell[0m[33m$>[0m ./test_script.sh 2>/dev/null || echo 'script test' [A[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[K'
+[32mminishell[0m[33m$>[0m '
+MINISHELL CLEANED OUTPUT:
+''
+MINISHELL EXIT CODE: 0
+======================================
+
+=== DIFFERENCE FOUND: ls > output.txt 2> error.txt ===
+BASH OUTPUT:
+''
+BASH EXIT CODE: 0
+
+MINISHELL RAW OUTPUT:
+'[32mminishell[0m[33m$>[0m ls > output.txt 2> error.txt
+[32mminishell[0m[33m$>[0m '
+MINISHELL CLEANED OUTPUT:
+''
+MINISHELL EXIT CODE: 2
+======================================
+
+=== DIFFERENCE FOUND: echo "mix 'quotes' and \"escapes\"" ===
+BASH OUTPUT:
+'mix 'quotes' and "escapes"'
+BASH EXIT CODE: 0
+
+MINISHELL RAW OUTPUT:
+'[32mminishell[0m[33m$>[0m echo "mix 'quotes' and \"escapes\""
+mix 'quotes' and \escapes\
+[32mminishell[0m[33m$>[0m '
+MINISHELL CLEANED OUTPUT:
+'mix 'quotes' and \escapes\'
+MINISHELL EXIT CODE: 0
+======================================
+
+=== DIFFERENCE FOUND: | ls ===
+BASH OUTPUT:
+''
+BASH EXIT CODE: 2
+
+MINISHELL RAW OUTPUT:
+'[32mminishell[0m[33m$>[0m | ls
+[32mminishell[0m[33m$>[0m '
+MINISHELL CLEANED OUTPUT:
+''
+MINISHELL EXIT CODE: 0
+======================================
+
+=== DIFFERENCE FOUND: ls | ===
+BASH OUTPUT:
+''
+BASH EXIT CODE: 2
+
+MINISHELL RAW OUTPUT:
+'[32mminishell[0m[33m$>[0m ls |
+[32mminishell[0m[33m$>[0m '
+MINISHELL CLEANED OUTPUT:
+''
+MINISHELL EXIT CODE: 0
+======================================
+
+=== DIFFERENCE FOUND: /bin/cat < ===
+BASH OUTPUT:
+''
+BASH EXIT CODE: 2
+
+MINISHELL RAW OUTPUT:
+'[32mminishell[0m[33m$>[0m /bin/cat <
+[32mminishell[0m[33m$>[0m '
+MINISHELL CLEANED OUTPUT:
+''
+MINISHELL EXIT CODE: 0
+======================================
+
+=== DIFFERENCE FOUND: echo > ===
+BASH OUTPUT:
+''
+BASH EXIT CODE: 2
+
+MINISHELL RAW OUTPUT:
+'[32mminishell[0m[33m$>[0m echo >
+[32mminishell[0m[33m$>[0m '
+MINISHELL CLEANED OUTPUT:
+''
+MINISHELL EXIT CODE: 0
+======================================
+
+=== DIFFERENCE FOUND: ;; ===
+BASH OUTPUT:
+''
+BASH EXIT CODE: 2
+
+MINISHELL RAW OUTPUT:
+'[32mminishell[0m[33m$>[0m ;;
+[32mminishell[0m[33m$>[0m '
+MINISHELL CLEANED OUTPUT:
+''
+MINISHELL EXIT CODE: 127
+======================================
+
+=== DIFFERENCE FOUND: ;;; ===
+BASH OUTPUT:
+''
+BASH EXIT CODE: 2
+
+MINISHELL RAW OUTPUT:
+'[32mminishell[0m[33m$>[0m ;;;
+[32mminishell[0m[33m$>[0m '
+MINISHELL CLEANED OUTPUT:
+''
+MINISHELL EXIT CODE: 127
+======================================
+
+=== DIFFERENCE FOUND: | | echo fail ===
+BASH OUTPUT:
+''
+BASH EXIT CODE: 2
+
+MINISHELL RAW OUTPUT:
+'[32mminishell[0m[33m$>[0m | | echo fail
+[32mminishell[0m[33m$>[0m '
+MINISHELL CLEANED OUTPUT:
+''
+MINISHELL EXIT CODE: 0
+======================================
+
+=== DIFFERENCE FOUND: cat << EOF
+test line 1
+test line 2
+EOF ===
+BASH OUTPUT:
+'test line 1
+test line 2'
+BASH EXIT CODE: 0
+
+MINISHELL RAW OUTPUT:
+'[32mminishell[0m[33m$>[0m cat << EOF
+> test line 1
+> test line 2
+> EOF
+test line 1
+test line 2
+[32mminishell[0m[33m$>[0m '
+MINISHELL CLEANED OUTPUT:
+''
+MINISHELL EXIT CODE: 0
+======================================
+
+=== DIFFERENCE FOUND: grep hello << DELIMITER
+hello world  
+goodbye world
+DELIMITER ===
+BASH OUTPUT:
+'hello world  '
+BASH EXIT CODE: 0
+
+MINISHELL RAW OUTPUT:
+'[32mminishell[0m[33m$>[0m grep hello << DELIMITER
+> hello world  
+> goodbye world
+> DELIMITER
+hello world  
+[32mminishell[0m[33m$>[0m '
+MINISHELL CLEANED OUTPUT:
+''
+MINISHELL EXIT CODE: 0
+======================================
+
+=== DIFFERENCE FOUND: /bin/cat << MARKER
+heredoc test
+multiple lines
+MARKER ===
+BASH OUTPUT:
+'heredoc test
+multiple lines'
+BASH EXIT CODE: 0
+
+MINISHELL RAW OUTPUT:
+'[32mminishell[0m[33m$>[0m /bin/cat << MARKER
+> heredoc test
+> multiple lines
+> MARKER
+heredoc test
+multiple lines
+[32mminishell[0m[33m$>[0m '
+MINISHELL CLEANED OUTPUT:
+''
+MINISHELL EXIT CODE: 0
+======================================
+
+=== DIFFERENCE FOUND: ls /nonexistent 2>/dev/null || echo "directory not found" ===
+BASH OUTPUT:
+'directory not found'
+BASH EXIT CODE: 0
+
+MINISHELL RAW OUTPUT:
+'[32mminishell[0m[33m$>[0m ls /nonexistent 2>/dev/null || echo "directory not found"
+[32mminishell[0m[33m$>[0m '
+MINISHELL CLEANED OUTPUT:
+''
+MINISHELL EXIT CODE: 0
+======================================
+
+=== DIFFERENCE FOUND: echo "\"cat lol.c | cat > lol.c\"" ===
+BASH OUTPUT:
+'"cat lol.c | cat > lol.c"'
+BASH EXIT CODE: 0
+
+MINISHELL RAW OUTPUT:
+'[32mminishell[0m[33m$>[0m echo "\"cat lol.c | cat > lol.c\""
+[32mminishell[0m[33m$>[0m '
+MINISHELL CLEANED OUTPUT:
+''
+MINISHELL EXIT CODE: 0
+======================================
+
