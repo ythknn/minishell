@@ -45,7 +45,7 @@ static int	handle_pill_choice(const char *input, t_shell *shell)
 	{
 		matrix_effect();
 		red_pill_sequence();
-		printf("\033[32mYou chose the red pill. Exiting the Matrix...\n\033[0m");
+		printf("\033[32mYou chose the red pill. Exiting the Matrix.\n\033[0m");
 		clear_current_tokens(shell);
 		clear_current_commands(shell);
 		gc_free_all(shell);

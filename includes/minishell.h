@@ -269,4 +269,8 @@ int			handle_redir_error(t_token *current_token, t_command *commands,
 				t_command *current_cmd);
 void		add_redir_to_command(t_command *cmd, t_redir *new_redir);
 char		*handle_multiple_heredocs(t_redir *heredocs);
+
+/* main_utils.c */
+void		setup_terminal(void);
+void		handle_signal_interrupt(t_shell *shell);
 #endif
