@@ -59,15 +59,21 @@ SRCS = $(SRCS_DIR)/main.c \
 	   $(SRCS_DIR)/parser/parser_utils.c \
 	   $(SRCS_DIR)/parser/expander.c \
 	   $(SRCS_DIR)/parser/expander_utils.c \
+	   $(SRCS_DIR)/parser/expander_utils_2.c \
+	   $(SRCS_DIR)/parser/expander_utils_3.c \
 	   $(SRCS_DIR)/executor/executor.c \
+	   $(SRCS_DIR)/executor/executor_utils.c \
 	   $(SRCS_DIR)/executor/redirections.c \
 	   $(SRCS_DIR)/executor/redirections_io.c \
 	   $(SRCS_DIR)/executor/redirections_heredoc.c \
 	   $(SRCS_DIR)/executor/heredoc_setup.c \
 	   $(SRCS_DIR)/executor/heredoc_core.c \
+	   $(SRCS_DIR)/executor/heredoc_core_utils.c \
 	   $(SRCS_DIR)/executor/pipes.c \
 	   $(SRCS_DIR)/executor/pipe_utils.c \
 	   $(SRCS_DIR)/executor/pipe_handlers.c \
+	   $(SRCS_DIR)/executor/pipes_command_processing.c \
+	   $(SRCS_DIR)/executor/pipes_heredoc_special.c \
 	   $(SRCS_DIR)/builtins/builtins.c \
 	   $(SRCS_DIR)/builtins/echo.c \
 	   $(SRCS_DIR)/builtins/cd.c \

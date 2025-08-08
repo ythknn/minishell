@@ -12,28 +12,6 @@
 
 #include "../includes/minishell.h"
 
-static char	*strip_quotes(char *str)
-{
-	char	*result;
-	int		len;
-
-	if (!str)
-		return (NULL);
-	len = strlen(str);
-	if (len >= 2
-		&& ((str[0] == '\'' && str[len - 1] == '\'')
-			|| (str[0] == '"' && str[len - 1] == '"')))
-	{
-		result = malloc(len - 1);
-		if (!result)
-			return (NULL);
-		strncpy(result, str + 1, len - 2);
-		result[len - 2] = '\0';
-		return (result);
-	}
-	return (ft_strdup(str));
-}
-
 static char	*read_heredoc_line(void)
 {
 	char	*line;

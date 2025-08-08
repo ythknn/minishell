@@ -145,6 +145,20 @@ typedef struct s_shell
 	t_command	*current_commands;
 }	t_shell;
 
+typedef struct s_expand_ctx
+{
+	int			in_quotes;
+	char		quote_char;
+	t_shell		*shell;
+	char		*result;
+}	t_expand_ctx;
+
+typedef struct s_expansion_out
+{
+	char		*result;
+	int			*j;
+}	t_expansion_out;
+
 t_token		*get_current_tokens(t_shell *shell);
 t_command	*get_current_commands(t_shell *shell);
 void		set_current_tokens(t_shell *shell, t_token *tokens);
@@ -220,13 +234,6 @@ t_command	*get_commands_from_tokens(t_token *tokens);
 
 char		*expand_env_vars(char *str, t_shell *shell);
 char		*handle_exit_status(char *result, int *j, int *i, t_shell *shell);
-
-typedef struct s_expansion_out
-{
-    char	*result;
-    int		*j;
-}   t_expansion_out;
-
 char		*handle_env_var(char *str, int *i, t_expansion_out *out,
 				t_shell *shell);
 char		*handle_dollar_sign(char *str, int *i, t_expansion_out *out,
@@ -266,12 +273,12 @@ char		**gc_malloc_array(t_shell *shell, size_t count, t_gc_type type);
 void		print_morpheus_quote(void);
 void		print_matrix_ascii(void);
 void		matrix_effect(void);
-
+char		*strip_quotes(char *str);
 //main_utils.c
 void		setup_terminal(void);
 void		handle_signal_interrupt(t_shell *shell);
 
-//pat_utils.c
+//path_utils.c
 char		*search_in_path(char *cmd, char *path_env);
 char		*build_exec_path(char *dir, char *cmd);
 int			is_absolute_or_relative_path(char *cmd);
@@ -315,4 +322,34 @@ int			handle_builtin_single_command(t_command *current,
 				t_shell *shell, char *path);
 int			handle_command_not_found(t_command *current,
 				t_shell *shell, int *pipe_fd, int prev_pipe_read);
+
+/* pipes_command_processing.c fonksiyonları */
+int			process_single_command(t_command *cur, t_shell *shell,
+				t_pipe_data *data);
+
+/* pipes_heredoc_special.c fonksiyonları */
+int			handle_heredoc_and_empty_cmd(t_command *current,
+				int *heredoc_pipe_fd, int *pipe_fd, int *prev_pipe_read);
+int			handle_cmd_not_found_and_heredoc(t_command *current,
+				t_shell *shell, int *heredoc_pipe_fd, int *pipe_fd);
+int			process_heredoc_command(t_command *cur, int *heredoc_pipe_fd,
+				int *pipe_fd, int *prev_pipe_read);
+
+/* pipes.c fonksiyonları */
+void		handle_child_process(t_command *cur, t_shell *shell,
+				char *path, t_pipe_data *data);
+void		cleanup_after_fork(t_command *cur, t_pipe_data *data, char *path);
+/*expander_utils_2-3.c fonksiyonlar*/
+void		expand_args_in_place(char **args, t_shell *shell);
+int			count_non_empty(char **args);
+char		**build_filtered_args(char **args, int count);
+char		*add_char_to_result(char *result, char c);
+char		*ft_strjoin_free(char *s1, char *s2);
+char		*expand_process_loop(char *str, t_expand_ctx *ctx);
+void		init_expand_ctx(t_expand_ctx *ctx, t_shell *shell, char *result);
+char		*handle_variable_expansion(char *str, int *i, t_shell *shell);
+
+/*executor_utils.c fonksiyonları*/
+int			check_executable_path(t_command *cmd, t_shell *shell);
+int			handle_redirections_builtin(t_command *cmd, t_shell *shell);
 #endif
