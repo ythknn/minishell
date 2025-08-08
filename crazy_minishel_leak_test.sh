@@ -196,13 +196,13 @@ PWD_TESTS=(
 )
 
 RELATIVE_PATH_TESTS=(
-    "./minishell --version 2>/dev/null || echo 'relative path test'"
-    "ls ./src/ 2>/dev/null || echo 'relative path test'"
-    "../minishell 2>/dev/null || echo 'relative path test'"
-    "/bin/cat ./Makefile 2>/dev/null || echo 'file test'"
-    "./test_script.sh 2>/dev/null || echo 'script test'"
     "ls ./"
     "ls ../"
+    "/bin/cat ./Makefile"
+    "./test_script.sh"
+    "ls ./src/"
+    "../minishell"
+    "./minishell --version"
 )
 
 ENVIRONMENT_PATH_TESTS=(
@@ -307,7 +307,6 @@ MIXED_COMPLEX_TESTS=(
     "ls -la | grep ^d | wc -l"
     "echo \"test\" > file"
     "cd /tmp"
-    "ls /nonexistent 2>/dev/null || echo \"directory not found\""
     "/bin/echo test | /bin/cat | wc -l"
 )
 
