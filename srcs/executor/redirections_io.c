@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   redirections_io.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: yihakan <yihakan@student.42istanbul.com    +#+  +:+       +#+        */
+/*   By: mdusunen <mdusunen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/08 19:26:36 by yihakan           #+#    #+#             */
-/*   Updated: 2025/08/08 19:32:53 by yihakan          ###   ########.fr       */
+/*   Updated: 2025/08/08 20:34:12 by mdusunen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,7 +57,7 @@ static int	handle_append_redirection(t_redir *current)
 	return (0);
 }
 
-int			apply_file_redirections(t_redir *redirs)
+int	apply_file_redirections(t_redir *redirs)
 {
 	t_redir	*current;
 
@@ -83,5 +83,3 @@ int			apply_file_redirections(t_redir *redirs)
 	}
 	return (0);
 }
-
-

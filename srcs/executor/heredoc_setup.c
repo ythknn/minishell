@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   heredoc_setup.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: yihakan <yihakan@student.42istanbul.com    +#+  +:+       +#+        */
+/*   By: mdusunen <mdusunen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/08 19:26:12 by yihakan           #+#    #+#             */
-/*   Updated: 2025/08/08 19:32:53 by yihakan          ###   ########.fr       */
+/*   Updated: 2025/08/08 20:35:51 by mdusunen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@ static int	count_heredocs(t_redir *heredocs)
 	return (heredoc_count);
 }
 
-int			init_heredoc_state(t_heredoc_state *state, t_redir *heredocs)
+int	init_heredoc_state(t_heredoc_state *state, t_redir *heredocs)
 {
 	state->stdin_copy = dup(STDIN_FILENO);
 	state->heredoc_count = count_heredocs(heredocs);
@@ -53,7 +53,7 @@ int			init_heredoc_state(t_heredoc_state *state, t_redir *heredocs)
 	return (1);
 }
 
-char		*finalize_heredoc(int stdin_copy, char *heredoc_content)
+char	*finalize_heredoc(int stdin_copy, char *heredoc_content)
 {
 	char	*final_content;
 
@@ -67,5 +67,3 @@ char		*finalize_heredoc(int stdin_copy, char *heredoc_content)
 	final_content = heredoc_content;
 	return (final_content);
 }
-
-

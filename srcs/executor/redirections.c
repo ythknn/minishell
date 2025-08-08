@@ -6,7 +6,7 @@
 /*   By: mdusunen <mdusunen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/08 19:30:47 by yihakan           #+#    #+#             */
-/*   Updated: 2025/08/08 19:39:45 by yihakan          ###   ########.fr       */
+/*   Updated: 2025/08/08 20:35:28 by mdusunen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,5 +46,3 @@ void	restore_redirections(int stdin_copy, int stdout_copy)
 	close(stdin_copy);
 	close(stdout_copy);
 }
-
-

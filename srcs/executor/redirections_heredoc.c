@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   redirections_heredoc.c                              :+:      :+:    :+:   */
+/*   redirections_heredoc.c                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: yihakan <yihakan@student.42istanbul.com    +#+  +:+       +#+        */
+/*   By: mdusunen <mdusunen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/08/08 19:27:01 by yihakan           #+#    #+#             */
-/*   Updated: 2025/08/08 19:27:01 by yihakan          ###   ########.fr       */
+/*   Created: 2025/08/08 20:34:58 by mdusunen          #+#    #+#             */
+/*   Updated: 2025/08/08 20:35:03 by mdusunen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,7 +39,7 @@ static int	handle_heredoc_redirection(t_redir *redirs, int *heredoc_processed)
 	return (0);
 }
 
-int			apply_heredoc_redirections(t_redir *redirs)
+int	apply_heredoc_redirections(t_redir *redirs)
 {
 	t_redir	*current;
 	int		heredoc_processed;
@@ -57,5 +57,3 @@ int			apply_heredoc_redirections(t_redir *redirs)
 	}
 	return (0);
 }
-
-

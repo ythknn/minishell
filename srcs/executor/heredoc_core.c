@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   heredoc_core.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: yihakan <yihakan@student.42istanbul.com    +#+  +:+       +#+        */
+/*   By: mdusunen <mdusunen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/08 19:25:51 by yihakan           #+#    #+#             */
-/*   Updated: 2025/08/08 19:43:11 by yihakan          ###   ########.fr       */
+/*   Updated: 2025/08/08 20:46:01 by mdusunen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -83,8 +83,8 @@ static int	append_heredoc_line(t_redir *current, char *line, char *delimiter,
 	return (1);
 }
 
-static int	process_heredoc_line(t_redir *current, char *delimiter, int is_last_heredoc,
-			char **heredoc_content)
+static int	process_heredoc_line(t_redir *current,
+		char *delimiter, int is_last_heredoc, char **heredoc_content)
 {
 	char	*line;
 
@@ -133,8 +133,8 @@ static int	process_single_heredoc_simple(t_redir *current, int current_heredoc,
 	return (1);
 }
 
-int	process_heredoc_loop(t_redir *heredocs, int heredoc_count,
-			char **heredoc_content)
+int	process_heredoc_loop(t_redir *heredocs,
+		int heredoc_count, char **heredoc_content)
 {
 	t_redir	*current;
 	int		current_heredoc;
@@ -148,13 +148,11 @@ int	process_heredoc_loop(t_redir *heredocs, int heredoc_count,
 			current = current->next;
 			continue ;
 		}
-		if (!process_single_heredoc_simple(current, current_heredoc, heredoc_count,
-				heredoc_content))
+		if (!process_single_heredoc_simple(current, current_heredoc,
+				heredoc_count, heredoc_content))
 			return (0);
 		current_heredoc++;
 		current = current->next;
 	}
 	return (1);
 }
-
-

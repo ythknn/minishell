@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   minishell.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: yihakan <yihakan@student.42istanbul.com    +#+  +:+       +#+        */
+/*   By: mdusunen <mdusunen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/04 19:41:18 by yihakan           #+#    #+#             */
-/*   Updated: 2025/08/08 19:43:11 by yihakan          ###   ########.fr       */
+/*   Updated: 2025/08/08 20:44:57 by mdusunen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -113,10 +113,10 @@ typedef struct s_pipe_data
 
 typedef struct s_heredoc_state
 {
-    int			stdin_copy;
-    char			*heredoc_content;
-    struct termios	term;
-    int			heredoc_count;
+	int				stdin_copy;
+	char			*heredoc_content;
+	struct termios	term;
+	int				heredoc_count;
 }	t_heredoc_state;
 
 typedef struct s_shell
@@ -261,8 +261,8 @@ void		print_matrix_ascii(void);
 void		matrix_effect(void);
 
 //main_utils.c
-void	setup_terminal(void);
-void	handle_signal_interrupt(t_shell *shell);
+void		setup_terminal(void);
+void		handle_signal_interrupt(t_shell *shell);
 
 //pat_utils.c
 char		*search_in_path(char *cmd, char *path_env);
@@ -289,19 +289,23 @@ int			apply_heredoc_redirections(t_redir *redirs);
 int			apply_file_redirections(t_redir *redirs);
 
 /* pipe_utils.c fonksiyonları */
-int		has_heredoc(t_command *cmd);
-int		handle_heredoc_for_pipe(t_command *cmd, int *pipe_fd);
-void	setup_child_pipes(int prev_pipe_read, int *pipe_fd, t_command *current);
-void	setup_child_pipes_with_heredoc(int prev_pipe_read, int *pipe_fd, 
-		t_command *current, int *heredoc_pipe_fd);
-void	close_heredoc_fds(int *heredoc_pipe_fd);
+int			has_heredoc(t_command *cmd);
+int			handle_heredoc_for_pipe(t_command *cmd, int *pipe_fd);
+void		setup_child_pipes(int prev_pipe_read,
+				int *pipe_fd, t_command *current);
+void		setup_child_pipes_with_heredoc(int prev_pipe_read, int *pipe_fd,
+				t_command *current, int *heredoc_pipe_fd);
+void		close_heredoc_fds(int *heredoc_pipe_fd);
 
 /* pipe_handlers.c fonksiyonları */
-void	execute_child_process(t_command *current, t_shell *shell, char *path);
-void	execute_child_process_with_heredoc(t_command *current, t_shell *shell, 
-		char *path);
-int		handle_empty_command(t_command *current, int *pipe_fd, int *prev_pipe_read);
-int		handle_builtin_single_command(t_command *current, t_shell *shell, char *path);
-int		handle_command_not_found(t_command *current, t_shell *shell, 
-		int *pipe_fd, int prev_pipe_read);
+void		execute_child_process(t_command *current,
+				t_shell *shell, char *path);
+void		execute_child_process_with_heredoc(t_command *current,
+				t_shell *shell, char *path);
+int			handle_empty_command(t_command *current,
+				int *pipe_fd, int *prev_pipe_read);
+int			handle_builtin_single_command(t_command *current,
+				t_shell *shell, char *path);
+int			handle_command_not_found(t_command *current,
+				t_shell *shell, int *pipe_fd, int prev_pipe_read);
 #endif
