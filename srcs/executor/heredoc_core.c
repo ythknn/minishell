@@ -38,7 +38,7 @@ static int	append_heredoc_line(t_redir *current, char *line, char *delimiter,
 	char	*temp;
 	size_t	content_size;
 
-	if (strcmp(current->file, delimiter) == 0)
+	if (ft_strcmp(current->file, delimiter) == 0)
 	{
 		expanded_line = ft_strdup(line);
 		free(line);
@@ -47,7 +47,7 @@ static int	append_heredoc_line(t_redir *current, char *line, char *delimiter,
 	}
 	else
 		expanded_line = line;
-	content_size = strlen(*heredoc_content) + strlen(expanded_line) + 2;
+	content_size = ft_strlen(*heredoc_content) + ft_strlen(expanded_line) + 2;
 	temp = malloc(content_size);
 	if (!temp)
 	{
@@ -73,7 +73,7 @@ static int	process_heredoc_line(t_redir *current,
 			free(line);
 		return (0);
 	}
-	if (strcmp(line, delimiter) == 0)
+	if (ft_strcmp(line, delimiter) == 0)
 	{
 		free(line);
 		return (2);

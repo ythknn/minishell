@@ -68,7 +68,7 @@ char	*lexer_analyze(char *input)
 
 	if (!input)
 		return (NULL);
-	lex.processed = malloc(strlen(input) * 2 + 1);
+	lex.processed = malloc(ft_strlen(input) * 2 + 1);
 	if (!(lex.processed))
 		return (NULL);
 	i = 0;
