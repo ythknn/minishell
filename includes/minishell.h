@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   minishell.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mdusunen <mdusunen@student.42.fr>          +#+  +:+       +#+        */
+/*   By: yihakan <yihakan@student.42istanbul.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/04 19:41:18 by yihakan           #+#    #+#             */
-/*   Updated: 2025/08/08 18:04:35 by mdusunen         ###   ########.fr       */
+/*   Updated: 2025/08/08 19:43:11 by yihakan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -110,6 +110,14 @@ typedef struct s_pipe_data
 	int		last_cmd_not_found;
 	int		has_heredoc_flag;
 }	t_pipe_data;
+
+typedef struct s_heredoc_state
+{
+    int			stdin_copy;
+    char			*heredoc_content;
+    struct termios	term;
+    int			heredoc_count;
+}	t_heredoc_state;
 
 typedef struct s_shell
 {
@@ -273,6 +281,12 @@ int			handle_redir_error(t_token *current_token, t_command *commands,
 				t_command *current_cmd);
 void		add_redir_to_command(t_command *cmd, t_redir *new_redir);
 char		*handle_multiple_heredocs(t_redir *heredocs);
+int			init_heredoc_state(t_heredoc_state *state, t_redir *heredocs);
+int			process_heredoc_loop(t_redir *heredocs, int heredoc_count,
+				char **heredoc_content);
+char		*finalize_heredoc(int stdin_copy, char *heredoc_content);
+int			apply_heredoc_redirections(t_redir *redirs);
+int			apply_file_redirections(t_redir *redirs);
 
 /* pipe_utils.c fonksiyonları */
 int		has_heredoc(t_command *cmd);
