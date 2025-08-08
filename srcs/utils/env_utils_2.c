@@ -94,7 +94,7 @@ t_env	*add_env_var(t_env *env_list, char *key, char *value)
 	current = env_list;
 	while (current)
 	{
-		if (strcmp(current->key, key) == 0)
+		if (ft_strcmp(current->key, key) == 0)
 		{
 			free(current->value);
 			current->value = ft_strdup(value);
@@ -120,7 +120,7 @@ void	remove_env_var(t_env **env_list, char *key)
 	prev = NULL;
 	while (cur)
 	{
-		if (strcmp(cur->key, key) == 0)
+		if (ft_strcmp(cur->key, key) == 0)
 		{
 			if (prev)
 				prev->next = cur->next;

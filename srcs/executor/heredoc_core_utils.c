@@ -19,7 +19,7 @@ char	*strip_quotes(char *str)
 
 	if (!str)
 		return (NULL);
-	len = strlen(str);
+	len = ft_strlen(str);
 	if (len >= 2
 		&& ((str[0] == '\'' && str[len - 1] == '\'')
 			|| (str[0] == '"' && str[len - 1] == '"')))

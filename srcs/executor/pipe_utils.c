@@ -35,7 +35,7 @@ int	handle_heredoc_for_pipe(t_command *cmd, int *pipe_fd)
 	heredoc_content = handle_multiple_heredocs(cmd->redirections);
 	if (!heredoc_content)
 		return (-1);
-	write(pipe_fd[1], heredoc_content, strlen(heredoc_content));
+	write(pipe_fd[1], heredoc_content, ft_strlen(heredoc_content));
 	close(pipe_fd[1]);
 	free(heredoc_content);
 	return (0);

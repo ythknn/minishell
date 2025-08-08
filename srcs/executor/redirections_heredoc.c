@@ -30,7 +30,7 @@ static int	handle_heredoc_redirection(t_redir *redirs, int *heredoc_processed)
 		return (1);
 	}
 	pipe(pipe_fd);
-	write(pipe_fd[1], heredoc_content, strlen(heredoc_content));
+	write(pipe_fd[1], heredoc_content, ft_strlen(heredoc_content));
 	close(pipe_fd[1]);
 	dup2(pipe_fd[0], STDIN_FILENO);
 	close(pipe_fd[0]);
