@@ -6,7 +6,7 @@
 /*   By: yihakan <yihakan@student.42istanbul.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/15 18:21:39 by mdusunen          #+#    #+#             */
-/*   Updated: 2025/08/04 04:34:03 by yihakan          ###   ########.fr       */
+/*   Updated: 2025/08/08 20:51:11 by yihakan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,13 @@
 #define MAGENTA "\033[35m"
 #define CYAN "\033[36m"
 #define RESET "\033[0m"
+
+static void	clean_resources(t_shell *shell)
+{
+	clear_current_tokens(shell);
+	clear_current_commands(shell);
+	gc_free_all(shell);
+}
 
 char	*display_prompt(t_shell *shell)
 {
@@ -42,10 +49,6 @@ char	*display_prompt(t_shell *shell)
 	line = readline(prompt);
 	free(prompt);
 	if (!line)
-	{
-		clear_current_tokens(shell);
-		clear_current_commands(shell);
-		gc_free_all(shell);
-	}
+		clean_resources(shell);
 	return (line);
 }

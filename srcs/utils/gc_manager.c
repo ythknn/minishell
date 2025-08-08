@@ -6,13 +6,16 @@
 /*   By: yihakan <yihakan@student.42istanbul.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/29 00:00:00 by mdusunen          #+#    #+#             */
-/*   Updated: 2025/08/04 04:35:56 by yihakan          ###   ########.fr       */
+/*   Updated: 2025/08/08 21:26:49 by yihakan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../includes/minishell.h"
 
-void	*gc_get_static_ptr(t_shell *shell, t_gc_type type)
+static void	*gc_get_static_ptr_part1(t_shell *shell, t_gc_type type);
+static void	*gc_get_static_ptr_part2(t_shell *shell, t_gc_type type);
+
+static void	*gc_get_static_ptr_part1(t_shell *shell, t_gc_type type)
 {
 	if (type == GC_LINE)
 		return (shell->gc_line);
@@ -24,7 +27,12 @@ void	*gc_get_static_ptr(t_shell *shell, t_gc_type type)
 		return (shell->gc_commands);
 	else if (type == GC_ARGS)
 		return (shell->gc_args);
-	else if (type == GC_ENV_VAR)
+	return (gc_get_static_ptr_part2(shell, type));
+}
+
+static void	*gc_get_static_ptr_part2(t_shell *shell, t_gc_type type)
+{
+	if (type == GC_ENV_VAR)
 		return (shell->gc_env_var);
 	else if (type == GC_PATH)
 		return (shell->gc_path);
@@ -43,34 +51,9 @@ void	*gc_get_static_ptr(t_shell *shell, t_gc_type type)
 	return (NULL);
 }
 
-void	gc_set_static_ptr(t_shell *shell, void *ptr, t_gc_type type)
+void	*gc_get_static_ptr(t_shell *shell, t_gc_type type)
 {
-	if (type == GC_LINE)
-		shell->gc_line = ptr;
-	else if (type == GC_PROCESSED_LINE)
-		shell->gc_processed_line = ptr;
-	else if (type == GC_TOKENS)
-		shell->gc_tokens = ptr;
-	else if (type == GC_COMMANDS)
-		shell->gc_commands = ptr;
-	else if (type == GC_ARGS)
-		shell->gc_args = ptr;
-	else if (type == GC_ENV_VAR)
-		shell->gc_env_var = ptr;
-	else if (type == GC_PATH)
-		shell->gc_path = ptr;
-	else if (type == GC_EXEC_PATH)
-		shell->gc_exec_path = ptr;
-	else if (type == GC_HEREDOC)
-		shell->gc_heredoc = ptr;
-	else if (type == GC_TEMP_STR)
-		shell->gc_temp_str = ptr;
-	else if (type == GC_ENV_ARRAY)
-		shell->gc_env_array = ptr;
-	else if (type == GC_REDIR)
-		shell->gc_redir = ptr;
-	else if (type == GC_GENERAL)
-		shell->gc_general = ptr;
+	return (gc_get_static_ptr_part1(shell, type));
 }
 
 void	gc_free_all(t_shell *shell)

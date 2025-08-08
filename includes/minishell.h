@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   minishell.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mdusunen <mdusunen@student.42.fr>          +#+  +:+       +#+        */
+/*   By: yihakan <yihakan@student.42istanbul.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/04 19:41:18 by yihakan           #+#    #+#             */
-/*   Updated: 2025/08/08 20:44:57 by mdusunen         ###   ########.fr       */
+/*   Updated: 2025/08/08 21:34:46 by yihakan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -220,9 +220,16 @@ t_command	*get_commands_from_tokens(t_token *tokens);
 
 char		*expand_env_vars(char *str, t_shell *shell);
 char		*handle_exit_status(char *result, int *j, int *i, t_shell *shell);
-char		*handle_env_var(char *str, int *i, char *result, int *j,
+
+typedef struct s_expansion_out
+{
+    char	*result;
+    int		*j;
+}   t_expansion_out;
+
+char		*handle_env_var(char *str, int *i, t_expansion_out *out,
 				t_shell *shell);
-char		*handle_dollar_sign(char *str, int *i, char *result, int *j,
+char		*handle_dollar_sign(char *str, int *i, t_expansion_out *out,
 				t_shell *shell);
 void		expand_redirections(t_command *cmd, t_shell *shell);
 void		expand_args(t_command *cmd, t_shell *shell);

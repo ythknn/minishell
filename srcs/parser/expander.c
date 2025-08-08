@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   expander.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mdusunen <mdusunen@student.42.fr>          +#+  +:+       +#+        */
+/*   By: yihakan <yihakan@student.42istanbul.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/15 18:19:51 by mdusunen          #+#    #+#             */
-/*   Updated: 2025/07/22 17:56:18 by mdusunen         ###   ########.fr       */
+/*   Updated: 2025/08/08 21:41:54 by yihakan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,51 +62,86 @@ static char	*handle_variable_expansion(char *str, int *i, t_shell *shell)
 		return (ft_strdup("$"));
 }
 
-char	*expand_env_vars(char *str, t_shell *shell)
+static void	update_quote_state(char c, int *in_quotes, char *quote_char)
 {
-	char	*result;
-	char	*temp;
-	int		i;
+	if ((c == '\'' || c == '"') && (!(*in_quotes) || *quote_char == c))
+	{
+		if (*in_quotes)
+			*in_quotes = 0;
+		else
+		{
+			*in_quotes = 1;
+			*quote_char = c;
+		}
+	}
+}
+
+typedef struct s_expand_ctx
+{
 	int		in_quotes;
 	char	quote_char;
+	t_shell	*shell;
+	char	*result;
+}	t_expand_ctx;
+
+static char	*process_expansion_or_char(char *str, int *i, t_expand_ctx *ctx)
+{
+	char	*temp;
+
+	if (str[*i] == '$' && (!(ctx->in_quotes) || ctx->quote_char != '\''))
+	{
+		temp = handle_variable_expansion(str, i, ctx->shell);
+		if (temp)
+		{
+			ctx->result = ft_strjoin_free(ctx->result, temp);
+			free(temp);
+		}
+	}
+	else
+	{
+		ctx->result = add_char_to_result(ctx->result, str[*i]);
+		(*i)++;
+	}
+	return (ctx->result);
+}
+
+static void	init_expand_ctx(t_expand_ctx *ctx, t_shell *shell, char *result)
+{
+	ctx->in_quotes = 0;
+	ctx->quote_char = 0;
+	ctx->shell = shell;
+	ctx->result = result;
+}
+
+static char	*expand_process_loop(char *str, t_expand_ctx *ctx)
+{
+	int		i;
+
+	i = 0;
+	while (str[i])
+	{
+		update_quote_state(str[i], &ctx->in_quotes, &ctx->quote_char);
+		if ((str[i] == '\'' || str[i] == '"')
+			&& (!ctx->in_quotes || ctx->quote_char == str[i]))
+		{
+			i++;
+			continue ;
+		}
+		ctx->result = process_expansion_or_char(str, &i, ctx);
+	}
+	return (ctx->result);
+}
+
+char	*expand_env_vars(char *str, t_shell *shell)
+{
+	char			*result;
+	t_expand_ctx	ctx;
 
 	result = ft_strdup("");
 	if (!result)
 		return (NULL);
-	i = 0;
-	in_quotes = 0;
-	quote_char = 0;
-	while (str[i])
-	{
-		if ((str[i] == '\'' || str[i] == '"')
-			&& (!in_quotes || quote_char == str[i]))
-		{
-			if (in_quotes)
-				in_quotes = 0;
-			else
-			{
-				in_quotes = 1;
-				quote_char = str[i];
-			}
-			i++;
-			continue ;
-		}
-		if (str[i] == '$' && (!in_quotes || quote_char != '\''))
-		{
-			temp = handle_variable_expansion(str, &i, shell);
-			if (temp)
-			{
-				result = ft_strjoin_free(result, temp);
-				free(temp);
-			}
-		}
-		else
-		{
-			result = add_char_to_result(result, str[i]);
-			i++;
-		}
-	}
-	return (result);
+	init_expand_ctx(&ctx, shell, result);
+	return (expand_process_loop(str, &ctx));
 }
 
 void	expand_variables(t_command *cmd, t_shell *shell)

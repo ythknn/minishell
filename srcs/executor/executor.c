@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   executor.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mdusunen <mdusunen@student.42.fr>          +#+  +:+       +#+        */
+/*   By: yihakan <yihakan@student.42istanbul.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/09 19:23:11 by yihakan           #+#    #+#             */
-/*   Updated: 2025/07/18 20:00:39 by mdusunen         ###   ########.fr       */
+/*   Updated: 2025/08/08 21:09:28 by yihakan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,27 +64,26 @@ static int	check_executable_path(t_command *cmd, t_shell *shell)
 	return (127);
 }
 
-static int	execute_external_command(t_command *cmd, t_shell *shell, char *path)
+static void	execute_external_child(t_command *cmd, t_shell *shell, char *path)
 {
-	pid_t	pid;
-	int		status;
-
-	pid = fork();
-	if (pid == 0)
+	if (setup_redirections(cmd->redirections) != 0)
 	{
-		if (setup_redirections(cmd->redirections) != 0)
-		{
-			free(path);
-			free_shell(shell);
-			exit(1);
-		}
-		execve(path, cmd->args, shell->env_array);
-		print_error(cmd->args[0], NULL, strerror(errno));
 		free(path);
 		free_shell(shell);
 		exit(1);
 	}
-	else if (pid < 0)
+	execve(path, cmd->args, shell->env_array);
+	print_error(cmd->args[0], NULL, strerror(errno));
+	free(path);
+	free_shell(shell);
+	exit(1);
+}
+
+static int	execute_external_parent(pid_t pid, t_shell *shell, char *path)
+{
+	int	status;
+
+	if (pid < 0)
 	{
 		print_error("fork", NULL, strerror(errno));
 		free(path);
@@ -98,6 +97,16 @@ static int	execute_external_command(t_command *cmd, t_shell *shell, char *path)
 	else
 		shell->exit_status = 1;
 	return (shell->exit_status);
+}
+
+static int	execute_external_command(t_command *cmd, t_shell *shell, char *path)
+{
+	pid_t	pid;
+
+	pid = fork();
+	if (pid == 0)
+		execute_external_child(cmd, shell, path);
+	return (execute_external_parent(pid, shell, path));
 }
 
 static int	execute_single_command(t_command *cmd, t_shell *shell)

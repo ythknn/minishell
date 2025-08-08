@@ -6,7 +6,7 @@
 #    By: yihakan <yihakan@student.42istanbul.com    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/06/07 14:33:48 by yihakan           #+#    #+#              #
-#    Updated: 2025/08/08 19:42:38 by yihakan          ###   ########.fr        #
+#    Updated: 2025/08/08 21:01:20 by yihakan          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -88,6 +88,7 @@ SRCS = $(SRCS_DIR)/main.c \
 	   $(SRCS_DIR)/utils/error_utils_2.c \
 	   $(SRCS_DIR)/utils/shell_utils.c \
 	   $(SRCS_DIR)/utils/gc_manager.c \
+	   $(SRCS_DIR)/utils/gc_init_utils.c \
 	   $(SRCS_DIR)/utils/gc_manager_utils.c \
 	   $(SRCS_DIR)/utils/static_vars.c \
 	   $(SRCS_DIR)/utils/static_vars_2.c \
