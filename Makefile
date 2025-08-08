@@ -61,6 +61,8 @@ SRCS = $(SRCS_DIR)/main.c \
 	   $(SRCS_DIR)/executor/executor.c \
 	   $(SRCS_DIR)/executor/redirections.c \
 	   $(SRCS_DIR)/executor/pipes.c \
+	   $(SRCS_DIR)/executor/pipe_utils.c \
+	   $(SRCS_DIR)/executor/pipe_handlers.c \
 	   $(SRCS_DIR)/builtins/builtins.c \
 	   $(SRCS_DIR)/builtins/echo.c \
 	   $(SRCS_DIR)/builtins/cd.c \

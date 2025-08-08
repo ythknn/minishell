@@ -1,6 +1,6 @@
 === ENHANCED Minishell Leak Test & Bash Comparison (Ultimate Version) ===
-Test Başlangıcı: Thu Aug  7 03:13:50 AM +03 2025
-Comparison Mode: false
+Test Başlangıcı: Thu Aug  7 08:04:22 PM +03 2025
+Comparison Mode: true
 
 === Kategori: Temel Komutlar ===
 === TEST 1: echo hello ===
@@ -143,3 +143,315 @@ Comparison Mode: false
 === TEST 67: echo "tab\ttest" ===
 
 === TEST 68: echo "$USER and $HOME" ===
+
+=== TEST 69: echo "quotes inside \"nested\"" ===
+
+=== Kategori: Single Quote Tests ===
+=== TEST 70: echo 'hello world' ===
+
+=== TEST 71: echo 'test' ===
+
+=== TEST 72: echo '' ===
+
+=== TEST 73: echo '$USER should not expand' ===
+
+=== TEST 74: echo 'pipes | and > redirects' ===
+
+=== TEST 75: echo 'single quote test' ===
+
+=== TEST 76: echo '$HOME literal' ===
+
+=== TEST 77: echo 'nothing $USER expands' ===
+
+=== TEST 78: echo 'whitespace   preserved' ===
+
+=== TEST 79: echo 'special chars !@#$%^&*()' ===
+
+=== Kategori: Environment Variable Display ===
+=== TEST 80: env ===
+
+=== TEST 81: env | head -5 ===
+==39496== 2 bytes in 1 blocks are still reachable in loss record 1 of 107
+==39496== 12 bytes in 3 blocks are still reachable in loss record 12 of 107
+==39496== 12 bytes in 3 blocks are still reachable in loss record 13 of 107
+==39496== 24 bytes in 1 blocks are still reachable in loss record 26 of 107
+==39496== 27 bytes in 1 blocks are still reachable in loss record 28 of 107
+==39496== 40 bytes in 2 blocks are still reachable in loss record 32 of 107
+==39496== 48 bytes in 2 blocks are still reachable in loss record 36 of 107
+==39496== 72 bytes in 3 blocks are still reachable in loss record 37 of 107
+==39496== 119 bytes in 1 blocks are still reachable in loss record 42 of 107
+==39496== 424 bytes in 1 blocks are still reachable in loss record 50 of 107
+==39496== 731 bytes in 52 blocks are still reachable in loss record 54 of 107
+==39496== 1,248 bytes in 52 blocks are still reachable in loss record 67 of 107
+==39496== 3,210 bytes in 52 blocks are still reachable in loss record 74 of 107
+==39496== 3,822 bytes in 51 blocks are still reachable in loss record 75 of 107
+
+=== TEST 82: env | grep USER ===
+
+=== TEST 83: env | grep HOME ===
+
+=== TEST 84: env | grep PATH ===
+
+=== Kategori: Export Command Tests ===
+=== TEST 85: export ===
+
+=== TEST 86: export VAR1=hello ===
+
+=== TEST 87: export VAR2=world ===
+
+=== TEST 88: export VAR3= ===
+
+=== TEST 89: export 123=invalid ===
+
+=== TEST 90: export VAR-INVALID=test ===
+
+=== TEST 91: export VAR4="hello world" ===
+
+=== TEST 92: export A=1 B=2 C=3 ===
+
+=== TEST 93: export PATH=/custom/path ===
+
+=== TEST 94: export TEST_VAR=test_value ===
+
+=== Kategori: Unset Command Tests ===
+=== TEST 95: unset PATH ===
+
+=== TEST 96: unset NONEXISTENT ===
+
+=== TEST 97: unset ===
+
+=== TEST 98: unset HOME ===
+
+=== TEST 99: unset USER ===
+
+=== Kategori: CD Command Tests ===
+=== TEST 100: cd ===
+
+=== TEST 101: cd / ===
+
+=== TEST 102: cd /tmp ===
+
+=== TEST 103: cd .. ===
+
+=== TEST 104: cd . ===
+
+=== TEST 105: cd /nonexistent ===
+
+=== TEST 106: cd ../.. ===
+
+=== TEST 107: cd ~ ===
+
+=== TEST 108: cd - ===
+
+=== TEST 109: cd relative_path_test ===
+
+=== Kategori: PWD Command Tests ===
+=== TEST 110: pwd ===
+
+=== TEST 111: /bin/pwd ===
+
+=== Kategori: Relative Path Tests ===
+=== TEST 112: ./minishell --version 2>/dev/null || echo 'relative path test' ===
+
+=== TEST 113: ls ./src/ 2>/dev/null || echo 'relative path test' ===
+
+=== TEST 114: ../minishell 2>/dev/null || echo 'relative path test' ===
+
+=== TEST 115: /bin/cat ./Makefile 2>/dev/null || echo 'file test' ===
+
+=== TEST 116: ./test_script.sh 2>/dev/null || echo 'script test' ===
+
+=== TEST 117: ls ./ ===
+
+=== TEST 118: ls ../ ===
+
+=== Kategori: Environment PATH Tests ===
+=== TEST 119: ls ===
+
+=== TEST 120: /bin/cat ===
+
+=== TEST 121: echo test ===
+
+=== TEST 122: pwd ===
+
+=== TEST 123: /bin/ls ===
+
+=== TEST 124: export PATH=/bin:/usr/bin ===
+
+=== TEST 125: export PATH=/custom/path ===
+
+=== TEST 126: export PATH=/bin ===
+
+=== TEST 127: export PATH=/usr/bin:/bin ===
+
+=== Kategori: Redirection Tests ===
+=== TEST 128: ls > file.txt ===
+
+=== TEST 129: /bin/cat < file.txt ===
+
+=== TEST 130: echo overwrite > file.txt ===
+
+=== TEST 131: wc -l < /etc/passwd ===
+
+=== TEST 132: ls nonexistent 2> error.log ===
+
+=== TEST 133: ls > output.txt 2> error.txt ===
+
+=== TEST 134: echo redirect_test > test.out ===
+
+=== Kategori: Pipe Tests ===
+=== TEST 135: ls | wc -l ===
+
+=== TEST 136: ls | grep a ===
+
+=== TEST 137: /bin/cat /etc/passwd | grep root ===
+
+=== TEST 138: echo hello | /bin/cat ===
+
+=== TEST 139: ls | grep . | wc -l ===
+
+=== TEST 140: /bin/cat /etc/passwd | head | tail ===
+
+=== TEST 141: echo test | /bin/cat | /bin/cat | /bin/cat ===
+
+=== TEST 142: ls /nonexistent | grep error ===
+
+=== TEST 143: echo hello | grep hello | wc -l ===
+
+=== TEST 144: /bin/echo pipe_test | /bin/cat ===
+
+=== TEST 145: ls | head -5 ===
+
+=== TEST 146: /bin/ls | /bin/grep test ===
+
+=== Kategori: Quote/Escape Tests ===
+=== TEST 147: echo "hello world" ===
+
+=== TEST 148: echo 'single quote test' ===
+
+=== TEST 149: echo "mix 'quotes' and \"escapes\"" ===
+
+=== TEST 150: echo $HOME ===
+
+=== TEST 151: echo '$HOME literal' ===
+
+=== TEST 152: echo "$USER in quotes" ===
+
+=== TEST 153: echo 'cannot expand $USER' ===
+
+=== TEST 154: echo "nested 'single' quotes" ===
+
+=== TEST 155: echo 'nested "double" quotes' ===
+
+=== TEST 156: echo "$HOME/$USER" ===
+
+=== Kategori: Syntax Error Tests ===
+=== TEST 157: | ls ===
+
+=== TEST 158: ls | ===
+
+=== TEST 159: /bin/cat < ===
+
+=== TEST 160: echo > ===
+
+=== TEST 161: ;; ===
+
+=== TEST 162: ;;; ===
+
+=== TEST 163: ls ;;; echo test ===
+
+=== TEST 164: | | echo fail ===
+
+=== Kategori: Heredoc Tests ===
+=== TEST 165: cat << EOF
+test line 1
+test line 2
+EOF ===
+
+=== TEST 166: grep hello << DELIMITER
+hello world  
+goodbye world
+DELIMITER ===
+
+=== TEST 167: wc -l << END
+line 1
+line 2
+line 3
+END ===
+
+=== TEST 168: /bin/cat << MARKER
+heredoc test
+multiple lines
+MARKER ===
+
+=== Kategori: Environment Variable Expansion ===
+=== TEST 169: echo $HOME ===
+
+=== TEST 170: echo $USER ===
+
+=== TEST 171: echo $PATH ===
+
+=== TEST 172: echo $NONEXISTENT ===
+
+=== TEST 173: echo "$USER" and '$USER' ===
+
+=== Kategori: History and Command Tests ===
+=== TEST 174: echo command1 ===
+
+=== TEST 175: ls -la ===
+
+=== TEST 176: pwd ===
+
+=== TEST 177: echo test ===
+
+=== TEST 178: /bin/cat /etc/passwd | head -1 ===
+
+=== TEST 179: /bin/echo history_test ===
+
+=== Kategori: Complex Mixed Tests ===
+=== TEST 180: ls -la | grep ^d | wc -l ===
+
+=== TEST 181: echo "test" > file ===
+
+=== TEST 182: cd /tmp ===
+
+=== TEST 183: ls /nonexistent 2>/dev/null || echo "directory not found" ===
+
+=== TEST 184: /bin/echo test | /bin/cat | wc -l ===
+
+=== Kategori: Stress Tests ===
+=== TEST 185: echo very long command with many arguments here to test argument parsing and memory management ===
+
+=== TEST 186: ls -la -h -t -r -S ===
+
+=== TEST 187: echo a | echo b | echo c | echo d ===
+
+=== TEST 188: /bin/echo stress ===
+
+=== TEST 189: echo arg1 arg2 arg3 arg4 arg5 arg6 arg7 arg8 arg9 arg10 ===
+
+=== Kategori: PDF Requirement Tests ===
+=== TEST 190: echo $USER must print $USER ===
+
+=== TEST 191: echo '$USER' must print $USER ===
+
+=== TEST 192: echo "\"cat lol.c | cat > lol.c\"" ===
+
+=== TEST 193: /bin/ls filethatdoesntexist ===
+
+=== TEST 194: expr $? + $? ===
+
+=== TEST 195: /bin/ls > /dev/null ===
+
+=== TEST 196: echo $? ===
+
+=== TEST 197: export TEST=value ===
+
+=== TEST 198: unset TEST ===
+
+=== TEST 199: cd / ===
+
+=== TEST 200: cd nonexistent ===
+
+=== TEST 201: pwd ===
+

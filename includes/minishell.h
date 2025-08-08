@@ -103,12 +103,12 @@ typedef struct s_lexer
 
 typedef struct s_pipe_data
 {
-	int	pipe_fd[2];
-	int	heredoc_pipe_fd[2];
-	int	prev_pipe_read;
-	int	last_status;
-	int	last_cmd_not_found;
-	int	has_heredoc_flag;
+	int		pipe_fd[2];
+	int		heredoc_pipe_fd[2];
+	int		prev_pipe_read;
+	int		last_status;
+	int		last_cmd_not_found;
+	int		has_heredoc_flag;
 }	t_pipe_data;
 
 typedef struct s_shell
@@ -269,4 +269,21 @@ int			handle_redir_error(t_token *current_token, t_command *commands,
 				t_command *current_cmd);
 void		add_redir_to_command(t_command *cmd, t_redir *new_redir);
 char		*handle_multiple_heredocs(t_redir *heredocs);
+
+/* pipe_utils.c fonksiyonları */
+int		has_heredoc(t_command *cmd);
+int		handle_heredoc_for_pipe(t_command *cmd, int *pipe_fd);
+void	setup_child_pipes(int prev_pipe_read, int *pipe_fd, t_command *current);
+void	setup_child_pipes_with_heredoc(int prev_pipe_read, int *pipe_fd, 
+		t_command *current, int *heredoc_pipe_fd);
+void	close_heredoc_fds(int *heredoc_pipe_fd);
+
+/* pipe_handlers.c fonksiyonları */
+void	execute_child_process(t_command *current, t_shell *shell, char *path);
+void	execute_child_process_with_heredoc(t_command *current, t_shell *shell, 
+		char *path);
+int		handle_empty_command(t_command *current, int *pipe_fd, int *prev_pipe_read);
+int		handle_builtin_single_command(t_command *current, t_shell *shell, char *path);
+int		handle_command_not_found(t_command *current, t_shell *shell, 
+		int *pipe_fd, int prev_pipe_read);
 #endif
