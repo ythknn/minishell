@@ -3,7 +3,7 @@
 /*                                                        :::      ::::::::   */
 /*   redirections.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: yihakan <yihakan@student.42istanbul.com    +#+  +:+       +#+        */
+/*   By: mdusunen <mdusunen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/08 19:30:47 by yihakan           #+#    #+#             */
 /*   Updated: 2025/08/08 19:39:45 by yihakan          ###   ########.fr       */
