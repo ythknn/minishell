@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   minishell.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: yihakan <yihakan@student.42istanbul.com    +#+  +:+       +#+        */
+/*   By: mdusunen <mdusunen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/04 19:41:18 by yihakan           #+#    #+#             */
-/*   Updated: 2025/08/05 20:31:15 by yihakan          ###   ########.fr       */
+/*   Updated: 2025/08/08 18:04:35 by mdusunen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -251,6 +251,10 @@ char		**gc_malloc_array(t_shell *shell, size_t count, t_gc_type type);
 void		print_morpheus_quote(void);
 void		print_matrix_ascii(void);
 void		matrix_effect(void);
+
+//main_utils.c
+void	setup_terminal(void);
+void	handle_signal_interrupt(t_shell *shell);
 
 //pat_utils.c
 char		*search_in_path(char *cmd, char *path_env);
