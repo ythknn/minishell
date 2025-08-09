@@ -6,7 +6,7 @@
 /*   By: yihakan <yihakan@student.42istanbul.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/15 18:16:30 by mdusunen          #+#    #+#             */
-/*   Updated: 2025/08/08 21:52:54 by yihakan          ###   ########.fr       */
+/*   Updated: 2025/08/09 20:47:51 by yihakan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,24 @@ char	*handle_exit_status(char *result, int *j, int *i, t_shell *shell)
 		ft_strlcpy(result + *j, exit_str, 4096 - *j);
 		*j += exit_len;
 		free(exit_str);
+	}
+	(*i)++;
+	return (result);
+}
+
+char	*handle_process_id(char *result, int *j, int *i, t_shell *shell)
+{
+	char	*pid_str;
+	int		pid_len;
+
+	(void)shell;
+	pid_str = ft_itoa(getpid());
+	if (pid_str)
+	{
+		pid_len = ft_strlen(pid_str);
+		ft_strlcpy(result + *j, pid_str, 4096 - *j);
+		*j += pid_len;
+		free(pid_str);
 	}
 	(*i)++;
 	return (result);
@@ -58,6 +76,8 @@ char	*handle_dollar_sign(char *str, int *i,
 	(*i)++;
 	if (str[*i] == '?')
 		out->result = handle_exit_status(out->result, out->j, i, shell);
+	else if (str[*i] == '$')
+		out->result = handle_process_id(out->result, out->j, i, shell);
 	else if (str[*i] && (str[*i] == '_' || (str[*i] >= 'a' && str[*i] <= 'z')
 			|| (str[*i] >= 'A' && str[*i] <= 'Z')
 			|| (str[*i] >= '0' && str[*i] <= '9')))

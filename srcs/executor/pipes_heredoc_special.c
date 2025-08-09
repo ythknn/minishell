@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   pipes_heredoc_special.c                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mdusunen <mdusunen@student.42.fr>          +#+  +:+       +#+        */
+/*   By: yihakan <yihakan@student.42istanbul.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/08 19:15:03 by mdusunen          #+#    #+#             */
-/*   Updated: 2025/08/08 19:15:03 by mdusunen         ###   ########.fr       */
+/*   Updated: 2025/08/09 20:06:20 by yihakan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,14 +27,13 @@ int	handle_cmd_not_found_and_heredoc(t_command *current,
 	return (handle_command_not_found(current, shell, pipe_fd, -1));
 }
 
-int	process_heredoc_command(t_command *cur, int *heredoc_pipe_fd,
-		int *pipe_fd, int *prev_pipe_read)
+int	process_heredoc_command(t_command *cur, t_shell *shell,
+		int *heredoc_pipe_fd, int *pipe_fd)
 {
 	(void)pipe_fd;
-	(void)prev_pipe_read;
 	if (pipe(heredoc_pipe_fd) == -1)
 		return (perror("pipe"), 1);
-	if (handle_heredoc_for_pipe(cur, heredoc_pipe_fd) == -1)
+	if (handle_heredoc_for_pipe(cur, heredoc_pipe_fd, shell) == -1)
 	{
 		close_heredoc_fds(heredoc_pipe_fd);
 		return (1);

@@ -15,7 +15,7 @@
 
 static void	execute_external_child(t_command *cmd, t_shell *shell, char *path)
 {
-	if (setup_redirections(cmd->redirections) != 0)
+	if (setup_redirections(cmd->redirections, shell) != 0)
 	{
 		free(path);
 		free_shell(shell);

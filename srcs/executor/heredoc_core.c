@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   heredoc_core.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mdusunen <mdusunen@student.42.fr>          +#+  +:+       +#+        */
+/*   By: yihakan <yihakan@student.42istanbul.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/08 19:25:51 by yihakan           #+#    #+#             */
-/*   Updated: 2025/08/08 20:46:01 by mdusunen         ###   ########.fr       */
+/*   Updated: 2025/08/09 20:15:06 by yihakan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,40 +31,11 @@ static char	*read_heredoc_line(void)
 	return (line);
 }
 
-static int	append_heredoc_line(t_redir *current, char *line, char *delimiter,
-			char **heredoc_content)
-{
-	char	*expanded_line;
-	char	*temp;
-	size_t	content_size;
-
-	if (ft_strcmp(current->file, delimiter) == 0)
-	{
-		expanded_line = ft_strdup(line);
-		free(line);
-		if (!expanded_line)
-			return (1);
-	}
-	else
-		expanded_line = line;
-	content_size = ft_strlen(*heredoc_content) + ft_strlen(expanded_line) + 2;
-	temp = malloc(content_size);
-	if (!temp)
-	{
-		free(expanded_line);
-		return (0);
-	}
-	sprintf(temp, "%s%s\n", *heredoc_content, expanded_line);
-	free(*heredoc_content);
-	*heredoc_content = temp;
-	free(expanded_line);
-	return (1);
-}
-
-static int	process_heredoc_line(t_redir *current,
-		char *delimiter, int is_last_heredoc, char **heredoc_content)
+static int	process_heredoc_line(t_redir *current, char *delimiter,
+		char **heredoc_content, t_shell *shell)
 {
 	char	*line;
+	char	*expanded_line;
 
 	line = read_heredoc_line();
 	if (!line || g_signal == SIGINT)
@@ -78,44 +49,57 @@ static int	process_heredoc_line(t_redir *current,
 		free(line);
 		return (2);
 	}
-	if (is_last_heredoc)
-		return (append_heredoc_line(current, line, delimiter, heredoc_content));
+	if (heredoc_content)
+	{
+		expanded_line = expand_heredoc_line(current, line, delimiter, shell);
+		return (append_heredoc_line(expanded_line, heredoc_content));
+	}
 	free(line);
 	return (1);
 }
 
-static int	process_single_heredoc_simple(t_redir *current, int current_heredoc,
-			int heredoc_count, char **heredoc_content)
+static int	read_heredoc_until_delimiter(t_redir *current, char *delimiter,
+		char **heredoc_content, t_shell *shell)
+{
+	int	res;
+
+	while (g_signal != SIGINT)
+	{
+		if (heredoc_content)
+			res = process_heredoc_line(current, delimiter, heredoc_content,
+					shell);
+		else
+			res = process_heredoc_line(current, delimiter, NULL, NULL);
+		if (res == 0 || res == 2)
+			return (res);
+	}
+	return (0);
+}
+
+static int	process_single_heredoc_simple(t_redir *current, int is_last,
+		char **heredoc_content, t_shell *shell)
 {
 	char	*delimiter;
-	int		is_last_heredoc;
 	int		res;
 
-	is_last_heredoc = (current_heredoc == heredoc_count - 1);
 	delimiter = strip_quotes(current->file);
 	if (!delimiter)
 		return (0);
-	while (g_signal != SIGINT)
-	{
-		res = process_heredoc_line(current, delimiter, is_last_heredoc,
-				heredoc_content);
-		if (res == 0)
-		{
-			free(delimiter);
-			return (0);
-		}
-		if (res == 2)
-			break ;
-	}
+	if (is_last)
+		res = read_heredoc_until_delimiter(current, delimiter,
+				heredoc_content, shell);
+	else
+		res = read_heredoc_until_delimiter(current, delimiter, NULL, NULL);
 	free(delimiter);
-	return (1);
+	return (res != 0);
 }
 
-int	process_heredoc_loop(t_redir *heredocs,
-		int heredoc_count, char **heredoc_content)
+int	process_heredoc_loop(t_redir *heredocs, int heredoc_count,
+		char **heredoc_content, t_shell *shell)
 {
 	t_redir	*current;
 	int		current_heredoc;
+	int		is_last;
 
 	current = heredocs;
 	current_heredoc = 0;
@@ -126,8 +110,9 @@ int	process_heredoc_loop(t_redir *heredocs,
 			current = current->next;
 			continue ;
 		}
-		if (!process_single_heredoc_simple(current, current_heredoc,
-				heredoc_count, heredoc_content))
+		is_last = (current_heredoc == heredoc_count - 1);
+		if (!process_single_heredoc_simple(current, is_last,
+				heredoc_content, shell))
 			return (0);
 		current_heredoc++;
 		current = current->next;

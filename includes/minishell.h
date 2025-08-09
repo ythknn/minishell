@@ -6,7 +6,7 @@
 /*   By: yihakan <yihakan@student.42istanbul.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/04 19:41:18 by yihakan           #+#    #+#             */
-/*   Updated: 2025/08/08 21:34:46 by yihakan          ###   ########.fr       */
+/*   Updated: 2025/08/09 20:55:09 by yihakan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -187,7 +187,7 @@ int			execute_commands(t_command *cmds, t_shell *shell);
 int			execute_pipeline(t_command *cmds, t_shell *shell);
 int			execute_builtin(char **args, t_shell *shell);
 int			is_builtin(char *cmd);
-int			setup_redirections(t_redir *redirs);
+int			setup_redirections(t_redir *redirs, t_shell *shell);
 void		restore_redirections(int stdin_copy, int stdout_copy);
 char		*find_executable(char *cmd, t_shell *shell);
 
@@ -234,8 +234,9 @@ t_command	*get_commands_from_tokens(t_token *tokens);
 
 char		*expand_env_vars(char *str, t_shell *shell);
 char		*handle_exit_status(char *result, int *j, int *i, t_shell *shell);
+char		*handle_process_id(char *result, int *j, int *i, t_shell *shell);
 char		*handle_env_var(char *str, int *i, t_expansion_out *out,
-				t_shell *shell);
+			t_shell *shell);
 char		*handle_dollar_sign(char *str, int *i, t_expansion_out *out,
 				t_shell *shell);
 void		expand_redirections(t_command *cmd, t_shell *shell);
@@ -274,11 +275,10 @@ void		print_morpheus_quote(void);
 void		print_matrix_ascii(void);
 void		matrix_effect(void);
 char		*strip_quotes(char *str);
-//main_utils.c
+
 void		setup_terminal(void);
 void		handle_signal_interrupt(t_shell *shell);
 
-//path_utils.c
 char		*search_in_path(char *cmd, char *path_env);
 char		*build_exec_path(char *dir, char *cmd);
 int			is_absolute_or_relative_path(char *cmd);
@@ -294,24 +294,27 @@ void		add_arg(t_command *cmd, char *arg);
 int			handle_redir_error(t_token *current_token, t_command *commands,
 				t_command *current_cmd);
 void		add_redir_to_command(t_command *cmd, t_redir *new_redir);
-char		*handle_multiple_heredocs(t_redir *heredocs);
+char		*handle_multiple_heredocs(t_redir *heredocs, t_shell *shell);
 int			init_heredoc_state(t_heredoc_state *state, t_redir *heredocs);
 int			process_heredoc_loop(t_redir *heredocs, int heredoc_count,
-				char **heredoc_content);
+				char **heredoc_content, t_shell *shell);
 char		*finalize_heredoc(int stdin_copy, char *heredoc_content);
-int			apply_heredoc_redirections(t_redir *redirs);
+int			apply_heredoc_redirections(t_redir *redirs, t_shell *shell);
 int			apply_file_redirections(t_redir *redirs);
 
-/* pipe_utils.c fonksiyonları */
+char		*expand_heredoc_line(t_redir *current, char *line,
+				char *delimiter, t_shell *shell);
+int			append_heredoc_line(char *expanded_line, char **heredoc_content);
+
 int			has_heredoc(t_command *cmd);
-int			handle_heredoc_for_pipe(t_command *cmd, int *pipe_fd);
+int			handle_heredoc_for_pipe(t_command *cmd, int *pipe_fd,
+				t_shell *shell);
 void		setup_child_pipes(int prev_pipe_read,
 				int *pipe_fd, t_command *current);
 void		setup_child_pipes_with_heredoc(int prev_pipe_read, int *pipe_fd,
 				t_command *current, int *heredoc_pipe_fd);
 void		close_heredoc_fds(int *heredoc_pipe_fd);
 
-/* pipe_handlers.c fonksiyonları */
 void		execute_child_process(t_command *current,
 				t_shell *shell, char *path);
 void		execute_child_process_with_heredoc(t_command *current,
@@ -323,33 +326,31 @@ int			handle_builtin_single_command(t_command *current,
 int			handle_command_not_found(t_command *current,
 				t_shell *shell, int *pipe_fd, int prev_pipe_read);
 
-/* pipes_command_processing.c fonksiyonları */
 int			process_single_command(t_command *cur, t_shell *shell,
 				t_pipe_data *data);
 
-/* pipes_heredoc_special.c fonksiyonları */
 int			handle_heredoc_and_empty_cmd(t_command *current,
 				int *heredoc_pipe_fd, int *pipe_fd, int *prev_pipe_read);
 int			handle_cmd_not_found_and_heredoc(t_command *current,
 				t_shell *shell, int *heredoc_pipe_fd, int *pipe_fd);
-int			process_heredoc_command(t_command *cur, int *heredoc_pipe_fd,
-				int *pipe_fd, int *prev_pipe_read);
+int			process_heredoc_command(t_command *cur, t_shell *shell,
+				int *heredoc_pipe_fd, int *pipe_fd);
 
-/* pipes.c fonksiyonları */
 void		handle_child_process(t_command *cur, t_shell *shell,
 				char *path, t_pipe_data *data);
 void		cleanup_after_fork(t_command *cur, t_pipe_data *data, char *path);
-/*expander_utils_2-3.c fonksiyonlar*/
 void		expand_args_in_place(char **args, t_shell *shell);
 int			count_non_empty(char **args);
 char		**build_filtered_args(char **args, int count);
 char		*add_char_to_result(char *result, char c);
 char		*ft_strjoin_free(char *s1, char *s2);
 char		*expand_process_loop(char *str, t_expand_ctx *ctx);
-void		init_expand_ctx(t_expand_ctx *ctx, t_shell *shell, char *result);
 char		*handle_variable_expansion(char *str, int *i, t_shell *shell);
 
-/*executor_utils.c fonksiyonları*/
+/* expander_helpers.c fonksiyonları */
+void		init_expand_ctx(t_expand_ctx *ctx, t_shell *shell, char *result);
+char		*handle_special_vars(char *str, int *i, t_shell *shell);
+
 int			check_executable_path(t_command *cmd, t_shell *shell);
 int			handle_redirections_builtin(t_command *cmd, t_shell *shell);
 #endif

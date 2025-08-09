@@ -17,7 +17,7 @@ void	execute_child_process(t_command *current,
 {
 	int	status;
 
-	if (setup_redirections(current->redirections) != 0)
+	if (setup_redirections(current->redirections, shell) != 0)
 	{
 		free_shell(shell);
 		exit(1);

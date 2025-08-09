@@ -6,7 +6,7 @@
 #    By: yihakan <yihakan@student.42istanbul.com    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/06/07 14:33:48 by yihakan           #+#    #+#              #
-#    Updated: 2025/08/08 21:01:20 by yihakan          ###   ########.fr        #
+#    Updated: 2025/08/09 21:27:14 by yihakan          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -58,6 +58,7 @@ SRCS = $(SRCS_DIR)/main.c \
 	   $(SRCS_DIR)/parser/parser_3.c \
 	   $(SRCS_DIR)/parser/parser_utils.c \
 	   $(SRCS_DIR)/parser/expander.c \
+	   $(SRCS_DIR)/parser/expander_helpers.c \
 	   $(SRCS_DIR)/parser/expander_utils.c \
 	   $(SRCS_DIR)/parser/expander_utils_2.c \
 	   $(SRCS_DIR)/parser/expander_utils_3.c \
@@ -68,6 +69,7 @@ SRCS = $(SRCS_DIR)/main.c \
 	   $(SRCS_DIR)/executor/redirections_heredoc.c \
 	   $(SRCS_DIR)/executor/heredoc_setup.c \
 	   $(SRCS_DIR)/executor/heredoc_core.c \
+	   $(SRCS_DIR)/executor/heredoc_expansion.c \
 	   $(SRCS_DIR)/executor/heredoc_core_utils.c \
 	   $(SRCS_DIR)/executor/pipes.c \
 	   $(SRCS_DIR)/executor/pipe_utils.c \
@@ -152,5 +154,16 @@ re: fclean all
 
 leaks:
 	valgrind --show-leak-kinds=all --leak-check=full --suppressions=readline.supp ./minishell
+	
+log:
+	valgrind \
+	--leak-check=full \
+	--show-leak-kinds=all \
+	--track-origins=yes \
+	--track-fds=yes \
+	--trace-children=yes \
+	--suppressions=readline.supp \
+	--log-file="/home/yihakan/minishell/valgrind.log" \
+	./minishell
 
 .PHONY: all clean fclean re

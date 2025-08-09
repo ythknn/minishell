@@ -6,20 +6,30 @@
 /*   By: yihakan <yihakan@student.42istanbul.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/05 20:27:22 by yihakan           #+#    #+#             */
-/*   Updated: 2025/08/05 20:27:24 by yihakan          ###   ########.fr       */
+/*   Updated: 2025/08/09 20:57:41 by yihakan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/minishell.h"
 
+static void	init_minimal_env(t_shell *shell)
+{
+	char	cwd[4096];
+
+	shell->env_list = NULL;
+	if (getcwd(cwd, sizeof(cwd)))
+	{
+		shell->env_list = add_env_var(shell->env_list, "PWD", cwd);
+		shell->env_list = add_env_var(shell->env_list, "SHLVL", "1");
+	}
+}
+
 void	init_shell(t_shell *shell, char **env)
 {
 	shell->env_list = create_env_list(env);
 	if (!shell->env_list)
-		return ;
+		init_minimal_env(shell);
 	shell->env_array = env_list_to_array(shell->env_list);
-	if (!shell->env_array)
-		return ;
 	shell->exit_status = 0;
 	shell->interactive = isatty(STDIN_FILENO);
 	shell->gc_line = NULL;

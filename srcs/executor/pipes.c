@@ -72,8 +72,8 @@ int	execute_pipeline(t_command *cmds, t_shell *shell)
 			pipe(data.pipe_fd);
 		if (data.has_heredoc_flag)
 		{
-			if (process_heredoc_command(cur, data.heredoc_pipe_fd,
-					data.pipe_fd, &data.prev_pipe_read))
+			if (process_heredoc_command(cur, shell, data.heredoc_pipe_fd,
+					data.pipe_fd))
 				return (1);
 		}
 		if (process_single_command(cur, shell, &data))

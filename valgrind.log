@@ -1,0 +1,30 @@
+==1484382== Memcheck, a memory error detector
+==1484382== Copyright (C) 2002-2017, and GNU GPL'd, by Julian Seward et al.
+==1484382== Using Valgrind-3.18.1 and LibVEX; rerun with -h for copyright info
+==1484382== Command: /usr/bin/clear
+==1484382== Parent PID: 1484267
+==1484382===1484267== 
+==1484267== FILE DESCRIPTORS: 6 open (3 std) at exit.
+==1484267== Open file descriptor 103: /usr/share/code/v8_context_snapshot.bin
+==1484267==    <inherited from parent>
+==1484267== 
+==1484267== Open file descriptor 42: /home/yihakan/.config/Code/logs/20250809T191522/ptyhost.log
+==1484267==    <inherited from parent>
+==1484267== 
+==1484267== Open file descriptor 3: /home/yihakan/minishell/valgrind.log
+==1484267==    <inherited from parent>
+==1484267== 
+==1484267== 
+==1484267== HEAP SUMMARY:
+==1484267==     in use at exit: 208,631 bytes in 252 blocks
+==1484267==   total heap usage: 22,349 allocs, 22,097 frees, 1,077,531 bytes allocated
+==1484267== 
+==1484267== LEAK SUMMARY:
+==1484267==    definitely lost: 0 bytes in 0 blocks
+==1484267==    indirectly lost: 0 bytes in 0 blocks
+==1484267==      possibly lost: 0 bytes in 0 blocks
+==1484267==    still reachable: 0 bytes in 0 blocks
+==1484267==         suppressed: 208,631 bytes in 252 blocks
+==1484267== 
+==1484267== For lists of detected and suppressed errors, rerun with: -s
+==1484267== ERROR SUMMARY: 0 errors from 0 contexts (suppressed: 0 from 0)

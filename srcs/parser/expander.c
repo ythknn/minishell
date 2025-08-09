@@ -6,33 +6,26 @@
 /*   By: yihakan <yihakan@student.42istanbul.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/15 18:19:51 by mdusunen          #+#    #+#             */
-/*   Updated: 2025/08/08 21:41:54 by yihakan          ###   ########.fr       */
+/*   Updated: 2025/08/09 20:55:21 by yihakan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/minishell.h"
 
-void	init_expand_ctx(t_expand_ctx *ctx, t_shell *shell, char *result)
-{
-	ctx->in_quotes = 0;
-	ctx->quote_char = 0;
-	ctx->shell = shell;
-	ctx->result = result;
-}
+
 
 char	*handle_variable_expansion(char *str, int *i, t_shell *shell)
 {
 	char	var_name[256];
 	char	*env_value;
+	char	*special_result;
 	int		j;
 
 	(*i)++;
-	if (str[*i] == '?')
-	{
-		(*i)++;
-		return (ft_itoa(shell->exit_status));
-	}
-	else if (str[*i] && (str[*i] == '_' || ft_isalnum(str[*i])))
+	special_result = handle_special_vars(str, i, shell);
+	if (special_result)
+		return (special_result);
+	if (str[*i] && (str[*i] == '_' || ft_isalnum(str[*i])))
 	{
 		j = 0;
 		while (str[*i] && (str[*i] == '_' || ft_isalnum(str[*i])))

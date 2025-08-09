@@ -1,34 +1,36 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   heredoc_core_utils.c                               :+:      :+:    :+:   */
+/*   expander_helpers.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: yihakan <yihakan@student.42istanbul.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/07/09 19:23:59 by yihakan           #+#    #+#             */
-/*   Updated: 2025/08/09 20:16:04 by yihakan          ###   ########.fr       */
+/*   Created: 2025/08/09 20:53:00 by yihakan           #+#    #+#             */
+/*   Updated: 2025/08/09 20:53:00 by yihakan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/minishell.h"
 
-char	*strip_quotes(char *str)
+void	init_expand_ctx(t_expand_ctx *ctx, t_shell *shell, char *result)
 {
-	char	*result;
-	int		len;
+	ctx->in_quotes = 0;
+	ctx->quote_char = 0;
+	ctx->shell = shell;
+	ctx->result = result;
+}
 
-	if (!str)
-		return (NULL);
-	len = ft_strlen(str);
-	if (len >= 2
-		&& ((str[0] == '\'' && str[len - 1] == '\'')
-			|| (str[0] == '"' && str[len - 1] == '"')))
+char	*handle_special_vars(char *str, int *i, t_shell *shell)
+{
+	if (str[*i] == '?')
 	{
-		result = malloc(len - 1);
-		if (!result)
-			return (NULL);
-		ft_strlcpy(result, str + 1, len - 1);
-		return (result);
+		(*i)++;
+		return (ft_itoa(shell->exit_status));
 	}
-	return (ft_strdup(str));
+	else if (str[*i] == '$')
+	{
+		(*i)++;
+		return (ft_itoa(getpid()));
+	}
+	return (NULL);
 }
