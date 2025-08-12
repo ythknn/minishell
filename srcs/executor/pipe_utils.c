@@ -6,7 +6,7 @@
 /*   By: yihakan <yihakan@student.42istanbul.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/07 00:00:00 by yihakan           #+#    #+#             */
-/*   Updated: 2025/08/07 00:00:00 by yihakan          ###   ########.fr       */
+/*   Updated: 2025/08/12 21:10:45 by yihakan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,11 +28,11 @@ int	has_heredoc(t_command *cmd)
 	return (0);
 }
 
-int	handle_heredoc_for_pipe(t_command *cmd, int *pipe_fd)
+int	handle_heredoc_for_pipe(t_command *cmd, int *pipe_fd, t_shell *shell)
 {
 	char	*heredoc_content;
 
-	heredoc_content = handle_multiple_heredocs(cmd->redirections);
+	heredoc_content = handle_multiple_heredocs(cmd->redirections, shell);
 	if (!heredoc_content)
 		return (-1);
 	write(pipe_fd[1], heredoc_content, ft_strlen(heredoc_content));

@@ -6,7 +6,7 @@
 #    By: yihakan <yihakan@student.42istanbul.com    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/06/07 14:33:48 by yihakan           #+#    #+#              #
-#    Updated: 2025/08/08 21:01:20 by yihakan          ###   ########.fr        #
+#    Updated: 2025/08/12 21:10:45 by yihakan          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -69,6 +69,7 @@ SRCS = $(SRCS_DIR)/main.c \
 	   $(SRCS_DIR)/executor/heredoc_setup.c \
 	   $(SRCS_DIR)/executor/heredoc_core.c \
 	   $(SRCS_DIR)/executor/heredoc_core_utils.c \
+	   $(SRCS_DIR)/executor/heredoc_expansion.c \
 	   $(SRCS_DIR)/executor/pipes.c \
 	   $(SRCS_DIR)/executor/pipe_utils.c \
 	   $(SRCS_DIR)/executor/pipe_handlers.c \

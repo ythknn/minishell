@@ -3,24 +3,23 @@
 /*                                                        :::      ::::::::   */
 /*   redirections.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mdusunen <mdusunen@student.42.fr>          +#+  +:+       +#+        */
+/*   By: yihakan <yihakan@student.42istanbul.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/08 19:30:47 by yihakan           #+#    #+#             */
-/*   Updated: 2025/08/08 20:35:28 by mdusunen         ###   ########.fr       */
+/*   Updated: 2025/08/12 21:10:45 by yihakan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/minishell.h"
 
-char	*handle_multiple_heredocs(t_redir *heredocs)
+char	*handle_multiple_heredocs(t_redir *heredocs, t_shell *shell)
 {
 	char			*final_content;
 	t_heredoc_state	state;
 
-	if (!init_heredoc_state(&state, heredocs))
+	if (!init_heredoc_state(&state, heredocs, shell))
 		return (NULL);
-	if (!process_heredoc_loop(heredocs, state.heredoc_count,
-			&state.heredoc_content) || g_signal == SIGINT)
+	if (!process_heredoc_loop(heredocs, &state) || g_signal == SIGINT)
 	{
 		free(state.heredoc_content);
 		close(state.stdin_copy);
@@ -30,9 +29,9 @@ char	*handle_multiple_heredocs(t_redir *heredocs)
 	return (final_content);
 }
 
-int	setup_redirections(t_redir *redirs)
+int	setup_redirections(t_redir *redirs, t_shell *shell)
 {
-	if (apply_heredoc_redirections(redirs))
+	if (apply_heredoc_redirections(redirs, shell))
 		return (1);
 	if (apply_file_redirections(redirs))
 		return (1);

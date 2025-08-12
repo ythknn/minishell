@@ -1,0 +1,9 @@
+drwxr-xr-x 2 yihakan 2024_istanbul     25 Ağu 11 15:22 includes
+drwxr-xr-x 3 yihakan 2024_istanbul   4096 Ağu 11 15:23 libft
+drwxr-xr-x 8 yihakan 2024_istanbul    128 Ağu 11 15:23 obj
+-rw-r--r-- 1 yihakan 2024_istanbul    124 Ağu 11 15:22 readline.supp
+-rw-r--r-- 1 yihakan 2024_istanbul    133 Ağu 11 15:20 README.md
+drwxr-xr-x 8 yihakan 2024_istanbul    128 Ağu 11 15:22 srcs
+-rwxr-xr-x 1 yihakan 2024_istanbul    835 Ağu 11 15:20 test_heredoc_complete.sh
+-rwxr-xr-x 1 yihakan 2024_istanbul    732 Ağu 11 15:20 test_heredoc_fix.sh
+-rwxr-xr-x 1 yihakan 2024_istanbul   1082 Ağu 11 15:20 test_heredoc_sigint.sh

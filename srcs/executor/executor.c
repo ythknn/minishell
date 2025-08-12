@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   executor.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mdusunen <mdusunen@student.42.fr>          +#+  +:+       +#+        */
+/*   By: yihakan <yihakan@student.42istanbul.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/09 19:23:11 by yihakan           #+#    #+#             */
-/*   Updated: 2025/08/12 20:25:58 by mdusunen         ###   ########.fr       */
+/*   Updated: 2025/08/12 21:10:45 by yihakan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 
 static void	execute_external_child(t_command *cmd, t_shell *shell, char *path)
 {
-	if (setup_redirections(cmd->redirections) != 0)
+	if (setup_redirections(cmd->redirections, shell) != 0)
 	{
 		free(path);
 		free_shell(shell);

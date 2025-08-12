@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   heredoc_setup.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mdusunen <mdusunen@student.42.fr>          +#+  +:+       +#+        */
+/*   By: yihakan <yihakan@student.42istanbul.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/08 19:26:12 by yihakan           #+#    #+#             */
-/*   Updated: 2025/08/08 20:35:51 by mdusunen         ###   ########.fr       */
+/*   Updated: 2025/08/12 21:10:45 by yihakan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,10 +28,12 @@ static int	count_heredocs(t_redir *heredocs)
 	return (heredoc_count);
 }
 
-int	init_heredoc_state(t_heredoc_state *state, t_redir *heredocs)
+int	init_heredoc_state(t_heredoc_state *state, t_redir *heredocs,
+	t_shell *shell)
 {
 	state->stdin_copy = dup(STDIN_FILENO);
 	state->heredoc_count = count_heredocs(heredocs);
+	state->shell = shell;
 	if (state->heredoc_count == 0)
 	{
 		close(state->stdin_copy);
@@ -50,6 +52,19 @@ int	init_heredoc_state(t_heredoc_state *state, t_redir *heredocs)
 	}
 	setup_heredoc_signals();
 	g_signal = 0;
+	return (1);
+}
+
+int	should_expand_heredoc(char *delimiter)
+{
+	int	len;
+
+	if (!delimiter)
+		return (1);
+	len = ft_strlen(delimiter);
+	if (len >= 2 && ((delimiter[0] == '\'' && delimiter[len - 1] == '\'')
+			|| (delimiter[0] == '"' && delimiter[len - 1] == '"')))
+		return (0);
 	return (1);
 }
 

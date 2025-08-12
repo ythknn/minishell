@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   pipe_handlers.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mdusunen <mdusunen@student.42.fr>          +#+  +:+       +#+        */
+/*   By: yihakan <yihakan@student.42istanbul.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/07 00:00:00 by yihakan           #+#    #+#             */
-/*   Updated: 2025/08/12 20:17:00 by mdusunen         ###   ########.fr       */
+/*   Updated: 2025/08/12 21:10:45 by yihakan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ void	execute_child_process(t_command *current,
 {
 	int	status;
 
-	if (setup_redirections(current->redirections) != 0)
+	if (setup_redirections(current->redirections, shell) != 0)
 	{
 		free_shell(shell);
 		exit(1);

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   pipes.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mdusunen <mdusunen@student.42.fr>          +#+  +:+       +#+        */
+/*   By: yihakan <yihakan@student.42istanbul.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/09 19:23:59 by yihakan           #+#    #+#             */
-/*   Updated: 2025/08/12 19:36:56 by mdusunen         ###   ########.fr       */
+/*   Updated: 2025/08/12 21:21:15 by yihakan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,6 +64,27 @@ void	handle_child_process(t_command *cur, t_shell *shell,
 		execute_child_process(cur, shell, path);
 }
 
+static int	process_pipeline_commands(t_command *cur, t_shell *shell,
+	t_pipe_data *data)
+{
+	while (cur)
+	{
+		data->has_heredoc_flag = has_heredoc(cur);
+		if (cur->next)
+			pipe(data->pipe_fd);
+		if (data->has_heredoc_flag)
+		{
+			if (process_heredoc_command(cur, data))
+				return (1);
+		}
+		if (process_single_command(cur, shell, data))
+			cur = cur->next;
+		else
+			break ;
+	}
+	return (0);
+}
+
 int	execute_pipeline(t_command *cmds, t_shell *shell)
 {
 	t_command		*cur;
@@ -74,22 +95,9 @@ int	execute_pipeline(t_command *cmds, t_shell *shell)
 	data.last_status = 0;
 	data.last_cmd_not_found = 0;
 	data.pid_count = 0;
-	while (cur)
-	{
-		data.has_heredoc_flag = has_heredoc(cur);
-		if (cur->next)
-			pipe(data.pipe_fd);
-		if (data.has_heredoc_flag)
-		{
-			if (process_heredoc_command(cur, data.heredoc_pipe_fd,
-					data.pipe_fd, &data.prev_pipe_read))
-				return (1);
-		}
-		if (process_single_command(cur, shell, &data))
-			cur = cur->next;
-		else
-			break ;
-	}
+	data.shell = shell;
+	if (process_pipeline_commands(cur, shell, &data))
+		return (1);
 	wait_for_children(&data.last_status,
 		&data.last_cmd_not_found, shell, &data);
 	return (data.last_status);

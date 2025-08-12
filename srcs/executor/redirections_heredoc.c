@@ -3,16 +3,17 @@
 /*                                                        :::      ::::::::   */
 /*   redirections_heredoc.c                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mdusunen <mdusunen@student.42.fr>          +#+  +:+       +#+        */
+/*   By: yihakan <yihakan@student.42istanbul.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/08 20:34:58 by mdusunen          #+#    #+#             */
-/*   Updated: 2025/08/08 20:35:03 by mdusunen         ###   ########.fr       */
+/*   Updated: 2025/08/12 21:10:45 by yihakan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/minishell.h"
 
-static int	handle_heredoc_redirection(t_redir *redirs, int *heredoc_processed)
+static int	handle_heredoc_redirection(t_redir *redirs, int *heredoc_processed,
+	t_shell *shell)
 {
 	char	*heredoc_content;
 	int		pipe_fd[2];
@@ -22,7 +23,7 @@ static int	handle_heredoc_redirection(t_redir *redirs, int *heredoc_processed)
 		g_signal = 0;
 		return (1);
 	}
-	heredoc_content = handle_multiple_heredocs(redirs);
+	heredoc_content = handle_multiple_heredocs(redirs, shell);
 	if (!heredoc_content)
 	{
 		if (g_signal == SIGINT)
@@ -39,7 +40,7 @@ static int	handle_heredoc_redirection(t_redir *redirs, int *heredoc_processed)
 	return (0);
 }
 
-int	apply_heredoc_redirections(t_redir *redirs)
+int	apply_heredoc_redirections(t_redir *redirs, t_shell *shell)
 {
 	t_redir	*current;
 	int		heredoc_processed;
@@ -50,7 +51,7 @@ int	apply_heredoc_redirections(t_redir *redirs)
 	{
 		if (current->type == T_HEREDOC && !heredoc_processed)
 		{
-			if (handle_heredoc_redirection(redirs, &heredoc_processed))
+			if (handle_heredoc_redirection(redirs, &heredoc_processed, shell))
 				return (1);
 		}
 		current = current->next;

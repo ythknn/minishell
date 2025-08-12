@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   executor_utils.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mdusunen <mdusunen@student.42.fr>          +#+  +:+       +#+        */
+/*   By: yihakan <yihakan@student.42istanbul.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/09 19:23:59 by yihakan           #+#    #+#             */
-/*   Updated: 2025/08/12 20:27:03 by mdusunen         ###   ########.fr       */
+/*   Updated: 2025/08/12 21:10:45 by yihakan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,7 +48,7 @@ int	handle_redirections_builtin(t_command *cmd, t_shell *shell)
 
 	stdin_copy = dup(STDIN_FILENO);
 	stdout_copy = dup(STDOUT_FILENO);
-	if (setup_redirections(cmd->redirections) != 0)
+	if (setup_redirections(cmd->redirections, shell) != 0)
 	{
 		restore_redirections(stdin_copy, stdout_copy);
 		shell->exit_status = 1;

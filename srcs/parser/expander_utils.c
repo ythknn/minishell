@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   expander_utils.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mdusunen <mdusunen@student.42.fr>          +#+  +:+       +#+        */
+/*   By: yihakan <yihakan@student.42istanbul.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/15 18:16:30 by mdusunen          #+#    #+#             */
-/*   Updated: 2025/08/12 19:13:53 by mdusunen         ###   ########.fr       */
+/*   Updated: 2025/08/12 21:11:58 by yihakan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -87,11 +87,7 @@ void	expand_redirections(t_command *cmd, t_shell *shell)
 
 void	expand_args(t_command *cmd, t_shell *shell)
 {
-	//int		count;
-	//char	**new_args;
-
 	if (!cmd->args)
 		return ;
 	expand_args_in_place(cmd->args, shell);
-	// The count_non_empty and build_filtered_args functions have been removed.
 }

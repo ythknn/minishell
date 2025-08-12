@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   heredoc_core.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mdusunen <mdusunen@student.42.fr>          +#+  +:+       +#+        */
+/*   By: yihakan <yihakan@student.42istanbul.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/08 19:25:51 by yihakan           #+#    #+#             */
-/*   Updated: 2025/08/08 20:46:01 by mdusunen         ###   ########.fr       */
+/*   Updated: 2025/08/12 21:17:12 by yihakan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,103 +31,82 @@ static char	*read_heredoc_line(void)
 	return (line);
 }
 
-static int	append_heredoc_line(t_redir *current, char *line, char *delimiter,
-			char **heredoc_content)
+static int	handle_line_result(t_line_context *ctx, t_heredoc_state *state)
 {
-	char	*expanded_line;
-	char	*temp;
-	size_t	content_size;
-
-	if (ft_strcmp(current->file, delimiter) == 0)
+	if (ft_strcmp(ctx->line, ctx->delimiter) == 0)
 	{
-		expanded_line = ft_strdup(line);
-		free(line);
-		if (!expanded_line)
-			return (1);
+		free(ctx->line);
+		return (2);
 	}
-	else
-		expanded_line = line;
-	content_size = ft_strlen(*heredoc_content) + ft_strlen(expanded_line) + 2;
-	temp = malloc(content_size);
-	if (!temp)
-	{
-		free(expanded_line);
-		return (0);
-	}
-	sprintf(temp, "%s%s\n", *heredoc_content, expanded_line);
-	free(*heredoc_content);
-	*heredoc_content = temp;
-	free(expanded_line);
+	if (ctx->is_last_heredoc)
+		return (append_heredoc_line(ctx->current, ctx->line, ctx->delimiter,
+				state));
+	free(ctx->line);
 	return (1);
 }
 
-static int	process_heredoc_line(t_redir *current,
-		char *delimiter, int is_last_heredoc, char **heredoc_content)
+static int	process_heredoc_line(t_redir *current, char *delimiter,
+		int is_last_heredoc, t_heredoc_state *state)
 {
-	char	*line;
+	t_line_context	ctx;
 
-	line = read_heredoc_line();
-	if (!line || g_signal == SIGINT)
+	ctx.line = read_heredoc_line();
+	if (g_signal == SIGINT)
 	{
-		if (line)
-			free(line);
+		if (ctx.line)
+			free(ctx.line);
 		return (0);
 	}
-	if (ft_strcmp(line, delimiter) == 0)
-	{
-		free(line);
-		return (2);
-	}
-	if (is_last_heredoc)
-		return (append_heredoc_line(current, line, delimiter, heredoc_content));
-	free(line);
-	return (1);
+	if (!ctx.line)
+		return (3);
+	ctx.current = current;
+	ctx.delimiter = delimiter;
+	ctx.is_last_heredoc = is_last_heredoc;
+	return (handle_line_result(&ctx, state));
 }
 
 static int	process_single_heredoc_simple(t_redir *current, int current_heredoc,
-			int heredoc_count, char **heredoc_content)
+			t_heredoc_state *state)
 {
 	char	*delimiter;
 	int		is_last_heredoc;
 	int		res;
 
-	is_last_heredoc = (current_heredoc == heredoc_count - 1);
+	is_last_heredoc = (current_heredoc == state->heredoc_count - 1);
 	delimiter = strip_quotes(current->file);
 	if (!delimiter)
 		return (0);
 	while (g_signal != SIGINT)
 	{
-		res = process_heredoc_line(current, delimiter, is_last_heredoc,
-				heredoc_content);
+		res = process_heredoc_line(current, delimiter, is_last_heredoc, state);
 		if (res == 0)
 		{
 			free(delimiter);
 			return (0);
 		}
-		if (res == 2)
+		if (res == 2 || res == 3)
 			break ;
 	}
 	free(delimiter);
 	return (1);
 }
 
-int	process_heredoc_loop(t_redir *heredocs,
-		int heredoc_count, char **heredoc_content)
+int	process_heredoc_loop(t_redir *heredocs, t_heredoc_state *state)
 {
 	t_redir	*current;
 	int		current_heredoc;
 
 	current = heredocs;
 	current_heredoc = 0;
-	while (current && current_heredoc < heredoc_count && g_signal != SIGINT)
+	while (current && current_heredoc < state->heredoc_count
+		&& g_signal != SIGINT)
 	{
 		if (current->type != T_HEREDOC)
 		{
 			current = current->next;
 			continue ;
 		}
-		if (!process_single_heredoc_simple(current, current_heredoc,
-				heredoc_count, heredoc_content))
+		if (!process_single_heredoc_simple(current, current_heredoc, state))
 			return (0);
 		current_heredoc++;
 		current = current->next;

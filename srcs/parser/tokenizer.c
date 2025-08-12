@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   tokenizer.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mdusunen <mdusunen@student.42.fr>          +#+  +:+       +#+        */
+/*   By: yihakan <yihakan@student.42istanbul.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/15 18:48:31 by mdusunen          #+#    #+#             */
-/*   Updated: 2025/08/12 20:32:15 by mdusunen         ###   ########.fr       */
+/*   Updated: 2025/08/12 21:15:11 by yihakan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,10 +57,7 @@ static void	words(char *input, int *i, t_token **tokens)
 			while (input[*i] && input[*i] != quote)
 				buffer[j++] = input[(*i)++];
 			if (!input[*i])
-			{
-				print_error("minishell", NULL, "Unclosed quote");
-				return ;
-			}
+				return (print_error("minishell", NULL, "Unclosed quote"));
 			buffer[j++] = input[(*i)++];
 		}
 		else
