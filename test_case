@@ -1,0 +1,16 @@
+export AAAAAAAAAA     
+envde gözükmüyecek ama exportta = olmadan gözükmüyecek
+
+export 123 OOOOOO=456
+1. argüman hata vericek ama 2. argümanı alıcak
+
+echo "" "" a
+"" için boşluk atmalı
+
+echo "aaaaaaaaa
+kapanmayan tırnak hata vermeli
+
+
+cat ile girince yazıl yazılmıyor veya sinyal ile cıkıs yapılmıyor
+
+cat << a << b << c de ctrl+d ile 3 kere bastoktan sonra shell'e cıkmalı

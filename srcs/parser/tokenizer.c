@@ -6,7 +6,7 @@
 /*   By: mdusunen <mdusunen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/15 18:48:31 by mdusunen          #+#    #+#             */
-/*   Updated: 2025/07/28 16:18:53 by mdusunen         ###   ########.fr       */
+/*   Updated: 2025/08/12 20:32:15 by mdusunen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,8 +56,12 @@ static void	words(char *input, int *i, t_token **tokens)
 			buffer[j++] = input[(*i)++];
 			while (input[*i] && input[*i] != quote)
 				buffer[j++] = input[(*i)++];
-			if (input[*i])
-				buffer[j++] = input[(*i)++];
+			if (!input[*i])
+			{
+				print_error("minishell", NULL, "Unclosed quote");
+				return ;
+			}
+			buffer[j++] = input[(*i)++];
 		}
 		else
 			buffer[j++] = input[(*i)++];

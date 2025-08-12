@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   export_utils.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: yihakan <yihakan@student.42istanbul.com    +#+  +:+       +#+        */
+/*   By: mdusunen <mdusunen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/03 10:54:00 by yihakan           #+#    #+#             */
-/*   Updated: 2025/08/03 10:56:09 by yihakan          ###   ########.fr       */
+/*   Updated: 2025/08/12 20:37:35 by mdusunen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,7 +47,10 @@ void	print_exported_vars(t_env *env)
 {
 	while (env)
 	{
-		printf("declare -x %s=\"%s\"\n", env->key, env->value);
+		if (env->value && env->value[0] != '\0')
+			printf("declare -x %s=\"%s\"\n", env->key, env->value);
+		else
+			printf("declare -x %s\n", env->key);
 		env = env->next;
 	}
 }
