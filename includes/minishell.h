@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   minishell.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: yihakan <yihakan@student.42istanbul.com    +#+  +:+       +#+        */
+/*   By: mdusunen <mdusunen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/04 19:41:18 by yihakan           #+#    #+#             */
-/*   Updated: 2025/08/08 21:34:46 by yihakan          ###   ########.fr       */
+/*   Updated: 2025/08/12 20:36:29 by mdusunen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -109,6 +109,8 @@ typedef struct s_pipe_data
 	int		last_status;
 	int		last_cmd_not_found;
 	int		has_heredoc_flag;
+	pid_t	pids[256];
+	int		pid_count;
 }	t_pipe_data;
 
 typedef struct s_heredoc_state

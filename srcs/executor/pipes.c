@@ -6,24 +6,32 @@
 /*   By: mdusunen <mdusunen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/09 19:23:59 by yihakan           #+#    #+#             */
-/*   Updated: 2025/08/08 19:15:03 by mdusunen         ###   ########.fr       */
+/*   Updated: 2025/08/12 19:36:56 by mdusunen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/minishell.h"
 
 static void	wait_for_children(int *last_status, int *last_cmd_not_found,
-		t_shell *shell)
+	t_shell *shell, t_pipe_data *data)
 {
-	int	status;
+	int		status;
+	int		i;
+	pid_t	wpid;
 
-	while (wait(&status) > 0)
+	i = 0;
+	while (i < data->pid_count)
 	{
-		if (WIFEXITED(status) && !(*last_cmd_not_found))
+		wpid = waitpid(data->pids[i], &status, 0);
+		if (wpid == data->pids[data->pid_count - 1])
 		{
-			*last_status = WEXITSTATUS(status);
-			shell->exit_status = *last_status;
+			if (WIFEXITED(status) && !(*last_cmd_not_found))
+			{
+				*last_status = WEXITSTATUS(status);
+				shell->exit_status = *last_status;
+			}
 		}
+		i++;
 	}
 }
 
@@ -65,6 +73,7 @@ int	execute_pipeline(t_command *cmds, t_shell *shell)
 	data.prev_pipe_read = -1;
 	data.last_status = 0;
 	data.last_cmd_not_found = 0;
+	data.pid_count = 0;
 	while (cur)
 	{
 		data.has_heredoc_flag = has_heredoc(cur);
@@ -81,6 +90,7 @@ int	execute_pipeline(t_command *cmds, t_shell *shell)
 		else
 			break ;
 	}
-	wait_for_children(&data.last_status, &data.last_cmd_not_found, shell);
+	wait_for_children(&data.last_status,
+		&data.last_cmd_not_found, shell, &data);
 	return (data.last_status);
 }

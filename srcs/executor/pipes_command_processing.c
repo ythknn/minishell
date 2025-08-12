@@ -6,7 +6,7 @@
 /*   By: mdusunen <mdusunen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/08 19:15:03 by mdusunen          #+#    #+#             */
-/*   Updated: 2025/08/08 19:15:03 by mdusunen         ###   ########.fr       */
+/*   Updated: 2025/08/12 20:10:11 by mdusunen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -79,6 +79,8 @@ int	process_single_command(t_command *cur, t_shell *shell,
 	pid = fork();
 	if (pid == 0)
 		handle_child_process(cur, shell, path, data);
+	data->pids[data->pid_count] = pid;
+	data->pid_count++;
 	cleanup_after_fork(cur, data, path);
 	return (1);
 }
