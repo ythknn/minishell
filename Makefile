@@ -6,7 +6,7 @@
 #    By: yihakan <yihakan@student.42istanbul.com    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/06/07 14:33:48 by yihakan           #+#    #+#              #
-#    Updated: 2025/08/12 21:10:45 by yihakan          ###   ########.fr        #
+#    Updated: 2025/08/13 21:34:59 by yihakan          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -102,7 +102,7 @@ SRCS = $(SRCS_DIR)/main.c \
 	   $(SRCS_DIR)/signals/signals.c
 
 # Object files
-OBJS = $(patsubst $(SRCS_DIR)/%.c, $(OBJ_DIR)/%.o, $(SRCS))
+OBJS = $(SRCS:$(SRCS_DIR)/%.c=$(OBJ_DIR)/%.o)
 
 # Libraries
 READLINE_INCLUDE = -I/opt/homebrew/opt/readline/include
