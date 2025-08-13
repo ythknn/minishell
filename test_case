@@ -1,4 +1,0 @@
-export AAAAAAAAAA     
-envde gözükmüyecek ama exportta = olmadan gözükmüyecek
-
-cat << a << b << c de ctrl+d ile 3 kere bastoktan sonra shell'e cıkmalı
